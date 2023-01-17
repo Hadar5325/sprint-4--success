@@ -30,3 +30,31 @@ export function RootCmp() {
 }
 
 
+
+
+// "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+// Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
+// Renders a <StayList> with <StayPreview> with Link to <StayDetails>   url: /stay/123
+// See More => /explore?topRate=true
+// See More => /explore?type=House
+// See More => /explore?amenities=Kitchen
+// Explore page:
+// stayService.query({type: 'House'})
+
+// UserDetails
+//  basic info
+//  visitedStays => orderService.query({userId: 'u101'})
+//  myStayOrders => orderService.query({hostId: 'u101'})
+//  ownedStays => stayService.query({hostId: 'u103'})
+
+// StayEdit - make it super easy to add Stay for development
+// StayList, StayPreview
+// Order, confirm Order
+// Lastly: StayExplore, Filtering
+
+
+
+// Example - figuring up if the user is an owner:
+// userService.login()
+  //  const userStays = stayService.query({ownerId: loggeinUser._id})
+  //  loggeinUser.isOwner = userStays.length > 0
