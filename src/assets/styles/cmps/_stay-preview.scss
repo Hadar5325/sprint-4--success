@@ -1,0 +1,72 @@
+.stay-preview {
+
+    // path{
+    //     width: 30px;
+    //     height: 50px;
+    //     background-color: aqua;
+    // }
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 12px;
+    color: $clr11;
+    line-height: $lineHeight;
+
+    .image-containter {
+        width: 100%;
+        margin-bottom: 12px;
+        display: flex;
+        flex-flow: column;
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        svg{
+            display: block; fill: rgba(0, 0, 0, 0.5); height: 24px; width: 24px; stroke: $clr1; stroke-width: 2; overflow: visible;
+        }
+        button{
+            position: relative;
+            left: 160px;
+            top: 60px;
+        }
+    }
+
+    .info-container {
+        display: grid;
+        grid-template-rows: repeat(4, 19px);
+        // grid-template-columns: 90px minmax(0,1fr) max-content;
+        gap:2px 8px;
+        flex-direction: column;
+        width: 100%;
+
+        .stay-heading {
+            font-family: 'Circular';
+            font-size: $fontInfoStay;
+        }
+
+        .stay-distance, .stay-valid-dates {
+            font-family: 'apple-system';
+            color: $clr12;
+        }
+
+        .stay-price {
+            margin-top: 6px;
+            font-family: 'apple-system';
+            span{
+                font-family: 'Circular';
+            }
+            .currency{
+                font-size: larger;
+            }
+
+        }
+
+    }
+}
+// questions!!!!!!!!!
+
+// איך לעשות דינמי את הליין הייטס?
+// איך לעשות דינמי את הfont?
+// מה יש בגריד של האינפו? אין בצד שיש את הטקסט מה הגודל שלו
+// איך להגדיל את הסימבול לגודל של המספר

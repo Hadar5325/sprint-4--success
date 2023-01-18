@@ -1,4 +1,5 @@
 // Setup
+@import "setup/fonts";
 @import "setup/variables";
 @import "setup/functions";
 @import "setup/mixins";
@@ -24,6 +25,8 @@
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
+@import "cmps/home-list";
+@import "cmps/stay-preview";
 
 // @import "partial";
 // $clr1: #ccc;
