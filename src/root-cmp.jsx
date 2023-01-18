@@ -8,19 +8,21 @@ import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
 import { HomePage } from './pages/home-page'
 import { RoomDetails } from './pages/room-details'
+import { HostDetails } from './pages/host-detailes'
 
 import { Provider } from 'react-redux'
 
 export function RootCmp() {
 
     return (
-        <div>
+        <div className='main-container'>
             <AppHeader />
             <main>
                 <Routes>
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)} */}
-                    <Route path='/' element={<HomePage/> } />
-                    <Route path='/rooms' element={<RoomDetails/>} />
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/rooms' element={<RoomDetails />} />
+                    <Route path='/hosting' element={<HostDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                 </Routes>
             </main>
