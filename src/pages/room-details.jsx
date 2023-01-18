@@ -4,15 +4,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useParams } from 'react-router-dom';
 import { stayService } from '../services/stay.service.local.js'
 
-import { Ex } from '../cmps/ex.jsx'
-import { TitleContant } from '../cmps/titleContant.jsx'
+import { TitleContant } from '../cmps/rooms/titleContant.jsx'
 import { loadStay } from '../store/actions/stay.action'
+import { GaleryLeft } from '../cmps/rooms/galeryLeft.jsx'
+import { GaleryRight } from '../cmps/rooms/galertRight.jsx'
+import { Detailes } from '../cmps/rooms/detailes.jsx'
+import { Booking } from '../cmps/rooms/booking.jsx'
+import { Reviwes } from '../cmps/rooms/reviwes.jsx'
+import { Place } from '../cmps/rooms/place.jsx'
+import { HostedLeft } from '../cmps/rooms/hosted-left.jsx'
+import { HostedRight } from '../cmps/rooms/hosted-right.jsx'
+import { ToKnow } from '../cmps/rooms/toKnow.jsx'
+import { FirstFooter } from '../cmps/rooms/firstFooter.jsx'
+import { SecendFooter } from '../cmps/rooms/secendFooter.jsx'
+
 
 
 export function RoomDetails() {
     let { id } = useParams()
 
-    // const count = useSelector(storeState => storeState.userModule.count)
+    const stay = useSelector((state) => state.stayModule.stay)
 
 
     const [filterBy, setFilterBy] = useState({
@@ -23,7 +34,7 @@ export function RoomDetails() {
 
 
     useEffect(() => {
-            loadStay(id)
+        loadStay(id)
             .then(() => {
             })
             .catch((err) => {
@@ -31,19 +42,26 @@ export function RoomDetails() {
 
     }, [])
 
-
     // const handleChange = (ev) => {
     //     const field = ev.target.name
     //     const value = ev.target.value
     //     setFilterBy({ ...filterBy, [field]: value })
     // }
 
-    const stay = useSelector((state) => state.stayModule.stay)
-    
+
     return <section className='rooms'>
-        sdf
-        <Ex />
         <TitleContant room={stay} />
+        <GaleryLeft />
+        <GaleryRight />
+        <Detailes />
+        <Booking />
+        <Reviwes />
+        <Place />
+        <HostedLeft />
+        <HostedRight />
+        <ToKnow />
+        <FirstFooter />
+        <SecendFooter />
 
     </section>
 }
