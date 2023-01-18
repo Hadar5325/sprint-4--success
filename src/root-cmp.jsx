@@ -1,6 +1,6 @@
 import React from 'react'
-import { Routes, Route } from 'react-router'
-
+// import { Routes, Route } from 'react-router'
+import { Routes, Route, useParams } from 'react-router-dom';
 import routes from './routes'
 
 import { AppHeader } from './cmps/app-header'
@@ -20,7 +20,7 @@ export function RootCmp() {
                 <Routes>
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)} */}
                     <Route path='/' element={<HomePage/> } />
-                    <Route path='/rooms' element={<RoomDetails/>} />
+                    <Route path='/room/:id' element={<RoomDetails/>} />
                     <Route path="user/:id" element={<UserDetails />} />
                 </Routes>
             </main>

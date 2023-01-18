@@ -9,7 +9,7 @@ const STORAGE_KEY = 'stay'
 
 export const stayService = {
     query,
-    // getById,
+    getById,
     // save,
     // remove,
     // getEmptyCar,
@@ -38,6 +38,13 @@ async function query(filterBy = { type: '', maxPrice: Infinity, maxCapacity: Inf
         fillteredStays = fillteredStays.filter(stay => stay.capacity <= filterBy.maxCapacity)
     }
     return fillteredStays
+}
+
+function getById(id) {
+    // const staysFromStorage = await storageService.query(STORAGE_KEY)
+
+    // return storageService.get(STORAGE_KEY, carId)
+    return storageService.get('stay',id)
 }
 
 

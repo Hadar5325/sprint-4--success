@@ -1,17 +1,23 @@
 export const SET_STAYS = 'SET_STAYS'
+export const SET_STAY = 'SET_STAY'
 // export const REMOVE_TOY = 'REMOVE_TOY'
 // export const ADD_TOY = 'ADD_TOY'
 // export const UPDATE_TOY = 'UPDATE_TOY'
 
 const initialState = {
-    stays: []
+    stays: [],
+    stay:{}
 }
 
 export function stayReducer(state = initialState, action) {
     var stays
+    
     switch (action.type) {
         case SET_STAYS:
             return { ...state, stays: action.stays }
+        case SET_STAY:
+            return { ...state, stay: action.stay }
+
         // case REMOVE_TOY:
         //     toys = state.toys.filter(toy => toy._id !== action.toyId)
         //     return { ...state, toys }

@@ -1,5 +1,25 @@
-.titleContant {
+.ex{
+    grid-area: hd;
+    background-color: aqua;
+    width: 100%;
+}
+
+/* .roomsTitle{
+    box-sizing: border-box;
+    color: black;
+    display: none;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
+    background-color: antiquewhite;
+} */
+
+.roomsTitle {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 24px;
+    background-color: antiquewhite;
+
 }

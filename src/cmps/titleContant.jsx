@@ -1,10 +1,11 @@
 
-const fs = require('fs');
+export function TitleContant({room}) {
 
+    return <section className='roomsTitle'>
 
-export function TitleContant(){
+        {
+            room['summary']
+        }
 
-    return <section className="titleContant">
-        dasd
     </section>
 }
