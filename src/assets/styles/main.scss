@@ -5,6 +5,8 @@
 @import "setup/mixins";
 @import "setup/typography";
 
+@import "./basics/svg.css";
+
 // Basics
 @import "basics/helpers";
 @import "basics/layout";
@@ -19,14 +21,20 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
+@import "views/rooms.css";
 
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
+<<<<<<< HEAD
 @import "cmps/home-list";
 @import "cmps/stay-preview";
+=======
+@import "cmps/titleContant.css";
+
+>>>>>>> 6898fa793dc68b1846fe949968b22da1161a1ebd
 
 // @import "partial";
 // $clr1: #ccc;

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Routes, Route } from 'react-router'
-
+// import { Routes, Route } from 'react-router'
+import { Routes, Route, useParams } from 'react-router-dom';
 import routes from './routes'
 
 import { AppHeader } from './cmps/app-header'
