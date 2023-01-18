@@ -8,14 +8,17 @@
 
 
   .filter-container {
+
     color: $clr11;
     border-radius: 2rem;
     outline: 1px solid $clr5;
     width: max-content;
     // padding: em(1px);
 
-    button.txt {
+    button {
+      .txt{
       padding:0 1rem;
+      }
     }
 
     .line {
@@ -55,7 +58,7 @@
     max-width: 2rem;
     height: 2rem;
     padding: 10px;
-    margin: 7px;
+    // margin: 7px;
 
     img {
       color: $clr1;
