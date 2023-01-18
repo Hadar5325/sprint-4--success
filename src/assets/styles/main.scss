@@ -4,6 +4,8 @@
 @import "setup/mixins";
 @import "setup/typography";
 
+@import "./basics/svg.css";
+
 // Basics
 @import "basics/helpers";
 @import "basics/layout";
@@ -18,12 +20,15 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
+@import "views/rooms.css";
 
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
+@import "./cmps/titleContant.css";
+
 
 
 
