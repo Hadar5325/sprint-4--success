@@ -39,8 +39,12 @@ export function AppHeader() {
     //     }
 
     return (
-        <header className="app-header flex">
-            <div className="logo-container"><h1>LOGO</h1></div>
+        <header className="app-header flex" >
+
+            <div className='try'>headerrrrrrrrr</div>
+            
+
+            {/* <div className="logo-container"><h1>LOGO</h1></div>
             <div className="filter-container flex">
                 <button className="">Anywhere</button>|
                 <button className="">Anyweek</button>|
@@ -54,14 +58,14 @@ export function AppHeader() {
             <button className='user-nav flex'>
                 <img src={hamburger} alt="" />
                 <img className='user-img' src={userDfault} alt="" />
-            </button>
-
-
-
-
+            </button> */}
         </header>
     )
 }
+
+
+
+
 
 // <nav>
 //                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}

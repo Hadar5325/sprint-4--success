@@ -30,7 +30,6 @@
     "workbox-strategies": "^6.5.4",
     "workbox-streams": "^6.5.4"
   },
-
   "browser": {
     "fs": false,
     "os": false,
@@ -40,8 +39,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start-sass": "node-sass --watch -o css scss"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

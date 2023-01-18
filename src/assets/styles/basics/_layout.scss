@@ -1,38 +1,67 @@
-.main-container {
-    display: grid;
-    grid-template-columns: 40px 1fr 40px;
+// .main-container {
+//     display: grid;
+//     grid-template-columns: 40px 1fr 40px;
 
-    > * {
+//     > * {
+//         grid-column: 2;
+
+//         &.full {
+//             grid-column: 1 /-1;
+//         }
+//     }
+
+//     @include for-narrow-layout {
+//         grid-template-columns: 
+//             minmax(24px, 1fr)
+//             minmax(auto, $mobile-breakpoint)
+//             minmax(24px, 1fr);
+//     }
+//     @include for-normal-layout {
+//         grid-template-columns: 
+//             minmax(24px, 1fr)
+//             minmax(auto, $narrow-breakpoint)
+//             minmax(24px, 1fr);
+//     }
+//     @include for-wide-layout {
+//         grid-template-columns: 
+//             minmax(40px, 1fr)
+//             minmax(auto, $normal-breakpoint)
+//             minmax(40px, 1fr);
+//     }
+// }
+
+// .card-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//     grid-gap: 20px;
+// }
+
+
+// layouts
+.main-layout {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+    >* {
         grid-column: 2;
-
-        &.full {
-            grid-column: 1 /-1;
-        }
     }
 
+    // Narrow:
     @include for-narrow-layout {
-        grid-template-columns: 
-            minmax(24px, 1fr)
-            minmax(auto, $mobile-breakpoint)
-            minmax(24px, 1fr);
+        @include getMainLayout($break-narrow)
     }
+
+    // Normal:
     @include for-normal-layout {
-        grid-template-columns: 
-            minmax(24px, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            minmax(24px, 1fr);
+        @include getMainLayout($break-normal)
     }
+
+    // Wide:
     @include for-wide-layout {
-        grid-template-columns: 
-            minmax(40px, 1fr)
-            minmax(auto, $normal-breakpoint)
-            minmax(40px, 1fr);
+        @include getMainLayout($break-wide)
     }
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
+.try {
+    background-color: antiquewhite;
 }
-
