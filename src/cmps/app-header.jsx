@@ -1,54 +1,111 @@
 import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { StayFilter } from '../cmps/stay-filter'
 import routes from '../routes'
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import lence from '../assets/img/lence.svg'
-// import user from '../assets/img/user'
 import userDfault from '../assets/img/user-default.svg'
+import logo from '../assets/img/logo.png'
+import i18n from '../assets/img/i18n.svg'
 
 import { Routes, Route, useParams, useLocation } from 'react-router-dom';
 
 
 export function AppHeader() {
-    console.log('hi from header:')
-    
-    const location = useLocation()
 
-    console.log('pathname', location.pathname)
+    const [filterBy, setFilterBy] = useState({
+        maxPrice: Infinity,
+        type: '',
+        capacity: -Infinity,
+    })
 
-    if(location !== '/rooms'){
-        return <header className='ex'>
-            fsdf
-        </header>
-    }else{
+    const [isFilterShown, setIsFilterShown] = useState(false)
 
-        return (
-            <header className="app-header flex" >
-    
-                <div className='try'>headerrrrrrrrr</div>
-                
-    
-                {/* <div className="logo-container"><h1>LOGO</h1></div>
-                <div className="filter-container flex">
-                    <button className="">Anywhere</button>|
-                    <button className="">Anyweek</button>|
-                    <button className>Add guests</button>
-                    <div className="search-image"><img src={lence} alt="" /></div>
-                </div>
-                <div className='header-buttons'>
-                    <Link className="host-link" to="/hosting">Switch to hosting</Link>
-                    <button>i18n</button>
-                </div>
-                <button className='user-nav flex'>
-                    <img src={hamburger} alt="" />
-                    <img className='user-img' src={userDfault} alt="" />
-                </button> */}
-            </header>
-        )
+    function handleChange(ev) {
+        const field = ev.target.name
+        const value = ev.target.value
+        setFilterBy({ ...filterBy, [field]: value })
+    }
+
+
+    function onSaveFilter(ev) {
+        ev.preventDefault()
+        
+
 
     }
-    
+
+
+    //     const user = useSelector(storeState => storeState.userModule.user)
+
+    //     async function onLogin(credentials) {
+    //         try {
+    //             const user = await login(credentials)
+    //             showSuccessMsg(`Welcome: ${user.fullname}`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot login')
+    //         }
+    //     }
+    //     async function onSignup(credentials) {
+    //         try {
+    //             const user = await signup(credentials)
+    //             showSuccessMsg(`Welcome new user: ${user.fullname}`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot signup')
+    //         }
+    //     }
+    //     async function onLogout() {
+    //         try {
+    //             await logout()
+    //             showSuccessMsg(`Bye now`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot logout')
+    //         }
+    //     }
+
+    return (
+        <header className="app-header flex ">
+            <div className="logo-container"><img src={logo} alt="" /></div>
+            <div className="filter-container flex align-center">
+                <button ><div className='btn-txt'>Anywhere</div></button><span className='line'>|</span>
+                <button ><div className='btn-txt'>Anyweek</div></button><span className='line'>|</span>
+                <button className='guests flex align-center' ><div className='btn-txt'>Add guests</div>
+                    <div className="search-image img-container"><img src={lence} alt="" /></div>
+                </button>
+            </div>
+            <div className='flex'>
+                <div className='header-buttons'>
+                    <Link className="host-link" to="/hosting">Switch to hosting</Link>
+                    <button><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
+                </div>
+                <button className='user-nav flex'>
+                    <div className='img-container hamburger'>
+                        <img src={hamburger} alt="" />
+                    </div >
+                    <div className='img-container user'>
+                        <img className='user-img' src={userDfault} alt="" />
+                        <StayFilter filterBy={filterBy} handleChange={handleChange} onSaveFilter={onSaveFilter}>
+                            <button className='loaction-filter'><div className='btn-txt'><div className='title'>where</div><div className='desc'>Search destination</div></div></button>
+
+                        </StayFilter>
+                    </div>
+                </button>
+            </div>
+
+
+
+
+        </header>
+    )
 }
+
+
+
+
+
+// <nav>
+//                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}

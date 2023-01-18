@@ -18,9 +18,8 @@ export function RootCmp() {
 
 
     return (
-
-        <div>
-            <AppHeader />
+        <div >
+            <AppHeader/>
             <main>
                 <Routes>
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)} */}
