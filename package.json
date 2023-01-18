@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mui/material": "^5.11.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
-    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -29,6 +29,12 @@
     "workbox-routing": "^6.5.4",
     "workbox-strategies": "^6.5.4",
     "workbox-streams": "^6.5.4"
+  },
+
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   },
   "scripts": {
     "start": "react-scripts start",

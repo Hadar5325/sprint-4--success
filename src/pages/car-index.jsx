@@ -9,9 +9,23 @@ export function CarIndex() {
 
     const cars = useSelector(storeState => storeState.carModule.cars)
 
+    const [filterBy, setFilterBy] = useState({
+        name: '',
+        maxPrice: Infinity,
+        type: 'All',
+        inStock: undefined,
+      })
+    
+
     useEffect(() => {
-        loadCars()
-    }, [])
+        loadStays(filterBy)
+          .then(() => {
+            console.log('Loaded successfully')
+          })
+          .catch((err) => {
+            console.log('Something went wrong', err)
+          })
+      }, [filterBy])
 
     async function onRemoveCar(carId) {
         try {

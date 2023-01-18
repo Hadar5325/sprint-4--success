@@ -1,0 +1,98 @@
+ [
+  {
+    "_id": "10006546",
+    "name": "Ribeira Charming Duplex",
+    "type": "House",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 80.00,
+    "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    "capacity": 8,
+    "amenities": [
+      "TV",
+      "Kitchen",
+      "Pets allowed",
+      "Cooking basics"
+    ]
+  },
+  {
+    "_id": "10006547",
+    "name": "Birdbox Curzútt",
+    "type": "Apartment",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 200.00,
+    "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    "capacity": 3,
+    "amenities": [
+      "TV",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ]
+  },
+  {
+    "_id": "10006548",
+    "name": "Uniquely designed organic nature house, off-grid",
+    "type": "Guesthouse",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 150.00,
+    "summary": "Welcome to the future's house, off-grid with its own energy and food production. One of the world's most environmentally friendly and sustainable houses",
+    "capacity": 10,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed"
+    ]
+  },
+  {
+    "_id": "10006549",
+    "name": "Heated sleeping cabin made of straw panels",
+    "type": "Hotel",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 500.00,
+    "summary": "Voose Home of Sun is full of positive energy! The unique buildings made of straw panels will recharge your batteries if you just visit it",
+    "capacity": 8,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ]
+  },
+  {
+    "_id": "10006550",
+    "name": "Anemomilos",
+    "type": "House",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 40.00,
+    "summary": "It's a real old Windmill that worked to grind wheat and produce flour. Its operation ceased with the appearance of the machines a few years later when it was used as a residence. ",
+    "capacity": 2,
+    "amenities": [
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed"
+    ]
+  },
+  {
+    "_id": "10006551",
+    "name": "Rest in Pod",
+    "type": "Hotel",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "price": 430.00,
+    "summary": "Take the opportunity to enjoy peace and quiet with one of the best views of the Říp - czech national mountain from our unique custom made pod",
+    "capacity": 4,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ]
+  }
+]
+
+
+
