@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadCars, addCar, updateCar, removeCar, addToCart } from '../store/car.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { carService } from '../services/car.service.js'
+import { loadStays } from '../store/actions/stay.action.js'
 
 export function CarIndex() {
 
