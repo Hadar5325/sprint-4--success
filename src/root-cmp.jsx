@@ -15,7 +15,7 @@ import { Provider } from 'react-redux'
 export function RootCmp() {
 
     return (
-        <div >
+        <div className='main-container'  >
             <AppHeader />
             <main>
                 <Routes>

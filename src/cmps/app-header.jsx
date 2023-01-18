@@ -8,6 +8,7 @@ import hamburger from '../assets/img/hamburger.svg'
 import lence from '../assets/img/lence.svg'
 // import user from '../assets/img/user'
 import userDfault from '../assets/img/user-default.svg'
+import logo from '../assets/img/logo.png'
 
 export function AppHeader() {
     console.log('hi from header:')
@@ -39,21 +40,25 @@ export function AppHeader() {
     //     }
 
     return (
-        <header className="app-header flex">
-            <div className="logo-container"><h1>LOGO</h1></div>
+        <header className="app-header flex  full">
+            <div className="logo-container"><img src={logo} alt="" /></div>
             <div className="filter-container flex">
                 <button className="">Anywhere</button>|
                 <button className="">Anyweek</button>|
-                <button className>Add guests</button>
-                <div className="search-image"><img src={lence} alt="" /></div>
+                <button >Add guests</button>
+                <div className="search-image img-container"><img src={lence} alt="" /></div>
             </div>
             <div className='header-buttons'>
                 <Link className="host-link" to="/hosting">Switch to hosting</Link>
-                <button>i18n</button>
+                <button><div className='img-container'>i18n</div></button>
             </div>
             <button className='user-nav flex'>
-                <img src={hamburger} alt="" />
-                <img className='user-img' src={userDfault} alt="" />
+                <div className='img-container hamburger'>
+                    <img src={hamburger} alt="" />
+                </div >
+                <div className='img-container user'>
+                    <img className='user-img' src={userDfault} alt="" />
+                </div>
             </button>
 
 
