@@ -1,25 +1,58 @@
 .app-header {
   background-color: $clr1;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid $clr4 ;
+
+
 
   .filter-container {
     color: $clr11;
     border-radius: 2rem;
     outline: 1px solid $clr5;
     width: max-content;
-    padding: em(7px);
-    
+    // padding: em(1px);
+
+    button.txt {
+      padding:0 1rem;
+    }
+
+    .line {
+      color: $clr5 ;
+      font-size: 2rem;
+    }
+
+    .guests {
+      color: $clr9;
+      justify-content: space-between;
+      // width: 300px;
+      // button.txt {
+        // .txt{
+        //    padding:0 2rem;
+        // }
+        // padding:0 3rem;
+      // }
+    }
   }
 
-  .logo-container{
-    width: em(400px);
+  .logo-container {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    max-height: 80px;
+
+    img {
+      width: 100%;
+    }
   }
 
   .search-image {
-    fill: $clr1;
+    // fill: $clr1;
     display: flex;
     background-color: $clr2;
     border-radius: 50%;
-    min-width: 2rem;
+    max-width: 2rem;
     height: 2rem;
     padding: 10px;
     margin: 7px;
@@ -29,12 +62,33 @@
     }
   }
 
+  .header-buttons {
+    display: flex;
+    align-items: center;
+
+    .i18n {
+      display: flex;
+      // align-items: center;
+      width: 1rem;
+
+    }
+  }
+
+  .user-nav {
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    outline: 1px solid $clr5;
+  }
+
   .hamburger {
     width: 1rem;
+    margin: em(12px)
   }
 
   .user {
     width: 30px;
+    // margin: em(6px)
   }
 
 }

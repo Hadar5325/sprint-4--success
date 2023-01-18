@@ -9,6 +9,7 @@ import lence from '../assets/img/lence.svg'
 // import user from '../assets/img/user'
 import userDfault from '../assets/img/user-default.svg'
 import logo from '../assets/img/logo.png'
+import i18n from '../assets/img/i18n.svg'
 
 export function AppHeader() {
     console.log('hi from header:')
@@ -42,24 +43,27 @@ export function AppHeader() {
     return (
         <header className="app-header flex  full">
             <div className="logo-container"><img src={logo} alt="" /></div>
-            <div className="filter-container flex">
-                <button className="">Anywhere</button>|
-                <button className="">Anyweek</button>|
-                <button >Add guests</button>
-                <div className="search-image img-container"><img src={lence} alt="" /></div>
+            <div className="filter-container flex align-center">
+                <button ><div className='txt'>Anywhere</div></button><span className='line'>|</span>
+                <button ><div className='txt'>Anyweek</div></button><span className='line'>|</span>
+                <button className='guests flex align-center' ><div className='txt'>Add guests</div>
+                    <div className="search-image img-container"><img src={lence} alt="" /></div>
+                </button>
             </div>
-            <div className='header-buttons'>
-                <Link className="host-link" to="/hosting">Switch to hosting</Link>
-                <button><div className='img-container'>i18n</div></button>
-            </div>
-            <button className='user-nav flex'>
-                <div className='img-container hamburger'>
-                    <img src={hamburger} alt="" />
-                </div >
-                <div className='img-container user'>
-                    <img className='user-img' src={userDfault} alt="" />
+            <div className='flex'>
+                <div className='header-buttons'>
+                    <Link className="host-link" to="/hosting">Switch to hosting</Link>
+                    <button><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
                 </div>
-            </button>
+                <button className='user-nav flex'>
+                    <div className='img-container hamburger'>
+                        <img src={hamburger} alt="" />
+                    </div >
+                    <div className='img-container user'>
+                        <img className='user-img' src={userDfault} alt="" />
+                    </div>
+                </button>
+            </div>
 
 
 
