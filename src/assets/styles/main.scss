@@ -1,8 +1,11 @@
 // Setup
+@import "setup/fonts";
 @import "setup/variables";
 @import "setup/functions";
 @import "setup/mixins";
 @import "setup/typography";
+
+@import "./basics/svg.css";
 
 // Basics
 @import "basics/helpers";
@@ -18,12 +21,15 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
+@import "views/rooms.css";
 
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
+@import "cmps/home-list";
+@import "cmps/stay-preview";
 
 // @import "partial";
 // $clr1: #ccc;

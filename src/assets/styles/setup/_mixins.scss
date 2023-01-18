@@ -6,7 +6,6 @@
     }
 }
 
-
 @mixin for-narrow-layout {
     @media (min-width: $padded-break-narrow) {
         @content;
