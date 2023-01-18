@@ -1,30 +1,64 @@
-/* Breakpoint mixins */
 
+// mixins
 @mixin for-mobile-layout {
-    @media (max-width: calc($mobile-breakpoint + 40px)) {
+    @media (max-width: $padded-break-narrow) {
         @content;
     }
 }
 
+
 @mixin for-narrow-layout {
-    @media (min-width: calc($mobile-breakpoint + 40px)) {
+    @media (min-width: $padded-break-narrow) {
         @content;
     }
 }
 
 @mixin for-normal-layout {
-    @media (min-width: calc($narrow-breakpoint + 40px)) {
+    @media (min-width : $padded-break-normal) {
         @content;
     }
 }
 
 @mixin for-wide-layout {
-    @media (min-width: calc($normal-breakpoint + 40px)) {
+    @media(min-width: $padded-break-wide) {
         @content;
     }
 }
 
-/* Media  Mixins */
+// mixin
+@mixin getMainLayout($width) {
+    grid-template-columns:
+        minmax(layoutPadding, 1fr) minmax(auto, $width) minmax(layoutPadding, 1fr);
+}
+
+
+// /* Breakpoint mixins */
+
+// @mixin for-mobile-layout {
+//     @media (max-width: calc($mobile-breakpoint + 40px)) {
+//         @content;
+//     }
+// }
+
+// @mixin for-narrow-layout {
+//     @media (min-width: calc($mobile-breakpoint + 40px)) {
+//         @content;
+//     }
+// }
+
+// @mixin for-normal-layout {
+//     @media (min-width: calc($narrow-breakpoint + 40px)) {
+//         @content;
+//     }
+// }
+
+// @mixin for-wide-layout {
+//     @media (min-width: calc($normal-breakpoint + 40px)) {
+//         @content;
+//     }
+// }
+
+// /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
     position: relative;
     overflow: hidden;

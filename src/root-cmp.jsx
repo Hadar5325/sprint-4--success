@@ -15,8 +15,8 @@ import { Provider } from 'react-redux'
 export function RootCmp() {
 
     return (
-        <div className='main-container'  >
-            <AppHeader />
+        <div className='main-layout'>
+            <AppHeader/>
             <main>
                 <Routes>
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)} */}

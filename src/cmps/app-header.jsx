@@ -68,6 +68,10 @@ export function AppHeader() {
     )
 }
 
+
+
+
+
 // <nav>
 //                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
