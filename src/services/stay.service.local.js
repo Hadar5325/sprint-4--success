@@ -18,7 +18,8 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { type: '', maxPrice: Infinity, maxCapacity: Infinity }) {
+async function query(filterBy = { type: '', maxPrice: Infinity, capacity: Infinity }) {
+    console.log('filterBy at query:', filterBy)
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
@@ -28,14 +29,14 @@ async function query(filterBy = { type: '', maxPrice: Infinity, maxCapacity: Inf
     }
 
     if (filterBy.type) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        fillteredStays = fillteredStays.filter(stay => regex.test(stay.type))
+        // const regex = new RegExp(filterBy.txt, 'i')
+        fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
     if (filterBy.maxPrice) {
         fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
     }
     if (filterBy.maxCapacity) {
-        fillteredStays = fillteredStays.filter(stay => stay.capacity <= filterBy.maxCapacity)
+        fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity)
     }
     return fillteredStays
 }

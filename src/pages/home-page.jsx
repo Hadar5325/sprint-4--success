@@ -14,7 +14,7 @@ export function HomePage() {
     const [filterBy, setFilterBy] = useState({
         maxPrice: Infinity,
         type: '',
-        maxCapacity: Infinity,
+        capacity: -Infinity,
     })
 
 
@@ -32,7 +32,7 @@ export function HomePage() {
     const handleChange = (ev) => {
         const field = ev.target.name
         const value = ev.target.value
-        setFilterBy({ ...filterBy, [field]: value })
+        // setFilterBy({ ...filterBy, [field]: value })
     }
 
 
