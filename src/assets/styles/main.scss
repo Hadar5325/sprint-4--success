@@ -30,8 +30,75 @@
 @import "cmps/titleContant.css";
 
 
+// @import "partial";
+// $clr1: #ccc;
+// $gtc : 1fr 100px minmax(400px, 1fr);
+
+// body {
+//     display: grid;
+//     grid-template-columns: $gtc;
+//     background-color:rgba($clr1, 0.6);
+
+//     .card-image {
+//         background-color: pink;
+
+//         .cat-image {
+//             transform: rotate(20deg);
+//         }
+
+//     }
+
+//     body.homepage & {
+//         background-color: aqua;
+//     }
+
+//     .btn {
+//         margin: 30px;
+
+//         &-round {
+//             background-color: aqua;
+//         }
+
+//         &-circle {
+//             background-color: azure;
+//         }
+//     }
+// }
+
+// @function rem($size) {
+//     $remSize: Calc($size / 16px);
+//     @return ($remSize) * 1rem;
+// }
+
+// @function em($pixels, $context: 16px) {
+//     @return ($pixels/$context) * 1em;
+// }
+// @function lh($size, $context: 16px){
+//     @return ($size/$context)
+// }
 
 
+// body {
+//     font-size: rem(30px);
+//     line-height: lh(20px, 30px);
+// }
 
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//     background-color: rgba($clr1, 0.5);
+//     margin: 0 0 em(30px, 20px);
+// }
 
+// button{
+//     @include blockBtn($color:pink );
+// }
+// @mixin blockBtn($bgColor: #fff, $color:#000){
+//     display: inline-block;
+//     border: 1px;
+//     background-color: $bgColor;
+// }
 

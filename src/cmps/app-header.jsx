@@ -1,42 +1,73 @@
-// import { Link, NavLink } from 'react-router-dom'
-// import {useSelector} from 'react-redux'
-// import routes from '../routes'
+import { Link, NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import routes from '../routes'
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-// import { login, logout, signup } from '../store/user.actions.js'
-// import { LoginSignup } from './login-signup.jsx'
+import { login, logout, signup } from '../store/user.actions.js'
+import { LoginSignup } from './login-signup.jsx'
+import hamburger from '../assets/img/hamburger.svg'
+import lence from '../assets/img/lence.svg'
+// import user from '../assets/img/user'
+import userDfault from '../assets/img/user-default.svg'
 
 export function AppHeader() {
     console.log('hi from header:')
-//     const user = useSelector(storeState => storeState.userModule.user)
+    //     const user = useSelector(storeState => storeState.userModule.user)
 
-//     async function onLogin(credentials) {
-//         try {
-//             const user = await login(credentials)
-//             showSuccessMsg(`Welcome: ${user.fullname}`)
-//         } catch(err) {
-//             showErrorMsg('Cannot login')
-//         }
-//     }
-//     async function onSignup(credentials) {
-//         try {
-//             const user = await signup(credentials)
-//             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-//         } catch(err) {
-//             showErrorMsg('Cannot signup')
-//         }
-//     }
-//     async function onLogout() {
-//         try {
-//             await logout()
-//             showSuccessMsg(`Bye now`)
-//         } catch(err) {
-//             showErrorMsg('Cannot logout')
-//         }
-//     }
+    //     async function onLogin(credentials) {
+    //         try {
+    //             const user = await login(credentials)
+    //             showSuccessMsg(`Welcome: ${user.fullname}`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot login')
+    //         }
+    //     }
+    //     async function onSignup(credentials) {
+    //         try {
+    //             const user = await signup(credentials)
+    //             showSuccessMsg(`Welcome new user: ${user.fullname}`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot signup')
+    //         }
+    //     }
+    //     async function onLogout() {
+    //         try {
+    //             await logout()
+    //             showSuccessMsg(`Bye now`)
+    //         } catch(err) {
+    //             showErrorMsg('Cannot logout')
+    //         }
+    //     }
 
-//     return (
-//         <header className="app-header">
-//             <nav>
+    return (
+        <header className="app-header flex" >
+
+            <div className='try'>headerrrrrrrrr</div>
+            
+
+            {/* <div className="logo-container"><h1>LOGO</h1></div>
+            <div className="filter-container flex">
+                <button className="">Anywhere</button>|
+                <button className="">Anyweek</button>|
+                <button className>Add guests</button>
+                <div className="search-image"><img src={lence} alt="" /></div>
+            </div>
+            <div className='header-buttons'>
+                <Link className="host-link" to="/hosting">Switch to hosting</Link>
+                <button>i18n</button>
+            </div>
+            <button className='user-nav flex'>
+                <img src={hamburger} alt="" />
+                <img className='user-img' src={userDfault} alt="" />
+            </button> */}
+        </header>
+    )
+}
+
+
+
+
+
+// <nav>
 //                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
 //                 {user &&
@@ -56,6 +87,3 @@ export function AppHeader() {
 //                 }
 //             </nav>
 //             <h1>My App</h1>
-//         </header>
-//     )
-}
