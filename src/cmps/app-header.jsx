@@ -1,18 +1,42 @@
 import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { StayFilter } from '../cmps/stay-filter'
 import routes from '../routes'
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import lence from '../assets/img/lence.svg'
-// import user from '../assets/img/user'
 import userDfault from '../assets/img/user-default.svg'
 import logo from '../assets/img/logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 export function AppHeader() {
-    console.log('hi from header:')
+
+    const [filterBy, setFilterBy] = useState({
+        maxPrice: Infinity,
+        type: '',
+        capacity: -Infinity,
+    })
+
+    const [isFilterShown, setIsFilterShown] = useState(false)
+
+    function handleChange(ev) {
+        const field = ev.target.name
+        const value = ev.target.value
+        setFilterBy({ ...filterBy, [field]: value })
+    }
+
+
+    function onSaveFilter(ev) {
+        ev.preventDefault()
+        
+
+
+    }
+
+
     //     const user = useSelector(storeState => storeState.userModule.user)
 
     //     async function onLogin(credentials) {
@@ -41,12 +65,12 @@ export function AppHeader() {
     //     }
 
     return (
-        <header className="app-header flex  full">
+        <header className="app-header flex ">
             <div className="logo-container"><img src={logo} alt="" /></div>
             <div className="filter-container flex align-center">
-                <button ><div className='txt'>Anywhere</div></button><span className='line'>|</span>
-                <button ><div className='txt'>Anyweek</div></button><span className='line'>|</span>
-                <button className='guests flex align-center' ><div className='txt'>Add guests</div>
+                <button ><div className='btn-txt'>Anywhere</div></button><span className='line'>|</span>
+                <button ><div className='btn-txt'>Anyweek</div></button><span className='line'>|</span>
+                <button className='guests flex align-center' ><div className='btn-txt'>Add guests</div>
                     <div className="search-image img-container"><img src={lence} alt="" /></div>
                 </button>
             </div>
@@ -61,6 +85,10 @@ export function AppHeader() {
                     </div >
                     <div className='img-container user'>
                         <img className='user-img' src={userDfault} alt="" />
+                        <StayFilter filterBy={filterBy} handleChange={handleChange} onSaveFilter={onSaveFilter}>
+                            <button className='loaction-filter'><div className='btn-txt'><div className='title'>where</div><div className='desc'>Search destination</div></div></button>
+
+                        </StayFilter>
                     </div>
                 </button>
             </div>
