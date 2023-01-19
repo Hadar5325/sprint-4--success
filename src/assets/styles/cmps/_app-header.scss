@@ -19,8 +19,8 @@
     // padding: em(1px);
 
     button {
-      .btn-txt{
-      padding:0 1rem;
+      .btn-txt {
+        padding: 0 1rem;
       }
     }
 
@@ -34,13 +34,15 @@
       justify-content: space-between;
       // width: 300px;
       // button.txt {
-        // .txt{
-        //    padding:0 2rem;
-        // }
-        // padding:0 3rem;
+      // .txt{
+      //    padding:0 2rem;
+      // }
+      // padding:0 3rem;
       // }
     }
   }
+
+
 
   .logo-container {
     display: flex;
@@ -58,14 +60,11 @@
     display: flex;
     background-color: $clr2;
     border-radius: 50%;
-    max-width: 2rem;
-    height: 2rem;
+    min-width: rem(14px); 
+    max-height: 2rem;
     padding: 10px;
     // margin: 7px;
 
-    img {
-      color: $clr1;
-    }
   }
 
   .header-buttons {

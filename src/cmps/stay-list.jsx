@@ -13,3 +13,10 @@ export function StayList({ stays, onRemoveStay }) {
 
 // slide gallery
 // https://www.w3schools.com/howto/howto_js_slideshow.asp
+
+// todo:
+// 1. make gellery slide
+// 2. fix the gap in grid that overflow to left
+// 3. fix images size to be square
+// 4. fix the under the price to be covered
+// 5. fix the heart to be in grid 

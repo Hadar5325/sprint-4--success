@@ -32,7 +32,7 @@ export function HomePage() {
 console.log('stays at homepage:',stays)
     if (!stays) return <div>Loading...</div>
     return (
-        <div className='stay-app main-container'>
+        <div className='stay-app main-layout'>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 {/* <Button className='add-link'>
