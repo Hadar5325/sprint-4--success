@@ -1,9 +1,12 @@
- [
+[
   {
     "_id": "10006546",
     "name": "Ribeira Charming Duplex",
     "type": "House",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 80.00,
     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
     "capacity": 8,
@@ -12,13 +15,29 @@
       "Kitchen",
       "Pets allowed",
       "Cooking basics"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "Portugal",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   },
   {
     "_id": "10006547",
     "name": "Birdbox Curzútt",
     "type": "Apartment",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 200.00,
     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
     "capacity": 3,
@@ -27,13 +46,29 @@
       "Smoking allowed",
       "Pets allowed",
       "Cooking basics"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "Italy",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   },
   {
     "_id": "10006548",
     "name": "Uniquely designed organic nature house, off-grid",
     "type": "Guesthouse",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 150.00,
     "summary": "Welcome to the future's house, off-grid with its own energy and food production. One of the world's most environmentally friendly and sustainable houses",
     "capacity": 10,
@@ -42,13 +77,29 @@
       "Wifi",
       "Kitchen",
       "Smoking allowed"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "Israel",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   },
   {
     "_id": "10006549",
     "name": "Heated sleeping cabin made of straw panels",
     "type": "Hotel",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 500.00,
     "summary": "Voose Home of Sun is full of positive energy! The unique buildings made of straw panels will recharge your batteries if you just visit it",
     "capacity": 8,
@@ -59,13 +110,29 @@
       "Smoking allowed",
       "Pets allowed",
       "Cooking basics"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "New-york",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   },
   {
     "_id": "10006550",
     "name": "Anemomilos",
     "type": "House",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 40.00,
     "summary": "It's a real old Windmill that worked to grind wheat and produce flour. Its operation ceased with the appearance of the machines a few years later when it was used as a residence. ",
     "capacity": 2,
@@ -74,13 +141,29 @@
       "Kitchen",
       "Smoking allowed",
       "Pets allowed"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "Washington",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   },
   {
     "_id": "10006551",
     "name": "Rest in Pod",
     "type": "Hotel",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+    "imgUrls": [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+      "otherImg.jpg"
+    ],
     "price": 430.00,
     "summary": "Take the opportunity to enjoy peace and quiet with one of the best views of the Říp - czech national mountain from our unique custom made pod",
     "capacity": 4,
@@ -90,9 +173,19 @@
       "Smoking allowed",
       "Pets allowed",
       "Cooking basics"
-    ]
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+    },
+    "loc": {
+      "country": "Japan",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    }
   }
 ]
-
-
-
