@@ -35,7 +35,7 @@ async function query(filterBy = { type: '', maxPrice: Infinity, capacity: Infini
         fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
     }
     if (filterBy.capacity) {
-        fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity)
+        fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity.total)
     }
     return fillteredStays
 }

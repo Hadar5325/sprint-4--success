@@ -11,10 +11,10 @@ export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
     const stays = useSelector((state) => state.stayModule.stays)
-    const filterBy= useSelector((state) => state.stayModule.filterBty)
-
-
+    const filterBy= useSelector((state) => state.stayModule.filterBy)
+    
     useEffect(() => {
+        console.log('filterBy at homePage:',filterBy)
         loadStays(filterBy)
             
     }, [filterBy])
@@ -31,7 +31,7 @@ export function HomePage() {
 
     async function onAddStay() {
         const stay = stayService.getEmptyStay()
-        stay.vendor = prompt('Vendor?')
+        stay.name = prompt('name?')
         try {
             const savedStay = await addStay(stay)
             showSuccessMsg(`Stay added (id: ${savedStay._id})`)

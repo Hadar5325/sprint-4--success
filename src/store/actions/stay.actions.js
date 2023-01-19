@@ -1,7 +1,7 @@
 
 import { stayService } from '../../services/stay.service.local'
 import { store } from "../store.js"
-import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY } from '../reducers/stay.reducer'
+import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER } from '../reducers/stay.reducer'
 
 export function getActionRemoveStay(stayId) {
     return {
@@ -35,9 +35,9 @@ export async function loadStay(stayId) {
 }
 
 
-export async function loadStays() {
+export async function loadStays(filterBy) {
     try {
-        const stays = await stayService.query()
+        const stays = await stayService.query(filterBy)
         console.log('Stays from DB:', stays)
         store.dispatch({
             type: SET_STAYS,
@@ -84,4 +84,10 @@ export function updateStay(stay) {
             console.log('Cannot save stay', err)
             throw err
         })
+}
+
+export function uptadeFilter(filterBy) {
+    console.log('from uptadeFilter:', filterBy)
+    store.dispatch(({ type: UPDATE_FILTER, filterBy }))
+    return filterBy
 }

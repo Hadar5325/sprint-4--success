@@ -39,9 +39,7 @@ export function StayFilter({ filterType }) {
     function showFilter(type) {
         console.log('type at show filter', type)
         switch (type) {
-            case 'location':
-                setFilterToShow(<LocationFilter />)
-                break
+               
             case 'date':
                 setFilterToShow(<DateFilter />)
                 break
