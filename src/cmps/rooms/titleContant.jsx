@@ -1,7 +1,7 @@
 
 export function TitleContant({room}) {
 
-    return <section className='roomsTitle'>
+    return <section className='ex'>
 
         {
             room['summary']

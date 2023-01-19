@@ -15,7 +15,7 @@ export function HomePage() {
 
     useEffect(() => {
         loadStays(filterBy)
-         
+            
     }, [filterBy])
 
 

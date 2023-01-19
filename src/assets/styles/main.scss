@@ -21,85 +21,27 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
-@import "views/rooms.css";
+@import "./rooms/rooms.css";
 
 // Components
+@import "cmps/home-list";
+@import "cmps/stay-preview";
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
-@import "cmps/home-list";
-@import "cmps/stay-preview";
-
-// @import "partial";
-// $clr1: #ccc;
-// $gtc : 1fr 100px minmax(400px, 1fr);
-
-// body {
-//     display: grid;
-//     grid-template-columns: $gtc;
-//     background-color:rgba($clr1, 0.6);
-
-//     .card-image {
-//         background-color: pink;
-
-//         .cat-image {
-//             transform: rotate(20deg);
-//         }
-
-//     }
-
-//     body.homepage & {
-//         background-color: aqua;
-//     }
-
-//     .btn {
-//         margin: 30px;
-
-//         &-round {
-//             background-color: aqua;
-//         }
-
-//         &-circle {
-//             background-color: azure;
-//         }
-//     }
-// }
-
-// @function rem($size) {
-//     $remSize: Calc($size / 16px);
-//     @return ($remSize) * 1rem;
-// }
-
-// @function em($pixels, $context: 16px) {
-//     @return ($pixels/$context) * 1em;
-// }
-// @function lh($size, $context: 16px){
-//     @return ($size/$context)
-// }
+@import "./rooms/roomsHeader.css";
+@import "./rooms/galeryLeft.css";
+@import "./rooms/galeryRight.css";
+@import "./rooms/detailes.css";
+@import "./rooms/booking.css";
+@import "./rooms/reviwes.css";
+@import "./rooms/place.css";
+@import "./rooms/hosted-left.css";
+@import "./rooms/hosted-right.css";
+@import "./rooms/to-know.css";
+@import "./rooms/first-footer.css";
+@import "./rooms/secend-footer.css";
 
 
-// body {
-//     font-size: rem(30px);
-//     line-height: lh(20px, 30px);
-// }
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//     background-color: rgba($clr1, 0.5);
-//     margin: 0 0 em(30px, 20px);
-// }
-
-// button{
-//     @include blockBtn($color:pink );
-// }
-// @mixin blockBtn($bgColor: #fff, $color:#000){
-//     display: inline-block;
-//     border: 1px;
-//     background-color: $bgColor;
-// }
 

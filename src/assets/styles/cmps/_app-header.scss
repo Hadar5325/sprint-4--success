@@ -1,9 +1,12 @@
 .app-header {
+  grid-area: title;
+
   background-color: $clr1;
   padding: 1rem;
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid $clr4 ;
+
 
 
 
