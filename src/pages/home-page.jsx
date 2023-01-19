@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
-import { loadStays } from '../store/actions/stay.action'
-// import logo from '../assets/img/logo.png'
-// import { CHANGE_COUNT } from '../store/user.reducer'
 
+import { loadStays, addStay, updateStay, removeStay } from '../store/actions/stay.actions'
+
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { stayService } from '../services/stay.service.local'
 export function HomePage() {
    
     // const count = useSelector(storeState => storeState.userModule.count)
@@ -19,13 +20,35 @@ export function HomePage() {
     }, [filterBy])
 
 
-    // function changeCount(diff) {
-    //     console.log('Changing count by:', diff);
-    //     dispatch({ type: CHANGE_COUNT, diff })
-    // }
+    async function onRemoveStay(stayId) {
+        try {
+            await removeStay(stayId)
+            showSuccessMsg('Stay removed')            
+        } catch (err) {
+            showErrorMsg('Cannot remove stay')
+        }
+    }
 
-    function onRemoveStay(){
-        console.log('removing stays...')
+    async function onAddStay() {
+        const stay = stayService.getEmptyStay()
+        stay.vendor = prompt('Vendor?')
+        try {
+            const savedStay = await addStay(stay)
+            showSuccessMsg(`Stay added (id: ${savedStay._id})`)
+        } catch (err) {
+            showErrorMsg('Cannot add stay')
+        }        
+    }
+
+    async function onUpdateStay(stay) {
+        const price = +prompt('New price?')
+        const stayToSave = { ...stay, price }
+        try {
+            const savedStay = await updateStay(stayToSave)
+            showSuccessMsg(`Stay updated, new price: ${savedStay.price}`)
+        } catch (err) {
+            showErrorMsg('Cannot update stay')
+        }        
     }
 
 

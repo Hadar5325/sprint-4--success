@@ -1,8 +1,8 @@
 export const SET_STAYS = 'SET_STAYS'
 export const SET_STAY = 'SET_STAY'
-// export const REMOVE_TOY = 'REMOVE_TOY'
-// export const ADD_TOY = 'ADD_TOY'
-// export const UPDATE_TOY = 'UPDATE_TOY'
+export const REMOVE_STAY = 'REMOVE_STAY'
+export const ADD_STAY = 'ADD_STAY'
+export const UPDATE_STAY = 'UPDATE_STAY'
 
 const initialState = {
     stays: [],
@@ -17,16 +17,15 @@ export function stayReducer(state = initialState, action) {
             return { ...state, stays: action.stays }
         case SET_STAY:
             return { ...state, stay: action.stay }
-
-        // case REMOVE_TOY:
-        //     toys = state.toys.filter(toy => toy._id !== action.toyId)
-        //     return { ...state, toys }
-        // case ADD_TOY:
-        //     toys = [action.toy, ...state.toys]
-        //     return { ...state, toys }
-        // case UPDATE_TOY:
-        //     toys = state.toys.map(toy => toy._id === action.toy._id ? action.toy : toy)
-        //     return { ...state, toys }
+        case REMOVE_STAY:
+            stays = state.stays.filter(stay => stay._id !== action.stayId)
+            return { ...state, stays }
+        case ADD_STAY:
+            stays = [action.stay, ...state.stays]
+            return { ...state, stays }
+        case UPDATE_STAY:
+            stays = state.stays.map(stay => stay._id === action.stay._id ? action.stay : stay)
+            return { ...state, stays }
         default:
             return state;
     }

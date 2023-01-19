@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react'
-import { LocationFilter } from '../cmps/location-stay-filter'
-import { DateFilter } from '../cmps/date-stay-filter'
-import { CapacityFilter } from '../cmps/capacity-stay-filter'
+import { LocationFilter } from './location-filter'
+import { DateFilter } from './date-filter'
+import { CapacityFilter } from '../cmps/capacity-filter'
 // import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormControl, InputLabel } from '@material-ui/core'
 
 export function StayFilter({ filterType }) {

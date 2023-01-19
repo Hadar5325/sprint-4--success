@@ -15,8 +15,6 @@ import { Provider } from 'react-redux'
 export function RootCmp() {
 
    
-
-
     return (
         <div >
             <AppHeader/>
