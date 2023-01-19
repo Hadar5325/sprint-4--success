@@ -4,9 +4,9 @@ export function GaleryLeft({room}){
 
     const url = room['imgUrls'][0]
     
-    return <section className="galeryLeft">
+    return <section>
         {
-        <img className="leftPic" src={url}/>
+        <img className="leftGalery" src={url}/>
         }
     </section>
 }

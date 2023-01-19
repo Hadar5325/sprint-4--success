@@ -6,7 +6,6 @@ import { stayService } from '../services/stay.service.local.js'
 
 import { TitleContant } from '../cmps/rooms/titleContant.jsx'
 import { loadStay } from '../store/actions/stay.action'
-import { GaleryLeft } from '../cmps/rooms/galeryLeft.jsx'
 import { GaleryRight } from '../cmps/rooms/galertRight.jsx'
 import { Detailes } from '../cmps/rooms/detailes.jsx'
 import { Booking } from '../cmps/rooms/booking.jsx'
@@ -17,7 +16,7 @@ import { HostedRight } from '../cmps/rooms/hosted-right.jsx'
 import { ToKnow } from '../cmps/rooms/toKnow.jsx'
 import { FirstFooter } from '../cmps/rooms/firstFooter.jsx'
 import { SecendFooter } from '../cmps/rooms/secendFooter.jsx'
-
+import {Galery} from '../cmps/rooms/galery.jsx'
 
 
 export function RoomDetails() {
@@ -60,8 +59,7 @@ export function RoomDetails() {
     }
     return <section className='rooms'>
         <TitleContant room={stay} />
-        <GaleryLeft room={stay} />
-        <GaleryRight room={stay} />
+        <Galery room={stay}/>
         <Detailes />
         <Booking />
         <Reviwes />
