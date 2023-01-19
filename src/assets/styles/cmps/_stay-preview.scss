@@ -1,10 +1,5 @@
 .stay-preview {
-
-    // path{
-    //     width: 30px;
-    //     height: 50px;
-    //     background-color: aqua;
-    // }
+    
     display: flex;
     flex-direction: column;
 
@@ -12,23 +7,85 @@
     color: $clr11;
     line-height: $lineHeight;
 
+    .square {
+        border: 2px red solid;
+        position: relative;
+        margin-bottom: 12px;
+    }
+
+    .square::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .square img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .slideshow-containter {
+        width: 100px;
+        height: 100px;
+        background-color: bisque;
+
+        .slides-fade {
+            background-color: aqua;
+            width: 50;
+            height: 50;
+            display: none;
+        }
+    }
+
+    .slider-containter {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .flex-containter {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        padding: 12px 12px 0 12px;
+        flex-direction: column;
+
+        .div,
+        .div-wish-list {
+            display: flex;
+            justify-content: end;
+            flex: 1;
+        }
+    }
+
+
     .image-containter {
         width: 100%;
-        margin-bottom: 12px;
-        display: flex;
-        flex-flow: column;
 
         img {
-            width: 100%;
             border-radius: 12px;
         }
-        svg{
-            display: block; fill: rgba(0, 0, 0, 0.5); height: 24px; width: 24px; stroke: $clr1; stroke-width: 2; overflow: visible;
+
+        svg {
+            display: block;
+            fill: rgba(0, 0, 0, 0.5);
+            height: 24px;
+            width: 24px;
+            stroke: $clr1;
+            stroke-width: 2;
+            overflow: visible;
+            visibility: visible;
         }
-        button{
-            position: relative;
-            left: 160px;
-            top: 60px;
+
+        button {
+            height: 32px;
+            width: 32px;
+            visibility: hidden;
         }
     }
 
@@ -36,7 +93,7 @@
         display: grid;
         grid-template-rows: repeat(4, 19px);
         // grid-template-columns: 90px minmax(0,1fr) max-content;
-        gap:2px 8px;
+        gap: 2px 8px;
         flex-direction: column;
         width: 100%;
 
@@ -45,7 +102,8 @@
             font-size: $fontInfoStay;
         }
 
-        .stay-distance, .stay-valid-dates {
+        .stay-distance,
+        .stay-valid-dates {
             font-family: 'apple-system';
             color: $clr12;
         }
@@ -53,10 +111,12 @@
         .stay-price {
             margin-top: 6px;
             font-family: 'apple-system';
-            span{
+
+            span {
                 font-family: 'Circular';
             }
-            .currency{
+
+            .currency {
                 font-size: larger;
             }
 
@@ -64,9 +124,11 @@
 
     }
 }
+
 // questions!!!!!!!!!
 
 // איך לעשות דינמי את הליין הייטס?
 // איך לעשות דינמי את הfont?
 // מה יש בגריד של האינפו? אין בצד שיש את הטקסט מה הגודל שלו
 // איך להגדיל את הסימבול לגודל של המספר
+// איך לקבל את התאריך הכי קרוב?

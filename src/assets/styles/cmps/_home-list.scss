@@ -1,6 +1,7 @@
 .home-list {
+    // height: 100vh;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(221.7px, 1fr));
     // grid-template-columns: repeat(auto-fill, minmax(227px, 300px));
 
     grid-auto-flow: row dense;
