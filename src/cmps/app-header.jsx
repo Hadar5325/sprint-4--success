@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { StayFilter } from '../cmps/stay-filter'
 import routes from '../routes'
+
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
@@ -34,7 +35,7 @@ export function AppHeader() {
 
     function onSaveFilter(ev) {
         ev.preventDefault()
-        
+
 
 
     }
@@ -67,6 +68,56 @@ export function AppHeader() {
     //         }
     //     }
 
+    const stay = useSelector((state) => state.stayModule.stay)
+
+    const stayId = stay._id
+
+    const location = useLocation();
+
+  
+
+    
+
+    const roomDetiles = `/rooms`
+
+
+    if (location !== roomDetiles) {
+        console.log('work!!')
+        return (
+            <header className="app-header flex Rdetiles ">
+                <div className="logo-container"><img src={logo} alt="" /></div>
+                <div className="filter-container flex align-center">
+                    <button ><div className='btn-txt'>Anywhere</div></button><span className='line'>|</span>
+                    <button ><div className='btn-txt'>Anyweek</div></button><span className='line'>|</span>
+                    <button className='guests flex align-center' ><div className='btn-txt'>Add guests</div>
+                        <div className="search-image img-container"><img src={lence} alt="" /></div>
+                    </button>
+                </div>
+                <div className='flex'>
+                    <div className='header-buttons'>
+                        <Link className="host-link" to="/hosting">Switch to hosting</Link>
+                        <button><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
+                    </div>
+                    <button className='user-nav flex'>
+                        <div className='img-container hamburger'>
+                            <img src={hamburger} alt="" />
+                        </div >
+                        <div className='img-container user'>
+                            <img className='user-img' src={userDfault} alt="" />
+                            <StayFilter filterBy={filterBy} handleChange={handleChange} onSaveFilter={onSaveFilter}>
+                                <button className='loaction-filter'><div className='btn-txt'><div className='title'>where</div><div className='desc'>Search destination</div></div></button>
+
+                            </StayFilter>
+                        </div>
+                    </button>
+                </div>
+
+
+
+
+            </header>
+        )
+    }
     return (
         <header className="app-header flex ">
             <div className="logo-container"><img src={logo} alt="" /></div>

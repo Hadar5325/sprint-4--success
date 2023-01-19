@@ -1,6 +1,6 @@
 
 
 export function RoomHeader(){
-    return <section className="x">
+    return <section className="ex">
     </section>
 }

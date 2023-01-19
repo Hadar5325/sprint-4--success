@@ -2,12 +2,11 @@
     display: grid;
     left: 0px;
     grid-template-columns: 80px 0.5fr 0.5fr 80px;
-    grid-template-rows: 180px 90px 467px 2374.44px 1139px 803px 513px 344px 452px 646.391px;
+    grid-template-rows: 90px 300px 2440px 2374.44px 1139px 803px 513px 344px 452px 646.391px;
 
 
     grid-template-areas:
     
-    ". hd hd ."
     " . title title ."
     ". galery-left galery-right ."
     ". detailes booking ."

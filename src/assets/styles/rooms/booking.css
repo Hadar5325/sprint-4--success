@@ -1,4 +1,22 @@
-.booking{
-    background-color: rgb(245, 17, 245);
+.booking {
     grid-area: booking;
+}
+
+.bookingBox {
+    position: sticky;
+    top: 50px;
+
+    background-color: antiquewhite;
+    float: right;
+    margin-bottom: 100px;
+    height: 460px;
+    width: 291.656px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    padding: 24px;
+}
+
+.boxContantTop{
+    height: 227px;
+    border: 1px solid;
+    box-sizing: border-box;
 }

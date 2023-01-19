@@ -15,12 +15,7 @@ export function HomePage() {
 
     useEffect(() => {
         loadStays(filterBy)
-            .then(() => {
-                console.log('Loaded successfully')
-            })
-            .catch((err) => {
-                console.log('Something went wrong', err)
-            })
+            
     }, [filterBy])
 
 

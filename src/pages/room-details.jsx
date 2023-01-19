@@ -23,7 +23,9 @@ import { SecendFooter } from '../cmps/rooms/secendFooter.jsx'
 export function RoomDetails() {
     let { id } = useParams()
 
-    const stay = useSelector((state) => state.stayModule.stay)
+    const [stay,setStay] = useState(null)
+
+    // const stay = useSelector((state) => state.stayModule.stay)
 
 
     const [filterBy, setFilterBy] = useState({
@@ -35,12 +37,17 @@ export function RoomDetails() {
 
     useEffect(() => {
         loadStay(id)
-            .then(() => {
-            })
-            .catch((err) => {
-            })
-
     }, [])
+
+    async function loadStay(id) {
+        try{
+            const stay = await stayService.getById(id)
+            setStay(stay)
+        }catch(err){
+            console.log(err)
+        }
+    }
+    
 
     // const handleChange = (ev) => {
     //     const field = ev.target.name
@@ -48,11 +55,13 @@ export function RoomDetails() {
     //     setFilterBy({ ...filterBy, [field]: value })
     // }
 
-
+    if(!stay){
+        return <section>loading...</section>
+    }
     return <section className='rooms'>
         <TitleContant room={stay} />
-        <GaleryLeft />
-        <GaleryRight />
+        <GaleryLeft room={stay} />
+        <GaleryRight room={stay} />
         <Detailes />
         <Booking />
         <Reviwes />
