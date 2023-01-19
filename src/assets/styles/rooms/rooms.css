@@ -1,0 +1,21 @@
+.rooms{
+    display: grid;
+    left: 0px;
+    grid-template-columns: 80px 0.5fr 0.5fr 80px;
+    grid-template-rows: 90px 300px 2440px 2374.44px 1139px 803px 513px 344px 452px 646.391px;
+
+
+    grid-template-areas:
+    
+    " . title title ."
+    ". galery-left galery-right ."
+    ". detailes booking ."
+    ". reviwes reviwes ."
+    ". place place ."
+    ". hosted-left hosted-right ."
+    ". to-know to-know ."
+    ". first-footer first-footer ."
+    ". secend-footer secend-footer .";
+
+} 
+

@@ -38,3 +38,16 @@
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
+
+
+.svg-white {
+    display: block;
+    align-self: center;
+    fill: $clr1;
+    height: 16px;
+     width: rem(13px); 
+    stroke: $clr1;
+    stroke-width: 6;
+    overflow:
+      visible;
+  }

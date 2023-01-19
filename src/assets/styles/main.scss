@@ -21,13 +21,27 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
-@import "views/rooms.css";
+@import "./rooms/rooms.css";
 
 // Components
+@import "cmps/home-list";
+@import "cmps/stay-preview";
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
-@import "cmps/home-list";
-@import "cmps/stay-preview";
-// @import "cmp/image-slider"
+@import "./rooms/roomsHeader.css";
+@import "./rooms/galeryLeft.css";
+@import "./rooms/galeryRight.css";
+@import "./rooms/detailes.css";
+@import "./rooms/booking.css";
+@import "./rooms/reviwes.css";
+@import "./rooms/place.css";
+@import "./rooms/hosted-left.css";
+@import "./rooms/hosted-right.css";
+@import "./rooms/to-know.css";
+@import "./rooms/first-footer.css";
+@import "./rooms/secend-footer.css";
+
+
+
