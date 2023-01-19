@@ -31,11 +31,12 @@ export function AppHeader() {
 
     function onSaveFilter(ev) {
         ev.preventDefault()
-        
-
-
+        console.log('hi from save filter:')
     }
 
+    function onShowFilter(by) {
+        console.log('by at ShowFilter:', by)
+    }
 
     //     const user = useSelector(storeState => storeState.userModule.user)
 
@@ -71,7 +72,11 @@ export function AppHeader() {
                 <button ><div className='btn-txt'>Anywhere</div></button><span className='line'>|</span>
                 <button ><div className='btn-txt'>Anyweek</div></button><span className='line'>|</span>
                 <button className='guests flex align-center' ><div className='btn-txt'>Add guests</div>
-                    <div className="search-image img-container"><img src={lence} alt="" /></div>
+                    <div className="search-image img-container">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                            focusable="false" ><g fill="none"></g>
+                        </svg>
+                    </div>
                 </button>
             </div>
             <div className='flex'>
@@ -85,10 +90,7 @@ export function AppHeader() {
                     </div >
                     <div className='img-container user'>
                         <img className='user-img' src={userDfault} alt="" />
-                        <StayFilter filterBy={filterBy} handleChange={handleChange} onSaveFilter={onSaveFilter}>
-                            <button className='loaction-filter'><div className='btn-txt'><div className='title'>where</div><div className='desc'>Search destination</div></div></button>
-
-                        </StayFilter>
+                        <StayFilter filterBy={filterBy} handleChange={handleChange} onSaveFilter={onSaveFilter} onShowFilter={onShowFilter} />
                     </div>
                 </button>
             </div>

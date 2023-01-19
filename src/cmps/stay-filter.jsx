@@ -1,14 +1,33 @@
 import React from 'react'
 // import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormControl, InputLabel } from '@material-ui/core'
 
-export function StayFilter({ handleChange, filterBy }) {
+export function StayFilter({ handleChange, filterBy,onShowFilter }) {
 
-console.log('hi from filter:')
+    console.log('hi from filter:')
 
     return (
         <div className="filter-container">
-
-            
+            <button className='loaction-btn' onClick={() => onShowFilter('Where')}>
+                <div className='btn-txt'><div className='title' >where</div>
+                    <div className='desc'>Search destination</div>
+                </div>
+            </button>
+            <button className='checkIn-btn' onClick={() => onShowFilter('checkIn')}>
+                <div className='btn-txt'><div className='title' >Check in</div>
+                    <div className='desc'>Add dates</div>
+                </div>
+            </button>
+            <button className='checkOut-btn' onClick={() => onShowFilter('checkOut')}>
+                <div className='btn-txt'><div className='title'>Check out</div>
+                    <div className='desc'>Add dates</div>
+                </div>
+            </button>
+            <button className='who-btn' onClick={() => onShowFilter('who')}>
+                <div className='btn-txt'>
+                    <div className='title'>Who</div>
+                    <div className='desc'>Add guests</div>
+                </div>
+            </button>
         </div>
     )
 }

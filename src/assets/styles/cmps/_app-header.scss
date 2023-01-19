@@ -39,6 +39,16 @@
     }
   }
 
+  svg {
+    display: block;
+     fill:currentColor; 
+     height: 16px; 
+     width: 16px; 
+     stroke: currentcolor; 
+     stroke-width: 4; overflow: 
+     visible;
+    }
+
   .logo-container {
     display: flex;
     align-items: center;
