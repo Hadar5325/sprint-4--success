@@ -1,14 +1,79 @@
 .galery {
-    grid-area: galery;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    bottom: 5px;
-    grid-template-columns: 0.5fr 0.5fr;
+    height: 335px;
+    width: 100%;
+    padding: 0px;
+    display: grid;
+
+    grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
 
 
     grid-template-areas:
 
-        " leftGalery rightGalery";
+        " left right ";
+
+}
+
+.galeryLeft {
+    grid-area: left;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.galeryRight {
+    grid-area: right;
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+
+    grid-template-areas:
+
+        " topLeft topRight "
+        " bottomLeft bottomRight";
+}
+
+.topLeft {
+    grid-area: topLeft;
+    background-color: aquamarine;
+    height: 103%;
+    width: 100%;
+    position: relative;
+    left: 3px;
+    bottom: 5px;
+}
+
+.topRight {
+    grid-area: topRight;
+    background-color: bisque;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    height: 103%;
+    width: 99%;
+    position: relative;
+    left: 1px;
+    bottom: 5px;
+    border-top-right-radius: 10px;
+}
+
+.bottomLeft {
+    grid-area: bottomLeft;
+    background-color: blueviolet;
+    margin-top: 5px;
+    margin-left: 4px;
+    height: 100%;
+    width: 100%;
+}
+
+.bottomRight {
+    grid-area: bottomRight;
+    background-color: rgb(161, 128, 86);
+    margin-top: 5px;
+    margin-left: 11px;
+    height: 100%;
+    width: 99%;
+    border-bottom-right-radius: 10px;
+
 }

@@ -1,43 +1,46 @@
-.rightGalery{
-    grid-area: rightGalery;
-    display: grid;
-    height: 100%;
-    position: relative;
-    right: 13px;
-    margin-left: 25px;
-    grid-template-columns: 50% 50% ;
-    grid-template-rows: 50% 50%;
-    gap: 4px;
-    float: left;
+// .rightGalery{
+//     grid-area: rightGalery;
+//     display: grid;
+//     height: 100%;
+//     width: 100%;
+//     margin-left: 10px;
+//     padding: 24px 0px 0px;
+//     background-color: aqua;
+   
+//     grid-template-columns: 50% 50% ;
+//     grid-template-rows: 50% 50%;
 
-    grid-template-areas:
+//     grid-template-areas:
     
-    " tl tr"
-    " bl br";
-}
+//     " tl tr"
+//     " bl br";
+// }
 
-.top-left{
-    grid-area: tl;
-    height: 97%;
-    width: 273px;
+// .top-left{
+//     grid-area: tl;
+//     height: 94%;
+//     width: 95%;
 
-}
-.top-right{
-    grid-area: tr;
-    height: 97%;
-    width: 273px;
-    border-top-right-radius: 15px;
-}
-.bottom-left{
-    grid-area: bl;
-    height: 97%;
-    width: 273px;
+// }
+// .top-right{
+//     grid-area: tr;
+//     height: 94%;
+//     width: 95%;
+//     border-top-right-radius: 15px;
+//     position: relative;
+//     right: 6px;
+// }
+// .bottom-left{
+//     grid-area: bl;
+//     height: 93%;
+//     width: 95%;
 
-}
-.bottom-right{
-    grid-area: br;
-    height: 97%;
-    width: 273px;
-    border-bottom-right-radius: 15px;
-
-}
+// }
+// .bottom-right{
+//     grid-area: br;
+//     height: 93%;
+//     width: 95%;
+//     border-bottom-right-radius: 15px;
+//     position: relative;
+//     right: 6px;
+// }
