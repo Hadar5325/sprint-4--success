@@ -5,7 +5,7 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import { stayService } from '../services/stay.service.local.js'
 
 import { TitleContant } from '../cmps/rooms/titleContant.jsx'
-import { loadStay } from '../store/actions/stay.action'
+import { loadStay } from '../store/actions/stay.actions'
 import { GaleryRight } from '../cmps/rooms/galertRight.jsx'
 import { GaleryLeft } from '../cmps/rooms/galeryLeft.jsx'
 
