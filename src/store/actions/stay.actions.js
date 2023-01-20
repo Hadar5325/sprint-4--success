@@ -86,8 +86,9 @@ export function updateStay(stay) {
         })
 }
 
-export function uptadeFilter(filterBy) {
+export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
     console.log('from uptadeFilter:', filterBy)
     store.dispatch(({ type: UPDATE_FILTER, filterBy }))
     return filterBy
 }
+

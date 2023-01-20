@@ -22,7 +22,8 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
-      "country": "Portugal",
+      "region": "sa",
+      "country": "Brazil",
       "countryCode": "PT",
       "city": "Porto",
       "address": "17 Kombo st",
@@ -53,6 +54,7 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
+      "region": "italy",
       "country": "Italy",
       "countryCode": "PT",
       "city": "Porto",
@@ -84,6 +86,7 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
+      "region": "me",
       "country": "Israel",
       "countryCode": "PT",
       "city": "Porto",
@@ -117,6 +120,7 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
+      "region": "usa",
       "country": "New-york",
       "countryCode": "PT",
       "city": "Porto",
@@ -148,6 +152,7 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
+      "region": "usa",
       "country": "Washington",
       "countryCode": "PT",
       "city": "Porto",
@@ -180,7 +185,8 @@
       "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
     },
     "loc": {
-      "country": "Japan",
+      "region": "france",
+      "country": "france",
       "countryCode": "PT",
       "city": "Porto",
       "address": "17 Kombo st",

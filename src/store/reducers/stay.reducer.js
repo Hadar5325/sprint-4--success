@@ -1,3 +1,5 @@
+import { stayService } from '../../services/stay.service.local'
+
 export const SET_STAYS = 'SET_STAYS'
 export const SET_STAY = 'SET_STAY'
 export const REMOVE_STAY = 'REMOVE_STAY'
@@ -8,7 +10,7 @@ export const UPDATE_FILTER = 'UPDATE_FILTER'
 const initialState = {
     stays: [],
     stay: {},
-    filterBy: {}
+    filterBy: stayService.getEmptyFilter()
 }
 
 export function stayReducer(state = initialState, action) {
@@ -31,8 +33,7 @@ export function stayReducer(state = initialState, action) {
 
         case UPDATE_FILTER:
             console.log('newFilter at store:', action.filterBy)
-            filter = { ...action.filterBy, ...state.filterBy }
-            return { ...state, filterBy: filter }
+            return { ...state, filterBy: action.filterBy }
         default:
             return state;
     }

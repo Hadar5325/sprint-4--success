@@ -1,36 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import { uptadeFilter } from '../store/actions/stay.actions'
 
-export function CapacityFilter({ handleChange }) {
+
+export function CapacityFilter({ handleChange, filterBy}) {
 
     // const [adultsCount, setAdultsCount] = useState(0)
     // const [childrenCount, setChildrenCount] = useState(0)
     // const [infantsCount, setInfantsCount] = useState(0)
     // const [petsCount, setPetsCount] = useState(0)
-    const [filterBy, SetfilterByCapacity] = useState({
-        capacity: {
-            adults: 0,
-            children: 0,
-            infants: 0,
-            pets: 0,
-            total: 0
-        }
-    })
+    const [filterByCapacity, SetfilterByCapacity] = useState(filterBy.capacity)
     // const [IsDisabled, setIsDisabled] = useState(true)
 
     useEffect(() => {
-        uptadeFilter(filterBy)
-    }, [filterBy])
+    //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
+        handleChange({name:'capacity', value:filterByCapacity})
+    }, [filterByCapacity])
 
     function onSetCount(type, diff) {
         SetfilterByCapacity(prevFilter => {
-            prevFilter.capacity[type] = prevFilter.capacity[type] + diff
-            prevFilter.capacity.total = prevFilter.capacity.total + diff
+            prevFilter[type] = prevFilter[type] + diff
+            prevFilter.total = prevFilter.total + diff
             return ({ ...prevFilter })
         })
     }
 
-    const { pets, adults, infants, children } = filterBy.capacity
+    const { pets, adults, infants, children } = filterByCapacity
     return (
         <section className="capacity-filter-inputs">
             <div><div className='title'>Adults</div><div className='desc'>Ages 13 or above</div>

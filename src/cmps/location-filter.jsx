@@ -1,30 +1,44 @@
-// import {} from '../assets/img/'
-// import {} from '../assets/img/'
-// import {} from '../assets/img/'
-// import {} from '../assets/img/'
-// import {} from '../assets/img/'
-// import {} from '../assets/img/'
+import React, { useEffect, useState } from 'react'
 
-export function LocationFilter(){
 
-function onSetFilter(region){
-    console.log('region:',region)
+export function LocationFilter({ handleChange, filterBy }) {
+
+    const [filterByRegion, SetfilterByRegion] = useState(filterBy.region)
+    // const [IsDisabled, setIsDisabled] = useState(true)
+
+    useEffect(() => {
+        //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
+        handleChange({ name: 'region', value: filterByRegion })
+    }, [filterByRegion])
+
+    function onSetRegion(value) {
+        console.log('value:', value)
+        SetfilterByRegion(value)
+    }
+
+
+    const regions = [
+        { txt: 'I\'m flexible', value: 'flexible' },
+        { txt: 'Middle East', value: 'me' },
+        { txt: 'Italy', value: 'italy' },
+        { txt: 'United States', value: 'usa' },
+        { txt: 'France', value: 'france' },
+        { txt: 'South America', value: 'sa' }
+    ]
+
+    return (
+        <section className="location-filter">
+            {regions.map((region) => {
+                return <article key={region.value}>
+                    <div className="img-container"
+                        onClick={() => onSetRegion(region.value)}>
+                   <img src={require(`../assets/img/${region.value}.jpg`)} alt="" />
+                    </div>
+                    <p>{region.txt}</p>
+                </article>
+            })}
+        </section>
+    )
 }
 
-  return (
-    <section className="location-filter">
-<div className="img-container"><img onClick={()=>onSetFilter('flexible')} src="" alt="" /></div>
-<p>I’m flexible</p>
-<div className="img-container"><img onClick={()=>onSetFilter('middle east')} src="" alt="" /></div>
-<p>Middle East</p>
-<div className="img-container"><img onClick={()=>onSetFilter('italy')} src="" alt="" /></div>
-<p>Italy</p>
-<div className="img-container"><img onClick={()=>onSetFilter('united states')} src="" alt="" /></div>
-<p>United States</p>
-<div className="img-container"><img onClick={()=>onSetFilter('france')} src="" alt="" /></div>
-<p>France</p>
-<div className="img-container"><img onClick={()=>onSetFilter('south america')} src="" alt="" /></div>
-<p>South America</p>
-</section>    
-  )
-}
+// {`../assets/img/${region.value}.jpg`}
