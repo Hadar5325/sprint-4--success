@@ -1,5 +1,44 @@
+import React, { useEffect, useState } from 'react'
 
 
-export function LocationFilter(){
-    console.log(':hi from location filter',)
+export function LocationFilter({ handleChange, filterBy }) {
+
+    const [filterByRegion, SetfilterByRegion] = useState(filterBy.region)
+    // const [IsDisabled, setIsDisabled] = useState(true)
+
+    useEffect(() => {
+        //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
+        handleChange({ name: 'region', value: filterByRegion })
+    }, [filterByRegion])
+
+    function onSetRegion(value) {
+        console.log('value:', value)
+        SetfilterByRegion(value)
+    }
+
+
+    const regions = [
+        { txt: 'I\'m flexible', value: 'flexible' },
+        { txt: 'Middle East', value: 'me' },
+        { txt: 'Italy', value: 'italy' },
+        { txt: 'United States', value: 'usa' },
+        { txt: 'France', value: 'france' },
+        { txt: 'South America', value: 'sa' }
+    ]
+
+    return (
+        <section className="location-filter">
+            {regions.map((region) => {
+                return <article key={region.value}>
+                    <div className="img-container"
+                        onClick={() => onSetRegion(region.value)}>
+                   <img src={require(`../assets/img/${region.value}.jpg`)} alt="" />
+                    </div>
+                    <p>{region.txt}</p>
+                </article>
+            })}
+        </section>
+    )
 }
+
+// {`../assets/img/${region.value}.jpg`}

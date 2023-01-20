@@ -12,13 +12,14 @@ export const stayService = {
     getById,
     save,
     remove,
-    getEmptyStay
+    getEmptyStay,
+    getEmptyFilter
 }
 window.cs = stayService
 
 
-async function query(filterBy = { type: '', maxPrice: Infinity, capacity: Infinity }) {
-    console.log('filterBy at query:', filterBy)
+async function query(filterBy) {
+    // console.log('filterBy at query:', filterBy)
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
@@ -34,17 +35,22 @@ async function query(filterBy = { type: '', maxPrice: Infinity, capacity: Infini
     if (filterBy.maxPrice) {
         fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
     }
-    // if (filterBy.capacity) {
-    //     fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity)
-    // }
-    return fillteredStays
+    if (filterBy.capacity) {
+        fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity.total)
+    }
+    if (filterBy.region && filterBy.region !== 'flexible') {
+        fillteredStays = fillteredStays.filter(stay => {
+            return stay.loc.region === filterBy.region
+        })
+    }
+        return fillteredStays
 }
 
 function getById(id) {
     // const staysFromStorage = await storageService.query(STORAGE_KEY)
 
     // return storageService.get(STORAGE_KEY, stayId)
-    return storageService.get('stay',id)
+    return storageService.get('stay', id)
 }
 
 async function remove(stayId) {
@@ -68,13 +74,26 @@ async function save(stay) {
 function getEmptyStay() {
     return {
         name: '',
-        type:'',
+        type: '',
         imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
         price: 0,
-        summery:'',
-        capacity:0,
-        amenities:[]
+        summery: '',
+        capacity: 0,
+        amenities: []
     }
 }
 
-
+function getEmptyFilter() {
+    return {
+        type: '',
+        region: 'flexible',
+        maxPrice: Infinity,
+        capacity: {
+            adults: 0,
+            children: 0,
+            infants: 0,
+            pets: 0,
+            total: 0
+        }
+    }
+}

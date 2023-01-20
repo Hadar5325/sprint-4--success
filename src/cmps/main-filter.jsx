@@ -2,32 +2,30 @@
 import React, { useEffect, useState } from 'react'
 import { LocationFilter } from './location-filter'
 import { DateFilter } from './date-filter'
-import { CapacityFilter } from '../cmps/capacity-filter'
-// import { TextField, Select, MenuItem, Checkbox, FormControlLabel, FormControl, InputLabel } from '@material-ui/core'
+import { CapacityFilter } from './capacity-filter'
+import { uptadeFilter } from '../store/actions/stay.actions'
+import { useDispatch, useSelector } from 'react-redux'
+
+
 
 export function StayFilter({ filterType }) {
+
+    const currFilterBy = useSelector((state) => state.stayModule.filterBy)
+
     const [filterToShow, setFilterToShow] = useState(null)
-    const [filterBy, setFilterBy] = useState({
-        maxPrice: Infinity,
-        type: '',
-        capacity: -Infinity,
-    })
-
-
-    // useEffect(() => {
-    //   console.log('filterType:',filterType)
-    //    const filter= showFilter(filterType)
-    //     setFilter(filter)
-    // }, [])
+    const [filterBy, setFilterBy] = useState(currFilterBy)
 
     useEffect(() => {
-        console.log('filterType: at use efferct', filterType)
+        console.log('filterBy at useeffect at mainfilter:',filterBy)
+        uptadeFilter(filterBy)
+    }, [filterBy])
+
+    useEffect(() => {
         showFilter(filterType)
     }, [])
 
-    function handleChange(ev) {
-        const field = ev.target.name
-        const value = ev.target.value
+    function handleChange({ name: field, value }) {
+        console.log('at handle change:',field, value)
         setFilterBy({ ...filterBy, [field]: value })
     }
 
@@ -39,22 +37,26 @@ export function StayFilter({ filterType }) {
     function showFilter(type) {
         console.log('type at show filter', type)
         switch (type) {
-            case 'location':
-                setFilterToShow(<LocationFilter />)
-                break
+
             case 'date':
-                setFilterToShow(<DateFilter />)
+                setFilterToShow(<DateFilter 
+                    handleChange={handleChange} 
+                    filterBy={filterBy} />)
                 break
             case 'capacity':
-                setFilterToShow(<CapacityFilter />)
+                setFilterToShow(<CapacityFilter 
+                    handleChange={handleChange}  
+                    filterBy={filterBy} />)
                 break
             default:
-                setFilterToShow(<LocationFilter />)
+                setFilterToShow(<LocationFilter 
+                    handleChange={handleChange}  
+                    filterBy={filterBy} />)
         }
     }
 
     return (
-        <div className="filter-btn-container">
+        <div className="filter-container">
             <button className='loaction-btn' onClick={() => showFilter('location')}>
                 <div className='btn-txt'><div className='title' >where</div>
                     <div className='desc'>Search destination</div>
@@ -78,7 +80,11 @@ export function StayFilter({ filterType }) {
             </button>
             <form onSubmit={onSaveFilter}>
                 <button className="search-btn" > <div className="search-image img-container">
-                    <span> Search</span> <svg className='svg-white' viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" >
+                    <span> Search</span> <svg className='svg-white' 
+                    viewBox="0 0 32 32" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    aria-hidden="true" role="presentation" 
+                    focusable="false" >
                         <g fill="none">
                             <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9" />
                         </g>
