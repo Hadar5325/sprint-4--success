@@ -1,21 +1,25 @@
-.rooms{
-    display: grid;
-    left: 0px;
-    grid-template-columns: 80px 0.5fr 0.5fr 80px;
-    grid-template-rows: 90px 350px 2440px 2374.44px 1139px 803px 513px 344px 452px ;
+// .rooms{
+//     display: grid;
+//     left: 0px;
+//     padding: 0px 40px;
+//     grid-template-columns: 50% 50%;
+//     grid-template-rows: 90px 350px 2440px 2374.44px 1139px 803px 513px 344px 452px ;
 
 
-    grid-template-areas:
+//     grid-template-areas:
     
-    " . title title ."
-    ". galery galery ."
-    ". detailes booking ."
-    ". reviwes reviwes ."
-    ". place place ."
-    ". hosted-left hosted-right ."
-    ". to-know to-know ."
-    ". first-footer first-footer ."
-    ". secend-footer secend-footer .";
+//     " title title "
+//     " leftGalery rightGalery "
+//     " detailes booking "
+//     " reviwes reviwes "
+//     " place place "
+//     " hosted-left hosted-right "
+//     " to-know to-know "
+//     " first-footer first-footer "
+//     " secend-footer secend-footer ";
 
+// } 
+.rooms{
+   padding: 0px 110px;
 } 
 

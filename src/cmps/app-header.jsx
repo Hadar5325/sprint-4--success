@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { StayFilter } from '../cmps/stay-filter'
+import { StayFilter } from './main-filter'
 import routes from '../routes'
 
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'

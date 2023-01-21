@@ -7,8 +7,9 @@ import { stayService } from '../services/stay.service.local.js'
 import { TitleContant } from '../cmps/rooms/titleContant.jsx'
 import { loadStay } from '../store/actions/stay.actions'
 import { GaleryRight } from '../cmps/rooms/galertRight.jsx'
+import { GaleryLeft } from '../cmps/rooms/galeryLeft.jsx'
+
 import { Detailes } from '../cmps/rooms/detailes.jsx'
-import { Booking } from '../cmps/rooms/booking.jsx'
 import { Reviwes } from '../cmps/rooms/reviwes.jsx'
 import { Place } from '../cmps/rooms/place.jsx'
 import { HostedLeft } from '../cmps/rooms/hosted-left.jsx'
@@ -59,9 +60,11 @@ export function RoomDetails() {
     }
     return <section className='rooms'>
         <TitleContant room={stay} />
-        <Galery room={stay}/>
+        <Galery room={stay} />
+       
         <Detailes />
-        <Booking />
+        
+        
         <Reviwes />
         <Place />
         <HostedLeft />
