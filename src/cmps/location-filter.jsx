@@ -18,16 +18,17 @@ export function LocationFilter({ handleChange, filterBy }) {
 
 
     const regions = [
-        { txt: 'I\'m flexible', value: 'flexible' },
-        { txt: 'Middle East', value: 'me' },
-        { txt: 'Italy', value: 'italy' },
-        { txt: 'United States', value: 'usa' },
+        { txt: 'I\'m flexible', value: 'flexible'},
+        { txt: 'Middle East', value: 'middle east' },
+        { txt: 'Italy', value: 'italy', },
+        { txt: 'United States', value: 'united states' },
         { txt: 'France', value: 'france' },
-        { txt: 'South America', value: 'sa' }
+        { txt: 'South America', value: 'south america' }
     ]
 
     return (
         <section className="location-filter">
+            <p className='title'>Search by region</p>
             {regions.map((region) => {
                 return <article key={region.value}>
                     <div className="img-container"

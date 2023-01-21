@@ -1,3 +1,4 @@
+
 import { storageService } from './async-storage.service.js'
 const fs = require('fs');
 var stays = require('../data/stay.json')
@@ -27,9 +28,11 @@ async function query(filterBy) {
         fillteredStays = stays
         storageService.save(STORAGE_KEY, stays)
     }
-
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        fillteredStays =  fillteredStays.filter(stay => regex.test(stay.loc.region) || regex.test(stay.loc.country))
+    }
     if (filterBy.type) {
-        // const regex = new RegExp(filterBy.txt, 'i')
         fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
     if (filterBy.maxPrice) {
@@ -43,7 +46,7 @@ async function query(filterBy) {
             return stay.loc.region === filterBy.region
         })
     }
-        return fillteredStays
+    return fillteredStays
 }
 
 function getById(id) {
@@ -85,15 +88,20 @@ function getEmptyStay() {
 
 function getEmptyFilter() {
     return {
+        txt: '',
         type: '',
         region: 'flexible',
         maxPrice: Infinity,
         capacity: {
             adults: 0,
-            children: 0,
+            kids: 0,
             infants: 0,
             pets: 0,
             total: 0
+        },
+        dates: {
+            startDate: '',
+            endDate: ''
         }
     }
 }
