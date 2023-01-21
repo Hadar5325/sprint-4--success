@@ -19,15 +19,20 @@ export function StayPreview({ stay }) {
         ]
         return slides
     }
+    function dots(dots){
+        return dots
+    }
+
     return <article className="stay-preview">
         <div className="image-containter">
             <div className="square">
                 {/* <div className="containter-slides"> */}
                 {/* </div> */}
                 {/* <img src={stay.imgUrls[0]} /> */}
-                <div className="slider-containter">
+                {/* <div className="slider-containter">
                     <ImageSlider slides={allImagesInStay(stay)} />
-                </div>
+                </div> */}
+
                 <div className="flex-containter">
                     <div className="div-wish-list">
                         <button>
@@ -36,15 +41,25 @@ export function StayPreview({ stay }) {
                             </svg>
                         </button>
                     </div>
-                    <div className="div"></div>
-                    <div className="div"></div>
+                    {/* <div className="div">
+                    </div> */}
+
+                    <div className="slider-containter">
+                        <ImageSlider slides={allImagesInStay(stay)}/>
+                    </div>
+
+                    <div className="div-dots">
+                        dotsssss
+                    </div>
                 </div>
             </div>
 
-            {/* <div className="containter-slides">
-                <ImageSlider slides={allImagesInStay(stay)} />
-            </div> */}
             <div className="info-container">
+                <div className="container-star"><span className="star">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true" focusable="false">
+                        <path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" />
+                    </svg>
+                </span><span className="star-record">4.83</span></div>
                 <div className="stay-heading">{stay.name}</div>
                 <div className="stay-distance">747 kilometeres away</div>
                 <div className="stay-valid-dates">Jan 18 - 23</div>

@@ -1,3 +1,4 @@
+
 import { storageService } from './async-storage.service.js'
 const fs = require('fs');
 var stays = require('../data/stay.json')
@@ -27,9 +28,11 @@ async function query(filterBy) {
         fillteredStays = stays
         storageService.save(STORAGE_KEY, stays)
     }
-
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        fillteredStays =  fillteredStays.filter(stay => regex.test(stay.loc.region) || regex.test(stay.loc.country))
+    }
     if (filterBy.type) {
-        // const regex = new RegExp(filterBy.txt, 'i')
         fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
     if (filterBy.maxPrice) {
@@ -43,7 +46,7 @@ async function query(filterBy) {
             return stay.loc.region === filterBy.region
         })
     }
-        return fillteredStays
+    return fillteredStays
 }
 
 function getById(id) {
@@ -59,6 +62,7 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
+    console.log(stay,"from stay service")
     var savedStay
     if (stay._id) {
         savedStay = await storageService.put(STORAGE_KEY, stay)
@@ -76,24 +80,29 @@ function getEmptyStay() {
         name: '',
         type: '',
         imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-        price: 0,
-        summery: '',
-        capacity: 0,
-        amenities: []
+        price: '',
+        summery:'',
+        capacity:0,
+        amenities:[]
     }
 }
 
 function getEmptyFilter() {
     return {
+        txt: '',
         type: '',
         region: 'flexible',
         maxPrice: Infinity,
         capacity: {
             adults: 0,
-            children: 0,
+            kids: 0,
             infants: 0,
             pets: 0,
             total: 0
+        },
+        dates: {
+            startDate: '',
+            endDate: ''
         }
     }
 }
