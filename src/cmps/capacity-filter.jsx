@@ -3,15 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 export function CapacityFilter({ handleChange, filterBy}) {
 
-    // const [adultsCount, setAdultsCount] = useState(0)
-    // const [childrenCount, setChildrenCount] = useState(0)
-    // const [infantsCount, setInfantsCount] = useState(0)
-    // const [petsCount, setPetsCount] = useState(0)
+    
     const [filterByCapacity, SetfilterByCapacity] = useState(filterBy.capacity)
-    // const [IsDisabled, setIsDisabled] = useState(true)
 
     useEffect(() => {
-    //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
         handleChange({name:'capacity', value:filterByCapacity})
     }, [filterByCapacity])
 
