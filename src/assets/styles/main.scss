@@ -17,7 +17,8 @@
 
 // Views
 @import "views/about-us";
-@import "views/home-page";
+// @import "views/home-page";
+@import "./views/home-page";
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
@@ -30,6 +31,9 @@
 @import "cmps/app-footer";
 @import "cmps/user-msg";
 @import "cmps/shopping-cart";
+@import "./cmps/image-slider";
+
+
 @import "./rooms/roomsHeader.scss";
 @import "./rooms/galeryLeft.scss";
 @import "./rooms/galeryRight.scss";

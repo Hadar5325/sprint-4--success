@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Routes, Route } from 'react-router'
-import { Routes, Route, useParams} from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import routes from './routes'
 
 import { AppHeader } from './cmps/app-header'
@@ -11,17 +11,25 @@ import { RoomDetails } from './pages/room-details'
 import { HostDetails } from './pages/host-detailes'
 
 import { Provider } from 'react-redux'
+import { StayEdit } from './pages/stay-edit';
+import { StaysMap } from './pages/stays-map';
 
 export function RootCmp() {
 
-   
+
     return (
         <div >
-            <AppHeader/>
+            <AppHeader />
             <main>
                 <Routes>
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)} */}
                     <Route path='/' element={<HomePage />} />
+                    
+                    <Route path='/stay/edit' element={<StayEdit/>} />
+                    <Route path='/stay/edit/:id' element={<StayEdit />} />
+
+                    <Route path='/stay/map' element={<StaysMap/>} />
+
                     <Route path='/rooms/:id' element={<RoomDetails />} />
                     <Route path='/hosting' element={<HostDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
