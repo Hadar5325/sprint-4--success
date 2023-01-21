@@ -62,6 +62,7 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
+    console.log(stay,"from stay service")
     var savedStay
     if (stay._id) {
         savedStay = await storageService.put(STORAGE_KEY, stay)
@@ -79,10 +80,10 @@ function getEmptyStay() {
         name: '',
         type: '',
         imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-        price: 0,
-        summery: '',
-        capacity: 0,
-        amenities: []
+        price: '',
+        summery:'',
+        capacity:0,
+        amenities:[]
     }
 }
 

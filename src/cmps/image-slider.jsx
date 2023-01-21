@@ -2,38 +2,7 @@ import { useState } from "react"
 
 export function ImageSlider({ slides }) {
     const [currentIdx, setCurrentIdx] = useState(0)
-    const sliderStyle = {
-        height: '100%',
-        position: 'relative'
-    }
-    const slideStyle = {
-        width: '100%',
-        height: '100%',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundImage: `url(${slides[currentIdx].url})`
-    };
 
-    const leftArraw = {
-        position: 'absolute',
-        top: '50%',
-        transform: 'translate(0,-50%)',
-        left: '32px',
-        fontSize: '40px',
-        color: '#fff',
-        zIndex: 1,
-        cursor: 'pointer'
-    }
-    const rightArraw = {
-        position: 'absolute',
-        top: '50%',
-        transform: 'translate(0,-50%)',
-        right: '32px',
-        fontSize: '40px',
-        color: '#fff',
-        zIndex: 1,
-        cursor: 'pointer'
-    }
     const goToPrevious = () => {
         const isFirstSlide = currentIdx === 0
         const newIndex = isFirstSlide ? 0 : currentIdx - 1
@@ -45,27 +14,29 @@ export function ImageSlider({ slides }) {
         const newIndex = isLastSlide ? slides.length - 1 : currentIdx + 1;
         setCurrentIdx(newIndex)
     }
-    const goToSlide= (slideIndex)=>{
+    const goToSlide = (slideIndex) => {
         setCurrentIdx(slideIndex)
     }
-    const dotContainer = {
-        display: 'flex',
-        justifyContent: 'center'
-    }
-    const dot = {
-        margin: '0 3px',
-        cursor: 'pointer',
-        fontSize: '20px'
-    }
+
     return (
-        <div style={sliderStyle}>
-            <div style={leftArraw} onClick={goToPrevious}> &#x3c; </div>
-            <div style={rightArraw} onClick={goToNext}> &#x3e; </div>
-            <div style={slideStyle}></div>
-            <div style={dotContainer}>
-                {slides.map((slide, slideIndex) => {
-                    return <div key={slideIndex} style={dot} onClick={()=>goToSlide(slideIndex)}>&#x25CF;</div>
-                })}
+        <div className="image-slider">
+
+            <div className="arraw leftArraw" onClick={goToPrevious}>
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                    <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+                </svg>
+            </div>
+            <div className="arraw rightArraw" onClick={goToNext}>
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                    <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+                </svg>
+            </div>
+            <div className="slideStyle" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}>
+                <div className="dotContainer">
+                    {slides.map((slide, slideIndex) => {
+                        return <div key={slideIndex} className="dot" onClick={() => goToSlide(slideIndex)}>&#x25CF;</div>
+                    })}
+                </div>
             </div>
         </div>
     )
