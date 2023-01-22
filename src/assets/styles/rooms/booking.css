@@ -1,27 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
 .booking {
   grid-area: detailsRight;
-  font-family: "Circular";
+  
 }
 .booking .bookingBox {
   position: -webkit-sticky;
   position: sticky;
   margin-left: 184px;
-  margin-top: 37px;
+  margin-top: 18px;
   top: 127px;
   height: 460px;
   width: 368px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   padding: 24px;
-  border: 1px solid lightgray;
   border-radius: 10px;
 }
 .booking .boxContantTop {
-  height: 112px;
-  width: 322px;
+  height: 111px;
+  width: 320px;
   border-radius: 5px;
   position: relative;
-  top: 20px;
+  top: 53px;
   right: 1px;
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
@@ -33,14 +32,9 @@
 .booking .topBookingBox {
   display: flex;
   justify-content: space-between;
-  background-color: aquamarine;
-  align-items: flex-end;
 }
 .booking .reviewsBtn {
-  text-decoration: underline;
-  color: rgb(159, 159, 159);
-  font-family: apple-system;
-  font-size: 14px;
+  border-bottom: 1px solid;
 }
 .booking .checkInBtn {
   grid-area: topBtn;
@@ -49,7 +43,7 @@
   position: relative;
   right: 5px;
   bottom: 6px;
-  border: 1px solid rgb(197, 197, 197);
+  border: 1px solid lightgray;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -135,31 +129,4 @@
   top: 100px;
   display: flex;
   justify-content: space-between;
-}
-.booking .extraInfo {
-  height: 100%;
-}
-.booking .price {
-  font-size: 22px;
-  line-height: 26px;
-  right: 1px;
-  width: auto;
-  display: flex;
-  align-items: flex-end;
-}
-.booking .currency {
-  font-size: 25px;
-  right: 1px;
-}
-.booking .night {
-  color: rgb(34, 34, 34);
-  font-size: 16px;
-  font-weight: 100;
-  font-family: apple-system;
-  margin-left: 5px;
-  display: flex;
-  align-items: flex-end;
-}
-.booking .rate {
-  font-size: 14px;
 }/*# sourceMappingURL=booking.css.map */
