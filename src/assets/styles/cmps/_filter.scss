@@ -112,8 +112,8 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 80px;
-            top: 220px;
+            left: 30vw;
+            top: 19vh;
             z-index: 3;
             background-color: $clr1;
             display: grid;
@@ -161,10 +161,11 @@
             width: 406px;
             padding: em(16px) em(32px);
             position: absolute;
-            right: 80px;
+            right:30vw;
             top: 180px;
             z-index: 3;
             border-radius: 2rem;
+            box-shadow: 2px 4px 3px 0px $clr4;
 
            .count-input{
             border-bottom: 1px solid $clr4;
@@ -176,22 +177,35 @@
         //    flex-direction: column;
            }
 
+           .count-input:last-of-type{
+            border-bottom: none;
+           }
+
             .btns-container {
 
                 border-radius: 50%;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
+                gap:10px;
                 align-items: center;
-                width: 100px;
+                width: 104px;
+                font-size: 1rem;
 
                 button {
                     border-radius: 50%;
                     border: 1px solid $clr4;
+                    font-size: 1rem;
+                    text-align: center;
+                    padding: 8px 0;
 
                     &:hover {
                         border: 1px solid $clr14;
                         background-color: inherit;
 
+                    }
+
+                    &:disabled{
+                        cursor: not-allowed;
                     }
                 }
             }
