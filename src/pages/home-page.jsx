@@ -55,7 +55,7 @@ export function HomePage() {
     console.log('stays at homepage:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
-        <div className='stay-app main-layout'>
+        <div className='stay-app main-layout home-page'>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
