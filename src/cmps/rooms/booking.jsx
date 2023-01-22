@@ -152,7 +152,7 @@ export function Booking({ room, guestsNum, guests, setguests }) {
         <div className="bookingBox">
             <div className='topBookingBox'>
                 <span className='price'><span className='currency'>&#x20aa;</span>{room.price}<span className='night'> night</span></span>
-                 
+
                 <div className='rate'>
                     ★{rate}·<span className='reviewsBtn'>15 reviews</span>
                 </div>
@@ -168,19 +168,28 @@ export function Booking({ room, guestsNum, guests, setguests }) {
             <button className="reservBtn">Reserve</button>
             <div className='wontharged'>You won't be charged yet</div>
 
-            <div className='billingCalc'>
-                <div className='calcDetail'>&#x20aa;{room.price} x 7 nights</div>
-                <div className='calc'> &#x20aa;{room.price * 7} </div>
+            <div className='sum'>
+                <div className='billingCalc'>
+                    <div className='calcDetail'>&#x20aa;{room.price} x 7 nights</div>
+                    <div className='calc'> &#x20aa;{room.price * 7} </div>
+                </div>
+
+                <div className='billingCalc'>
+                    <div className='calcDetail'>Cleaning fee</div>
+                    <div className='calc'>&#x20aa;185 </div>
+                </div>
+
+                <div className='billingCalc'>
+                    <div className='calcDetail'>Service fee</div>
+                    <div className='calc'>&#x20aa;537 </div>
+                </div>
+
             </div>
 
-            <div className='billingCalc'>
-                <div className='calcDetail'>Cleaning fee</div>
-                <div className='calc'>$185 </div>
-            </div>
 
-            <div className='billingCalc'>
-                <div className='calcDetail'>Service fee</div>
-                <div className='calc'>$537 </div>
+            <div className='total'>
+                <div className='calcDetail'>Total</div>
+                <div className='calc'>&#x20aa;1,282 </div>
             </div>
 
 

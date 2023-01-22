@@ -160,14 +160,21 @@
         font-weight: 400;
     }
 
+    .sum{
+        position: relative;
+        top: 68px;
+        right: 1px;
+        border-bottom: 1px solid lightgray;
+        height: 82px;
+
+    }
+
     .billingCalc {
         position: relative;
-        top: 70px;
         display: flex;
         justify-content: space-between;
         font-size: 16px;
-        font-family: 'Circular';
-
+        font-family: 'apple-system';
     }
 
     .extraInfo {
@@ -204,5 +211,13 @@
 
     .rate{
         font-size: 14px;
+    }
+
+    .total{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 93px;
+        right: 1px;
     }
 }
