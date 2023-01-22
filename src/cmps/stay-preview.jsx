@@ -1,27 +1,68 @@
+import { useState } from "react"
+
 import { ImageSlider } from "./image-slider"
 import logourl from "./images-dogs/dog2.jfif"
 import dog3 from "./images-dogs/dog3.jfif"
+import asset42 from "../assets/img/asset42.webp"
+import asset43 from "../assets/img/asset43.webp"
+import asset44 from "../assets/img/asset44.webp"
+import asset45 from "../assets/img/asset45.webp"
+import asset46 from "../assets/img/asset46.webp"
+import asset47 from "../assets/img/asset47.webp"
+import asset48 from "../assets/img/asset48.webp"
+import asset49 from "../assets/img/asset49.webp"
+import asset50 from "../assets/img/asset50.webp"
 export function StayPreview({ stay }) {
 
-    function allImagesInStay(stay) {
-        // TODO:FIX!!!!!!!!
-        let imageUrl = stay.imgUrls[0]
-        let slides = [
-            {
-                url: logourl, title: 'view'
-            },
-            {
-                url: imageUrl, title: '2'
-            },
-            {
-                url: dog3, title: '3'
-            },
-        ]
-        return slides
+    const [currentIdx, setCurrentIdx] = useState(0)
+
+    // fix 
+    let imageUrl = stay.imgUrls[0]
+    let slides = [
+        {
+            url: asset42, title: 'view'
+        },
+        {
+            url: asset43, title: '2'
+        },
+        {
+            url: asset44, title: '3'
+        },
+        {
+            url: asset45, title: '3'
+        },
+        {
+            url: asset46, title: '3'
+        },
+        {
+            url: asset47, title: '3'
+        },
+        {
+            url: asset48, title: '3'
+        }, 
+        {
+            url: asset49, title: '3'
+        },
+        {
+            url: asset50, title: '3'
+        },
+    ]
+
+    function goToPrevious() {
+        const isFirstSlide = currentIdx === 0
+        const newIndex = isFirstSlide ? 0 : currentIdx - 1
+        setCurrentIdx(newIndex)
     }
-    function dots(dots){
-        return dots
+
+    function goToNext() {
+        const isLastSlide = currentIdx === slides.length - 1
+        const newIndex = isLastSlide ? slides.length - 1 : currentIdx + 1;
+        setCurrentIdx(newIndex)
     }
+    function goToSlide(slideIndex) {
+        setCurrentIdx(slideIndex)
+    }
+
 
     return <article className="stay-preview">
         <div className="image-containter">
@@ -32,8 +73,9 @@ export function StayPreview({ stay }) {
                 {/* <div className="slider-containter">
                     <ImageSlider slides={allImagesInStay(stay)} />
                 </div> */}
+                {/* <div className="slideStyle" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}> */}
 
-                <div className="flex-containter">
+                <div className="flex-containter" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}>
                     <div className="div-wish-list">
                         <button>
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
@@ -44,12 +86,37 @@ export function StayPreview({ stay }) {
                     {/* <div className="div">
                     </div> */}
 
-                    <div className="slider-containter">
-                        <ImageSlider slides={allImagesInStay(stay)}/>
+                    <div className="div-arraws">
+
+
+                        <div className="arraw leftArraw" onClick={goToPrevious}>
+                            <div className="position-arraw">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                                    <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div className="arraw rightArraw" onClick={goToNext}>
+                            <div className="position-arraw">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+                                    <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+                                </svg>
+                            </div>
+                        </div>
+
                     </div>
 
+
+
                     <div className="div-dots">
-                        dotsssss
+
+                        {/* <div className="slideStyle" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}> */}
+                        <div className="dotContainer">
+                            {slides.map((slide, slideIndex) => {
+                                return <div key={slideIndex} className="dot" onClick={() => goToSlide(slideIndex)}>&#x25CF;</div>
+                            })}
+                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

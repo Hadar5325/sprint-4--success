@@ -21,19 +21,31 @@
             background-size: cover;
         }
 
-        .leftArraw {
-            left: 32px;
-        }
+        // .leftArraw {
+        //     left: 32px;
+        // }
 
-        .rightArraw {
-            right: 32px,
-        }
+        // .rightArraw {
+        //     right: 32px,
+        // }
 
         .arraw {
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-            z-index: 1;
+
+            .button {
+                background-color: aliceblue;
+                z-index: 4;
+            }
+
+            // position: absolute;
+            // top: 50%;
+            // transform: translate(0, -50%);
+
+            height: 32px;
+            width: 32px;
+            background-color: palevioletred;
+            z-index: 4;
+
+            // z-index: 1;
             cursor: pointer;
 
             svg {
@@ -106,16 +118,18 @@
         }
     }
 
-    .slider-containter {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
+    // .slider-containter {
+    //     position: absolute;
+    //     height: 100%;
+    //     width: 100%;
+    // }
 
     .flex-containter {
         position: absolute;
         height: 100%;
         width: 100%;
+        background-position: center;
+        background-size: cover;
 
         // display: flex;
         // padding: 12px 12px 0 12px;
@@ -132,12 +146,74 @@
 
         }
 
-        .slider-containter {
-            height: 100%;
-            width: 100%;
+        .div-arraws {
+
+            display: grid;
+            grid-template-columns: repeat(2, minmax(min-content, auto));
+            grid-column-gap: 16px;
+            align-items: center;
+
+            .leftArraw {
+                left: 32px;
+            }
+
+            .rightArraw {
+                right: 32px;
+                justify-self: right;
+            }
+
+            .arraw {
+                z-index: 1;
+                cursor: pointer;
+
+                .position-arraw {
+                    visibility: hidden;
+                    width: 32px;
+                    height: 32px;
+                    font-size: 16px;
+                    border-radius: 50%;
+                    background-color: #ebe9e7;
+
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    justify-content: center;
+
+                    svg {
+                        display: block;
+                        fill: none;
+                        height: 12px;
+                        width: 12px;
+                        stroke: currentcolor;
+                        stroke-width: 4;
+                        overflow: visible;
+
+                        align-self: center;
+                        visibility: visible;
+                        transition-delay: 0ms;
+                        transition-duration: 200ms;
+                        grid-column: 2;
+                    }
+
+                    svg:hover {
+                        // background-color: aqua;
+                        visibility: visible;
+                        background-color: aqua;
+                        animation-duration: 0.3s;
+                    }
+                    svg::after{
+                        visibility: visible;
+                        background-color: pink;
+                    }
+                    &:hover {
+                        visibility: visible;
+                        // background-color: red;
+                    }
+                }
+            }
         }
 
         .div-dots {
+            grid-row: 3;
 
             display: grid;
             grid-template-columns: repeat(3, minmax(min-content, auto));
@@ -145,6 +221,25 @@
             grid-template-rows: 1fr;
 
             // gap: 16px;
+
+
+            .dotContainer {
+                width: 100%;
+                grid-column: 2;
+                align-items: end;
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .dot {
+                margin: 0 3px;
+                cursor: pointer;
+                font-size: 20px;
+                color: #fff;
+                cursor: pointer;
+                z-index: 1;
+            }
         }
     }
 

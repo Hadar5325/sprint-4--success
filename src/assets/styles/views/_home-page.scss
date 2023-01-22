@@ -1,16 +1,13 @@
 // body{
 //     background-color: aqua;
 // }
-// .home-page{
-//     background-color: rgb(60, 0, 255);
-//     border: 30px solid red;
-//     .map-container {
-//         background-color: aquamarine;
+.home-page{
+    .map-container {
         svg {
             display: block;
             height: 16px;
             width: 16px;
-            fill: rgb(1, 17, 193);
+            fill: rgb(0, 0, 0);
         }
-//     }
-// }
+    }
+}
