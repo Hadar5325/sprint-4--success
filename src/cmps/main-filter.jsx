@@ -34,7 +34,9 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
         setIsFilterShown(false)
     }
 
+    function setGuestsCount() {
 
+    }
 
     function showFilter(type) {
         console.log('type at show filter', type)
@@ -56,6 +58,20 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
                     filterBy={filterBy} />)
         }
     }
+
+    function setGuestsCount() {
+        const { adults, kids, infants, pets, total } = currFilterBy.capacity
+        console.log('currFilterBy:',currFilterBy.capacity)
+        if (!total) return 'Add guests'
+        const adultsNum = adults + kids
+        let txt = adultsNum + ' guests'
+        if (infants) {
+            txt = txt + ', ' + infants + '...'
+        }
+
+        return txt
+    }
+
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
@@ -82,7 +98,7 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
                     <button className='who-btn' onClick={() => showFilter('capacity')}>
                         <div className='btn-txt'>
                             <div className='title'>Who</div>
-                            <div className='desc'>{setGuestsCount}</div>
+                            <div className='desc'>{setGuestsCount()}</div>
                         </div>
                     </button>
                     <form onSubmit={onSaveFilter}>
