@@ -1,0 +1,119 @@
+.detailes {
+  height: 100%;
+  width: 100.3%;
+  height: 3009.19px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: " detailsLeft detailsRight ";
+}
+
+.detailesInfo1 {
+  height: 80px;
+  width: 120%;
+  position: relative;
+  top: 40px;
+  right: 8px;
+}
+
+.detailesInfo2 {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 24px;
+}
+
+.detailesInfo3 {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 24px;
+}
+
+.detailesInfo4 {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.img {
+  height: 100%;
+  width: 5%;
+}
+
+.extraContant {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.detaileConteiner {
+  box-sizing: border-box;
+  width: 120%;
+  height: 224px;
+  position: relative;
+  right: 8px;
+  top: 40px;
+  padding: 24px 0px;
+}
+
+.detailesHr {
+  position: relative;
+  width: 100%;
+  top: 35px;
+}
+
+.infoHr {
+  position: relative;
+  width: 100%;
+  top: 20px;
+}
+
+.contantConteiner {
+  background-color: beige;
+  height: auto;
+}
+
+.airCover {
+  height: auto;
+  width: 120%;
+  position: relative;
+  top: 42px;
+  right: 8px;
+  padding: 32px 0px;
+  background-color: antiquewhite;
+}
+
+.LearnMore {
+  width: 80px;
+  border-bottom: 1px solid;
+}
+
+.aboutThisSpace {
+  height: 312px;
+  width: 120%;
+  position: relative;
+  top: 43px;
+  right: 8px;
+}
+
+.coverDescription {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.LearnMore {
+  position: relative;
+  width: 85px;
+  font-size: 18px;
+}
+
+.coverHr {
+  position: relative;
+  top: 115px;
+}
+
+.coverImg {
+  position: relative;
+  bottom: 10px;
+  height: 30px;
+  width: 120px;
+}/*# sourceMappingURL=detailes.css.map */
