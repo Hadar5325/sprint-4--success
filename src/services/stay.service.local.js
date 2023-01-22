@@ -91,7 +91,7 @@ function getEmptyFilter() {
     return {
         txt: '',
         type: '',
-        region: 'flexible',
+        region: '',
         maxPrice: Infinity,
         capacity: {
             adults: 0,

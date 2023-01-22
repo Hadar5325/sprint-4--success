@@ -112,8 +112,8 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 10vw;
-            top: 35vh;
+            left: 30vw;
+            top: 19vh;
             z-index: 3;
             background-color: $clr1;
             display: grid;
@@ -161,7 +161,7 @@
             width: 406px;
             padding: em(16px) em(32px);
             position: absolute;
-            right: 80px;
+            right:30vw;
             top: 180px;
             z-index: 3;
             border-radius: 2rem;

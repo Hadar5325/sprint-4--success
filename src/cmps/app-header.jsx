@@ -32,8 +32,14 @@ export function AppHeader() {
         setFilterType(type)
     }
 
+    function setLocation() {
+        const { region, txt } = currFilterBy
+        if (!region && !txt)  
+        return 'Enywhere'
+        // return ()
 
-console.log('currFilterBy at header:',currFilterBy)
+    }
+
 
     if (location !== roomDetiles) {
         return (
@@ -55,7 +61,7 @@ console.log('currFilterBy at header:',currFilterBy)
                         </button>
                     </div>
                     <div className={`filter-container flex ${(isFilterShown) ? 'close' : ''}`}>
-                        <button onClick={() => onShowFilter('location')}><div className='btn-txt'>{'Anywhere'}</div></button><span className='line'></span>
+                        <button onClick={() => onShowFilter('location')}><div className='btn-txt'>{setLocation()}</div></button><span className='line'></span>
                         <button onClick={() => onShowFilter('date')}><div className='btn-txt'>Any week</div></button><span className='line'></span>
                         <button className='guests flex align-center' onClick={() => onShowFilter('capacity')}>
                             <div className='btn-txt'>{currFilterBy.capacity.total ? currFilterBy.capacity.total + ' guests' : 'Add guests'}</div>
