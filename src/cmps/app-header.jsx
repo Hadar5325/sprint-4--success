@@ -34,16 +34,16 @@ export function AppHeader() {
 
     function setLocation() {
         const { region, txt } = currFilterBy
-        if (!region && !txt)  
-        return 'Enywhere'
+        if (!region && !txt)
+            return 'Enywhere'
         // return ()
 
     }
 
 
-    if (location !== roomDetiles) {
+    {
         return (
-            <header className="app-header main-layout full">
+            <header className={`app-header full ${location === roomDetiles ? 'main-layout-detailes' : 'main-layout'}`}>
                 <div className='main-content flex'>
                     <div className="logo-container"><img src={logo} alt="" /></div>
                     <div className='header-container flex'>
@@ -84,7 +84,6 @@ export function AppHeader() {
 
             </header>
         )
-    } else {
-        return <h1>I am a room!</h1>
+
     }
 }
