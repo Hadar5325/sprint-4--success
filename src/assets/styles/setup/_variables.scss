@@ -9,11 +9,12 @@ $clr7: #929292;
 $clr8: #7c7c7c;
 $clr9: #717171;
 $clr10: #000000;
-$clr11:#222222;
+$clr11: #222222;
+$clr12: #717171;
+$clr13: #e11860;
 
-$clr11:#222222;
-$clr12:#717171;
-
+$font1: 'Circular';
+$font2: 'apple-system';
 $fontInfoStay: 15px;
 $lineHeight: 19px;
 
@@ -24,11 +25,11 @@ $narrow-breakpoint: 720px;
 $normal-breakpoint: 960px;
 
 // Layout - how many space in the sides
-$layoutPadding: 20px;
+$layoutPadding: 80px;
 
 $break-narrow: 600px;
-$break-normal:960px;
-$break-wide:1200px;
+$break-normal: 960px;
+$break-wide: 1200px;
 
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;
 $padded-break-normal: $break-normal + $layoutPadding * 2;

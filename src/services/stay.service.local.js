@@ -43,7 +43,7 @@ async function query(filterBy) {
     }
     if (filterBy.region && filterBy.region !== 'flexible') {
         fillteredStays = fillteredStays.filter(stay => {
-            return stay.loc.region.toLowerCase() || stay.loc.country.toLowerCase() === filterBy.region
+            return stay.loc.region.toLowerCase() === filterBy.region || (stay.loc.country.toLowerCase()) === filterBy.region
         })
     }
     return fillteredStays
