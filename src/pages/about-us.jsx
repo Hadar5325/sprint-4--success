@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function FancyBox(props) {
     return <div className="fancy-box">
         <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
-        {props.children}
+        {props.kids}
     </div>
 }
 
@@ -99,7 +99,7 @@ export function AboutUs() {
 //     state = { error: null, errorInfo: null };
 
 //     componentDidCatch(error, errorInfo) {
-//         // Catch errors in children and re-render with error message
+//         // Catch errors in kids and re-render with error message
 //         // Note: in development the error is still presented on screen and you need to ESC to see the fallback UI
 //         this.setState({
 //             error,
@@ -123,7 +123,7 @@ export function AboutUs() {
 //                 </div>
 //             );
 //         }
-//         // Normally, just render children
-//         return this.props.children;
+//         // Normally, just render kids
+//         return this.props.kids;
 //     }
 // }

@@ -3,27 +3,22 @@ import React, { useEffect, useState } from 'react'
 
 export function CapacityFilter({ handleChange, filterBy}) {
 
-    // const [adultsCount, setAdultsCount] = useState(0)
-    // const [childrenCount, setChildrenCount] = useState(0)
-    // const [infantsCount, setInfantsCount] = useState(0)
-    // const [petsCount, setPetsCount] = useState(0)
-    const [filterByCapacity, SetfilterByCapacity] = useState(filterBy.capacity)
-    // const [IsDisabled, setIsDisabled] = useState(true)
+ 
+    const [filterByCapacity, setfilterByCapacity] = useState(filterBy.capacity)
 
     useEffect(() => {
-    //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
         handleChange({name:'capacity', value:filterByCapacity})
     }, [filterByCapacity])
 
     function onSetCount(type, diff) {
-        SetfilterByCapacity(prevFilter => {
+        setfilterByCapacity(prevFilter => {
             prevFilter[type] = prevFilter[type] + diff
             prevFilter.total = prevFilter.total + diff
             return ({ ...prevFilter })
         })
     }
 
-    const { pets, adults, infants, children } = filterByCapacity
+    const { pets, adults, infants, kids } = filterByCapacity
     return (
         <section className="capacity-filter-inputs">
             <div><div className='title'>Adults</div><div className='desc'>Ages 13 or above</div>
@@ -31,9 +26,9 @@ export function CapacityFilter({ handleChange, filterBy}) {
                 <div>{adults}</div>
                 <button onClick={() => onSetCount('adults', 1)}>+</button></div>
             <div><div className='title'>Children</div><div className='desc'>Ages 2-12</div>
-                <button disabled={children ? false : true} onClick={() => onSetCount('children', -1)}>-</button>
-                <div>{children}</div>
-                <button onClick={() => onSetCount('children', 1)}>+</button></div>
+                <button disabled={kids ? false : true} onClick={() => onSetCount('kids', -1)}>-</button>
+                <div>{kids}</div>
+                <button onClick={() => onSetCount('kids', 1)}>+</button></div>
             <div><div className='title'>Infants</div><div className='desc'>Under 2</div>
                 <button disabled={infants ? false : true} onClick={() => onSetCount('infants', -1)}>-</button>
                 <div>{infants}</div>

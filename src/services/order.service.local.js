@@ -1,22 +1,20 @@
-
 import { storageService } from './async-storage.service.js'
 const fs = require('fs');
-var stays = require('../data/stay.json')
+var stays = require('../data/order.json')
 
 // import { utilService } from './util.service.js'
 // import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'stay'
+const STORAGE_KEY = 'order'
 
-export const stayService = {
+export const orderService = {
     query,
     getById,
     save,
     remove,
-    getEmptyStay,
-    getEmptyFilter
+    getEmptyorder,
 }
-window.cs = stayService
+window.cs = orderService
 
 
 async function query(filterBy) {
@@ -28,11 +26,9 @@ async function query(filterBy) {
         fillteredStays = stays
         storageService.save(STORAGE_KEY, stays)
     }
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        fillteredStays =  fillteredStays.filter(stay => regex.test(stay.loc.region) || regex.test(stay.loc.country))
-    }
+
     if (filterBy.type) {
+        // const regex = new RegExp(filterBy.txt, 'i')
         fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
     if (filterBy.maxPrice) {
@@ -62,7 +58,6 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
-    console.log(stay,"from stay service")
     var savedStay
     if (stay._id) {
         savedStay = await storageService.put(STORAGE_KEY, stay)
@@ -75,34 +70,18 @@ async function save(stay) {
 }
 
 
-function getEmptyStay() {
+function getEmptyorder() {
     return {
-        name: '',
-        type: '',
-        imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
-        price: '',
-        summery:'',
-        capacity:0,
-        amenities:[]
+        _id: null,
+        hostId: null,
+        buyer: {},
+        totalPrice: null,
+        startDate: null,
+        endDate: null,
+        guests: {},
+        stay: {},
+        msgs: [],
+        status: null 
     }
 }
 
-function getEmptyFilter() {
-    return {
-        txt: '',
-        type: '',
-        region: 'flexible',
-        maxPrice: Infinity,
-        capacity: {
-            adults: 0,
-            kids: 0,
-            infants: 0,
-            pets: 0,
-            total: 0
-        },
-        dates: {
-            startDate: '',
-            endDate: ''
-        }
-    }
-}
