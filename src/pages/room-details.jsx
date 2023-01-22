@@ -42,10 +42,12 @@ export function RoomDetails() {
     
     useEffect(() => {
         loadStay(id)
+
     }, [])
 
     useEffect(() => {
         initOrder()
+        
     }, [])
 
     useEffect(() => {
@@ -57,13 +59,12 @@ export function RoomDetails() {
         try {
             const stay = await stayService.getById(id)
             setStay(stay)
-
+            
         } catch (err) {
             console.log(err)
         }
     }
 
-    
     
     function initOrder() {
         const newOrder = _emptyOrder()
@@ -101,6 +102,8 @@ export function RoomDetails() {
         return order
     }
 
+    
+
 
 
 
@@ -111,11 +114,17 @@ export function RoomDetails() {
     // }
 
     //booking functions
+    // rate()
+    function rate(){
+        
+        console.log(stay['reviews'])
+    }
+    
 
     if (!stay) {
         return <section>loading...</section>
     }
-    console.log(stay)
+    
     return <section className='rooms'>
         <TitleContant room={stay} />
         <Galery room={stay} />

@@ -1,0 +1,72 @@
+.galery {
+  height: 335px;
+  width: 100%;
+  padding: 0px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: " left right ";
+}
+
+.galeryLeft {
+  cursor: pointer;
+  grid-area: left;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.galeryRight {
+  grid-area: right;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: " topLeft topRight " " bottomLeft bottomRight";
+}
+
+.topLeft {
+  cursor: pointer;
+  grid-area: topLeft;
+  background-color: aquamarine;
+  height: 103%;
+  width: 100%;
+  position: relative;
+  left: 3px;
+  bottom: 5px;
+}
+
+.topRight {
+  cursor: pointer;
+  grid-area: topRight;
+  background-color: bisque;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  height: 103%;
+  width: 99%;
+  position: relative;
+  left: 1px;
+  bottom: 5px;
+  border-top-right-radius: 10px;
+}
+
+.bottomLeft {
+  cursor: pointer;
+  grid-area: bottomLeft;
+  background-color: blueviolet;
+  margin-top: 5px;
+  margin-left: 4px;
+  height: 100%;
+  width: 100%;
+}
+
+.bottomRight {
+  cursor: pointer;
+  grid-area: bottomRight;
+  background-color: rgb(161, 128, 86);
+  margin-top: 5px;
+  margin-left: 11px;
+  height: 100%;
+  width: 99%;
+  border-bottom-right-radius: 10px;
+}/*# sourceMappingURL=galery.css.map */

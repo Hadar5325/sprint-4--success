@@ -7,10 +7,22 @@ import { } from '../../'
 export function Booking({ room, guestsNum, guests, setguests }) {
     const [gModal, setgModal] = useState(false)
     // const guestsList = guests
-
     // useEffect(() => {
     //     gustNum()
     // }, [guests])
+
+    const rate = calcRate()
+
+    function calcRate() {
+        let sumRates = 0
+        const numOfreviews = room['reviews'].length
+        room['reviews'].forEach(review => {
+            sumRates += review.rate
+        })
+
+        const rate = sumRates / numOfreviews
+        return Math.floor(rate * 10) / 10;
+    }
 
 
     function handleChange({ name: field, value }) {
@@ -18,7 +30,7 @@ export function Booking({ room, guestsNum, guests, setguests }) {
 
     }
 
-    function addGuest(guest,diff) {
+    function addGuest(guest, diff) {
 
         const maxCapacity = room.capacity
         const numOfGuests = guests.Adults + guests.Kids
@@ -31,7 +43,7 @@ export function Booking({ room, guestsNum, guests, setguests }) {
                 if (guests.Adults === 1 && diff === 1) {
                     guests['Adults'] += diff
                 }
-                
+
             }
             if (guest === 'Kids') {
                 if (guests['Kids'] > 0) {
@@ -120,10 +132,12 @@ export function Booking({ room, guestsNum, guests, setguests }) {
         const cuurNumOfGuests = guests.Adults + guests.Kids
         console.log(cuurNumOfGuests)
         const newGuests = guests
-        setguests({...guests,newGuests})
+        setguests({ ...guests, newGuests })
 
-        
+
     }
+
+
 
 
 
@@ -134,18 +148,40 @@ export function Booking({ room, guestsNum, guests, setguests }) {
 
 
     return <section className="booking">
-        Booking
+
         <div className="bookingBox">
+            <div className='topBookingBox'>
+                <span className='price'><span className='currency'>&#x20aa;</span>{room.price}<span className='night'> night</span></span>
+                 
+                <div className='rate'>
+                    ★{rate}·<span className='reviewsBtn'>15 reviews</span>
+                </div>
+            </div>
+
             <div className="boxContantTop">
                 <button className="checkInBtn bookingBtn" onClick={() => setgModal(true)}></button>
-                <hr></hr>
                 <button className="guests bookingBtn" onClick={() => setgModal(true)}>{guestsNum}</button>
             </div>
-            <div className='wontharged'>You won't be charged yet</div>
 
             {gModal && <CapacityBooking addGuest={addGuest} guests={guests} />}
 
-            <button className="reservBtn">asdd</button>
+            <button className="reservBtn">Reserve</button>
+            <div className='wontharged'>You won't be charged yet</div>
+
+            <div className='billingCalc'>
+                <div className='calcDetail'>&#x20aa;{room.price} x 7 nights</div>
+                <div className='calc'> &#x20aa;{room.price * 7} </div>
+            </div>
+
+            <div className='billingCalc'>
+                <div className='calcDetail'>Cleaning fee</div>
+                <div className='calc'>$185 </div>
+            </div>
+
+            <div className='billingCalc'>
+                <div className='calcDetail'>Service fee</div>
+                <div className='calc'>$537 </div>
+            </div>
 
 
         </div>
