@@ -39,9 +39,6 @@ export function StayDetailes({ room }) {
 
             </div>
 
-
-            <hr className="infoHr"></hr>
-
         </div>
 
 
@@ -51,7 +48,6 @@ export function StayDetailes({ room }) {
             <div className="coverDescription">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
             <div className="LearnMore">Learn more</div>
 
-            <hr className="coverHr"></hr>
         </div>
 
         {/* <div className="aboutThisSpace">
