@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
 
-import { loadStays, addStay, updateStay, removeStay } from '../store/actions/stay.actions'
+import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/actions/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
 export function HomePage() {
-    // const count = useSelector(storeState => storeState.userModule.count)
 
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
-    
+    const isFilterShown = useSelector((state => state.stayModule.setIsFilterShown))
+
+
     useEffect(() => {
-        console.log('filterBy at homePage:',filterBy)
+        console.log('filterBy at homePage:', filterBy)
         loadStays(filterBy)
 
     }, [filterBy])
@@ -51,11 +52,16 @@ export function HomePage() {
         }
     }
 
+    function onHideFilter() {
+        setIsFilterShown(false)
+    }
+
 
     console.log('stays at homepage:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
         <div className='stay-app main-layout home-page'>
+            {/* <div className={`main-screen ${isFilterShown ? 'show' : 'hide'}`} onClick={onHideFilter}></div> */}
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>

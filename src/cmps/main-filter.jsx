@@ -3,20 +3,22 @@ import React, { useEffect, useState } from 'react'
 import { LocationFilter } from './location-filter'
 import { DateFilter } from './date-filter'
 import { CapacityFilter } from './capacity-filter'
+import { LocationList } from './location-list'
 import { uptadeFilter } from '../store/actions/stay.actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 
 
-export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
+export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     const [filterToShow, setFilterToShow] = useState(null)
     const [filterBy, setFilterBy] = useState(currFilterBy)
+    // const [isListOpen, SetisListOpen] = useState(false)
 
     useEffect(() => {
-        console.log('filterBy at useeffect at mainfilter:', filterBy)
+        // console.log('filterBy at useeffect at mainfilter:', filterBy)
         uptadeFilter(filterBy)
     }, [filterBy])
 
@@ -25,7 +27,7 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
     }, [])
 
     function handleChange({ name: field, value }) {
-        console.log('at handle change:', value)
+        // console.log('at handle change:', value)
         setFilterBy({ ...filterBy, [field]: value })
     }
 
@@ -38,8 +40,9 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
 
     }
 
-    function showFilter(type) {
-        console.log('type at show filter', type)
+    function showFilter(type, ev) {
+
+        // console.log('type at show filter', type)
         switch (type) {
 
             case 'date':
@@ -52,6 +55,12 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
                     handleChange={handleChange}
                     filterBy={filterBy} />)
                 break
+            case 'list':
+                ev.stopPropagation()
+                setFilterToShow(<LocationList
+                    handleChange={handleChange}
+                    filterBy={filterBy} />)
+                break
             default:
                 setFilterToShow(<LocationFilter
                     handleChange={handleChange}
@@ -61,7 +70,7 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
 
     function setGuestsCount() {
         const { adults, kids, infants, pets, total } = currFilterBy.capacity
-        console.log('currFilterBy:',currFilterBy.capacity)
+        // console.log('currFilterBy:', currFilterBy.capacity)
         if (!total) return 'Add guests'
         const adultsNum = adults + kids
         let txt = adultsNum + ' guests'
@@ -72,16 +81,20 @@ export function StayFilter({ filterType, isFilterShown, setIsFilterShown }) {
         return txt
     }
 
+    const { region, txt } = currFilterBy
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
-            <div className='filter-container'>
+            <div className='filter-container-big'>
                 <div className='location-inputs'>
                     <button className='loaction-btn' onClick={() => showFilter('location')}>
                         <div className='title'>where</div>
-                        <input type="text" name="txt" value={filterBy.txt}
-                            placeholder={currFilterBy.txt || currFilterBy.region ? currFilterBy.txt || currFilterBy.region : "Search destination"}
-                            onChange={(ev) => handleChange(ev.target)} />
+                        <input type="text" name="txt" value={txt}
+                            placeholder={((!txt && !region) || (region === 'flexible')) ? 'Search destination' : region}
+                            onChange={(ev) => {
+                                showFilter('list', ev)
+                                handleChange(ev.target)
+                            }} />
                     </button>
                 </div><span className='line'></span>
                 <button className='checkIn-btn' onClick={() => showFilter('date')}>
