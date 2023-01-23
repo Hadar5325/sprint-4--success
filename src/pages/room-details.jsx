@@ -26,6 +26,7 @@ export function RoomDetails() {
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})  
     const [guestsNum, setGuestsNum] = useState(1 + 'guest')
+    // const [rate, setRate] = useState(0)  
 
 
     // const stay = useSelector((state) => state.stayModule.stay)
@@ -47,7 +48,6 @@ export function RoomDetails() {
 
     useEffect(() => {
         initOrder()
-        
     }, [])
 
     useEffect(() => {
@@ -114,16 +114,14 @@ export function RoomDetails() {
     // }
 
     //booking functions
-    // rate()
-    function rate(){
-        
-        console.log(stay['reviews'])
-    }
+
     
 
     if (!stay) {
         return <section>loading...</section>
     }
+
+    
     
     return <section className='rooms'>
         <TitleContant room={stay} />
@@ -132,13 +130,13 @@ export function RoomDetails() {
         <Detailes room={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} />
 
 
-        <Reviwes />
-        <Place />
+        <Reviwes room={stay} />
+        {/* <Place />
         <HostedLeft />
         <HostedRight />
         <ToKnow />
+        <SecendFooter /> */}
         <FirstFooter />
-        <SecendFooter />
 
     </section>
 }

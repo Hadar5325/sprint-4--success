@@ -22,7 +22,7 @@ export function AppHeader() {
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
     // const stay = useSelector((state) => state.stayModule.stay)
-    const location = useLocation();
+    const location = useLocation().pathname
     // const stayId = stay._id
     const roomDetiles = `/rooms`
 
@@ -40,10 +40,17 @@ export function AppHeader() {
         return region
     }
 
-
+    // {`app-header full ${location.includes(`/rooms`)} ? 'main-layout-detailes' : 'main-layout'}`}>
+    let divName
+    if(location.match(`/rooms`)){
+        divName = 'app-header-room full rooms'
+    }else{ 
+        divName ='app-header-room full main-layout'
+    }
+    
     {
         return (
-            <header className={`app-header full ${location === roomDetiles ? 'main-layout-detailes' : 'main-layout'}`}>
+            <header className={divName}>
                 <div className='main-content flex'>
                     <div className="logo-container"><img src={logo} alt="" /></div>
                     <div className='header-container flex'>
