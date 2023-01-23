@@ -12,24 +12,26 @@
     transition: 1s;
     opacity: 1;
     height: max-content;
-    
-    
+
+
     .filter-container-big {
         border-radius: 2rem;
         height: max-content;
         display: flex;
+        min-width: 784px;
         max-width: em(851.02px);
         background-color: $clr4;
         margin-top: 20px;
-        
+        justify-content: space-between;
+
         .line {
             align-self: center;
             height: em(28px);
             width: 1px;
             background-color: $clr5;
-        
+
         }
-        
+
         button {
             font-family: $font2;
             // padding: 0;
@@ -37,16 +39,16 @@
             width: 130px;
             border-radius: 2rem;
             text-align: start;
-            
+
             .title {
                 font-weight: bold;
                 line-height: rem(20px);
                 font-size: rem(12px);
                 letter-spacing: em(0.48px);
                 padding-top: em(14px);
-                
+
             }
-            
+
 
             .desc {
                 color: $clr9;
@@ -60,7 +62,7 @@
         }
 
 
-        
+
         .location-inputs {
             button {
                 margin: 0;
@@ -69,34 +71,36 @@
                 height: 100%;
             }
         }
-        
-        
-        
+
+
+
         input {
             font-family: $font2;
             font-size: 1em;
             padding-bottom: em(14px);
             border: none;
             background-color: inherit;
-            
+
             &:focus-visible {
                 outline: none;
             }
         }
-        
+
         .last-input {
             display: flex;
             border-radius: 2rem;
-            
+            // justify-content: space-between;
+
             &:hover {
                 background-color: $clr5 ;
             }
-            
+
             .search-btn {
                 font-weight: bold;
                 color: $clr1;
                 line-height: rem(20px);
                 margin: 9px;
+                // margin-inline-start: 24px;
                 // font-size: ;
                 padding: em(16px);
                 width: em(111px);
@@ -107,11 +111,11 @@
                 justify-self: center;
                 align-self: center;
                 // font-size: ;
-                
+
             }
-            
+
             // form{
-                //     background-color: $clr2;
+            //     background-color: $clr2;
             //     border-radius: 2rem;
             // }
         }
@@ -120,9 +124,9 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 30vw;
-            top: 19vh;
-            z-index: 3;
+            left: 32vw;
+            top: 18vh;
+            z-index: 4;
             background-color: $clr1;
             display: grid;
             grid-template-columns: repeat(3, 120px);
@@ -132,7 +136,7 @@
             padding-bottom: em(80px);
             padding-inline-start: em(60px);
             padding-inline-end: em(40px);
-            box-shadow: 2px 4px 3px 0px $clr4;
+            box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
             border-radius: 2rem;
 
 
@@ -169,11 +173,11 @@
             width: 406px;
             padding: em(16px) em(32px);
             position: absolute;
-            right: 30vw;
-            top: 180px;
-            z-index: 3;
+            right: 32vw;
+            top: 18vh;
+            z-index: 4;
             border-radius: 2rem;
-            box-shadow: 2px 4px 3px 0px $clr4;
+            box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
 
             .count-input {
                 border-bottom: 1px solid $clr4;
@@ -239,5 +243,108 @@
                 }
             }
         }
+
+        .date-filter {
+            // align-items: center;
+            text-align: center;
+            font-family: "Circular";
+            background-color: $clr1;
+            width: max-content;
+            top: 18vh;
+            right: 29vw;
+            // margin-left: 20px;
+            position: absolute;
+            // background-color: aqua;
+            z-index: 4;
+            box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+            border-radius: 2rem;
+            overflow: hidden;
+            padding: em(16px) em(32px);
+            // margin-top: 12px;
+
+            .title {
+                display: inline-block;
+                padding-top: 38px;
+                margin-top: 38px;
+                width: 200px;
+                // margin: 0;
+                text-align: center;
+            }
+
+            .react-datepicker {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                font-family: "Circular";
+
+            }
+
+            .react-datepicker__header {
+                width: 300px;
+                background-color: inherit;
+                border: none;
+
+            }
+
+            .react-datepicker__month-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                line-height: rem(18px);
+                font-size: 1rem;
+                height: 479px;
+                padding: 0 em(27px);
+                outline: none;
+                width: 370px;
+                background-color: inherit;
+            }
+
+
+            .react-datepicker__day {
+
+                // display: grid;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                // margin-right: 0;
+                text-align: center;
+                width: em(44px);
+                min-height: em(44px);
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: inherit;
+                    outline: 1px solid $clr11 ;
+                    color: $clr11
+                }
+
+            }
+
+            .react-datepicker__day--in-selecting-range {
+                background-color: $clr3;
+                color: $clr11;
+                border-radius: none;
+
+            }
+
+            .react-datepicker__day--in-range {
+                border-radius: none;
+            }
+
+            .react-datepicker__day--selected {
+                background-color: $clr11;
+                color: $clr1;
+            }
+
+            .react-datepicker__day-names{
+                // display: fli
+                background-color: aqua;
+                // width: ;
+            }
+        }
+
+
     }
 }

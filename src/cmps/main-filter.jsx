@@ -13,12 +13,12 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
-    const [filterToShow, setFilterToShow] = useState(null)
+    const [currFilterType, setFilterType] = useState(filterType)
     const [filterBy, setFilterBy] = useState(currFilterBy)
     // const [isListOpen, SetisListOpen] = useState(false)
 
     useEffect(() => {
-        // console.log('filterBy at useeffect at mainfilter:', filterBy)
+        console.log('filterBy at useeffect at mainfilter:', filterBy)
         uptadeFilter(filterBy)
     }, [filterBy])
 
@@ -27,7 +27,7 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
     }, [])
 
     function handleChange({ name: field, value }) {
-        // console.log('at handle change:', value)
+        console.log('at handle change:', value)
         setFilterBy({ ...filterBy, [field]: value })
     }
 
@@ -36,41 +36,43 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         setIsFilterShown(false)
     }
 
-    function setGuestsCount() {
+    function makeActive(ev) {
+        const btn = ev.currentTarget
+        console.log('btn:', btn)
 
     }
 
-    function showFilter(type, ev) {
+    function showFilter(type, ev ) {
 
-        // console.log('type at show filter', type)
+        console.log('type at show filter', type)
         switch (type) {
 
             case 'date':
-                setFilterToShow(<DateFilter
+                return <DateFilter
                     handleChange={handleChange}
-                    filterBy={filterBy} />)
-                break
+                    filterBy={filterBy}
+                     />
+
             case 'capacity':
-                setFilterToShow(<CapacityFilter
+                return <CapacityFilter
                     handleChange={handleChange}
-                    filterBy={filterBy} />)
-                break
+                    filterBy={filterBy} />
+
             case 'list':
-                ev.stopPropagation()
-                setFilterToShow(<LocationList
+                if (ev) ev.stopPropagation()
+                return <LocationList
                     handleChange={handleChange}
-                    filterBy={filterBy} />)
-                break
+                    filterBy={filterBy} />
             default:
-                setFilterToShow(<LocationFilter
+                return <LocationFilter
                     handleChange={handleChange}
-                    filterBy={filterBy} />)
+                    filterBy={filterBy} />
         }
     }
 
     function setGuestsCount() {
         const { adults, kids, infants, pets, total } = currFilterBy.capacity
-        // console.log('currFilterBy:', currFilterBy.capacity)
+        console.log('currFilterBy:', currFilterBy.capacity)
         if (!total) return 'Add guests'
         const adultsNum = adults + kids
         let txt = adultsNum + ' guests'
@@ -87,28 +89,37 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
             <div className='filter-container-big'>
                 <div className='location-inputs'>
-                    <button className='loaction-btn' onClick={() => showFilter('location')}>
+                    <button className='loaction-btn' onClick={(ev) => {
+                        setFilterType('location')
+                        makeActive(ev)
+                    }}>
                         <div className='title'>where</div>
                         <input type="text" name="txt" value={txt}
                             placeholder={((!txt && !region) || (region === 'flexible')) ? 'Search destination' : region}
                             onChange={(ev) => {
-                                showFilter('list', ev)
                                 handleChange(ev.target)
+                                showFilter('list', ev)
                             }} />
                     </button>
                 </div><span className='line'></span>
-                <button className='checkIn-btn' onClick={() => showFilter('date')}>
+                <button className='checkIn-btn' onClick={(ev) => {
+                    setFilterType('date')
+                    makeActive(ev)
+                }}>
                     <div className='btn-txt'><div className='title' >Check in</div>
                         <div className='desc'>Add dates</div>
                     </div>
                 </button><span className='line'></span>
-                <button className='checkOut-btn' onClick={() => showFilter('date')}>
+                <button className='checkOut-btn' onClick={(ev) => {
+                    setFilterType('date')
+                    makeActive(ev)
+                }}>
                     <div className='btn-txt'><div className='title'>Check out</div>
                         <div className='desc'>Add dates</div>
                     </div>
                 </button><span className='line'></span>
-                <div className='last-input'>
-                    <button className='who-btn' onClick={() => showFilter('capacity')}>
+                <div className='last-input' onClick={(ev) => makeActive(ev)}>
+                    <button className='who-btn' onClick={() => setFilterType('capacity')}>
                         <div className='btn-txt'>
                             <div className='title'>Who</div>
                             <div className='desc'>{setGuestsCount()}</div>
@@ -129,7 +140,7 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
                         </button>
                     </form>
                 </div>
-                {filterToShow}
+                {showFilter(currFilterType)}
             </div>
         </section>
     )

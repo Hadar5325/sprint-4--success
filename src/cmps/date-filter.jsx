@@ -1,45 +1,43 @@
-// import React, { useEffect, useState } from 'react'
-// import 'react-date-range/dist/styles.css'; // main style file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
-// import { DateRangePicker } from 'react-date-range';
-// import { Component } from 'react';
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
-// export function DateFilter({handleChange, filterBy}){
+import "react-datepicker/dist/react-datepicker.css";
 
-//     const [filterByDates, setfilterByDates] = useState(filterBy.dates)
- 
-//     useEffect(() => {
-//         //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
-//         handleChange({ name: 'date-range', value: filterByDates })
-//     }, [filterByDates])
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+export function DateFilter() {
 
-//     function onSetDate(value) {
-//         console.log('value:', value)
-//         setfilterByDates(value)
-//     }
+    const [startDate, setStartDate] = useState(new Date("2014/02/08"));
+    const [endDate, setEndDate] = useState(new Date("2014/02/10"));
 
-//      class Calender extends Component {
 
-// handleSelect(ranges) {
-//     onSetDate(ranges)
-// }
-// render() {
-//     const selectionRange = {
-//         startDate: new Date(),
-//         endDate: new Date(),
-//         key: 'selection',
-//     }
-//     return (
-//         <DateRangePicker
-//             ranges={[selectionRange]}
-//             onChange={this.handleSelect}
-//         />
-//     )
-// }
 
-//      }
-//     }
-
- 
+    return (
+        <section className='date-filter '>
+            <span className="title">Choose dates</span>
+            <div className="calendar-container flex">
+                <>
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        selectsStart
+                        inline
+                        startDate={startDate}
+                        endDate={endDate}
+                    />
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        selectsEnd
+                        inline
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
+                    />
+                </>
+            </div>
+        </section>
+    )
+}
 
 
