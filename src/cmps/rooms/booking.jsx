@@ -4,25 +4,14 @@ import { CapacityBooking } from './capacityTemp.jsx'
 import { } from '../../'
 
 
-export function Booking({ room, guestsNum, guests, setguests }) {
+export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
     const [gModal, setgModal] = useState(false)
     // const guestsList = guests
     // useEffect(() => {
     //     gustNum()
     // }, [guests])
+    
 
-    const rate = calcRate()
-
-    function calcRate() {
-        let sumRates = 0
-        const numOfreviews = room['reviews'].length
-        room['reviews'].forEach(review => {
-            sumRates += review.rate
-        })
-
-        const rate = sumRates / numOfreviews
-        return Math.floor(rate * 10) / 10;
-    }
 
 
     function handleChange({ name: field, value }) {
@@ -154,7 +143,7 @@ export function Booking({ room, guestsNum, guests, setguests }) {
                 <span className='price'><span className='currency'>&#x20aa;</span>{room.price}<span className='night'> night</span></span>
 
                 <div className='rate'>
-                    ★{rate}·<span className='reviewsBtn'>15 reviews</span>
+                    ★{avgRate}·<span className='reviewsBtn'>15 reviews</span>
                 </div>
             </div>
 

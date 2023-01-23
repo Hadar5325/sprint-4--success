@@ -1,7 +1,5 @@
 .detailes {
-    height: 100%;
     width: 100.3%;
-    height: 3009.19px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
@@ -20,15 +18,13 @@
     right: 8px;
     color: rgb(34, 34, 34);
     font-weight: 10;
-    font-family:  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-
+    border-bottom: 1px solid lightgray;
 }
 
 .detailesInfo2 {
     width: 100%;
     height: 44px;
     margin-bottom: 24px;
-
 }
 
 .detailesInfo3 {
@@ -40,7 +36,6 @@
 .detailesInfo4 {
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid lightgray;
 }
 
 .img {
@@ -55,27 +50,15 @@
 }
 
 .detaileConteiner {
-    box-sizing: border-box;
     width: 120%;
-    height: 224px;
     position: relative;
     right: 8px;
     top: 40px;
-    padding: 24px 0px;
-    // display: flex;
-    // flex-direction: column;
-}
-
-.detailesHr {
-    position: relative;
-    width: 100%;
-    top: 35px;
-}
-
-.infoHr {
-    position: relative;
-    width: 100%;
-    top: 20px;
+    padding: 32px 0px;
+    border-bottom: 1px solid lightgray;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .contantConteiner{
@@ -88,51 +71,113 @@
     height: auto;
     width: 120%;
     position: relative;
-    top:42px;
+    top:40px;
     right: 8px;
     padding: 32px 0px;
     border-bottom: 1px solid lightgray;
+    font-family:  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;;
 }
 
-// .airContant{
-//     
-//     background-color: aquamarine;
-// }
 
-.LearnMore{
-    width: 80px;
-    border-bottom: 1px solid;
-}
 
 .aboutThisSpace{
-    height: 312px;
+    padding-bottom: 48px;
+    padding-top: 32px;
     width: 120%;
     position: relative;
     top:43px;
     right: 8px;
+    border-bottom: 1px solid lightgray;
 }
 
 .coverDescription{
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 16px;
-
 }
 
 .LearnMore{
     position: relative;
-    width: 85px;
+    width: 100px;
+    top: 2px;
     font-size: 18px;
-}
-
-.coverHr{
-    position: relative;
-    top: 115px;
+    text-decoration: underline;
 }
 
 .coverImg{
     position: relative;
-    bottom: 10px;
-    height: 30px;
+    height: 26px;
     width: 120px;
+    left: 2px;
+}
+
+.coverImgDiv{
+    line-height: 20px;
+    font-weight: 400;
+    height: 47px;
+}
+
+.ShowMore{
+    margin-top: 16px;
+    text-decoration: underline;
+}
+
+.sleepHere{
+    padding: 48px 0px;
+    border-bottom: 1px solid lightgray;
+    width: 120%;
+    position: relative;
+    right: 8px;
+    top:43px;
+}
+.sleepHereTilte{
+    margin-bottom: 16px;
+}
+.sleepHereContant{
+    height: 143px;
+    width: 264.703px;
+    padding: 24px;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+}
+
+.bedPic{
+    margin-bottom: 16px;
+    background-color: aqua;
+}
+
+.roomNum{
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.bedKind{
+    font-size: 14px;
+}
+
+.placeOffers{
+    position: relative;
+    right: 8px;
+    top:43px;
+    padding: 48px 0px;
+    border-bottom: 1px solid lightgray;
+    width: 120%;
+}
+
+.offersTitle{
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 24px;
+}
+
+.offers{
+    max-width: 83.33333%;
+    padding-bottom: 16px;
+}
+
+.showAll{
+    margin-top: 24px;
+    border: 1px solid;
+    padding: 13px 23px;
+    border-radius: 8px;
 }
