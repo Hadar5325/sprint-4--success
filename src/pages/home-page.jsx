@@ -13,19 +13,8 @@ import { LoginSignup } from '../cmps/login-signup'
 export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
-    const [user, setUser] = useState(userService.getLoggedinUser())
-    console.log(user)
 
-    function onChangeLoginStatus(user) {
-        setUser(user)
-    }
 
-    function onLogout(){
-        userService.logout()
-        .then(()=>{
-            setUser(userService.getLoggedinUser())
-        })
-    }
 
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
@@ -95,39 +84,10 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
-                {user ? (
-                    <section>
-                        <h2>
-                            hello {user.fullname}
-                        </h2>
-                        <button onClick={onLogout}>
-                            logout
-                        </button>
-                    </section>
-                ) : (
 
-                    <section>
-                        <LoginSignup onChangeLoginStatus={onChangeLoginStatus} />
-                    </section>
-                )}
+                
             </section>
         </div>
     )
 }
 
-
-
-
-
-<section>
-    {/* <img src={logo} alt="Logo" style={{ maxWidth: '300px' }} /> */}
-    <h2>
-        {/* Count {count}
-                <button onClick={() => {
-                    changeCount(1)
-                }}>+</button>
-                <button onClick={() => {
-                    changeCount(10)
-                }}>+10</button> */}
-    </h2 >
-</section >

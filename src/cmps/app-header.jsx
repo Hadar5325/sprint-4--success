@@ -1,19 +1,17 @@
-import { Link, NavLink } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
-import routes from '../routes'
-// import {setIsFilterShown} from '../store/actions/stay.actions'
-// import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+
+import { userService } from '../services/user.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
-import lence from '../assets/img/lence.svg'
 import userDfault from '../assets/img/user-default.svg'
 import logo from '../assets/img/logo.png'
 import i18n from '../assets/img/i18n.svg'
 
-import { Routes, Route, useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { setIsFilterShown } from '../store/actions/stay.actions'
 
 
@@ -21,14 +19,30 @@ export function AppHeader({ }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
-
-    // const stay = useSelector((state) => state.stayModule.stay)
     const location = useLocation().pathname
-    // const stayId = stay._id
+
     const roomDetiles = `/rooms`
 
     const [filterType, setFilterType] = useState('location')
-    const [isModalOpen, SetIsModalOpen] = useState(false)
+    const [isUserModalOpen, SetIsUserModalOpen] = useState(false)
+    const [isLoginModalShown, setIsLoginModalShown] = useState(false)
+    const [user, setUser] = useState(userService.getLoggedinUser())
+
+
+
+    function onChangeLoginStatus(user) {
+        setUser(user)
+    }
+
+    async function onLogout() {
+        try {
+            userService.logout()
+            setUser(userService.getLoggedinUser())
+        } catch (err) {
+            console.log('cannot logout:')
+        }
+    }
+
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -43,7 +57,6 @@ export function AppHeader({ }) {
 
 
 
-    // {`app-header full ${location.includes(`/rooms`)} ? 'main-layout-detailes' : 'main-layout'}`}>
     let divName
     if (location.match(`/rooms`)) {
         divName = 'app-header-room full rooms'
@@ -61,16 +74,17 @@ export function AppHeader({ }) {
 
     function openUserModal() {
         return <section className='user-modal'>
-            <div className='log-in' >Log in</div>
-            <div className='sign-up'>Sign up</div>
-            <div className='host'>B&bAir your home</div>
+            <div className='log-in' onClick={() => setIsLoginModalShown(true)} >Log in</div>
+            <div className='sign-up' onClick={() => setIsLoginModalShown(true)}>Sign up</div>
+            <Link className="host-link" to="/hosting"><div className='host'>B&bAir your home</div></Link>
         </section>
     }
 
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
-    console.log('isModalOpen:', isModalOpen)
+    console.log('isModalOpen:', isUserModalOpen)
     return (
         <header className={divName}>
+            <div className='full-screen'></div>
             <div className='main-content flex'>
                 <div className="logo-container"><img src={logo} alt="" /></div>
                 <div className='header-container flex'>
@@ -82,7 +96,7 @@ export function AppHeader({ }) {
                         <div className='img-container hamburger'>
                             <img src={hamburger} alt="" />
                         </div >
-                        <div className='img-container user' onClick={() => SetIsModalOpen(true)}>
+                        <div className='img-container user' onClick={() => SetIsUserModalOpen(true)}>
                             <img className='user-img' src={userDfault} alt="" />
                         </div>
                     </button>
@@ -113,7 +127,8 @@ export function AppHeader({ }) {
 
             </div>
 
-            {isModalOpen && openUserModal()}
+            {isUserModalOpen && openUserModal()}
+            {isLoginModalShown && <LoginSignup onChangeLoginStatus={onChangeLoginStatus} isLoginModalShown={isLoginModalShown} />}
         </header>
     )
 

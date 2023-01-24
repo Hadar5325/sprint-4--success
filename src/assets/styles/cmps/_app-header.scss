@@ -18,10 +18,12 @@
     right: 3.5vw;
     width: 240px;
     border: 1px solid $clr5 ;
-    z-index: 3;
+    z-index: 4;
     background-color: $clr1;
     padding: em(30px); // background-color: aqua;
     border-radius: 1rem;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+    
 
     &>* {
       padding: em(20px);

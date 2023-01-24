@@ -104,7 +104,7 @@
                 padding: 0 33px;
                 height: 100%;
             }
-            
+
             &.focused {
                 border-radius: 2rem;
                 background-color: $clr1;
@@ -182,7 +182,7 @@
         .location-filter {
             position: absolute;
             left: 23vw;
-            top: 18vh;
+            top: 155px;
             z-index: 4;
             background-color: $clr1;
             display: grid;
@@ -231,7 +231,7 @@
             padding: em(16px) em(32px);
             position: absolute;
             right: 35vw;
-            top: 18vh;
+            top: 155px;
             z-index: 4;
             border-radius: 2rem;
             box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
@@ -308,7 +308,7 @@
 
             background-color: $clr1;
             width: max-content;
-            top: 18vh;
+            top: 155px;
             right: 35vw;
             // margin-left: 20px;
             position: absolute;
