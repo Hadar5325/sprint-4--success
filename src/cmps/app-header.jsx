@@ -45,7 +45,7 @@ export function AppHeader() {
     if(location.match(`/rooms`)){
         divName = 'app-header-room full rooms'
     }else{ 
-        divName ='app-header-room full main-layout'
+        divName ='app-header full main-layout'
     }
     
     {

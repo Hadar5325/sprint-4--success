@@ -5,9 +5,11 @@
 }
 
 .filter-layout.open {
+    padding-bottom: 10px;
     display: flex;
-    grid-column: 1/-1;
+    grid-column: 2;
     grid-row: 2;
+    justify-self: center;
     justify-content: center;
     transition: 1s;
     opacity: 1;
@@ -15,6 +17,7 @@
 
 
     .filter-container-big {
+
         border-radius: 2rem;
         height: max-content;
         display: flex;
@@ -23,6 +26,7 @@
         background-color: $clr4;
         margin-top: 20px;
         justify-content: space-between;
+
 
         .line {
             align-self: center;
@@ -40,6 +44,12 @@
             border-radius: 2rem;
             text-align: start;
 
+            &:focus:not(.last-input button) {
+                background-color: $clr1;
+                outline: none;
+                box-shadow: -1px 2px 12px 0 $clr12;
+            }
+
             .title {
                 font-weight: bold;
                 line-height: rem(20px);
@@ -56,11 +66,22 @@
                 padding-bottom: em(14px);
             }
 
-            &:hover {
+            &:hover:not(:focus) {
                 background-color: $clr5 ;
             }
-        }
 
+            // &::selection {
+            //     border-radius: 2rem;
+            //     background-color: $clr1;
+            //     outline: none;
+            //     box-shadow: -1px 2px 12px 0 $clr12;
+
+            //     &:hover {
+            //         background-color: $clr1;
+            //     }
+
+            // }
+        }
 
 
         .location-inputs {
@@ -70,9 +91,9 @@
                 padding: 0 33px;
                 height: 100%;
             }
+
+
         }
-
-
 
         input {
             font-family: $font2;
@@ -90,6 +111,18 @@
             display: flex;
             border-radius: 2rem;
             // justify-content: space-between;
+
+            &.focused {
+                border-radius: 2rem;
+                background-color: $clr1;
+                outline: none;
+                box-shadow: -1px 2px 12px 0 $clr12;
+
+                &:hover {
+                    background-color: $clr1;
+                }
+
+            }
 
             &:hover {
                 background-color: $clr5 ;
@@ -124,7 +157,7 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 32vw;
+            left: 35vw;
             top: 18vh;
             z-index: 4;
             background-color: $clr1;
@@ -173,7 +206,7 @@
             width: 406px;
             padding: em(16px) em(32px);
             position: absolute;
-            right: 32vw;
+            right: 35vw;
             top: 18vh;
             z-index: 4;
             border-radius: 2rem;
@@ -248,10 +281,11 @@
             // align-items: center;
             text-align: center;
             font-family: "Circular";
+
             background-color: $clr1;
             width: max-content;
             top: 18vh;
-            right: 29vw;
+            right: 35vw;
             // margin-left: 20px;
             position: absolute;
             // background-color: aqua;
@@ -281,7 +315,7 @@
             }
 
             .react-datepicker__header {
-                width: 300px;
+                width: 325px;
                 background-color: inherit;
                 border: none;
 
@@ -304,7 +338,7 @@
 
             .react-datepicker__day {
 
-                // display: grid;
+                display: inline-flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -323,6 +357,7 @@
             }
 
             .react-datepicker__day--in-selecting-range {
+                
                 background-color: $clr3;
                 color: $clr11;
                 border-radius: none;
@@ -330,7 +365,10 @@
             }
 
             .react-datepicker__day--in-range {
-                border-radius: none;
+                color: $clr11;
+                background-color: $clr3 ;
+                // border-radius: 0%;
+                border: none;
             }
 
             .react-datepicker__day--selected {
@@ -338,12 +376,31 @@
                 color: $clr1;
             }
 
-            .react-datepicker__day-names{
-                // display: fli
-                background-color: aqua;
-                // width: ;
+            .react-datepicker__day-names {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                // color: aqua;
+
+            }
+
+            .react-datepicker__day-name {
+                font-size: rem(12px);
+                color: $clr7 ;
+            }
+
+
+            .react-datepicker__current-month {
+                // color: $clr11;
+                margin-bottom: 49px;
+            }
+
+            .react-datepicker__day--keyboard-selected{
+                background-color: $clr11;
+                color: $clr1;
             }
         }
+
 
 
     }

@@ -36,6 +36,10 @@ export async function loadStay(stayId) {
 
 
 export async function loadStays(filterBy) {
+    const queryStringParams =`?txt=${filterBy.txt}&capacity=${filterBy.capacity.total}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
+
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
+    window.history.pushState({ path: newUrl }, '', newUrl)
     try {
         const stays = await stayService.query(filterBy)
         // console.log('Stays from DB:', stays)
@@ -88,6 +92,7 @@ export function updateStay(stay) {
 
 export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
     // console.log('from uptadeFilter:', filterBy)
+
     store.dispatch(({ type: UPDATE_FILTER, filterBy }))
     return filterBy
 }

@@ -103,7 +103,7 @@ function getEmptyFilter() {
             pets: 0,
             total: 0
         },
-        dates: {
+        datesRange: {
             startDate: '',
             endDate: ''
         }

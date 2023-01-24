@@ -5,16 +5,19 @@
   border-bottom: 1px solid $clr4 ;
   font-family: $font1;
   font-size: rem(14px);
-  // position: fixed;
-  min-width: 300px;
   z-index: 5;
+  min-height: 80px;
+  padding: 0 em(16px);
+
+
 
 
 
   .main-content {
     display: grid;
-    grid-template-columns: max-content 1.46fr 350px 1fr max-content;
+    grid-template-columns: 1fr, max-content, 1fr;
     grid-template-rows: 1fr, 1fr;
+
 
 
     // justify-content: space-between;
@@ -27,7 +30,7 @@
   .filter-container {
     opacity: 1;
     box-shadow: 1px 3px 3px 0px $clr4;
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 1;
     justify-content: space-between;
     padding-inline-start: em(7px);
@@ -35,9 +38,13 @@
     color: $clr11;
     border-radius: 2rem;
     outline: 1px solid $clr5;
-    height: 80%;
+    // height: 80%;
     transition: width 2s;
     font-size: 16px;
+    max-width: 350px;
+    justify-self: center;
+
+
 
 
     &:hover {
@@ -107,8 +114,9 @@
   }
 
   .header-container {
-    grid-column: 5;
+    grid-column: 3;
     grid-row: 1/1;
+    justify-self: end;
   }
 
   .header-buttons {
@@ -171,7 +179,7 @@
     width: 30px;
     // margin: em(6px)
   }
-  
+
 
 }
 
