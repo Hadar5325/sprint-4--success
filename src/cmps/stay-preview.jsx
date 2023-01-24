@@ -39,7 +39,7 @@ export function StayPreview({ stay }) {
         },
         {
             url: asset48, title: '3'
-        }, 
+        },
         {
             url: asset49, title: '3'
         },
@@ -112,9 +112,25 @@ export function StayPreview({ stay }) {
 
                         {/* <div className="slideStyle" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}> */}
                         <div className="dotContainer">
-                            {slides.map((slide, slideIndex) => {
+
+                            {/* {slides.map((slide, slideIndex) => {
                                 return <div key={slideIndex} className="dot" onClick={() => goToSlide(slideIndex)}>&#x25CF;</div>
+                            })} */}
+                            {/* <div className="dot">
+                                &#x25CF;
+                            </div> */}
+                            {/* <div className="dot-flex-padding"> */}
+
+                            {slides.map((slide, slideIndex) => {
+                                return <div className="dot" key={slideIndex}>&nbsp;</div>
                             })}
+                            {/* 
+                                <div className="dot dot1">&nbsp;</div>
+                                <div className="dot dot2">&nbsp;</div>
+                                <div className="dot dot3">&nbsp;</div>
+                                <div className="dot dot4">&nbsp;</div>
+                                <div className="dot dot5">&nbsp;</div> */}
+                            {/* </div> */}
                         </div>
                         {/* </div> */}
                     </div>
@@ -133,5 +149,6 @@ export function StayPreview({ stay }) {
                 <div className="stay-price"><span className="currency">&#8362;</span><span>{stay.price}</span> night</div>
             </div >
         </div >
+
     </article>
 }

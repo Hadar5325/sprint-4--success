@@ -1,21 +1,25 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { LocationFilter } from './location-filter'
 import { DateFilter } from './date-filter'
 import { CapacityFilter } from './capacity-filter'
 import { LocationList } from './location-list'
 import { uptadeFilter } from '../store/actions/stay.actions'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 
 
 
-export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt }) {
-
+export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt, setDateTxt }) {
+    // const elBtn = useRef();
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     const [currFilterType, setFilterType] = useState(filterType)
     const [filterBy, setFilterBy] = useState(currFilterBy)
+    const [IsFocused, setIsFocused] = useState(false)
     // const [isListOpen, SetisListOpen] = useState(false)
+
+
 
     useEffect(() => {
         console.log('filterBy at useeffect at mainfilter:', filterBy)
@@ -36,24 +40,26 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         setIsFilterShown(false)
     }
 
-    function makeActive(ev) {
-        const btn = ev.currentTarget
-        console.log('btn:', btn)
+    // function makeActive(ev) {
+    //     const btn = ev.currentTarget
+    //     console.log('btn:', btn)
 
-    }
+    // }
 
-    function showFilter(type, ev ) {
+    function showFilter(type, ev) {
 
         console.log('type at show filter', type)
         switch (type) {
 
             case 'date':
+
                 return <DateFilter
                     handleChange={handleChange}
                     filterBy={filterBy}
-                     />
+                />
 
             case 'capacity':
+
                 return <CapacityFilter
                     handleChange={handleChange}
                     filterBy={filterBy} />
@@ -70,7 +76,7 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         }
     }
 
-    function setGuestsCount() {
+    function setGuestsCountTxt() {
         const { adults, kids, infants, pets, total } = currFilterBy.capacity
         console.log('currFilterBy:', currFilterBy.capacity)
         if (!total) return 'Add guests'
@@ -83,15 +89,25 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         return txt
     }
 
-    const { region, txt } = currFilterBy
+
+    function onFocus(target) {
+        const elements = document.querySelectorAll('*')
+        elements.forEach((element) => element.classList.remove('focused'))
+        target.classList.add('focused')
+    }
+
+
+    const { region, txt, datesRange } = currFilterBy
+    const { timeStampStart, timeStampEnd } = datesRange
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
             <div className='filter-container-big'>
-                <div className='location-inputs'>
+                <div className='location-inputs'  >
+
                     <button className='loaction-btn' onClick={(ev) => {
                         setFilterType('location')
-                        makeActive(ev)
+                        onFocus(ev.currentTarget)
                     }}>
                         <div className='title'>where</div>
                         <input type="text" name="txt" value={txt}
@@ -104,25 +120,25 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
                 </div><span className='line'></span>
                 <button className='checkIn-btn' onClick={(ev) => {
                     setFilterType('date')
-                    makeActive(ev)
+                    onFocus(ev.currentTarget)
                 }}>
                     <div className='btn-txt'><div className='title' >Check in</div>
-                        <div className='desc'>Add dates</div>
+                        <div className='desc'>{timeStampStart ? setDateTxt('in') : 'Add dates'}</div>
                     </div>
                 </button><span className='line'></span>
                 <button className='checkOut-btn' onClick={(ev) => {
                     setFilterType('date')
-                    makeActive(ev)
+                    onFocus(ev.currentTarget)
                 }}>
                     <div className='btn-txt'><div className='title'>Check out</div>
-                        <div className='desc'>Add dates</div>
+                        <div className='desc'>{timeStampEnd ? setDateTxt('out') : 'Add dates'}</div>
                     </div>
                 </button><span className='line'></span>
-                <div className='last-input' onClick={(ev) => makeActive(ev)}>
+                <div className='last-input' onClick={(ev) => onFocus(ev.currentTarget)} >
                     <button className='who-btn' onClick={() => setFilterType('capacity')}>
                         <div className='btn-txt'>
                             <div className='title'>Who</div>
-                            <div className='desc'>{setGuestsCount()}</div>
+                            <div className='desc'>{setGuestsCountTxt()}</div>
                         </div>
                     </button>
                     <form onSubmit={onSaveFilter}>

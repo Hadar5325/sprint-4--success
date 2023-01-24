@@ -13,7 +13,8 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    changeScore,
+    getEmptyCredentials
 }
 
 window.userService = userService
@@ -23,7 +24,6 @@ function getUsers() {
     return storageService.query('user')
     // return httpService.get(`user`)
 }
-
 
 
 async function getById(userId) {
@@ -37,7 +37,7 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
+async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
     user.score = score
     await storageService.put('user', user)
@@ -49,13 +49,21 @@ async function update({_id, score}) {
 }
 
 async function login(userCred) {
-    const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
-    // const user = await httpService.post('auth/login', userCred)
-    if (user) {
-        // socketService.login(user._id)
-        return saveLocalUser(user)
+    try {
+        const users = await storageService.query('user')
+        console.log('users', users)
+        const user = await users.find(user => user.username === userCred.username)
+        // const user = await httpService.post('auth/login', userCred)
+        if (user) {
+            // socketService.login(user._id)
+            return saveLocalUser(user)
+        }else{
+            throw new Error
+        }
+    }catch(err){
+        throw err
     }
+
 }
 async function signup(userCred) {
     userCred.score = 10000
@@ -81,13 +89,13 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || null)
 }
 
 
@@ -97,5 +105,14 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
+
+// export const userService ={
+//     getEmptyCredentials,
+// }
+
+function getEmptyCredentials(fullname = '', username = '', password = 'secret') {
+    return { fullname, username, password }
+
+}
 
 

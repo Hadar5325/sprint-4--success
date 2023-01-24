@@ -1,18 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
-
+import {FilterCarousel} from '../cmps/filter-carousel'
 import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/actions/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
+import { LoginForm } from '../cmps/login-form'
+import { userService } from '../services/user.service'
+import { LoginSignup } from '../cmps/login-signup'
 export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
+
+    const [user, setUser] = useState(userService.getLoggedinUser())
+    console.log(user)
+
+    function onChangeLoginStatus(user) {
+        setUser(user)
+    }
+
+    function onLogout(){
+        userService.logout()
+        .then(()=>{
+            setUser(userService.getLoggedinUser())
+        })
+    }
 
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+
+  
+
 
     useEffect(() => {
         console.log('filterBy at homePage:', filterBy)
@@ -58,6 +78,8 @@ export function HomePage() {
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
+            <FilterCarousel/>
+            <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
@@ -73,6 +95,21 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
+                {user ? (
+                    <section>
+                        <h2>
+                            hello {user.fullname}
+                        </h2>
+                        <button onClick={onLogout}>
+                            logout
+                        </button>
+                    </section>
+                ) : (
+
+                    <section>
+                        <LoginSignup onChangeLoginStatus={onChangeLoginStatus} />
+                    </section>
+                )}
             </section>
         </div>
     )

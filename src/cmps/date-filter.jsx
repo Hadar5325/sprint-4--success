@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-export function DateFilter() {
+export function DateFilter({ handleChange }) {
 
-    const [startDate, setStartDate] = useState(new Date("2014/02/08"));
-    const [endDate, setEndDate] = useState(new Date("2014/02/10"));
+    const [startDate, setStartDate] = useState(Date.now());
+    const [endDate, setEndDate] = useState(Date.now() + (1000 * 60 * 60 * 24));
+
+    useEffect(() => {
+        const timeStampStart = new Date(startDate).getTime();
+        const timeStampEnd = new Date(endDate).getTime();
+        console.log('month from stamp',new Date(startDate).toLocaleString('en', { month: 'short' }))
+       console.log('day from stamp:',new Date(startDate).getDate()) 
+        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd } })
+
+    }, [startDate, endDate])
+
+
 
 
 
@@ -19,20 +30,31 @@ export function DateFilter() {
                 <>
                     <DatePicker
                         selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        selectsStart
+                        onChange={(dates) => {
+                            console.log('dates at onChange:',dates)
+                            const [start, end] = dates;
+                            setStartDate(start)
+                            setEndDate(end)
+                        }}
+                        selectsRange
                         inline
                         startDate={startDate}
                         endDate={endDate}
+                        minDate={new Date()}
                     />
                     <DatePicker
                         selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        selectsEnd
+                        onChange={(dates) => {
+                            const [start, end] = dates;
+                            setStartDate(start)
+                            setEndDate(end)
+                        }}
+                        selectsRange
                         inline
                         startDate={startDate}
                         endDate={endDate}
-                        minDate={startDate}
+                        minDate={new Date()}
+                        // maxDate={addMonths(new Date(), 5)}
                     />
                 </>
             </div>
