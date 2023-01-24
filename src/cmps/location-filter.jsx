@@ -12,7 +12,7 @@ export function LocationFilter({ handleChange, filterBy }) {
     }, [filterByRegion])
 
     function onSetRegion(value) {
-        console.log('value:', value)
+        // console.log('value:', value)
         SetfilterByRegion(value)
     }
 

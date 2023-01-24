@@ -1,7 +1,7 @@
 
 import { stayService } from '../../services/stay.service.local'
 import { store } from "../store.js"
-import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER } from '../reducers/stay.reducer'
+import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN } from '../reducers/stay.reducer'
 
 export function getActionRemoveStay(stayId) {
     return {
@@ -38,7 +38,7 @@ export async function loadStay(stayId) {
 export async function loadStays(filterBy) {
     try {
         const stays = await stayService.query(filterBy)
-        console.log('Stays from DB:', stays)
+        // console.log('Stays from DB:', stays)
         store.dispatch({
             type: SET_STAYS,
             stays
@@ -87,8 +87,13 @@ export function updateStay(stay) {
 }
 
 export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
-    console.log('from uptadeFilter:', filterBy)
+    // console.log('from uptadeFilter:', filterBy)
     store.dispatch(({ type: UPDATE_FILTER, filterBy }))
     return filterBy
 }
 
+
+export function setIsFilterShown(isFilterShown) {
+    store.dispatch(({ type: SET_IS_FILTER_SHOWN, isFilterShown }))
+
+}

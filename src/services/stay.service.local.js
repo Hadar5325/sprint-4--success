@@ -14,7 +14,8 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
-    getEmptyFilter
+    getEmptyFilter,
+
 }
 window.cs = stayService
 
@@ -73,6 +74,8 @@ async function save(stay) {
     }
     return savedStay
 }
+
+
 
 
 function getEmptyStay() {
