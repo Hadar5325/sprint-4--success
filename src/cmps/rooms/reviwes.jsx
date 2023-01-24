@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import {ReviewsMsg} from './reviewsMsg.jsx'
 
 export function Reviwes({ room }) {
 
@@ -9,11 +9,11 @@ export function Reviwes({ room }) {
     useEffect(() => {
         calcRate()
         calcaAvgRate()
-        // numReviews()
+        a()
 
-    },[])
+    }, [])
 
-
+    const reviewsRate = room['statReviews']
     function calcRate() {
         let sumRates = 0
         const numOfreviews = room['reviews'].length
@@ -26,54 +26,79 @@ export function Reviwes({ room }) {
     }
 
     const rates = room['statReviews']
-    
+
     function calcaAvgRate() {
-        const avg =(rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location)/6
+        const avg = (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
         setAvgRate(Math.floor(avg * 10) / 10)
     }
-    
 
-    // function numReviews(){
-    //     if(room.reviews.length >1){
-    //         setNumReviews(room.reviews.length +' reviews')
-    //     }else{
-    //         setNumReviews(room.reviews.length +' review')
-    //     }
-    // }
+
+    function a() {
+        if (room.reviews.length > 1) {
+            setNumReviews(room.reviews.length + ' reviews')
+        } else {
+            setNumReviews(room.reviews.length + ' review')
+        }
+    }
 
     if (room.reviews) {
         return <section className="reviwes">
-            <div className="reviewTitle">★ {avgRate} ·</div>
+            <div className="reviewTitle"> ★ {avgRate} · {numReviews}</div>
             <div className="reviwesRate">
+                <div className='reviwesTable'>
 
-                <div className="cleanliness">
-                    <div className="rateTitle">Cleanliness</div>
-                    <div className="prograsBar"></div>
+                    <div className="cleanliness scaleRate">
+                        <div className="rateTitle">Cleanliness</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.Cleanliness} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.Cleanliness}</div>
+                        </div>
+                    </div>
+
+                    <div className="cleanliness scaleRate">
+                        <div className="rateTitle">Accuracy</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.Accuracy} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.Accuracy}</div>
+                        </div>
+                    </div>
+
+                    <div className="communication scaleRate">
+                        <div className="rateTitle">Communication</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.Communication} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.Communication}</div>
+                        </div>
+                    </div>
+
+                    <div className="location scaleRate">
+                        <div className="rateTitle">Location</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.Location} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.Location}</div>
+                        </div>
+                    </div>
+
+                    <div className="checkIn scaleRate">
+                        <div className="rateTitle">Check-in</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.CheckIn} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.CheckIn}</div>
+                        </div>
+                    </div>
+
+                    <div className="value scaleRate">
+                        <div className="rateTitle">Value</div>
+                        <div className='prograsDiv'>
+                            <progress className='prograsBar' value={reviewsRate.Value} max="5"></progress>
+                            <div className='rateNum'>{reviewsRate.Value}</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="communication">
-                    <div className="rateTitle">Communication</div>
-                    <div className="prograsBar"></div>
-                </div>
+                <ReviewsMsg room={room}/>
 
-                <div className="checkIn">
-                    <div className="rateTitle">CheckIn</div>
-                    <div className="prograsBar"></div>
-                </div>
 
-                <div className="accuracy">
-                    <div className="rateTitle">Accuracy</div>
-                    <div className="prograsBar"></div>
-                </div>
-
-                <div className="location">
-                    <div className="rateTitle">Location</div>
-                    <div className="prograsBar"></div>
-                </div>
-                <div className="value">
-                    <div className="rateTitle">Value</div>
-                    {/* <div className="prograsBar" style={{width:`${present}%`}}>ddds</div> */}
-                </div>
 
             </div>
 

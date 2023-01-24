@@ -1,5 +1,9 @@
 import aircover from '../../assets/img/aircover.jpg'
 import {SleepHere} from './sleepHere.jsx'
+import {PlaceOffers} from './placeOffers.jsx'
+import checkIn from '../../assets/img/Self-check-in.svg'
+import DedicatedWorkspace from '../../assets/img/DedicatedWorkspace.svg'
+import parking from '../../assets/img/parking.svg'
 
 
 export function StayDetailes({ room, avgRate }) {
@@ -13,28 +17,28 @@ export function StayDetailes({ room, avgRate }) {
 
         <div className="detaileConteiner">
 
-            <div className="detailesInfo2 flex">
-                <div className="img">fd</div>
+            <div className="detailesInfo flex">
+                <img className="img" src={checkIn}/>
                 <div className="extraContant">
                     <span>Self check-in</span>
                     <span>Check yourself in with the lockbox</span>
                 </div>
             </div>
 
-            <div className="detailesInfo3 flex">
-                <div className="img">fd</div>
+            <div className="detailesInfo flex">
+                <img className="img" src={DedicatedWorkspace}/>
                 <div className="extraContant">
-                    <span>Self check-in</span>
-                    <span>Check yourself in with the lockbox</span>
+                    <span>Dedicated workspace</span>
+                    <span>A private room with wifi that’s well-suited for working.</span>
                 </div>
 
             </div>
 
-            <div className="detailesInfo4 flex">
-                <div className="img">fd</div>
+            <div className="detailesInfo flex">
+                <img className="img" src={parking}/>
                 <div className="extraContant">
-                    <span>Self check-in</span>
-                    <span>Check yourself in with the lockbox</span>
+                    <span>Free parking on premises</span>
+                    <span></span>
                 </div>
 
             </div>
@@ -55,17 +59,11 @@ export function StayDetailes({ room, avgRate }) {
             <div className='ShowMore'>Show more</div>
         </div>
 
+        <PlaceOffers room={room}/>
+
         <SleepHere room={room} avgRate={avgRate}/>
 
-        <div className='placeOffers'>
-            <div className='offersTitle'>What this place offers</div>
-            <div className='offers'>Public or shared beach access</div>
-            <div className='offers'>Kitchen</div>
-            <div className='offers'>Wifi</div>
-
-            <button className='showAll'>Show all 49 amenities</button>
-
-        </div>
+        
 
     </section>
 }

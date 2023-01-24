@@ -10,9 +10,6 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
     // useEffect(() => {
     //     gustNum()
     // }, [guests])
-    
-
-
 
     function handleChange({ name: field, value }) {
         console.log('at handle change:', field, value)
@@ -23,107 +20,42 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
 
         const maxCapacity = room.capacity
         const numOfGuests = guests.Adults + guests.Kids
+
         if (numOfGuests < maxCapacity) {
+            guests[guest] += diff
 
-            if (guest === 'Adults') {
-                if (guests['Adults'] > 1) {
-                    guests['Adults'] += diff
-                }
-                if (guests.Adults === 1 && diff === 1) {
-                    guests['Adults'] += diff
-                }
-
-            }
-            if (guest === 'Kids') {
-                if (guests['Kids'] > 0) {
-                    guests['Kids'] += diff
-                } else {
-                    if (guests['Kids'] === 0 && diff === 1) {
-                        guests['Kids'] += diff
-                    }
-                }
-            }
-
+            if (guests['Adults'] < 1) guests['Adults'] = 1
+            if (guests['Kids'] < 0) guests['Kids'] = 0
 
         } else {
-            if (diff === -1) {
-
-                if (guest === 'Adults') {
-                    if (guests['Adults'] > 0) {
-                        guests['Adults'] += diff
-                    } else {
-                        if (guests['Adults'] === 0 && diff === 1) {
-                            guests['Adults'] += diff
-                        }
-                    }
-                }
-                if (guest === 'Kids') {
-                    console.log('a')
-                    if (guests['Kids'] > 0) {
-                        guests['Kids'] += diff
-                    } else {
-                        if (guests['Kids'] === 0 && diff === 1) {
-                            guests['Kids'] += diff
-                        }
-                    }
-                }
-
+            if (diff === -1 && guest != 'Infants' && guest != 'Pets') {
+                
+                guests[guest] += diff
+                if (guests['Adults'] < 1) guests['Adults'] = 1
+                if (guests['Kids'] < 0) guests['Kids'] = 0
             }
         }
 
         if (guest === 'Infants') {
-            if (guests['Infants'] < 5) {
+            guests[guest] += diff
 
-                if (guests['Infants'] > 0) {
-                    guests['Infants'] += diff
-                } else {
-                    if (guests['Infants'] === 0 && diff === 1) {
-                        guests['Infants'] += diff
-                    }
-                }
-            } else {
-                if (diff === -1) {
-                    if (guests['Infants'] > 0) {
-                        guests['Infants'] += diff
-                    } else {
-                        if (guests['Infants'] === 0 && diff === 1) {
-                            guests['Infants'] += diff
-                        }
-                    }
-                }
-            }
-
+            if (guests['Infants'] < 0) guests['Infants'] = 0
+            if (guests['Infants'] > 5) guests['Infants'] = 5
         }
         if (guest === 'Pets') {
-            if (guests['Pets'] < 5) {
+            guests[guest] += diff
 
-                if (guests['Pets'] > 0) {
-                    guests['Pets'] += diff
-                } else {
-                    if (guests['Pets'] === 0 && diff === 1) {
-                        guests['Pets'] += diff
-                    }
-                }
-            } else {
-                if (diff === -1) {
-                    if (guests['Pets'] > 0) {
-                        guests['Pets'] += diff
-                    } else {
-                        if (guests['Pets'] === 0 && diff === 1) {
-                            guests['Pets'] += diff
-                        }
-                    }
-                }
-            }
-
+            if (guests['Pets'] < 0) guests['Pets'] = 0
+            if (guests['Pets'] > 5) guests['Pets'] = 5
         }
 
+
+
+
+        
         const cuurNumOfGuests = guests.Adults + guests.Kids
-        console.log(cuurNumOfGuests)
         const newGuests = guests
         setguests({ ...guests, newGuests })
-
-
     }
 
 
@@ -143,7 +75,7 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
                 <span className='price'><span className='currency'>&#x20aa;</span>{room.price}<span className='night'> night</span></span>
 
                 <div className='rate'>
-                    ★{avgRate}·<span className='reviewsBtn'>15 reviews</span>
+                    ★{avgRate}·<span className='reviewsBtn'>{room.reviews.length} reviews</span>
                 </div>
             </div>
 
