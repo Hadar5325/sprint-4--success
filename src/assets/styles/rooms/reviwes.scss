@@ -2,6 +2,9 @@
     position: relative;
     right: 8px;
     top: 43px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
     padding: 48px 0px;
@@ -20,67 +23,142 @@
     .reviewTitle {
         font-size: 22px;
         margin-bottom: 32px;
+        font-weight: 600;
+        line-height: 26px;
+
     }
 
     .reviwesRate {
         margin-bottom: 24px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        font-size: 16px;
+        line-height: 20px;
+    }
 
-        grid-template-areas:
-
-            " cleanliness accuracy "
-            " communication location"
-            " checkIn value";
+    .reviwesTable {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: flex-start;
+        line-height: 20px;
+        margin-bottom: 40px;
     }
 
     .cleanliness {
         grid-area: cleanliness;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
     }
 
     .accuracy {
         grid-area: accuracy;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
     }
 
     .communication {
         grid-area: communication;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
     }
 
     .location {
         grid-area: location;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
     }
 
     .checkIn {
         grid-area: checkIn;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
     }
 
     .value {
         grid-area: value;
-        padding: 0px 8px;
-        margin-right: 82.4062px;
-        height: 36px;
+    }
+
+    .rateTitle {
+        height: 100%;
+    }
+
+    .scaleRate {
+        align-content: center;
+        width: 50%;
+        padding: 1px 8px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .prograsDiv {
+        // height: 55%;
+        width: 36%;
+        margin-right: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .prograsBar {
-        width: 50%;
-        height: 4px;
-        background-color: green;
+        position: relative;
+        width: 124px;
+        height: 10px;
+        color: black;
+    }
+
+    .presents {
+        width: 124px;
+    }
+
+    .rateNum {
+        font-size: 12px;
+        padding-right: 30px;
+    }
+
+    .reviewsMsg {
+        display: flex;
+        flex-wrap: wrap;
+
+        .reviewContant {
+            width: 50%;
+        }
+
+        .reviewTxt{
+            padding-right: 80px;
+            margin-bottom: 40px;
+
+        }
+
+        .reviewTitle {
+            margin-bottom: 16px;
+            display: flex;
+
+            .reviewUserImg {
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                background-color: rgb(231, 229, 229);
+            }
+
+
+            .reviewDetailes {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 5px;
+                height: 40px;
+            }
+
+            .reviewTitleMonth {
+                display: inline;
+                font-size: 14px;
+            }
+
+            .reviewTitleName {
+                box-sizing: border-box;
+                line-height: 20px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+
     }
 
 }
