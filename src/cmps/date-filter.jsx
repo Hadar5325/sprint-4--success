@@ -1,45 +1,65 @@
-// import React, { useEffect, useState } from 'react'
-// import 'react-date-range/dist/styles.css'; // main style file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
-// import { DateRangePicker } from 'react-date-range';
-// import { Component } from 'react';
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
 
-// export function DateFilter({handleChange, filterBy}){
+import "react-datepicker/dist/react-datepicker.css";
 
-//     const [filterByDates, setfilterByDates] = useState(filterBy.dates)
- 
-//     useEffect(() => {
-//         //    console.log('filterByCapacity at capacityfilter udeeffect:',filterByCapacity) 
-//         handleChange({ name: 'date-range', value: filterByDates })
-//     }, [filterByDates])
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+export function DateFilter({ handleChange }) {
 
-//     function onSetDate(value) {
-//         console.log('value:', value)
-//         setfilterByDates(value)
-//     }
+    const [startDate, setStartDate] = useState(Date.now());
+    const [endDate, setEndDate] = useState(Date.now() + (1000 * 60 * 60 * 24));
 
-//      class Calender extends Component {
+    useEffect(() => {
+        const timeStampStart = new Date(startDate).getTime();
+        const timeStampEnd = new Date(endDate).getTime();
+        console.log('month from stamp',new Date(startDate).toLocaleString('en', { month: 'short' }))
+       console.log('day from stamp:',new Date(startDate).getDate()) 
+        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd } })
 
-// handleSelect(ranges) {
-//     onSetDate(ranges)
-// }
-// render() {
-//     const selectionRange = {
-//         startDate: new Date(),
-//         endDate: new Date(),
-//         key: 'selection',
-//     }
-//     return (
-//         <DateRangePicker
-//             ranges={[selectionRange]}
-//             onChange={this.handleSelect}
-//         />
-//     )
-// }
+    }, [startDate, endDate])
 
-//      }
-//     }
 
- 
+
+
+
+    return (
+        <section className='date-filter '>
+            <span className="title">Choose dates</span>
+            <div className="calendar-container flex">
+                <>
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(dates) => {
+                            console.log('dates at onChange:',dates)
+                            const [start, end] = dates;
+                            setStartDate(start)
+                            setEndDate(end)
+                        }}
+                        selectsRange
+                        inline
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={new Date()}
+                    />
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(dates) => {
+                            const [start, end] = dates;
+                            setStartDate(start)
+                            setEndDate(end)
+                        }}
+                        selectsRange
+                        inline
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={new Date()}
+                        // maxDate={addMonths(new Date(), 5)}
+                    />
+                </>
+            </div>
+        </section>
+    )
+}
 
 

@@ -1,5 +1,86 @@
-.reviwes{
-    height: 100%;
-    width: 100;
-    height: 1419px;
+.reviwes {
+    position: relative;
+    right: 8px;
+    top: 43px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding: 48px 0px;
+
+
+    .reviwesEmpty {
+        position: relative;
+        right: 8px;
+        top: 43px;
+        border-bottom: 1px solid lightgray;
+        border-top: 1px solid lightgray;
+        padding: 48px 0px;
+
+    }
+
+    .reviewTitle {
+        font-size: 22px;
+        margin-bottom: 32px;
+    }
+
+    .reviwesRate {
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        grid-template-areas:
+
+            " cleanliness accuracy "
+            " communication location"
+            " checkIn value";
+    }
+
+    .cleanliness {
+        grid-area: cleanliness;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .accuracy {
+        grid-area: accuracy;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .communication {
+        grid-area: communication;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .location {
+        grid-area: location;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .checkIn {
+        grid-area: checkIn;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .value {
+        grid-area: value;
+        padding: 0px 8px;
+        margin-right: 82.4062px;
+        height: 36px;
+    }
+
+    .prograsBar {
+        width: 50%;
+        height: 4px;
+        background-color: green;
+    }
+
 }

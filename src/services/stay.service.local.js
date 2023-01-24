@@ -14,7 +14,8 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
-    getEmptyFilter
+    getEmptyFilter,
+
 }
 window.cs = stayService
 
@@ -75,6 +76,8 @@ async function save(stay) {
 }
 
 
+
+
 function getEmptyStay() {
     return {
         name: '',
@@ -91,7 +94,7 @@ function getEmptyFilter() {
     return {
         txt: '',
         type: '',
-        region: 'flexible',
+        region: '',
         maxPrice: Infinity,
         capacity: {
             adults: 0,
@@ -100,7 +103,7 @@ function getEmptyFilter() {
             pets: 0,
             total: 0
         },
-        dates: {
+        datesRange: {
             startDate: '',
             endDate: ''
         }
