@@ -44,11 +44,11 @@
             border-radius: 2rem;
             text-align: start;
 
-            &:focus:not(.last-input button) {
-                background-color: $clr1;
-                outline: none;
-                box-shadow: -1px 2px 12px 0 $clr12;
-            }
+            // &:focus:not(.last-input button) {
+            //     background-color: $clr1;
+            //     outline: none;
+            //     box-shadow: -1px 2px 12px 0 $clr12;
+            // }
 
             .title {
                 font-weight: bold;
@@ -56,6 +56,19 @@
                 font-size: rem(12px);
                 letter-spacing: em(0.48px);
                 padding-top: em(14px);
+
+            }
+
+            
+            &.focused {
+                border-radius: 2rem;
+                background-color: $clr1;
+                outline: none;
+                box-shadow: -1px 2px 12px 0 $clr12;
+
+                &:hover {
+                    background-color: $clr1;
+                }
 
             }
 
@@ -91,7 +104,18 @@
                 padding: 0 33px;
                 height: 100%;
             }
+            
+            &.focused {
+                border-radius: 2rem;
+                background-color: $clr1;
+                outline: none;
+                box-shadow: -1px 2px 12px 0 $clr12;
 
+                &:hover {
+                    background-color: $clr1;
+                }
+
+            }
 
         }
 
@@ -157,7 +181,7 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 35vw;
+            left: 23vw;
             top: 18vh;
             z-index: 4;
             background-color: $clr1;

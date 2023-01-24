@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
-export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt }) {
+export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt, setDateTxt }) {
     // const elBtn = useRef();
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
@@ -52,14 +52,14 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         switch (type) {
 
             case 'date':
-               
+
                 return <DateFilter
                     handleChange={handleChange}
                     filterBy={filterBy}
                 />
 
             case 'capacity':
-               
+
                 return <CapacityFilter
                     handleChange={handleChange}
                     filterBy={filterBy} />
@@ -89,26 +89,25 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         return txt
     }
 
-    const { region, txt, datesRange } = currFilterBy
-    const { timeStampStart, timeStampEnd } = datesRange
 
-    function setDateTxt(type) {
-        let date = (type === 'in') ? timeStampStart : timeStampEnd
-        console.log('type at setDateTxt:',type)
-        const txt = `${new Date(date).toLocaleString('en', { month: 'short' })} ${new Date(date).getDate()}`
-        console.log('txt at setDateTxt:', txt)
-        return txt
+    function onFocus(target) {
+        const elements = document.querySelectorAll('*')
+        elements.forEach((element) => element.classList.remove('focused'))
+        target.classList.add('focused')
     }
 
+
+    const { region, txt, datesRange } = currFilterBy
+    const { timeStampStart, timeStampEnd } = datesRange
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
             <div className='filter-container-big'>
-                <div className='location-inputs' >
+                <div className='location-inputs'  >
 
                     <button className='loaction-btn' onClick={(ev) => {
                         setFilterType('location')
-                        setIsFocused(false)
+                        onFocus(ev.currentTarget)
                     }}>
                         <div className='title'>where</div>
                         <input type="text" name="txt" value={txt}
@@ -121,7 +120,7 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
                 </div><span className='line'></span>
                 <button className='checkIn-btn' onClick={(ev) => {
                     setFilterType('date')
-                    setIsFocused(false)
+                    onFocus(ev.currentTarget)
                 }}>
                     <div className='btn-txt'><div className='title' >Check in</div>
                         <div className='desc'>{timeStampStart ? setDateTxt('in') : 'Add dates'}</div>
@@ -129,13 +128,13 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
                 </button><span className='line'></span>
                 <button className='checkOut-btn' onClick={(ev) => {
                     setFilterType('date')
-                    setIsFocused(false)
+                    onFocus(ev.currentTarget)
                 }}>
                     <div className='btn-txt'><div className='title'>Check out</div>
                         <div className='desc'>{timeStampEnd ? setDateTxt('out') : 'Add dates'}</div>
                     </div>
                 </button><span className='line'></span>
-                <div className={`last-input ${IsFocused ? 'focused' : ''} `} onClick={() => setIsFocused(true)} >
+                <div className='last-input' onClick={(ev) => onFocus(ev.currentTarget)} >
                     <button className='who-btn' onClick={() => setFilterType('capacity')}>
                         <div className='btn-txt'>
                             <div className='title'>Who</div>

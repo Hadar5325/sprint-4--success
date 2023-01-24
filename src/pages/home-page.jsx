@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
-
+import {FilterCarousel} from '../cmps/filter-carousel'
 import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/actions/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -13,6 +13,9 @@ export function HomePage() {
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+
+  
+
 
     useEffect(() => {
         console.log('filterBy at homePage:', filterBy)
@@ -58,6 +61,8 @@ export function HomePage() {
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
+            <FilterCarousel/>
+            <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
