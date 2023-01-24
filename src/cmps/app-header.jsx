@@ -76,7 +76,7 @@ export function AppHeader({ }) {
         return <section className='user-modal'>
             <div className='log-in' onClick={() => setIsLoginModalShown(true)} >Log in</div>
             <div className='sign-up' onClick={() => setIsLoginModalShown(true)}>Sign up</div>
-            <Link className="host-link" to="/hosting"><div className='host'>B&bAir your home</div></Link>
+            <Link className="host-link" to="/hosting">b&bAir your home</Link>
         </section>
     }
 
@@ -128,7 +128,7 @@ export function AppHeader({ }) {
             </div>
 
             {isUserModalOpen && openUserModal()}
-            {isLoginModalShown && <LoginSignup onChangeLoginStatus={onChangeLoginStatus} isLoginModalShown={isLoginModalShown} />}
+            <LoginSignup onChangeLoginStatus={onChangeLoginStatus} isLoginModalShown={isLoginModalShown} />
         </header>
     )
 

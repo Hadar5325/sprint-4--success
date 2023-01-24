@@ -122,7 +122,7 @@ import { userService } from '../services/user.service';
 import { signup } from '../store/user.actions';
 import { LoginForm } from "./login-form";
 
-export function LoginSignup({ onChangeLoginStatus }) {
+export function LoginSignup({ onChangeLoginStatus, isLoginModalShown }) {
     const [isSignup, setIsSignUp] = useState(false)
 
 
@@ -145,7 +145,8 @@ export function LoginSignup({ onChangeLoginStatus }) {
     }
 
     return (
-        <div>
+        
+        <div className={`'login-modal' ${isLoginModalShown ? 'show' : 'hide'}`}>
             <LoginForm
                 onLogin={onLogin}
                 isSignup={isSignup}

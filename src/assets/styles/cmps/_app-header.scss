@@ -11,11 +11,12 @@
 
 
   .user-modal {
+    display: grid;
     font-size: 'Circular';
     color: $clr8;
     position: absolute;
-    top: 9vh;
-    right: 3.5vw;
+    top: 80px;
+    right: 94px;
     width: 240px;
     border: 1px solid $clr5 ;
     z-index: 4;
@@ -23,10 +24,15 @@
     padding: em(30px); // background-color: aqua;
     border-radius: 1rem;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+  
     
 
     &>* {
       padding: em(20px);
+      &:hover  {
+        background-color: $clr3;
+        cursor: pointer;
+      }
 
   }
 
@@ -38,8 +44,10 @@
       border-bottom: 1px solid $clr5;
     }
 
+    .host-link{
+      color:inherit;
   }
-
+  }
 
   .main-content {
     display: grid;
@@ -158,6 +166,7 @@
       padding: em(12px);
       border-radius: 2rem;
       transition: 0.25s;
+      color:inherit;
 
       &:hover {
         background-color: $clr3;
@@ -205,6 +214,7 @@
 
   .user {
     width: 30px;
+    display: flex;
     // margin: em(6px)
   }
 
