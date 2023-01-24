@@ -11,9 +11,6 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
     //     gustNum()
     // }, [guests])
 
-
-
-
     function handleChange({ name: field, value }) {
         console.log('at handle change:', field, value)
 
@@ -29,16 +26,6 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
 
             if (guests['Adults'] < 1) guests['Adults'] = 1
             if (guests['Kids'] < 0) guests['Kids'] = 0
-
-            // if (guest === 'Infants') {
-            //     if (guests['Infants'] < 0) guests['Infants'] = 0
-            //     if (guests['Infants'] > 5) guests['Infants'] = 5
-            // }
-            // if (guest === 'Pets') {
-
-            //     if (guests['Pets'] < 0) guests['Pets'] = 0
-            //     if (guests['Pets'] > 5) guests['Pets'] = 5
-            // }
 
         } else {
             if (diff === -1 && guest != 'Infants' && guest != 'Pets') {
@@ -65,51 +52,7 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
 
 
 
-        // if (guests['Infants'] < 5) {
-
-        //     if (guests['Infants'] > 0) {
-        //         guests['Infants'] += diff
-        //     } else {
-        //         if (guests['Infants'] === 0 && diff === 1) {
-        //             guests['Infants'] += diff
-        //         }
-        //     }
-        // } else {
-        //     if (diff === -1) {
-        //         if (guests['Infants'] > 0) {
-        //             guests['Infants'] += diff
-        //         } else {
-        //             if (guests['Infants'] === 0 && diff === 1) {
-        //                 guests['Infants'] += diff
-        //             }
-        //         }
-        //     }
-        // }
-
-        // if (guest === 'Pets') {
-        //     if (guests['Pets'] < 5) {
-
-        //         if (guests['Pets'] > 0) {
-        //             guests['Pets'] += diff
-        //         } else {
-        //             if (guests['Pets'] === 0 && diff === 1) {
-        //                 guests['Pets'] += diff
-        //             }
-        //         }
-        //     } else {
-        //         if (diff === -1) {
-        //             if (guests['Pets'] > 0) {
-        //                 guests['Pets'] += diff
-        //             } else {
-        //                 if (guests['Pets'] === 0 && diff === 1) {
-        //                     guests['Pets'] += diff
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        // }
-
+        
         const cuurNumOfGuests = guests.Adults + guests.Kids
         const newGuests = guests
         setguests({ ...guests, newGuests })
@@ -132,7 +75,7 @@ export function Booking({ room, guestsNum, guests, setguests, avgRate }) {
                 <span className='price'><span className='currency'>&#x20aa;</span>{room.price}<span className='night'> night</span></span>
 
                 <div className='rate'>
-                    ★{avgRate}·<span className='reviewsBtn'>15 reviews</span>
+                    ★{avgRate}·<span className='reviewsBtn'>{room.reviews.length} reviews</span>
                 </div>
             </div>
 
