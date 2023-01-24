@@ -7,14 +7,31 @@ import { loadStays, addStay, updateStay, removeStay } from '../store/actions/sta
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
+import { LoginForm } from '../cmps/login-form'
+import { userService } from '../services/user.service'
+import { LoginSignup } from '../cmps/login-signup'
 export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
+    const [user, setUser] = useState(userService.getLoggedinUser())
+    console.log(user)
+
+    function onChangeLoginStatus(user) {
+        setUser(user)
+    }
+
+    function onLogout(){
+        userService.logout()
+        .then(()=>{
+            setUser(userService.getLoggedinUser())
+        })
+    }
+
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
-    
+
     useEffect(() => {
-        console.log('filterBy at homePage:',filterBy)
+        console.log('filterBy at homePage:', filterBy)
         loadStays(filterBy)
 
     }, [filterBy])
@@ -71,6 +88,21 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
+                {user ? (
+                    <section>
+                        <h2>
+                            hello {user.fullname}
+                        </h2>
+                        <button onClick={onLogout}>
+                            logout
+                        </button>
+                    </section>
+                ) : (
+
+                    <section>
+                        <LoginSignup onChangeLoginStatus={onChangeLoginStatus} />
+                    </section>
+                )}
             </section>
         </div>
     )
