@@ -9,7 +9,7 @@ import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
 import { userService } from '../services/user.service'
 import { LoginSignup } from '../cmps/login-signup'
-export function HomePage() {
+export function StayIndex() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
 
@@ -23,7 +23,7 @@ export function HomePage() {
 
 
     useEffect(() => {
-        console.log('filterBy at homePage:', filterBy)
+        console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
 
     }, [filterBy])
@@ -61,7 +61,7 @@ export function HomePage() {
     }
 
 
-    console.log('stays at homepage:', stays)
+    console.log('stays at StayIndex:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
         <div className='stay-app main-layout home-page'>

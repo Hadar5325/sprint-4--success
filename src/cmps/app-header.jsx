@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
 
 import { userService } from '../services/user.service'
-import { login, logout, signup } from '../store/user.actions.js'
+import {logout} from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
@@ -59,7 +59,7 @@ export function AppHeader({ }) {
         console.log('loggedinUser at openUserModal:',loggedinUser)
         if (loggedinUser) return <section className='user-modal'>
             <div className='log-out' onClick={() => {
-                onLogout()
+                logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
             {/* <Link className="host-link" to="/hosting"
@@ -84,15 +84,6 @@ export function AppHeader({ }) {
         const elements = document.querySelectorAll('*')
         elements.forEach((element) => element.classList.remove('focused'))
         target.classList.add('focused')
-    }
-
-    async function onLogout() {
-        try {
-            userService.logout()
-            setUser(userService.getLoggedinUser())
-        } catch (err) {
-            console.log('cannot logout:')
-        }
     }
 
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange

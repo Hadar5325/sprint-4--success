@@ -3,7 +3,7 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import { AppHeader } from './cmps/app-header'
 
 import { UserDetails } from './pages/user-details'
-import { HomePage } from './pages/home-page'
+import { StayIndex } from './pages/stay-index'
 import { StayDetails } from './pages/stay-details'
 import { HostDetails } from './pages/host-detailes'
 
@@ -19,7 +19,7 @@ export function RootCmp() {
             <AppHeader />
             <main>
                 <Routes>
-                    <Route path='/' element={<HomePage />} />
+                    <Route path='/' element={<StayIndex/>} />
 
                     <Route path='/stay/edit' element={<StayEdit />} />
                     <Route path='/stay/edit/:id' element={<StayEdit />} />
