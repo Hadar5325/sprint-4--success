@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
 import { FilterCarousel } from '../cmps/filter-carousel'
 import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/stay.actions'
-
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { useSearchParams } from 'react-router-dom';
 
 import { Link } from "react-router-dom"
 
@@ -14,12 +14,15 @@ export function StayIndex() {
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
 
+
     useEffect(() => {
         console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
-
     }, [filterBy])
 
+    const [searchParams] = useSearchParams();
+    console.log(searchParams.get('capacity'))
+    
     async function onRemoveStay(stayId) {
         try {
             await removeStay(stayId)

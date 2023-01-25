@@ -1,24 +1,29 @@
 import { StayPreview } from "./stay-preview";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import data from '../data/stay.json';
 
 import React from 'react';
-import { useState} from "react"
-
+import { useState } from "react"
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom';
 
 export function StayList({ stays, onRemoveStay }) {
 
+    
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <Link to={`stays/${stay._id}`}>
-                    <StayPreview stay={stay}/>
+                <Link to={`stays/${searchParams.get('capacity')}?`}>
+                    <StayPreview stay={stay} />
                 </Link>
+                <Link to={`stays/`}></Link>
 
                 {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
+
     </ul>
 }
 

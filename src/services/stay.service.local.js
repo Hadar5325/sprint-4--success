@@ -104,7 +104,7 @@ function getEmptyFilter() {
         region: '',
         maxPrice: Infinity,
         capacity: {
-            adults: 0,
+            adults: 1,
             kids: 0,
             infants: 0,
             pets: 0,

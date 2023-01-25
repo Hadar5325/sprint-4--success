@@ -23,7 +23,10 @@ export function StayDetails() {
 
 
 
-    let { id } = useParams()
+    let id = useParams()
+    let {aviv} =  useParams()
+    console.log('params',aviv)
+
 
     const [capacityModal, setCapacityModal] = useState(false)
     const [dateModal,setDateModal] = useState(false)
@@ -135,6 +138,9 @@ export function StayDetails() {
         if(!notOpenCapacity.includes(event.target.className, 0)) setCapacityModal(false)
         if(!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`)) setDateModal(false)
       }
+
+
+
 
     return <section className='stays' onClick={handleClick} >
 
