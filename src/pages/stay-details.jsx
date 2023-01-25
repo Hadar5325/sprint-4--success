@@ -17,16 +17,25 @@ import { ToKnow } from '../cmps/stays/toKnow.jsx'
 import { FirstFooter } from '../cmps/stays/firstFooter.jsx'
 import { SecendFooter } from '../cmps/stays/secendFooter.jsx'
 import { Galery } from '../cmps/stays/galery.jsx'
+import { useSearchParams } from 'react-router-dom'
 
 
 export function StayDetails() {
 
+    const [searchParams] = useSearchParams();
 
 
     let { id } = useParams()
 
+
+    let params = new URLSearchParams(window.location.search)
+    let entries = params.entries()
+    console.log(entries)
+    console.log(Object.fromEntries(entries))
+
+
     const [capacityModal, setCapacityModal] = useState(false)
-    const [dateModal,setDateModal] = useState(false)
+    const [dateModal, setDateModal] = useState(false)
     const [stay, setStay] = useState(null)
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})
@@ -130,11 +139,14 @@ export function StayDetails() {
         const txt = 'eact-datepicker__day react-datepicker__day--react-datepicker__day--disabled'
         const target = event.target.className
 
-        const notOpenCapacity =['title','guestsModal','guests bookingBtn','capacityLabel','chosingGuestsBtn','capacityLabel first','chosingGuests','<empty string>']
-        
-        if(!notOpenCapacity.includes(event.target.className, 0)) setCapacityModal(false)
-        if(!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`)) setDateModal(false)
-      }
+        const notOpenCapacity = ['title', 'guestsModal', 'guests bookingBtn', 'capacityLabel', 'chosingGuestsBtn', 'capacityLabel first', 'chosingGuests', '<empty string>']
+
+        if (!notOpenCapacity.includes(event.target.className, 0)) setCapacityModal(false)
+        if (!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`)) setDateModal(false)
+    }
+
+
+
 
     return <section className='stays' onClick={handleClick} >
 
@@ -142,7 +154,7 @@ export function StayDetails() {
         <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
         <Galery stay={stay} setCapacityModal={setCapacityModal} />
 
-        <Detailes stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal = {dateModal} />
+        <Detailes stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
 
 
         <Reviwes stay={stay} setCapacityModal={setCapacityModal} />

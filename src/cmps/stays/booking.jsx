@@ -58,7 +58,7 @@ export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapaci
 
     function calcPrice() {
         const totalNightsPrice = stay.price * 6
-        const servicefee = 0.1 * stay.price * 6
+        const servicefee = Math.floor((0.1 * stay.price * 6) * 10) / 10
         setPrice({ totalNightsPrice, servicefee, total: totalNightsPrice + servicefee })
     }
     console.log(capacityModal)

@@ -1,5 +1,5 @@
 import { StayPreview } from "./stay-preview";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import data from '../data/stay.json';
 
 
@@ -21,6 +21,7 @@ export function StayList({ stays, onRemoveStay, userwishList }) {
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
+
     </ul>
 }
 

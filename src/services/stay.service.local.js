@@ -15,7 +15,7 @@ export const stayService = {
     remove,
     getEmptyStay,
     getEmptyFilter,
-
+    getParams
 }
 window.cs = stayService
 
@@ -47,13 +47,14 @@ async function query(filterBy) {
             return stay.loc.region.toLowerCase() === filterBy.region || (stay.loc.country.toLowerCase()) === filterBy.region
         })
     }
-    // if (filterBy.datesRange.startDate) {
-    //     fillteredStays = fillteredStays.filter((stay => {
-    //         return stay.orders.map((order) => {
-    //             order.startDate
-    //         }
-    //     }))
-    // }
+    if (filterBy.datesRange.startDateStamp) {
+        const { startDateStamp, endDateStamp } = filterBy.datesRange
+        fillteredStays = fillteredStays.map((stay => {
+            return stay.orders.filter((order) => {
+                return endDateStamp <= order.startDate && startDateStamp >= order.endDate
+            })
+        }))
+    }
     return fillteredStays
 }
 
@@ -104,7 +105,7 @@ function getEmptyFilter() {
         region: '',
         maxPrice: Infinity,
         capacity: {
-            adults: 0,
+            adults: 1,
             kids: 0,
             infants: 0,
             pets: 0,
@@ -115,4 +116,9 @@ function getEmptyFilter() {
             endDate: ''
         }
     }
+}
+
+function getParams(filterBy) {
+    const params = `?txt=${filterBy.txt}&capacity=${filterBy.capacity.total}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
+    return params
 }

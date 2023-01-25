@@ -19,10 +19,6 @@ export function DateFilter({ handleChange }) {
 
     }, [startDate, endDate])
 
-
-
-
-
     return (
         <section className='date-filter '>
             <span className="title">Choose dates</span>
@@ -34,7 +30,7 @@ export function DateFilter({ handleChange }) {
                             console.log('dates at onChange:', dates)
                             const [start, end] = dates;
                             setStartDate(start)
-                            setEndDate(end)
+                            // setEndDate(end)
                         }}
                         selectsRange
                         inline
@@ -44,16 +40,16 @@ export function DateFilter({ handleChange }) {
                     />
                     <DatePicker
                         selected={endDate}
-                        onChange={(dates) => {
-                            const [start, end] = dates;
-                            setStartDate(start)
-                            setEndDate(end)
+                        onChange={(date) => {
+                            // const [start, end] = dates;
+                            // setStartDate(start)
+                            setEndDate(date)
                         }}
-                        selectsRange
+                        // selectsRange
                         inline
                         startDate={startDate}
                         endDate={endDate}
-                        minDate={new Date()}
+                        minDate={startDate}
                     // maxDate={addMonths(new Date(), 5)}
                     />
                 </>
