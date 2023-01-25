@@ -6,9 +6,9 @@ import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '..
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { useSearchParams } from 'react-router-dom';
 
-import { Link, useParams } from "react-router-dom"
-import { useSearchParams } from 'react-router-dom';
-import { loadUser } from '../store/user.actions'
+import { Link } from "react-router-dom"
+// import { useSearchParams } from 'react-router-dom';
+// import { loadUser } from '../store/user.actions'
 
 export function StayIndex() {
 

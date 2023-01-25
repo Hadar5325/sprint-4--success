@@ -5,19 +5,21 @@ import data from '../data/stay.json';
 
 import React from 'react';
 import { useState } from "react"
+import { stayService } from '../services/stay.service.local'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export function StayList({ stays, onRemoveStay, userwishList }) {
+    const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <Link to={`stays/${stay._id}`}>
-                </Link>
+                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}> </Link>
 
-                <StayPreview stay={stay} userwishList={userwishList} />
+                    <StayPreview stay={stay} userwishList={userwishList} />
 
-                {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
+                    {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
