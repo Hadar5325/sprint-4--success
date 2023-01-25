@@ -106,7 +106,7 @@
       "lat": -156.6917,
       "lan": 20.93792
     },
-    "statReviews" : {
+    "statReviews": {
       "Cleanliness": 4.7,
       "Communication": 4.8,
       "CheckIn": 5,
@@ -206,6 +206,23 @@
         "txt": "We love Westin Kaanapalli"
       }
     ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 2775819926000,
+        "endDate": 2875839934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1786809926000,
+        "endDate": 1877869956000
+      },
+      {
+        "id": 1239,
+        "startDate": 1676920026000,
+        "endDate": 1678930026000
+      }
+    ],
     "likedByUsers": []
   },
   {
@@ -250,6 +267,23 @@
           "imgUrl": "/img/img2.jpg"
         }
       }
+    ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 2675819926000,
+        "endDate": 2675839934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1785809926000,
+        "endDate": 1875869956000
+      },
+      {
+        "id": 1239,
+        "startDate": 1676820026000,
+        "endDate": 1677930026000
+      }
     ]
   },
   {
@@ -293,6 +327,23 @@
           "fullname": "user2",
           "imgUrl": "/img/img2.jpg"
         }
+      }
+    ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 2674819926000,
+        "endDate": 2674839934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1775809926000,
+        "endDate": 1875869956000
+      },
+      {
+        "id": 1239,
+        "startDate": 1675820026000,
+        "endDate": 1674930026000
       }
     ]
   },
@@ -350,6 +401,23 @@
           "imgUrl": "/img/img2.jpg"
         }
       }
+    ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 2674809926000,
+        "endDate": 2674809934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1775809926000,
+        "endDate": 1875869926000
+      },
+      {
+        "id": 1239,
+        "startDate": 1675819926000,
+        "endDate": 1674919926000
+      }
     ]
   },
   {
@@ -393,6 +461,23 @@
           "fullname": "user2",
           "imgUrl": "/img/img2.jpg"
         }
+      }
+    ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 1674819926000,
+        "endDate": 1674839934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1676809926000,
+        "endDate": 1677869926000
+      },
+      {
+        "id": 1239,
+        "startDate": 1774819926000,
+        "endDate": 1874909926000
       }
     ]
   },
@@ -438,6 +523,23 @@
           "fullname": "user2",
           "imgUrl": "/img/img2.jpg"
         }
+      }
+    ],
+    "orders": [
+      {
+        "id": 1234,
+        "startDate": 1674809926000,
+        "endDate": 1674809934567
+      },
+      {
+        "id": 1235,
+        "startDate": 1675809926000,
+        "endDate": 1675869926000
+      },
+      {
+        "id": 1239,
+        "startDate": 1674819926000,
+        "endDate": 1674909926000
       }
     ]
   }
