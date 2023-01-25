@@ -8,7 +8,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
-import logo from '../assets/img/logo.png'
+import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
@@ -24,24 +24,8 @@ export function AppHeader({ }) {
     const roomDetiles = `/rooms`
 
     const [filterType, setFilterType] = useState('location')
-    const [isUserModalOpen, SetIsUserModalOpen] = useState(false)
+    const [isUserModalOpen, setIsUserModalOpen] = useState(false)
     const [isLoginModalShown, setIsLoginModalShown] = useState(false)
-    const [user, setUser] = useState(userService.getLoggedinUser())
-
-
-
-    function onChangeLoginStatus(user) {
-        setUser(user)
-    }
-
-    async function onLogout() {
-        try {
-            userService.logout()
-            setUser(userService.getLoggedinUser())
-        } catch (err) {
-            console.log('cannot logout:')
-        }
-    }
 
 
     function onShowFilter(type) {
@@ -74,9 +58,16 @@ export function AppHeader({ }) {
 
     function openUserModal() {
         return <section className='user-modal'>
-            <div className='log-in' onClick={() => setIsLoginModalShown(true)} >Log in</div>
-            <div className='sign-up' onClick={() => setIsLoginModalShown(true)}>Sign up</div>
-            <Link className="host-link" to="/hosting">b&bAir your home</Link>
+            <div className='log-in' onClick={() => {
+                setIsLoginModalShown(true)
+                setIsUserModalOpen(false)
+            }} >Log in</div>
+            <div className='sign-up' onClick={() => {
+                setIsLoginModalShown(true)
+                setIsUserModalOpen(false)
+            }}>Sign up</div>
+            <Link className="host-link" to="/hosting" onClick={()=>setIsUserModalOpen(false)}>b&bAir your home </Link>
+            <button></button>
         </section>
     }
 
@@ -84,7 +75,7 @@ export function AppHeader({ }) {
     console.log('isModalOpen:', isUserModalOpen)
     return (
         <header className={divName}>
-            <div className='full-screen'></div>
+<div className='full-screen transparent'></div>
             <div className='main-content flex'>
                 <div className="logo-container"><img src={logo} alt="" /></div>
                 <div className='header-container flex'>
@@ -92,11 +83,13 @@ export function AppHeader({ }) {
                         <Link className="host-link" to="/hosting">Switch to hosting</Link>
                         <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
                     </div>
-                    <button className='user-nav flex'>
+                    <button className='user-nav flex' onClick={() => {
+                        setIsUserModalOpen(true)
+                    }}>
                         <div className='img-container hamburger'>
                             <img src={hamburger} alt="" />
                         </div >
-                        <div className='img-container user' onClick={() => SetIsUserModalOpen(true)}>
+                        <div className='img-container user' >
                             <img className='user-img' src={userDfault} alt="" />
                         </div>
                     </button>
@@ -128,7 +121,7 @@ export function AppHeader({ }) {
             </div>
 
             {isUserModalOpen && openUserModal()}
-            <LoginSignup onChangeLoginStatus={onChangeLoginStatus} isLoginModalShown={isLoginModalShown} />
+            <LoginSignup  isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
         </header>
     )
 

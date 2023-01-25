@@ -7,7 +7,7 @@
   font-size: rem(14px);
   z-index: 5;
   min-height: 80px;
-  padding: 0 em(16px);
+  padding: em(16px) 0;
 
 
   .user-modal {
@@ -126,9 +126,10 @@
 
 
   .logo-container {
+    margin-top: 5px;
     display: flex;
     align-items: center;
-    width: 30px;
+    width: 120px;
     max-height: 80px;
 
     img {
