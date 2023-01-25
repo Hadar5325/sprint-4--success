@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import {GuestsModal} from './guestsModal.jsx'
 import {DateFilter } from '../date-filter.jsx'
 import { CapacityBooking } from './capacityTemp.jsx'
+import { Link } from 'react-router-dom'
 
 
 export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal,handleChange }) {
@@ -81,7 +82,7 @@ export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapaci
             </div>
             {capacityModal && <CapacityBooking addGuest={addGuest} guests={guests}  />}
             {dateModal && <div className='calender'><DateFilter handleChange={handleChange}/></div>}
-            <button className="reservBtn">Reserve</button>
+            <Link to='/stays/book/:id' className="reservBtn">Reserve</Link>
             <div className='wontharged'>You won't be charged yet</div>
 
             <div className='sum'>

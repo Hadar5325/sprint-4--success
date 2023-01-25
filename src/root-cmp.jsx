@@ -5,6 +5,7 @@ import { AppHeader } from './cmps/app-header'
 import { UserDetails } from './pages/user-details'
 import { StayIndex } from './pages/stay-index'
 import { StayDetails } from './pages/stay-details'
+import { Book } from './pages/book'
 import { HostDetails } from './pages/host-detailes'
 
 import { Provider } from 'react-redux'
@@ -27,6 +28,7 @@ export function RootCmp() {
                     <Route path='/stay/map' element={<StaysMap />} />
 
                     <Route path='/stays/:id' element={<StayDetails />} />
+                    <Route path='/stays/book/:id' element={<Book />} />
                     <Route path='/hosting' element={<HostDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                 </Routes>
