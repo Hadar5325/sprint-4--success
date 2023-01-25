@@ -3,22 +3,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
 import { FilterCarousel } from '../cmps/filter-carousel'
 import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/stay.actions'
-
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { useSearchParams } from 'react-router-dom';
 
 import { Link } from "react-router-dom"
+// import { useSearchParams } from 'react-router-dom';
+// import { loadUser } from '../store/user.actions'
 
 export function StayIndex() {
 
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+    const userwishList = useSelector((state) => state.userModule.wishList)
 
+    console.log(userwishList, "wish listtttt")
     useEffect(() => {
         console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
-
     }, [filterBy])
+
 
     async function onRemoveStay(stayId) {
         try {
@@ -36,7 +40,7 @@ export function StayIndex() {
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
 
             {/* <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button> */}
-            <StayList stays={stays} onRemoveStay={onRemoveStay} />
+            <StayList stays={stays} onRemoveStay={onRemoveStay} userwishList={userwishList} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
 

@@ -1,24 +1,29 @@
 import { StayPreview } from "./stay-preview";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import data from '../data/stay.json';
 
+
 import React from 'react';
-import { useState} from "react"
+import { useState } from "react"
+import { stayService } from '../services/stay.service.local'
+import { useDispatch, useSelector } from 'react-redux'
 
 
-export function StayList({ stays, onRemoveStay }) {
+export function StayList({ stays, onRemoveStay, userwishList }) {
+    const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <Link to={`stays/${stay._id}`}>
-                    <StayPreview stay={stay}/>
-                </Link>
+                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}> </Link>
 
-                {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
+                    <StayPreview stay={stay} userwishList={userwishList} />
+
+                    {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
+
     </ul>
 }
 

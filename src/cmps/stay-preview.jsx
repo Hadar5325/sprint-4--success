@@ -12,61 +12,41 @@ import asset44 from "../assets/img/asset44.webp"
 import asset45 from "../assets/img/asset45.webp"
 import asset46 from "../assets/img/asset46.webp"
 
-export function StayPreview({ stay }) {
+export function StayPreview({ stay, userwishList }) {
 
-    // console.log(stay)
     const [currentIdx, setCurrentIdx] = useState(0)
+    // const [isInWishList,  setIsInWishList] = useState(item)
+    let slides = [];
 
-    // function createRef(){
-    //     console.log('wowwwwwwwww')
-    //     for(var i =0; i< 5; i++){
-    //         {slides.map((slide, slideIndex) => {
-    //             return <div className="dot" ref={(element)=>myRef.current.push(element)}></div>
-    //         })
-    // }
-    // fix 
-    // console.log(stay.imgUrls)
-    // const imageUrls = stay
-    // console.log(imageUr/ls, "ppppppppppp")
-    let slides = [
-        {
-            url: asset42, title: 'view'
-        },
-        {
-            url: asset43, title: '2'
-        },
-        {
-            url: asset44, title: '3'
-        },
-        {
-            url: asset45, title: '3'
-        },
-        {
-            url: asset46, title: '3'
-        },
-    ]
-
+    getSlides()
+    function getSlides() {
+        stay.imgUrls.map(item => {
+            slides.push({ url: item })
+        })
+        if (slides.length > 5)
+        slides.splice(0,5)
+    }
 
     const myRef = useRef(new Array());
     const refLeftArraw = useRef(null)
     const refRightArraw = useRef(null)
-    useEffect(() => {
-        console.log('hiiiiiii')
-        // // const element = myRef.current;
-        // // element[currentIdx].current.style.backgroundColor = 'blue'
-    }, [])
+    const refWishList = useRef(false)
 
     myRef.current = slides.map((element, i) => myRef.current[i] ?? createRef())
-    console.log(myRef.current)
+
+    useEffect(() => {
+        console.log('hiiiii')
+        const element = myRef.current;
+        element[0].current.style.backgroundColor = '#fff'
+        element[0].current.style.opacity = 1
+    }, [])
 
     function goToPrevious(ev) {
         ev.stopPropagation()
-        console.log(ev)
         const isFirstSlide = currentIdx === 0
         const newIndex = isFirstSlide ? 0 : currentIdx - 1
 
         if (newIndex === 0) {
-            console.log("inside")
             refLeftArraw.current.style.opacity = 0
             refLeftArraw.current.style.cursor = 'auto'
             refLeftArraw.current.style.pointerEvents = 'none';
@@ -81,11 +61,7 @@ export function StayPreview({ stay }) {
         //changing colors of dots
         changeDotToOriginalClr(currentIdx)
         changeDotColorToChoosen(newIndex)
-
     }
-    // function getClassFromDot(){
-    //     inde
-    // }
 
     function goToNext() {
         const isLastSlide = currentIdx === slides.length - 1
@@ -112,13 +88,24 @@ export function StayPreview({ stay }) {
         console.log(currentIdx);
         const element = myRef.current;
         element[currentIdx].current.style.backgroundColor = '#fff'
+        element[currentIdx].current.style.opacity = 0.6
 
     }
 
     function changeDotColorToChoosen(newIndex) {
         console.log(newIndex);
         const element = myRef.current;
-        element[newIndex].current.style.backgroundColor = 'red'
+        element[newIndex].current.style.backgroundColor = '#fff'
+        element[newIndex].current.style.opacity = 1
+    }
+
+    function onAddToWishList(ev){
+        // if(        refWishList.current.style.fill = 'red'
+        // )
+        refWishList.current.style.fill = 'red'
+        // refWishList.current.style.backgroundColor = "red"
+        // className={`isWantToBeAddedWishList ? "red" : "black"`}
+
     }
 
     return <article className="stay-preview">
@@ -127,7 +114,7 @@ export function StayPreview({ stay }) {
                 <div className="flex-containter" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}>
                     <div className="div-wish-list">
                         <button>
-                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+                            <svg ref={refWishList} onClick={(ev)=>{onAddToWishList(ev)}}> viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
                                 <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
                             </svg>
                         </button>
@@ -169,7 +156,7 @@ export function StayPreview({ stay }) {
                         <path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z" />
                     </svg>
                 </span><span className="star-record">4.83</span></div>
-                <div className="stay-heading">{stay.name}</div>
+                <div className="stay-heading">{stay.loc.city}, {stay.loc.country}</div>
                 <div className="stay-distance">747 kilometeres away</div>
                 <div className="stay-valid-dates">Jan 18 - 23</div>
                 <div className="stay-price"><span className="currency">&#8362;</span><span>{stay.price}</span> night</div>
