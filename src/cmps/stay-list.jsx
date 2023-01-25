@@ -6,9 +6,9 @@ export function StayList({ stays, onRemoveStay }) {
         {
             stays.map(stay => <li key={stay._id}>
                 <StayPreview stay={stay} />
-                <Link to={`rooms/${stay._id}`}> Details </Link>
+                <Link to={`stays/${stay._id}`}> Details </Link>
                 <Link to={`stay/edit/${stay._id}`}> Edit </Link>
-                <button onClick={()=> onRemoveStay(stay._id)}>Remove</button>
+                <button onClick={() => onRemoveStay(stay._id)}>Remove</button>
             </li>)
         }
     </ul>

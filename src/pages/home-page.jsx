@@ -66,7 +66,7 @@ export function HomePage() {
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
-            <FilterCarousel/>
+
             <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
@@ -83,8 +83,6 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
-
-                
             </section>
         </div>
     )

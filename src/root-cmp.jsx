@@ -4,7 +4,7 @@ import { AppHeader } from './cmps/app-header'
 
 import { UserDetails } from './pages/user-details'
 import { HomePage } from './pages/home-page'
-import { RoomDetails } from './pages/room-details'
+import { StayDetails } from './pages/stay-details'
 import { HostDetails } from './pages/host-detailes'
 
 import { Provider } from 'react-redux'
@@ -26,7 +26,7 @@ export function RootCmp() {
 
                     <Route path='/stay/map' element={<StaysMap />} />
 
-                    <Route path='/rooms/:id' element={<RoomDetails />} />
+                    <Route path='/stays/:id' element={<StayDetails />} />
                     <Route path='/hosting' element={<HostDetails />} />
                     <Route path="user/:id" element={<UserDetails />} />
                 </Routes>

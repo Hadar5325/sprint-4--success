@@ -1,0 +1,86 @@
+.galery {
+    height: 335px;
+    width: 100%;
+    padding-top: 24px;
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+
+
+    grid-template-areas:
+
+        " left right ";
+
+}
+
+.galeryLeft {
+    cursor: pointer;
+    position: relative;
+    right: 5px;
+    grid-area: left;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.galeryRight {
+    grid-area: right;
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+
+    grid-template-areas:
+
+        " topLeft topRight "
+        " bottomLeft bottomRight";
+}
+
+.topLeft {
+    cursor: pointer;
+    grid-area: topLeft;
+    height: 97%;
+    width: 100%;
+    position: relative;
+    left: 3px;
+}
+
+.topRight {
+    cursor: pointer;
+    grid-area: topRight;
+    background-color: bisque;
+    margin-bottom: 40px;
+    margin-left: 10px;
+    height: 97%;
+    width: 99%;
+    position: relative;
+    left: 1px;
+    border-top-right-radius: 10px;
+}
+
+.bottomLeft {
+    cursor: pointer;
+
+    grid-area: bottomLeft;
+    background-color: blueviolet;
+    margin-left: 4px;
+    margin-top: 4px;
+    height: 97%;
+    width: 100%;
+}
+
+.bottomRight {
+    cursor: pointer;
+
+    grid-area: bottomRight;
+    background-color: rgb(161, 128, 86);
+    margin-left: 11px;
+    margin-top: 4px;
+
+    height: 97%;
+    width: 99%;
+    border-bottom-right-radius: 10px;
+
+}
