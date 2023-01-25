@@ -63,7 +63,7 @@ export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLogin
 
     return (
         <section>
-            <div className={`full-screen ${isLoginModalShown ? 'open' : ''}`}
+            <div className={`full-screen black ${isLoginModalShown ? 'show' : 'hide'}`}
                 onClick={() => setIsLoginModalShown(false)}> </div>
 
             <div className={`login-modal ${isLoginModalShown ? 'show' : 'hide'}`}>

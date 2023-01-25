@@ -75,7 +75,7 @@ export function AppHeader({ }) {
     console.log('isModalOpen:', isUserModalOpen)
     return (
         <header className={divName}>
-<div className='full-screen transparent'></div>
+<div className={`full-screen transparent ${isUserModalOpen ? 'show':'hide'}`} onClick={()=>setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
                 <div className="logo-container"><img src={logo} alt="" /></div>
                 <div className='header-container flex'>
