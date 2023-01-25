@@ -39,7 +39,7 @@ export function StayIndex() {
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
 
-            <div>
+            <div className='filter-carousel-container flex'>
                 <FilterCarousel />
                 <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             </div>
