@@ -15,7 +15,8 @@ export const stayService = {
     remove,
     getEmptyStay,
     getEmptyFilter,
-    getParams
+    getParams,
+    getNightsCount
 }
 window.cs = stayService
 
@@ -122,12 +123,15 @@ function getEmptyFilter() {
 }
 
 function getParams(filterBy) {
-    const params = `?txt=${filterBy.txt}&capacityTotal=${filterBy.capacity.total}&capacityAdult=${filterBy.capacity.adults}&capacityKids=${filterBy.capacity.kids}&capacityInfants=${filterBy.capacity.infants}&capacityPets=${filterBy.capacity.pets}startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&totalNights=6&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
+    const params = `?txt=${filterBy.txt}&capacityTotal=${filterBy.capacity.total}&capacityAdult=${filterBy.capacity.adults}&capacityKids=${filterBy.capacity.kids}&capacityInfants=${filterBy.capacity.infants}&capacityPets=${filterBy.capacity.pets}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&totalNights=6&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
     return params
 }
 
 
-function getNightsCount(end,start){
+function getNightsCount(start,end){
     const diff=end-start
-    const nights= diff/1000
+    const nights= diff/1000/60/60/24-1
+    console.log('nights at getNIhgts count:',nights)
+    return nights
+
 }

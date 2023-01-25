@@ -17,8 +17,9 @@ export function StayList({ stays, onRemoveStay, userwishList }) {
             stays.map(stay => <li key={stay._id}>
                 <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>
                     <StayPreview stay={stay} userwishList={userwishList} />
-
                 </Link>
+
+                {/* </Link> */}
 
 
                 {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
