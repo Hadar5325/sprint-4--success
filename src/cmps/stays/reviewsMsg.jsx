@@ -13,11 +13,11 @@ export function ReviewsMsg({ stay }) {
 
         return date.toLocaleString('en-US', { month: 'long' });
     }
-
+      
     return <section className="reviewsMsg">
-        {
+        {   
             reviewsToDisplay.map((review) => {
-                return <section className="reviewContant" key={review._id}>
+                return <section className="reviewContant" key={review.by._id}>
                     <div className="reviewTitle">
                         <img className="reviewUserImg" src={review.by.imgUrl} />
 

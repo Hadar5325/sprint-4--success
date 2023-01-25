@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
 
 import { userService } from '../services/user.service'
-import { login, logout, signup } from '../store/user.actions.js'
+import {logout} from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
@@ -12,13 +12,14 @@ import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
-import { setIsFilterShown } from '../store/actions/stay.actions'
+import { setIsFilterShown } from '../store/stay.actions'
 
 
 export function AppHeader({ }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+    const loggedinUser = useSelector((state) => state.userModule.user)
     const location = useLocation().pathname
 
     const stayDetiles = `/stays`
@@ -26,6 +27,8 @@ export function AppHeader({ }) {
     const [filterType, setFilterType] = useState('location')
     const [isUserModalOpen, setIsUserModalOpen] = useState(false)
     const [isLoginModalShown, setIsLoginModalShown] = useState(false)
+    const [user, setUser] = useState(userService.getLoggedinUser())
+
 
 
     function onShowFilter(type) {
@@ -39,8 +42,6 @@ export function AppHeader({ }) {
         return region
     }
 
-
-
     let divName
     if (location.match(`/stays`)) {
         divName = 'app-header-stay full stays'
@@ -50,13 +51,21 @@ export function AppHeader({ }) {
 
     function setDateTxt(type) {
         let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
-        console.log('type at setDateTxt:', type)
         const txt = `${new Date(date).toLocaleString('en', { month: 'short' })} ${new Date(date).getDate()}`
-        console.log('txt at setDateTxt:', txt)
         return txt
     }
 
     function openUserModal() {
+        console.log('loggedinUser at openUserModal:',loggedinUser)
+        if (loggedinUser) return <section className='user-modal'>
+            <div className='log-out' onClick={() => {
+                logout()
+                setIsUserModalOpen(false)
+            }} >Log out</div>
+            {/* <Link className="host-link" to="/hosting"
+                onClick={() => setIsUserModalOpen(false)}>bnbAir your home
+            </Link> */}
+        </section>
         return <section className='user-modal'>
             <div className='log-in' onClick={() => {
                 setIsLoginModalShown(true)
@@ -66,22 +75,27 @@ export function AppHeader({ }) {
                 setIsLoginModalShown(true)
                 setIsUserModalOpen(false)
             }}>Sign up</div>
-            <Link className="host-link" to="/hosting" onClick={()=>setIsUserModalOpen(false)}>b&bAir your home </Link>
-            <button></button>
+
         </section>
     }
 
+    function onFocus(target) {
+        console.log('target at onfocus:', target)
+        const elements = document.querySelectorAll('*')
+        elements.forEach((element) => element.classList.remove('focused'))
+        target.classList.add('focused')
+    }
+
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
-    console.log('isModalOpen:', isUserModalOpen)
     return (
         <header className={divName}>
-<div className={`full-screen transparent ${isUserModalOpen ? 'show':'hide'}`} onClick={()=>setIsUserModalOpen(false)}></div>
+            <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
                 <div className="logo-container"><img src={logo} alt="" /></div>
                 <div className='header-container flex'>
                     <div className='header-buttons'>
-                        <Link className="host-link" to="/hosting">Switch to hosting</Link>
-                        <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
+                        {/* <Link className="host-link" to="/hosting">Switch to hosting</Link> */}
+                        {/* <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button> */}
                     </div>
                     <button className='user-nav flex' onClick={() => {
                         setIsUserModalOpen(true)
@@ -103,6 +117,7 @@ export function AppHeader({ }) {
                         <div className="search-image img-container" onClick={(ev) => {
                             ev.stopPropagation()
                             onShowFilter('where')
+
                         }} >
                             <svg className='svg-white' viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" >
@@ -114,14 +129,14 @@ export function AppHeader({ }) {
                     </button>
                 </div>
                 {isFilterShown && <MainFilter onShowFilter={onShowFilter} filterType={filterType} isFilterShown={isFilterShown}
-                    setIsFilterShown={setIsFilterShown} setLocationTxt={setLocationTxt} setDateTxt={setDateTxt} />
+                    setIsFilterShown={setIsFilterShown} setLocationTxt={setLocationTxt} setDateTxt={setDateTxt} onFocus={onFocus} />
                 }
 
 
             </div>
 
             {isUserModalOpen && openUserModal()}
-            <LoginSignup  isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
+            <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
         </header>
     )
 

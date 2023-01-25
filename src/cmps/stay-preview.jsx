@@ -2,7 +2,9 @@
 import React from 'react';
 import { useState, useRef, createRef, useEffect } from "react"
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React from 'react';
+
+
 
 import { ImageSlider } from "./image-slider"
 import asset42 from "../assets/img/asset42.webp"

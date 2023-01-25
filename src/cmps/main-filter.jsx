@@ -4,22 +4,19 @@ import { LocationFilter } from './location-filter'
 import { DateFilter } from './date-filter'
 import { CapacityFilter } from './capacity-filter'
 import { LocationList } from './location-list'
-import { uptadeFilter } from '../store/actions/stay.actions'
+import { uptadeFilter } from '../store/stay.actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 
 
 
-export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt, setDateTxt }) {
+export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt, setDateTxt, onFocus }) {
     // const elBtn = useRef();
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     const [currFilterType, setFilterType] = useState(filterType)
     const [filterBy, setFilterBy] = useState(currFilterBy)
     const [IsFocused, setIsFocused] = useState(false)
-    // const [isListOpen, SetisListOpen] = useState(false)
-
-
 
     useEffect(() => {
         console.log('filterBy at useeffect at mainfilter:', filterBy)
@@ -40,30 +37,17 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         setIsFilterShown(false)
     }
 
-    // function makeActive(ev) {
-    //     const btn = ev.currentTarget
-    //     console.log('btn:', btn)
-
-    // }
-
     function showFilter(type, ev) {
-
         console.log('type at show filter', type)
         switch (type) {
-
             case 'date':
-
                 return <DateFilter
                     handleChange={handleChange}
-                    filterBy={filterBy}
-                />
-
+                    filterBy={filterBy} />
             case 'capacity':
-
                 return <CapacityFilter
                     handleChange={handleChange}
                     filterBy={filterBy} />
-
             case 'list':
                 if (ev) ev.stopPropagation()
                 return <LocationList
@@ -88,14 +72,6 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
 
         return txt
     }
-
-
-    function onFocus(target) {
-        const elements = document.querySelectorAll('*')
-        elements.forEach((element) => element.classList.remove('focused'))
-        target.classList.add('focused')
-    }
-
 
     const { region, txt, datesRange } = currFilterBy
     const { timeStampStart, timeStampEnd } = datesRange
