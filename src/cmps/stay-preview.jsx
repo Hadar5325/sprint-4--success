@@ -14,7 +14,7 @@ import asset46 from "../assets/img/asset46.webp"
 
 export function StayPreview({ stay }) {
 
-    console.log(stay)
+    // console.log(stay)
     const [currentIdx, setCurrentIdx] = useState(0)
 
     // function createRef(){
@@ -25,7 +25,7 @@ export function StayPreview({ stay }) {
     //         })
     // }
     // fix 
-    console.log(stay.imgUrls)
+    // console.log(stay.imgUrls)
     // const imageUrls = stay
     // console.log(imageUr/ls, "ppppppppppp")
     let slides = [
