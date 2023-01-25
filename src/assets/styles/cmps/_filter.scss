@@ -289,132 +289,129 @@
                 }
             }
         }
+    }
+}
 
-        .date-filter {
-            // align-items: center;
-            text-align: center;
-            font-family: "Circular";
+.date-filter {
+    // align-items: center;
+    text-align: center;
+    font-family: "Circular";
 
-            background-color: $clr1;
-            width: max-content;
-            top: 170px;
-            left: 575px;
-            // margin-left: 20px;
-            position: absolute;
-            // background-color: aqua;
-            z-index: 4;
-            box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
-            border-radius: 2rem;
-            overflow: hidden;
-            padding: em(16px) em(32px);
-            // margin-top: 12px;
+    background-color: $clr1;
+    width: max-content;
+    top: 170px;
+    left: 575px;
+    // margin-left: 20px;
+    position: absolute;
+    // background-color: aqua;
+    z-index: 4;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+    border-radius: 2rem;
+    overflow: hidden;
+    padding: em(16px) em(32px);
+    // margin-top: 12px;
 
-            .title {
-                display: inline-block;
-                padding-top: 38px;
-                margin-top: 38px;
-                width: 200px;
-                // margin: 0;
-                text-align: center;
-            }
+    .title {
+        display: inline-block;
+        padding-top: 38px;
+        margin-top: 38px;
+        width: 200px;
+        // margin: 0;
+        text-align: center;
+    }
 
-            .react-datepicker {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: none;
-                font-family: "Circular";
+    .react-datepicker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-family: "Circular";
 
-            }
+    }
 
-            .react-datepicker__header {
-                width: 325px;
-                background-color: inherit;
-                border: none;
+    .react-datepicker__header {
+        width: 325px;
+        background-color: inherit;
+        border: none;
 
-            }
+    }
 
-            .react-datepicker__month-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                line-height: rem(18px);
-                font-size: 1rem;
-                height: 479px;
-                padding: 0 em(27px);
-                outline: none;
-                width: 370px;
-                background-color: inherit;
-            }
-
-
-            .react-datepicker__day {
-
-                display: inline-flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                // margin-right: 0;
-                text-align: center;
-                width: em(44px);
-                min-height: em(44px);
-                border-radius: 50%;
-
-                &:hover {
-                    background-color: inherit;
-                    outline: 1px solid $clr11 ;
-                    color: $clr11
-                }
-
-            }
-
-            .react-datepicker__day--in-selecting-range {
-
-                background-color: $clr3;
-                color: $clr11;
-                border-radius: none;
-
-            }
-
-            .react-datepicker__day--in-range {
-                color: $clr11;
-                background-color: $clr3 ;
-                // border-radius: 0%;
-                border: none;
-            }
-
-            .react-datepicker__day--selected {
-                background-color: $clr11;
-                color: $clr1;
-            }
-
-            .react-datepicker__day-names {
-                display: flex;
-                justify-content: space-between;
-                gap: 10px;
-                // color: aqua;
-
-            }
-
-            .react-datepicker__day-name {
-                font-size: rem(12px);
-                color: $clr7 ;
-            }
+    .react-datepicker__month-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: rem(18px);
+        font-size: 1rem;
+        height: 479px;
+        padding: 0 em(27px);
+        outline: none;
+        width: 370px;
+        background-color: inherit;
+    }
 
 
-            .react-datepicker__current-month {
-                // color: $clr11;
-                margin-bottom: 49px;
-            }
+    .react-datepicker__day {
 
-            .react-datepicker__day--keyboard-selected {
-                background-color: $clr11;
-                color: $clr1;
-            }
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // margin-right: 0;
+        text-align: center;
+        width: em(44px);
+        min-height: em(44px);
+        border-radius: 50%;
+
+        &:hover {
+            background-color: inherit;
+            outline: 1px solid $clr11 ;
+            color: $clr11
         }
 
+    }
+
+    .react-datepicker__day--in-selecting-range {
+
+        background-color: $clr3;
+        color: $clr11;
+        border-radius: none;
+
+    }
+
+    .react-datepicker__day--in-range {
+        color: $clr11;
+        background-color: $clr3 ;
+        // border-radius: 0%;
+        border: none;
+    }
+
+    .react-datepicker__day--selected {
+        background-color: $clr11;
+        color: $clr1;
+    }
+
+    .react-datepicker__day-names {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        // color: aqua;
+
+    }
+
+    .react-datepicker__day-name {
+        font-size: rem(12px);
+        color: $clr7 ;
+    }
 
 
+    .react-datepicker__current-month {
+        // color: $clr11;
+        margin-bottom: 49px;
+    }
+
+    .react-datepicker__day--keyboard-selected {
+        background-color: $clr11;
+        color: $clr1;
     }
 }

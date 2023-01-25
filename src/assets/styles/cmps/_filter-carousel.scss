@@ -1,0 +1,37 @@
+.filter-carousel-container{
+
+    align-items: center;
+
+.css-69z67c-MuiTabs-scroller{
+max-width: 80vw ;
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+width: 64px;
+min-height: 64px;
+padding: 0 1rem
+}
+}
+
+.css-69z67c-MuiTabs-scroller {
+// background-color: $clr5;
+// width: 52px;
+
+  &::selection{
+background-color: black;
+    }
+}
+
+.type-container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    min-height: 64px;
+
+  
+    img{
+        width: 24px
+    }
+}
+
+}

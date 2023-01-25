@@ -52,8 +52,6 @@ async function query(filterBy) {
         const { timeStampStart, timeStampEnd } = filterBy.datesRange
         fillteredStays = fillteredStays.filter((stay => {
             return stay.orders.every((order) => {
-                console.log('dates at filter:', timeStampStart, timeStampEnd)
-                console.log('dates at order:', order.startDate, order.endDate)
                 return timeStampEnd <= order.startDate || timeStampStart >= order.endDate
             })
         }))
@@ -117,7 +115,7 @@ function getEmptyFilter() {
         datesRange: {
             startDate: Date.now(),
             endDate: Date.now() + 1000 * 60 * 60 * 24 * 7,
-            totalNights: getNightsCount(Date.now(),Date.now() + (1000 * 60 * 60 * 24 * 7))
+            totalNights: getNightsCount(Date.now(), Date.now() + (1000 * 60 * 60 * 24 * 7))
         }
     }
 }
@@ -128,10 +126,20 @@ function getParams(filterBy) {
 }
 
 
-function getNightsCount(start,end){
-    const diff=end-start
-    const nights= (diff/1000/60/60/24)-1
-    console.log('nights at getNIhgts count:',nights)
+function getNightsCount(start, end) {
+    const diff = end - start
+    const nights = (diff / 1000 / 60 / 60 / 24) - 1
+    console.log('nights at getNIhgts count:', nights)
     return nights
 
 }
+
+export const labels = [
+    'Caves', 'Tropical', 'Countryside', 'Skiing', 
+    'Private rooms','OMG', 'Boats','Amazing views', 
+    'Beachfront', 'Top of the world', 'Luxe',  
+   'Off-the-grid', 'Play',  'Iconic cities', 'New',  
+    'Campers', 'Golfing', 'Earth homes',   'Ryokans',  
+    'Casas particulares', 'Minsus', 
+     'Adapted'
+]
