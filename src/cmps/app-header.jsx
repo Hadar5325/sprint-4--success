@@ -21,7 +21,7 @@ export function AppHeader({ }) {
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
     const location = useLocation().pathname
 
-    const roomDetiles = `/rooms`
+    const stayDetiles = `/stays`
 
     const [filterType, setFilterType] = useState('location')
     const [isUserModalOpen, SetIsUserModalOpen] = useState(false)
@@ -58,8 +58,8 @@ export function AppHeader({ }) {
 
 
     let divName
-    if (location.match(`/rooms`)) {
-        divName = 'app-header-room full rooms'
+    if (location.match(`/stays`)) {
+        divName = 'app-header-stay full stays'
     } else {
         divName = 'app-header full main-layout'
     }

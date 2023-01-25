@@ -1,8 +1,6 @@
 import { useState } from "react"
 
 import { ImageSlider } from "./image-slider"
-import logourl from "./images-dogs/dog2.jfif"
-import dog3 from "./images-dogs/dog3.jfif"
 import asset42 from "../assets/img/asset42.webp"
 import asset43 from "../assets/img/asset43.webp"
 import asset44 from "../assets/img/asset44.webp"

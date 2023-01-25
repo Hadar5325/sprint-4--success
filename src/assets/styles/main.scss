@@ -22,7 +22,7 @@
 @import "views/car-app";
 @import "views/review-app";
 @import "views/user-details";
-@import "./rooms/rooms.scss";
+@import "./stays/stays.scss";
 
 // Components
 @import "cmps/home-list";
@@ -34,19 +34,19 @@
 @import "./cmps/image-slider";
 @import "./cmps/login-form";
 
-@import "./rooms/roomsHeader.scss";
-@import "./rooms/galeryLeft.scss";
-@import "./rooms/galeryRight.scss";
-@import "./rooms/detailes.scss";
-@import "./rooms/booking.scss";
-@import "./rooms/reviwes.scss";
-@import "./rooms/place.scss";
-@import "./rooms/hosted-left.scss";
-@import "./rooms/hosted-right.scss";
-@import "./rooms/to-know.scss";
-@import "./rooms/first-footer.scss";
-@import "./rooms/secend-footer.scss";
-@import "./rooms/galery.scss";
+@import "./stays/staysHeader.scss";
+@import "./stays/galeryLeft.scss";
+@import "./stays/galeryRight.scss";
+@import "./stays/detailes.scss";
+@import "./stays/booking.scss";
+@import "./stays/reviwes.scss";
+@import "./stays/place.scss";
+@import "./stays/hosted-left.scss";
+@import "./stays/hosted-right.scss";
+@import "./stays/to-know.scss";
+@import "./stays/first-footer.scss";
+@import "./stays/secend-footer.scss";
+@import "./stays/galery.scss";
 @import "cmps/filter.scss";
 
 
