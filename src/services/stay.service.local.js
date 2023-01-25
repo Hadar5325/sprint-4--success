@@ -47,11 +47,13 @@ async function query(filterBy) {
             return stay.loc.region.toLowerCase() === filterBy.region || (stay.loc.country.toLowerCase()) === filterBy.region
         })
     }
-    if (filterBy.datesRange.startDateStamp) {
-        const { startDateStamp, endDateStamp } = filterBy.datesRange
-        fillteredStays = fillteredStays.map((stay => {
-            return stay.orders.filter((order) => {
-                return endDateStamp <= order.startDate && startDateStamp >= order.endDate
+    if (filterBy.datesRange.timeStampStart) {
+        const { timeStampStart, timeStampEnd } = filterBy.datesRange
+        fillteredStays = fillteredStays.filter((stay => {
+            return stay.orders.every((order) => {
+                console.log('dates at filter:', timeStampStart, timeStampEnd)
+                console.log('dates at order:', order.startDate, order.endDate)
+                return timeStampEnd <= order.startDate || timeStampStart >= order.endDate
             })
         }))
     }
