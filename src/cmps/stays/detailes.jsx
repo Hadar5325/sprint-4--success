@@ -29,7 +29,6 @@ export function Detailes({stay ,order, guestsNum, setguests, guests, capacityMod
     function calcaAvgRate() {
         
         const avg =(rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location)/6
-        console.log(avg)
         return Math.floor(avg * 10) / 10
     }
 

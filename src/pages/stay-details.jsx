@@ -28,10 +28,7 @@ export function StayDetails() {
     let { id } = useParams()
 
 
-    let params = new URLSearchParams(window.location.search)
-    let entries = params.entries()
-    console.log(entries)
-    console.log(Object.fromEntries(entries).capacityAdult)
+    
 
 
     const [capacityModal, setCapacityModal] = useState(false)
@@ -51,7 +48,17 @@ export function StayDetails() {
         type: '',
         maxCapacity: Infinity,
     })
+    // const params = new URLSearchParams(window.location.search)
+    // const entries = params.entries()
+    // console.log(Object.fromEntries(entries))
+    // const {capacityAdult}=Object.fromEntries(entries)
+    // // const tempGuests = .capacityAdult,Object.fromEntries(entries)['capacityKids']]
+    // // const Adults = Object.fromEntries(entries).
+    // const Kids = Object.fromEntries(entries).capacityKids
 
+    // const Infants = Object.fromEntries(entries).capacityInfants
+    // const Pets = Object.fromEntries(entries).capacityPets
+    // console.log(capacityAdult)
 
 
 
@@ -62,6 +69,7 @@ export function StayDetails() {
 
     useEffect(() => {
         initOrder()
+
     }, [])
 
     useEffect(() => {
@@ -81,18 +89,19 @@ export function StayDetails() {
 
 
     function initOrder() {
+        
         const newOrder = _emptyOrder()
         newOrder.status = "pending"
-        newOrder.guests = { Adults: 1, Kids: 0, Infants: 0, Pets: 0 }
-        // const stayOrder = [stay._id,stay.name,stay.price]
-        // newOrder.stay = stayOrder
+        newOrder.guests = { Adults:1, Kids:0, Infants:0, Pets:0 }
         setOrder(newOrder)
         setguests(newOrder.guests)
+
     }
 
 
-    function onAddGuest(gusts) {
+    function onAddGuest() {
         const sum = _numOfGuests()
+        order.guests = guests
         setGuestsNum(sum)
     }
 
@@ -111,7 +120,6 @@ export function StayDetails() {
     }
 
     function _emptyOrder() {
-
         const order = orderService.getEmptyorder()
         return order
     }

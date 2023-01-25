@@ -5,17 +5,24 @@ import { CapacityBooking } from './capacityTemp.jsx'
 import { Link } from 'react-router-dom'
 
 
-export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal,handleChange }) {
-    // const [gModal, setgModal] = useState(false)
-    const [price, setPrice] = useState({})
+export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal,handleChange,order }) {
 
+
+    const [price, setPrice] = useState({})
     useEffect(() => {
         calcPrice()
     }, [])
     function handleChange({ name: field, value }) {
-        console.log('at handle change:', field, value)
-
+        console.log('at handle change:', field, value.timeStampStart)
+        const txt = `${new Date(value.timeStampStart).toLocaleString('en', { month: 'short' })} ${new Date(value.timeStampStart).getDate()}`
+        console.log(txt)
     }
+
+    // function setDateTxt(type) {
+    //     let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
+    //     const txt = `${new Date(date).toLocaleString('en', { month: 'short' })} ${new Date(date).getDate()}`
+    //     return txt
+    // }
 
     function addGuest(guest, diff) {
 
@@ -61,7 +68,6 @@ export function Booking({ stay, guestsNum, guests, setguests, avgRate, setCapaci
         const servicefee = Math.floor((0.1 * stay.price * 6) * 10) / 10
         setPrice({ totalNightsPrice, servicefee, total: totalNightsPrice + servicefee })
     }
-    console.log(capacityModal)
     return <section className="booking" >
 
 
