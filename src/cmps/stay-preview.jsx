@@ -100,8 +100,11 @@ export function StayPreview({ stay, userwishList }) {
     }
 
     function onAddToWishList(ev){
+        // if(        refWishList.current.style.fill = 'red'
+        // )
         refWishList.current.style.fill = 'red'
         // refWishList.current.style.backgroundColor = "red"
+        // className={`isWantToBeAddedWishList ? "red" : "black"`}
 
     }
 
