@@ -1,33 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
-import {FilterCarousel} from '../cmps/filter-carousel'
+import { FilterCarousel } from '../cmps/filter-carousel'
 import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { stayService } from '../services/stay.service.local'
+
 import { Link } from "react-router-dom"
-import { userService } from '../services/user.service'
-import { LoginSignup } from '../cmps/login-signup'
+
 export function StayIndex() {
-    // const count = useSelector(storeState => storeState.userModule.count)
-
-
-
 
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
-
-  
-
 
     useEffect(() => {
         console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
 
     }, [filterBy])
-
 
     async function onRemoveStay(stayId) {
         try {
@@ -38,36 +29,13 @@ export function StayIndex() {
         }
     }
 
-    async function onAddStay() {
-        const stay = stayService.getEmptyStay()
-        stay.name = prompt('name?')
-        try {
-            const savedStay = await addStay(stay)
-            showSuccessMsg(`Stay added (id: ${savedStay._id})`)
-        } catch (err) {
-            showErrorMsg('Cannot add stay')
-        }
-    }
-
-    async function onUpdateStay(stay) {
-        const price = +prompt('New price?')
-        const stayToSave = { ...stay, price }
-        try {
-            const savedStay = await updateStay(stayToSave)
-            showSuccessMsg(`Stay updated, new price: ${savedStay.price}`)
-        } catch (err) {
-            showErrorMsg('Cannot update stay')
-        }
-    }
-
-
     console.log('stays at StayIndex:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
 
-            <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
+            {/* <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button> */}
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>

@@ -83,17 +83,6 @@
                 background-color: $clr5 ;
             }
 
-            // &::selection {
-            //     border-radius: 2rem;
-            //     background-color: $clr1;
-            //     outline: none;
-            //     box-shadow: -1px 2px 12px 0 $clr12;
-
-            //     &:hover {
-            //         background-color: $clr1;
-            //     }
-
-            // }
         }
 
 
@@ -181,7 +170,7 @@
         // width: 100vw
         .location-filter {
             position: absolute;
-            left: 485px;
+            left: 575px;
             top: 170px;
             z-index: 4;
             background-color: $clr1;
@@ -230,7 +219,7 @@
             width: 406px;
             padding: em(16px) em(32px);
             position: absolute;
-            right: 630px;
+            right: 540px;
             top: 170px;
             z-index: 4;
             border-radius: 2rem;
@@ -309,7 +298,7 @@
             background-color: $clr1;
             width: max-content;
             top: 170px;
-            right: 620px;
+            left: 575px;
             // margin-left: 20px;
             position: absolute;
             // background-color: aqua;
