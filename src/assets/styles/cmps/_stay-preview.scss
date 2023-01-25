@@ -8,12 +8,6 @@
     line-height: $lineHeight;
 
 
-    &:hover > * {
-        background-color: rgb(235, 50, 81);
-        //  pointer-events: none;
-        opacity: 1;
-    }
-
     // image slider start
 
 
@@ -140,6 +134,7 @@
         background-position: center;
         background-size: cover;
         border-radius: 12px;
+    
 
         // display: flex;
         // padding: 12px 12px 0 12px;
@@ -198,7 +193,7 @@
                         overflow: visible;
 
                         align-self: center;
-                        visibility: visible;
+                        // visibility: visible;
                         transition-delay: 0ms;
                         transition-duration: 200ms;
                         grid-column: 2;
@@ -214,12 +209,7 @@
                         visibility: visible;
                     }
 
-                    // &:hover {
-                    //     opacity: 1;
-                    // }
-                    //position-arraw:hover{
-                    //     opacity: 1;
-                    // }
+                  
                 }
             }
         }
@@ -386,14 +376,11 @@
             }
 
         }
+    }
 
+    &:hover {
+        .position-arraw{
+            opacity: 1 !important;
+        }
     }
 }
-
-// questions!!!!!!!!!
-
-// איך לעשות דינמי את הליין הייטס?
-// איך לעשות דינמי את הfont?
-// מה יש בגריד של האינפו? אין בצד שיש את הטקסט מה הגודל שלו
-// איך להגדיל את הסימבול לגודל של המספר
-// איך לקבל את התאריך הכי קרוב?

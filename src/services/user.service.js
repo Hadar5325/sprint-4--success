@@ -73,11 +73,10 @@ async function signup(userCred) {
     // socketService.login(user._id)
     return saveLocalUser(user)
 }
-async function logout() {
-    await 
-    
+
+function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-        console.log('log out succesfully:')
+    console.log('log out succesfully:')
     // socketService.logout()
     // return await httpService.post('auth/logout')
 }

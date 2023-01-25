@@ -47,6 +47,13 @@ async function query(filterBy) {
             return stay.loc.region.toLowerCase() === filterBy.region || (stay.loc.country.toLowerCase()) === filterBy.region
         })
     }
+    // if (filterBy.datesRange.startDate) {
+    //     fillteredStays = fillteredStays.filter((stay => {
+    //         return stay.orders.map((order) => {
+    //             order.startDate
+    //         }
+    //     }))
+    // }
     return fillteredStays
 }
 

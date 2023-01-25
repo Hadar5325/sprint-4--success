@@ -1,5 +1,5 @@
-import { stayService } from '../../services/stay.service.local'
-import { setIsFilterShown } from '../actions/stay.actions'
+import { stayService } from '../services/stay.service.local'
+import { setIsFilterShown } from './stay.actions'
 
 export const SET_STAYS = 'SET_STAYS'
 export const SET_STAY = 'SET_STAY'

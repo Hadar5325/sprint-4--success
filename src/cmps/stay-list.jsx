@@ -8,7 +8,7 @@ export function StayList({ stays, onRemoveStay }) {
                 <StayPreview stay={stay} />
                 <Link to={`stays/${stay._id}`}> Details </Link>
                 <Link to={`stay/edit/${stay._id}`}> Edit </Link>
-                <button onClick={()=> onRemoveStay(stay._id)}>Remove</button>
+                <button onClick={() => onRemoveStay(stay._id)}>Remove</button>
             </li>)
         }
     </ul>

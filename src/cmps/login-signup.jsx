@@ -1,35 +1,21 @@
-
-
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service';
-import { signup } from '../store/user.actions';
+import { signup, login } from '../store/user.actions';
 
-
-export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLoginModalShown }) {
+export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
 
     const [isSignup, setIsSignUp] = useState(false)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
     const [user, setUser] = useState(userService.getLoggedinUser())
 
-
-
     function onChangeLoginStatus(user) {
         setUser(user)
     }
 
-    async function onLogout() {
-        try {
-            userService.logout()
-            setUser(userService.getLoggedinUser())
-        } catch (err) {
-            console.log('cannot logout:')
-        }
-    }
-
-
     function handleSubmit(ev) {
         ev.preventDefault()
         onLogin(credentials)
+        setIsLoginModalShown(false)
     }
 
     function handleChange({ target }) {
@@ -38,27 +24,8 @@ export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLogin
     }
 
     function onLogin(credentials) {
-        isSignup ? signup(credentials) : login(credentials)
-    }
-
-    async function login(credentials) {
-        try {
-            userService.login(credentials)
-            onChangeLoginStatus()
-            console.log('logged in successfuly!')
-        } catch (err) {
-            console.log('opss try again', err)
-        }
-    }
-
-    async function signup(credentials) {
-        try {
-            userService.signup(credentials)
-            onChangeLoginStatus()
-            console.log('signed in successgully!')
-        } catch (err) {
-            console.log('opssssss', err)
-        }
+       const currUser= isSignup ? signup(credentials) : login(credentials)
+        onChangeLoginStatus(currUser)
     }
 
     return (
@@ -110,7 +77,6 @@ export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLogin
                     </div>
                     <button>Continue</button>
                 </form>
-                <button className='log-out' onClick={onLogout}>Log out</button>
             </div>
         </section>
     )

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
 import {FilterCarousel} from '../cmps/filter-carousel'
-import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/actions/stay.actions'
+import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
 import { userService } from '../services/user.service'
 import { LoginSignup } from '../cmps/login-signup'
-export function HomePage() {
+export function StayIndex() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
 
@@ -23,7 +23,7 @@ export function HomePage() {
 
 
     useEffect(() => {
-        console.log('filterBy at homePage:', filterBy)
+        console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
 
     }, [filterBy])
@@ -61,12 +61,12 @@ export function HomePage() {
     }
 
 
-    console.log('stays at homepage:', stays)
+    console.log('stays at StayIndex:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
-            <FilterCarousel/>
+
             <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
@@ -83,8 +83,6 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
-
-                
             </section>
         </div>
     )
