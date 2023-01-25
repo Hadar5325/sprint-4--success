@@ -84,8 +84,6 @@ export function HomePage() {
                         </svg>
                     </div>
                 </Link>
-
-                <DemoCarousel ></DemoCarousel>
             </section>
         </div>
     )
