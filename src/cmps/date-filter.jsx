@@ -15,8 +15,9 @@ export function DateFilter({ handleChange }) {
         const timeStampEnd = new Date(endDate).getTime();
         console.log('month from stamp', new Date(startDate).toLocaleString('en', { month: 'short' }))
         console.log('day from stamp:', new Date(startDate).getDate())
-        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd } })
 
+        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd } })
+        // totalNights
     }, [startDate, endDate])
 
     return (

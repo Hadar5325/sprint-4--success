@@ -21,13 +21,15 @@ export function AppHeader({ }) {
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
     const loggedinUser = useSelector((state) => state.userModule.user)
     const location = useLocation().pathname
+    
+        const [filterType, setFilterType] = useState('location')
+        const [isUserModalOpen, setIsUserModalOpen] = useState(false)
+        const [isLoginModalShown, setIsLoginModalShown] = useState(false)
+        const [user, setUser] = useState(userService.getLoggedinUser())
+
+        
 
     const stayDetiles = `/stays`
-
-    const [filterType, setFilterType] = useState('location')
-    const [isUserModalOpen, setIsUserModalOpen] = useState(false)
-    const [isLoginModalShown, setIsLoginModalShown] = useState(false)
-    const [user, setUser] = useState(userService.getLoggedinUser())
 
 
 

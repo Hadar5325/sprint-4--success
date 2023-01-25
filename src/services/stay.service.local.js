@@ -107,20 +107,27 @@ function getEmptyFilter() {
         region: '',
         maxPrice: Infinity,
         capacity: {
-            adults: 0,
+            adults: 1,
             kids: 0,
             infants: 0,
             pets: 0,
-            total: 0
+            total: 1
         },
         datesRange: {
-            startDate: '',
-            endDate: ''
+            startDate: (Date.now()),
+            endDate: (Date.now() + 1000 * 60 * 60 * 24 * 7),
+            totalNights: getNightsCount(Date.now(),Date.now() + 1000 * 60 * 60 * 24 * 7)
         }
     }
 }
 
 function getParams(filterBy) {
-    const params = `?txt=${filterBy.txt}&capacity=${filterBy.capacity.total}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
+    const params = `?txt=${filterBy.txt}&capacityTotal=${filterBy.capacity.total}&capacityAdult=${filterBy.capacity.adults}&capacityKids=${filterBy.capacity.kids}&capacityInfants=${filterBy.capacity.infants}&capacityPets=${filterBy.capacity.pets}startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&totalNights=6&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
     return params
+}
+
+
+function getNightsCount(end,start){
+    const diff=end-start
+    const nights= diff/1000
 }

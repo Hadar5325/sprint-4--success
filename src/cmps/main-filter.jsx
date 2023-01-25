@@ -6,7 +6,7 @@ import { CapacityFilter } from './capacity-filter'
 import { LocationList } from './location-list'
 import { uptadeFilter } from '../store/stay.actions'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useParams } from 'react-router-dom';
 
 
 
@@ -18,8 +18,8 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
     const [filterBy, setFilterBy] = useState(currFilterBy)
     const [IsFocused, setIsFocused] = useState(false)
 
+
     useEffect(() => {
-        console.log('filterBy at useeffect at mainfilter:', filterBy)
         uptadeFilter(filterBy)
     }, [filterBy])
 
@@ -75,6 +75,11 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
 
     const { region, txt, datesRange } = currFilterBy
     const { timeStampStart, timeStampEnd } = datesRange
+
+    let params = new URLSearchParams(window.location.search);
+    let entries = params.entries();
+    
+    console.log('Object.fromEntries(entries);:',Object.fromEntries(entries))
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>
