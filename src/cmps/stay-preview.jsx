@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 
+import { ImageSlider } from "./image-slider"
 import asset42 from "../assets/img/asset42.webp"
 import asset43 from "../assets/img/asset43.webp"
 import asset44 from "../assets/img/asset44.webp"
@@ -40,7 +41,7 @@ export function StayPreview({ stay }) {
         },
         {
             url: asset46, title: '3'
-        }
+        },
     ]
 
 

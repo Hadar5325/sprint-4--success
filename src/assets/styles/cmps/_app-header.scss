@@ -7,7 +7,7 @@
   font-size: rem(14px);
   z-index: 5;
   min-height: 80px;
-  padding: 0 em(16px);
+  padding: em(16px) 0;
 
 
   .user-modal {
@@ -16,7 +16,7 @@
     color: $clr8;
     position: absolute;
     top: 80px;
-    right: 94px;
+    right: 80px;
     width: 240px;
     border: 1px solid $clr5 ;
     z-index: 4;
@@ -126,9 +126,10 @@
 
 
   .logo-container {
+    margin-top: 5px;
     display: flex;
     align-items: center;
-    width: 30px;
+    width: 120px;
     max-height: 80px;
 
     img {
@@ -221,7 +222,7 @@
 
 }
 
-.app-header-room {
+.app-header-stay {
   background-color: $clr1;
   // grid-template-rows: repeat(2,max);
   border-bottom: 1px solid $clr4 ;
