@@ -9,7 +9,6 @@ import { stayService } from '../services/stay.service.local'
 import { Link } from "react-router-dom"
 import { userService } from '../services/user.service'
 import { LoginSignup } from '../cmps/login-signup'
-import { DemoCarousel } from './demo-carousel'
 export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
