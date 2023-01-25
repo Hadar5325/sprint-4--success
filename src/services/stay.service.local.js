@@ -115,9 +115,9 @@ function getEmptyFilter() {
             total: 1
         },
         datesRange: {
-            startDate: (Date.now()),
-            endDate: (Date.now() + 1000 * 60 * 60 * 24 * 7),
-            totalNights: getNightsCount(Date.now(),Date.now() + 1000 * 60 * 60 * 24 * 7)
+            startDate: Date.now(),
+            endDate: Date.now() + 1000 * 60 * 60 * 24 * 7,
+            totalNights: getNightsCount(Date.now(),Date.now() + (1000 * 60 * 60 * 24 * 7))
         }
     }
 }
@@ -130,7 +130,7 @@ function getParams(filterBy) {
 
 function getNightsCount(start,end){
     const diff=end-start
-    const nights= diff/1000/60/60/24-1
+    const nights= (diff/1000/60/60/24)-1
     console.log('nights at getNIhgts count:',nights)
     return nights
 
