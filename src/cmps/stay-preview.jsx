@@ -1,10 +1,8 @@
 
+import React from 'react';
 import { useState, useRef, createRef, useEffect } from "react"
 
-import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-
 
 import { ImageSlider } from "./image-slider"
 import asset42 from "../assets/img/asset42.webp"
@@ -15,6 +13,7 @@ import asset46 from "../assets/img/asset46.webp"
 
 export function StayPreview({ stay }) {
 
+    console.log(stay)
     const [currentIdx, setCurrentIdx] = useState(0)
 
     // function createRef(){
@@ -25,7 +24,9 @@ export function StayPreview({ stay }) {
     //         })
     // }
     // fix 
-    let imageUrl = stay.imgUrls[0]
+    console.log(stay.imgUrls)
+    // const imageUrls = stay
+    // console.log(imageUr/ls, "ppppppppppp")
     let slides = [
         {
             url: asset42, title: 'view'
@@ -48,31 +49,32 @@ export function StayPreview({ stay }) {
     const myRef = useRef(new Array());
     const refLeftArraw = useRef(null)
     const refRightArraw = useRef(null)
-    useEffect(()=>{
+    useEffect(() => {
         console.log('hiiiiiii')
-        // const element = myRef.current;
-        // element[currentIdx].current.style.backgroundColor = 'blue'
+        // // const element = myRef.current;
+        // // element[currentIdx].current.style.backgroundColor = 'blue'
     }, [])
-    
+
     myRef.current = slides.map((element, i) => myRef.current[i] ?? createRef())
-    // console.log(myRef.current)
+    console.log(myRef.current)
 
-
-    function goToPrevious() {
+    function goToPrevious(ev) {
+        ev.stopPropagation()
+        console.log(ev)
         const isFirstSlide = currentIdx === 0
         const newIndex = isFirstSlide ? 0 : currentIdx - 1
 
-        if(newIndex === 0){
+        if (newIndex === 0) {
             console.log("inside")
             refLeftArraw.current.style.opacity = 0
             refLeftArraw.current.style.cursor = 'auto'
-            refLeftArraw.current.style.pointerEvents = 'none';    
-        }else{
+            refLeftArraw.current.style.pointerEvents = 'none';
+        } else {
             refRightArraw.current.style.opacity = 1
             refRightArraw.current.style.cursor = 'pointer'
-            refRightArraw.current.style.pointerEvents = 'auto';    
+            refRightArraw.current.style.pointerEvents = 'auto';
         }
-        
+
         setCurrentIdx(newIndex)
 
         //changing colors of dots
@@ -80,19 +82,22 @@ export function StayPreview({ stay }) {
         changeDotColorToChoosen(newIndex)
 
     }
+    // function getClassFromDot(){
+    //     inde
+    // }
 
     function goToNext() {
         const isLastSlide = currentIdx === slides.length - 1
         const newIndex = isLastSlide ? slides.length - 1 : currentIdx + 1;
 
-        if(newIndex === slides.length-1){
+        if (newIndex === slides.length - 1) {
             refRightArraw.current.style.opacity = 0
             refRightArraw.current.style.cursor = 'auto'
-            refRightArraw.current.style.pointerEvents = 'none';    
-        }else{
+            refRightArraw.current.style.pointerEvents = 'none';
+        } else {
             refLeftArraw.current.style.opacity = 1
             refLeftArraw.current.style.cursor = 'pointer'
-            refLeftArraw.current.style.pointerEvents = 'auto';    
+            refLeftArraw.current.style.pointerEvents = 'auto';
         }
 
         setCurrentIdx(newIndex)
@@ -129,14 +134,14 @@ export function StayPreview({ stay }) {
 
                     <div className="div-arraws">
 
-                        <div className="arraw leftArraw" ref={refLeftArraw} onClick={goToPrevious}>
+                        <div className="arraw leftArraw" ref={refLeftArraw} onClick={(ev) => goToPrevious(ev)}>
                             <div className="position-arraw">
                                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
                                     <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
                                 </svg>
                             </div>
                         </div>
-                        <div className="arraw rightArraw" ref={refRightArraw} onClick={goToNext}>
+                        <div className="arraw rightArraw" ref={refRightArraw} onClick={(ev) => goToNext(ev)}>
                             <div className="position-arraw">
                                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
                                     <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>

@@ -13,14 +13,9 @@ export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
 
-
-
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
-
-  
-
 
     useEffect(() => {
         console.log('filterBy at homePage:', filterBy)
@@ -68,7 +63,9 @@ export function HomePage() {
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
 
             <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
+            
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
+            
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
 

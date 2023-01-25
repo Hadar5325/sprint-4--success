@@ -1,14 +1,22 @@
 import { StayPreview } from "./stay-preview";
 import { Link, NavLink } from 'react-router-dom'
+import data from '../data/stay.json';
+
+import React from 'react';
+import { useState} from "react"
+
 
 export function StayList({ stays, onRemoveStay }) {
+
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <StayPreview stay={stay} />
-                <Link to={`stays/${stay._id}`}> Details </Link>
-                <Link to={`stay/edit/${stay._id}`}> Edit </Link>
-                <button onClick={() => onRemoveStay(stay._id)}>Remove</button>
+                <Link to={`stays/${stay._id}`}>
+                    <StayPreview stay={stay}/>
+                </Link>
+
+                {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
+                <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
     </ul>
