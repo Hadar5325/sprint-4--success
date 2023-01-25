@@ -10,6 +10,7 @@ import { Link } from "react-router-dom"
 import { LoginForm } from '../cmps/login-form'
 import { userService } from '../services/user.service'
 import { LoginSignup } from '../cmps/login-signup'
+import { DemoCarousel } from './demo-carousel'
 export function HomePage() {
     // const count = useSelector(storeState => storeState.userModule.count)
 
@@ -67,7 +68,7 @@ export function HomePage() {
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
-            <FilterCarousel/>
+
             <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
             <StayList stays={stays} onRemoveStay={onRemoveStay} />
             <section className='main-control-container'>
@@ -85,7 +86,7 @@ export function HomePage() {
                     </div>
                 </Link>
 
-                
+                <DemoCarousel ></DemoCarousel>
             </section>
         </div>
     )
