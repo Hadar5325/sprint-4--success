@@ -15,11 +15,13 @@ export function StayList({ stays, onRemoveStay, userwishList }) {
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}> </Link>
 
+                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>
                     <StayPreview stay={stay} userwishList={userwishList} />
+                </Link>
 
-                    {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
+
+                {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
             </li>)
         }
