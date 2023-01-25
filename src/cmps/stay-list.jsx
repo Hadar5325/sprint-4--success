@@ -6,15 +6,18 @@ import React from 'react';
 import { useState } from "react"
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom'
+import {stayService} from '../services/stay.service.local'
 
 export function StayList({ stays, onRemoveStay }) {
+
+    const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <Link to={`stays/${searchParams.get('capacity')}?`}>
+                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>
                     <StayPreview stay={stay} />
                 </Link>
                 <Link to={`stays/`}></Link>

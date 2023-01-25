@@ -28,7 +28,6 @@ export function RootCmp() {
 
                     <Route path='/stay/map' element={<StaysMap />} />
 
-                    <Route path='/stays/' element={<StayDetails />} />
                     <Route path='/stays/:id' element={<StayDetails />} />
 
                     <Route path='/stays/book/:id' element={<Book />} />
