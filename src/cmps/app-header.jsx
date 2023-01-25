@@ -27,7 +27,7 @@ export function AppHeader({ }) {
         const [isLoginModalShown, setIsLoginModalShown] = useState(false)
         const [user, setUser] = useState(userService.getLoggedinUser())
 
-        
+
 
     const stayDetiles = `/stays`
 
@@ -93,7 +93,7 @@ export function AppHeader({ }) {
         <header className={divName}>
             <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
-                <div className="logo-container"><img src={logo} alt="" /></div>
+                <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
                     <div className='header-buttons'>
                         {/* <Link className="host-link" to="/hosting">Switch to hosting</Link> */}
