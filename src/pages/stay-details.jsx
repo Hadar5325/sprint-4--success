@@ -31,7 +31,7 @@ export function StayDetails() {
     let params = new URLSearchParams(window.location.search)
     let entries = params.entries()
     console.log(entries)
-    console.log(Object.fromEntries(entries))
+    console.log(Object.fromEntries(entries).capacityAdult)
 
 
     const [capacityModal, setCapacityModal] = useState(false)
