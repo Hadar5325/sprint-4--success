@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StayList } from '../cmps/stay-list'
 import {FilterCarousel} from '../cmps/filter-carousel'
-import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/actions/stay.actions'
+import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '../store/stay.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { stayService } from '../services/stay.service.local'

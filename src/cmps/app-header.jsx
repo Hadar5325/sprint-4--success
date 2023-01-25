@@ -12,13 +12,14 @@ import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
-import { setIsFilterShown } from '../store/actions/stay.actions'
+import { setIsFilterShown } from '../store/stay.actions'
 
 
 export function AppHeader({ }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+    const loggedinUser = useSelector((state) => state.userModule.user)
     const location = useLocation().pathname
 
     const roomDetiles = `/rooms`
@@ -26,6 +27,8 @@ export function AppHeader({ }) {
     const [filterType, setFilterType] = useState('location')
     const [isUserModalOpen, setIsUserModalOpen] = useState(false)
     const [isLoginModalShown, setIsLoginModalShown] = useState(false)
+    const [user, setUser] = useState(userService.getLoggedinUser())
+
 
 
     function onShowFilter(type) {
@@ -38,8 +41,6 @@ export function AppHeader({ }) {
         if ((!txt && !region) || region === 'flexible') return "Anywhere"
         return region
     }
-
-
 
     let divName
     if (location.match(`/rooms`)) {
@@ -55,26 +56,43 @@ export function AppHeader({ }) {
     }
 
     function openUserModal() {
+        console.log('loggedinUser at openUserModal:',loggedinUser)
+        if (loggedinUser) return <section className='user-modal'>
+            <div className='log-out' onClick={() => {
+                onLogout()
+                setIsUserModalOpen(false)
+            }} >Log out</div>
+            {/* <Link className="host-link" to="/hosting"
+                onClick={() => setIsUserModalOpen(false)}>bnbAir your home
+            </Link> */}
+        </section>
         return <section className='user-modal'>
             <div className='log-in' onClick={() => {
                 setIsLoginModalShown(true)
                 setIsUserModalOpen(false)
-                // onFocus()
             }} >Log in</div>
             <div className='sign-up' onClick={() => {
                 setIsLoginModalShown(true)
                 setIsUserModalOpen(false)
             }}>Sign up</div>
-            <Link className="host-link" to="/hosting" onClick={() => setIsUserModalOpen(false)}>b&bAir your home </Link>
-            <button></button>
+
         </section>
     }
 
     function onFocus(target) {
-        console.log('target at onfocus:',target)
+        console.log('target at onfocus:', target)
         const elements = document.querySelectorAll('*')
         elements.forEach((element) => element.classList.remove('focused'))
         target.classList.add('focused')
+    }
+
+    async function onLogout() {
+        try {
+            userService.logout()
+            setUser(userService.getLoggedinUser())
+        } catch (err) {
+            console.log('cannot logout:')
+        }
     }
 
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
@@ -85,8 +103,8 @@ export function AppHeader({ }) {
                 <div className="logo-container"><img src={logo} alt="" /></div>
                 <div className='header-container flex'>
                     <div className='header-buttons'>
-                        <Link className="host-link" to="/hosting">Switch to hosting</Link>
-                        <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button>
+                        {/* <Link className="host-link" to="/hosting">Switch to hosting</Link> */}
+                        {/* <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button> */}
                     </div>
                     <button className='user-nav flex' onClick={() => {
                         setIsUserModalOpen(true)
@@ -108,7 +126,7 @@ export function AppHeader({ }) {
                         <div className="search-image img-container" onClick={(ev) => {
                             ev.stopPropagation()
                             onShowFilter('where')
-                            )
+
                         }} >
                             <svg className='svg-white' viewBox="0 0 32 32"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" >

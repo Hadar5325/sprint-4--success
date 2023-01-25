@@ -1,9 +1,6 @@
-
-
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service';
 import { signup } from '../store/user.actions';
-
 
 export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLoginModalShown }) {
 
@@ -11,25 +8,14 @@ export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLogin
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
     const [user, setUser] = useState(userService.getLoggedinUser())
 
-
-
     function onChangeLoginStatus(user) {
         setUser(user)
     }
 
-    async function onLogout() {
-        try {
-            userService.logout()
-            setUser(userService.getLoggedinUser())
-        } catch (err) {
-            console.log('cannot logout:')
-        }
-    }
-
-
     function handleSubmit(ev) {
         ev.preventDefault()
         onLogin(credentials)
+        setIsLoginModalShown(false)
     }
 
     function handleChange({ target }) {
@@ -110,7 +96,6 @@ export function LoginSignup({ onChangeLoginStatus, isLoginModalShown, setIsLogin
                     </div>
                     <button>Continue</button>
                 </form>
-                <button className='log-out' onClick={onLogout}>Log out</button>
             </div>
         </section>
     )

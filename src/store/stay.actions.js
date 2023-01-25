@@ -1,7 +1,7 @@
 
-import { stayService } from '../../services/stay.service.local'
-import { store } from "../store.js"
-import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN } from '../reducers/stay.reducer'
+import { stayService } from '../services/stay.service.local'
+import { store } from "./store.js"
+import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN } from './stay.reducer'
 
 export function getActionRemoveStay(stayId) {
     return {
