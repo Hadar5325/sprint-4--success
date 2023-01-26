@@ -4,6 +4,7 @@ import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '..
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { useSearchParams } from 'react-router-dom';
 import { Link } from "react-router-dom"
+import { userService } from '../services/user.service'
 
 import { FilterModal } from '../cmps/filter-modal'
 import { StayList } from '../cmps/stay-list'
@@ -15,14 +16,26 @@ export function StayIndex() {
     const stays = useSelector((state) => state.stayModule.stays)
     const filterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
-    const userwishList = useSelector((state) => state.userModule.wishList)
+    const loggedinUser = useSelector((state) => state.userModule.user)
+
+    const [userWishList, setUserWishList] = useState([])
+
+    useEffect(()=>{
+        if (!loggedinUser) return
+        const userId = loggedinUser._id
+        getTotalWishList(userId)
+
+    }, [])
+
+    async function getTotalWishList(userId){
+        const wishList = await userService.getUserByIdWishList(userId)
 
     const [isFilterModalShown, setIsFilterModalShown] = useState(false)
 
+        setUserWishList(wishList)
+    }
 
-    console.log(userwishList, "wish listtttt")
     useEffect(() => {
-        console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
     }, [filterBy])
 
@@ -34,6 +47,33 @@ export function StayIndex() {
         } catch (err) {
             showErrorMsg('Cannot remove stay')
         }
+    }
+
+    // async function getUserWishList(idStay) {
+    //     // get the user is conneced in session
+    //     if (!loggedinUser) return
+    //     const userId = loggedinUser._id
+
+    //     const wishListDetails = await userService.updateWishList(userId, )
+    // Get from local stoarge -> user's wish list, by the id we have from session storage.
+
+
+    // fix !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 
+    // const wishListDetails = await userService.getByIdWishList(userId)
+    // setUserWishList(wishListDetails)
+    // }
+
+    async function addStayIdToWishList(stayId) {
+
+        if (!loggedinUser) return
+        const userId = loggedinUser._id
+
+        console.log(stayId)
+        console.log(userId)
+
+        const wishListDetails = await userService.updateWishList(userId, stayId)
+
+        setUserWishList(wishListDetails)
     }
 
     console.log('stays at StayIndex:', stays)
@@ -55,7 +95,7 @@ export function StayIndex() {
                     </div>
                 </button> */}
             </div>
-            {stays.length ? <StayList stays={stays} onRemoveStay={onRemoveStay} userwishList={userwishList} />
+            {stays.length ? <StayList stays={stays} onRemoveStay={onRemoveStay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList} />
                 : <div>no stays for now...</div>
             }
             <section className='main-control-container'>

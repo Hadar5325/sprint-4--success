@@ -1,6 +1,6 @@
 import { storageService } from './async-storage.service.js'
 const fs = require('fs');
-var stays = require('../data/order.json')
+var orders = require('../data/order.json')
 
 // import { utilService } from './util.service.js'
 // import { userService } from './user.service.js'
@@ -12,76 +12,54 @@ export const orderService = {
     getById,
     save,
     remove,
-    getEmptyorder,
+    getEmptyorder
 }
 window.cs = orderService
 
-
-async function query(filterBy) {
-    // console.log('filterBy at query:', filterBy)
-    const staysFromStorage = await storageService.query(STORAGE_KEY)
-    if (staysFromStorage.length) {
-        var fillteredStays = staysFromStorage
+async function query() {
+    const ordersFromStorage = await storageService.query(STORAGE_KEY)
+    if (!ordersFromStorage.length) {
+        storageService.save(STORAGE_KEY, orders)
+        return storageService.query(STORAGE_KEY)
     } else {
-        fillteredStays = stays
-        storageService.save(STORAGE_KEY, stays)
-    }
+        return storageService.query(STORAGE_KEY)
 
-    if (filterBy.type) {
-        // const regex = new RegExp(filterBy.txt, 'i')
-        fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
-    if (filterBy.maxPrice) {
-        fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
-    }
-    if (filterBy.capacity) {
-        fillteredStays = fillteredStays.filter(stay => stay.capacity >= filterBy.capacity.total)
-    }
-    if (filterBy.region && filterBy.region !== 'flexible') {
-        fillteredStays = fillteredStays.filter(stay => {
-            return stay.loc.region === filterBy.region
-        })
-    }
-    return fillteredStays
 }
 
 function getById(id) {
-    // const staysFromStorage = await storageService.query(STORAGE_KEY)
-
-    // return storageService.get(STORAGE_KEY, stayId)
-    return storageService.get('stay', id)
+   
+    return storageService.get('order', id)
 }
 
-async function remove(stayId) {
-    // throw new Error('Nope')
-    await storageService.remove(STORAGE_KEY, stayId)
+async function remove(orderId) {
+    await storageService.remove(STORAGE_KEY, orderId)
 }
 
-async function save(stay) {
-    var savedStay
-    if (stay._id) {
-        savedStay = await storageService.put(STORAGE_KEY, stay)
+async function save(order) {
+    var savedOrder
+    if (order._id) {
+        savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
-        // Later, owner is set by the backend
-        // stay.owner = userService.getLoggedinUser()
-        savedStay = await storageService.post(STORAGE_KEY, stay)
+        
+        savedOrder = await storageService.post(STORAGE_KEY, order)
     }
-    return savedStay
+    return savedOrder
 }
 
 
 function getEmptyorder() {
     return {
-        _id: null,
-        hostId: null,
+        _id: '',
+        hostId: '',
         buyer: {},
-        totalPrice: null,
-        startDate: null,
-        endDate: null,
-        guests: {},
-        stay: {},
-        msgs: [],
-        status: null 
+        totalPrice: '',
+        startDate: '',
+        endDate: '',
+        guests: '',
+        stay: '',
+        msgs: '',
+        status: '' 
     }
 }
 
