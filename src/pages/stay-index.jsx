@@ -19,6 +19,7 @@ export function StayIndex() {
     const loggedinUser = useSelector((state) => state.userModule.user)
 
     const [userWishList, setUserWishList] = useState([])
+    const [isFilterModalShown, setIsFilterModalShown] = useState(false)
 
     useEffect(()=>{
         if (!loggedinUser) return
@@ -30,7 +31,6 @@ export function StayIndex() {
     async function getTotalWishList(userId){
         const wishList = await userService.getUserByIdWishList(userId)
 
-    const [isFilterModalShown, setIsFilterModalShown] = useState(false)
 
         setUserWishList(wishList)
     }
