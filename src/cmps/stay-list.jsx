@@ -9,6 +9,7 @@ import { stayService } from '../services/stay.service.local'
 import { useDispatch, useSelector } from 'react-redux'
 
 
+
 export function StayList({ stays, onRemoveStay, userwishList }) {
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 

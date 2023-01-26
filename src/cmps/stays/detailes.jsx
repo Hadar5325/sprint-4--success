@@ -3,7 +3,7 @@ import { StayDetailes } from './stayDetailes.jsx'
 
 import React, { useEffect, useState } from 'react'
 
-export function Detailes({stay ,order, guestsNum, setguests, guests, capacityModal,setCapacityModal,dateModal,setDateModal}){
+export function Detailes({ dates, setDates ,stay ,order, guestsNum, setguests, guests, capacityModal,setCapacityModal,dateModal,setDateModal}){
 
     const rate = calcRate()
 
@@ -41,7 +41,7 @@ export function Detailes({stay ,order, guestsNum, setguests, guests, capacityMod
     
     return <section className="detailes">
         
-        <Booking stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
+        <Booking dates={dates} setDates={setDates}stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
         <StayDetailes stay={stay} rate={rate} avgRate={avgRate} setCapacityModal={setCapacityModal}/>
         
     </section>

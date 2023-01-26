@@ -16,10 +16,14 @@ export const stayService = {
     getEmptyStay,
     getEmptyFilter,
     getParams,
-    getNightsCount
+    getNightsCount,
+    getAllStays
 }
 window.cs = stayService
 
+async function getAllStays() {
+    return storageService.query(STORAGE_KEY)
+}
 
 async function query(filterBy) {
     // console.log('filterBy at query:', filterBy)

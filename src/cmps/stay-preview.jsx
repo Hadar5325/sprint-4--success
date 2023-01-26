@@ -35,7 +35,6 @@ export function StayPreview({ stay, userwishList }) {
     myRef.current = slides.map((element, i) => myRef.current[i] ?? createRef())
 
     useEffect(() => {
-        console.log('hiiiii')
         const element = myRef.current;
         element[0].current.style.backgroundColor = '#fff'
         element[0].current.style.opacity = 1

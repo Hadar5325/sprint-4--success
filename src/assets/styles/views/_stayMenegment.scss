@@ -1,0 +1,24 @@
+
+
+.stayMenegment{
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    grid-template-rows: 80px 300px 70px;
+    grid-template-areas:
+        ". menu ."
+        ". main . "
+        ". footer .";
+
+    .menegmentMnue{
+        grid-area: menu;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menegmentContant{
+        grid-area: main;
+        border: 1px solid;
+
+    }
+}

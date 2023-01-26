@@ -1,6 +1,7 @@
 .galery {
+    // grid-area: main;
     height: 335px;
-    width: 100%;
+    // width: 100%;
     padding-top: 24px;
     display: grid;
 
@@ -28,7 +29,6 @@
 .galeryRight {
     grid-area: right;
     display: grid;
-
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
 

@@ -1,6 +1,6 @@
 
 
-export function CapacityBooking({addGuest ,guests}) {
+export function CapacityBooking({addGuest ,guests ,dates}) {
 
     return (
         <section className="guestsModal">

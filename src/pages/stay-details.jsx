@@ -28,7 +28,7 @@ export function StayDetails() {
     let { id } = useParams()
 
 
-    
+
 
 
     const [capacityModal, setCapacityModal] = useState(false)
@@ -36,6 +36,7 @@ export function StayDetails() {
     const [stay, setStay] = useState(null)
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})
+    const [dates, setDates] = useState({})
     const [guestsNum, setGuestsNum] = useState(1 + 'guest')
     // const [rate, setRate] = useState(0)  
 
@@ -48,18 +49,10 @@ export function StayDetails() {
         type: '',
         maxCapacity: Infinity,
     })
-    // const params = new URLSearchParams(window.location.search)
-    // const entries = params.entries()
-    // console.log(Object.fromEntries(entries))
-    // const {capacityAdult}=Object.fromEntries(entries)
-    // // const tempGuests = .capacityAdult,Object.fromEntries(entries)['capacityKids']]
-    // // const Adults = Object.fromEntries(entries).
-    // const Kids = Object.fromEntries(entries).capacityKids
+    const params = new URLSearchParams(window.location.search)
+    const entries = params.entries()
 
-    // const Infants = Object.fromEntries(entries).capacityInfants
-    // const Pets = Object.fromEntries(entries).capacityPets
-    // console.log(capacityAdult)
-
+    const queryObject = Object.fromEntries(entries)
 
 
     useEffect(() => {
@@ -69,12 +62,15 @@ export function StayDetails() {
 
     useEffect(() => {
         initOrder()
-
     }, [])
 
     useEffect(() => {
         onAddGuest(guests)
     }, [guests])
+
+    useEffect(() => {
+        onPickDates()
+    },[dates])
 
 
     async function loadStay(id) {
@@ -89,22 +85,24 @@ export function StayDetails() {
 
 
     function initOrder() {
-        
+
         const newOrder = _emptyOrder()
         newOrder.status = "pending"
-        newOrder.guests = { Adults:1, Kids:0, Infants:0, Pets:0 }
+        newOrder.guests = { Adults: 1, Kids: 0, Infants: 0, Pets: 0 }
         setOrder(newOrder)
         setguests(newOrder.guests)
-
     }
 
 
     function onAddGuest() {
         const sum = _numOfGuests()
         order.guests = guests
-        setGuestsNum(sum)
     }
 
+    function onPickDates() {
+        order['startDate'] = dates.startDate
+        order['endDate'] = dates.endDate
+    }
     function _numOfGuests() {
         const gusts = guests
         const adultsNum = gusts.Adults + gusts.Kids
@@ -162,7 +160,7 @@ export function StayDetails() {
         <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
         <Galery stay={stay} setCapacityModal={setCapacityModal} />
 
-        <Detailes stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
+        <Detailes dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
 
 
         <Reviwes stay={stay} setCapacityModal={setCapacityModal} />

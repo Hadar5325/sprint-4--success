@@ -17,9 +17,7 @@ export function StayIndex() {
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
     const userwishList = useSelector((state) => state.userModule.wishList)
 
-    console.log(userwishList, "wish listtttt")
     useEffect(() => {
-        console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
     }, [filterBy])
 
@@ -33,7 +31,6 @@ export function StayIndex() {
         }
     }
 
-    console.log('stays at StayIndex:', stays)
     if (!stays.length) return <div>Loading...</div>
     return (
         <div className='stay-app main-layout home-page'>
