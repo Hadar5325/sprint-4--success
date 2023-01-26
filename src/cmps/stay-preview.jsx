@@ -12,11 +12,19 @@ import asset44 from "../assets/img/asset44.webp"
 import asset45 from "../assets/img/asset45.webp"
 import asset46 from "../assets/img/asset46.webp"
 
-export function StayPreview({ stay, userwishList }) {
+export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
 
     const [currentIdx, setCurrentIdx] = useState(0)
-    // const [isInWishList,  setIsInWishList] = useState(item)
+    // const [isInWishList, setIsInWishList] = useState(false)
     let slides = [];
+
+    useEffect(()=>{
+        if(!userWishList.length) return 
+        console.log(userWishList)
+        const isInWishList = userWishList.find(element => element === stay._id)
+        if(isInWishList) refWishList.current.style.fill = 'red'
+
+    }, [userWishList])
 
     getSlides()
     function getSlides() {
@@ -24,7 +32,7 @@ export function StayPreview({ stay, userwishList }) {
             slides.push({ url: item })
         })
         if (slides.length > 5)
-        slides.splice(0,5)
+            slides.splice(0, 5)
     }
 
     const myRef = useRef(new Array());
@@ -35,7 +43,6 @@ export function StayPreview({ stay, userwishList }) {
     myRef.current = slides.map((element, i) => myRef.current[i] ?? createRef())
 
     useEffect(() => {
-        console.log('hiiiii')
         const element = myRef.current;
         element[0].current.style.backgroundColor = '#fff'
         element[0].current.style.opacity = 1
@@ -99,14 +106,18 @@ export function StayPreview({ stay, userwishList }) {
         element[newIndex].current.style.opacity = 1
     }
 
-    function onAddToWishList(ev){
-        // if(        refWishList.current.style.fill = 'red'
-        // )
+    function onAddToWishList(ev) {
+
+        addStayIdToWishList(stay._id)
         refWishList.current.style.fill = 'red'
+        // setIsInWishList(true)
+
+        // console.log(userWishList)
         // refWishList.current.style.backgroundColor = "red"
         // className={`isWantToBeAddedWishList ? "red" : "black"`}
 
     }
+
 
     return <article className="stay-preview">
         <div className="image-containter">
@@ -114,7 +125,7 @@ export function StayPreview({ stay, userwishList }) {
                 <div className="flex-containter" style={{ backgroundImage: `url(${slides[currentIdx].url})` }}>
                     <div className="div-wish-list">
                         <button>
-                            <svg ref={refWishList} onClick={(ev)=>{onAddToWishList(ev)}}> viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+                            <svg ref={refWishList} onClick={(ev) => { onAddToWishList(ev) }} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
                                 <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
                             </svg>
                         </button>
