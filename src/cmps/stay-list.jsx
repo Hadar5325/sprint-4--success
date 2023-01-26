@@ -20,6 +20,8 @@ export function StayList({ stays, onRemoveStay, addStayIdToWishList, userWishLis
                 <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>details
                 </Link>
 
+                {/* </Link> */}
+
 
                 {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}

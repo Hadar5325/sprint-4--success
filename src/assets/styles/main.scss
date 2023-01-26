@@ -22,6 +22,8 @@
 @import "views/review-app";
 @import "views/user-details";
 @import "./stays/stays.scss";
+@import "./basics/bookLayout.scss";
+@import "./views/stayMenegment";
 
 // Components
 @import "cmps/home-list";
@@ -31,6 +33,7 @@
 @import "cmps/user-msg";
 @import "./cmps/image-slider";
 @import "./cmps/login-form";
+@import "./cmps/filter-carousel";
 
 @import "./stays/staysHeader.scss";
 @import "./stays/galeryLeft.scss";
@@ -46,5 +49,6 @@
 @import "./stays/secend-footer.scss";
 @import "./stays/galery.scss";
 @import "cmps/filter.scss";
+
 
 

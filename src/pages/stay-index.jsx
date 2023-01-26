@@ -33,7 +33,6 @@ export function StayIndex() {
     }
 
     useEffect(() => {
-        console.log('filterBy at StayIndex:', filterBy)
         loadStays(filterBy)
     }, [filterBy])
 
@@ -80,14 +79,13 @@ export function StayIndex() {
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
 
-            {/* <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button> */}
+            <div className='filter-carousel-container flex'>
+                <FilterCarousel />
+                <button className='filter-btn'><div className='content-container'><img src="" alt="" /><div className='txt'>filters</div></div></button>
+            </div>
             <StayList stays={stays} onRemoveStay={onRemoveStay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList} />
             <section className='main-control-container'>
                 <Link to='/stay/edit'>Add Stay</Link>
-
-                {/* <Button className='add-link'>
-                <NavLink to='/toy/edit'>Add Toy</NavLink>
-              </Button> */}
 
                 <Link to="/stay/map">Show map
                     <div className='map-container'>

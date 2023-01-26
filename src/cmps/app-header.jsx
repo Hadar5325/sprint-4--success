@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
+import {StayMenegment} from '../pages/stayMenegment'
 
 import { userService } from '../services/user.service'
 import {logout} from '../store/user.actions.js'
@@ -27,11 +28,9 @@ export function AppHeader({ }) {
         const [isLoginModalShown, setIsLoginModalShown] = useState(false)
         const [user, setUser] = useState(userService.getLoggedinUser())
 
-        
+
 
     const stayDetiles = `/stays`
-
-
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -45,8 +44,8 @@ export function AppHeader({ }) {
     }
 
     let divName
-    if (location.match(`/stays`)) {
-        divName = 'app-header-stay full stays'
+    if (location.match(`/stays`) ||location.match(`/book`)) {
+        divName = 'app-header stay full stays'
     } else {
         divName = 'app-header full main-layout'
     }
@@ -64,6 +63,8 @@ export function AppHeader({ }) {
                 logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay maneg</Link>
+            
             {/* <Link className="host-link" to="/hosting"
                 onClick={() => setIsUserModalOpen(false)}>bnbAir your home
             </Link> */}
@@ -93,7 +94,7 @@ export function AppHeader({ }) {
         <header className={divName}>
             <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
-                <div className="logo-container"><img src={logo} alt="" /></div>
+                <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
                     <div className='header-buttons'>
                         {/* <Link className="host-link" to="/hosting">Switch to hosting</Link> */}

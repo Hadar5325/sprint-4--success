@@ -34,6 +34,16 @@ export async function loadStay(stayId) {
     }
 }
 
+export async function loadAllStays() {
+    try {
+        const stays = await stayService.getAllStays()
+        return stays
+
+    } catch (err) {
+        console.log('Cannot load stays', err)
+        throw err
+    }
+}
 
 export async function loadStays(filterBy) {
     const queryStringParams = stayService.getParams(filterBy)
@@ -81,6 +91,7 @@ export function updateStay(stay) {
         .then(savedStay => {
             console.log('Updated Stay:', savedStay)
             store.dispatch(getActionUpdateStay(savedStay))
+
             return savedStay
         })
         .catch(err => {
@@ -93,6 +104,11 @@ export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
     // console.log('from uptadeFilter:', filterBy)
 
     store.dispatch(({ type: UPDATE_FILTER, filterBy }))
+    const queryStringParams = stayService.getParams(filterBy)
+
+    const newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + queryStringParams
+    window.history.pushState({ path: newUrl }, '', newUrl)
+
     return filterBy
 }
 

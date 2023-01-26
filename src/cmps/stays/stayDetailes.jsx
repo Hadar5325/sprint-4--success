@@ -7,7 +7,6 @@ import parking from '../../assets/img/parking.svg'
 
 
 export function StayDetailes({ stay, avgRate , setCapacityModal}) {
-    console.log(stay.host.pictureUrl)
     return <section className="stayDetailes" onClick={() => setCapacityModal(false)}>
 
         <div className='shortInfo'>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { stayService } from "../services/stay.service.local";
+import { userService } from "../services/user.service";
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -13,10 +15,8 @@ export function DateFilter({ handleChange }) {
     useEffect(() => {
         const timeStampStart = new Date(startDate).getTime();
         const timeStampEnd = new Date(endDate).getTime();
-        console.log('month from stamp', new Date(startDate).toLocaleString('en', { month: 'short' }))
-        console.log('day from stamp:', new Date(startDate).getDate())
-
-        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd } })
+        const totalNights = stayService.getNightsCount(timeStampStart, timeStampEnd)
+        handleChange({ name: 'datesRange', value: { timeStampStart, timeStampEnd, totalNights } })
         // totalNights
     }, [startDate, endDate])
 

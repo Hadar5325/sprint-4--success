@@ -16,10 +16,14 @@ export const stayService = {
     getEmptyStay,
     getEmptyFilter,
     getParams,
-    getNightsCount
+    getNightsCount,
+    getAllStays
 }
 window.cs = stayService
 
+async function getAllStays() {
+    return storageService.query(STORAGE_KEY)
+}
 
 async function query(filterBy) {
     // console.log('filterBy at query:', filterBy)
@@ -52,8 +56,6 @@ async function query(filterBy) {
         const { timeStampStart, timeStampEnd } = filterBy.datesRange
         fillteredStays = fillteredStays.filter((stay => {
             return stay.orders.every((order) => {
-                console.log('dates at filter:', timeStampStart, timeStampEnd)
-                console.log('dates at order:', order.startDate, order.endDate)
                 return timeStampEnd <= order.startDate || timeStampStart >= order.endDate
             })
         }))
@@ -115,23 +117,33 @@ function getEmptyFilter() {
             total: 1
         },
         datesRange: {
-            startDate: (Date.now()),
-            endDate: (Date.now() + 1000 * 60 * 60 * 24 * 7),
-            totalNights: getNightsCount(Date.now(),Date.now() + 1000 * 60 * 60 * 24 * 7)
+            startDate: Date.now(),
+            endDate: Date.now() + 1000 * 60 * 60 * 24 * 7,
+            totalNights: getNightsCount(Date.now(), Date.now() + (1000 * 60 * 60 * 24 * 7))
         }
     }
 }
 
 function getParams(filterBy) {
-    const params = `?txt=${filterBy.txt}&capacityTotal=${filterBy.capacity.total}&capacityAdult=${filterBy.capacity.adults}&capacityKids=${filterBy.capacity.kids}&capacityInfants=${filterBy.capacity.infants}&capacityPets=${filterBy.capacity.pets}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&totalNights=6&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
+    const params = `?txt=${filterBy.txt}&capacityTotal=${filterBy.capacity.total}&capacityAdult=${filterBy.capacity.adults}&capacityKids=${filterBy.capacity.kids}&capacityInfants=${filterBy.capacity.infants}&capacityPets=${filterBy.capacity.pets}&startDate=${filterBy.datesRange.timeStampStart}&endDate=${filterBy.datesRange.timeStampEnd}&totalNights=${filterBy.datesRange.totalNights}&maxPrice=${filterBy.maxPrice}&region=${filterBy.region}&type=${filterBy.type}`
     return params
 }
 
 
-function getNightsCount(start,end){
-    const diff=end-start
-    const nights= diff/1000/60/60/24-1
-    console.log('nights at getNIhgts count:',nights)
+function getNightsCount(start, end) {
+    const diff = end - start
+    const nights = (diff / 1000 / 60 / 60 / 24) - 1
+    console.log('nights at getNIhgts count:', nights)
     return nights
 
 }
+
+export const labels = [
+    'Caves', 'Tropical', 'Countryside', 'Skiing', 
+    'Private rooms','OMG', 'Boats','Amazing views', 
+    'Beachfront', 'Top of the world', 'Luxe',  
+   'Off-the-grid', 'Play',  'Iconic cities', 'New',  
+    'Campers', 'Golfing', 'Earth homes',   'Ryokans',  
+    'Casas particulares', 'Minsus', 
+     'Adapted'
+]

@@ -1,0 +1,37 @@
+.book {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    grid-template-rows: 148px 1080px 70px;
+    grid-template-areas:
+        ". title ."
+        ". main . "
+        ". footer .";
+
+    .RequestTitle{
+        grid-area: title;
+        font-size: 16px;
+        padding-bottom: 32px;
+    }
+    .backto{
+        font-size: 16px;
+        line-height: 20px;
+        padding-right: 32px;
+    }
+
+    .RequestTitleContant{
+        line-height: 20px;
+        padding-bottom: 16px;
+        padding-top: 64px;
+        display: flex;
+    }
+    .RequestTitleContantTitle{
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    .mainBook {
+        grid-area: main;
+
+    }
+
+}

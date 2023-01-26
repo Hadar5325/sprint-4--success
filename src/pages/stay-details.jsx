@@ -28,10 +28,7 @@ export function StayDetails() {
     let { id } = useParams()
 
 
-    let params = new URLSearchParams(window.location.search)
-    let entries = params.entries()
-    console.log(entries)
-    console.log(Object.fromEntries(entries))
+
 
 
     const [capacityModal, setCapacityModal] = useState(false)
@@ -39,6 +36,7 @@ export function StayDetails() {
     const [stay, setStay] = useState(null)
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})
+    const [dates, setDates] = useState({})
     const [guestsNum, setGuestsNum] = useState(1 + 'guest')
     // const [rate, setRate] = useState(0)  
 
@@ -51,8 +49,10 @@ export function StayDetails() {
         type: '',
         maxCapacity: Infinity,
     })
+    const params = new URLSearchParams(window.location.search)
+    const entries = params.entries()
 
-
+    const queryObject = Object.fromEntries(entries)
 
 
     useEffect(() => {
@@ -68,6 +68,10 @@ export function StayDetails() {
         onAddGuest(guests)
     }, [guests])
 
+    useEffect(() => {
+        onPickDates()
+    },[dates])
+
 
     async function loadStay(id) {
         try {
@@ -81,21 +85,24 @@ export function StayDetails() {
 
 
     function initOrder() {
+
         const newOrder = _emptyOrder()
         newOrder.status = "pending"
         newOrder.guests = { Adults: 1, Kids: 0, Infants: 0, Pets: 0 }
-        // const stayOrder = [stay._id,stay.name,stay.price]
-        // newOrder.stay = stayOrder
         setOrder(newOrder)
         setguests(newOrder.guests)
     }
 
 
-    function onAddGuest(gusts) {
+    function onAddGuest() {
         const sum = _numOfGuests()
-        setGuestsNum(sum)
+        order.guests = guests
     }
 
+    function onPickDates() {
+        order['startDate'] = dates.startDate
+        order['endDate'] = dates.endDate
+    }
     function _numOfGuests() {
         const gusts = guests
         const adultsNum = gusts.Adults + gusts.Kids
@@ -111,7 +118,6 @@ export function StayDetails() {
     }
 
     function _emptyOrder() {
-
         const order = orderService.getEmptyorder()
         return order
     }
@@ -154,7 +160,7 @@ export function StayDetails() {
         <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
         <Galery stay={stay} setCapacityModal={setCapacityModal} />
 
-        <Detailes stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
+        <Detailes dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
 
 
         <Reviwes stay={stay} setCapacityModal={setCapacityModal} />
