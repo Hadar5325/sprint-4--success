@@ -35,7 +35,11 @@ async function query(filterBy) {
         fillteredStays = fillteredStays.filter(stay => regex.test(stay.loc.region) || regex.test(stay.loc.country))
     }
     if (filterBy.type) {
-        fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
+        fillteredStays = fillteredStays.filter(stay => {
+            return stay.types.some((type) => {
+                return type === filterBy.type
+            })
+        })
     }
     if (filterBy.maxPrice) {
         fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
@@ -56,7 +60,8 @@ async function query(filterBy) {
             })
         }))
     }
-    return fillteredStays
+    if (fillteredStays) return fillteredStays
+    // else return 'No results for now'
 }
 
 function getById(id) {
@@ -90,12 +95,13 @@ async function save(stay) {
 function getEmptyStay() {
     return {
         name: '',
-        type: '',
+        types: [],
         imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
         price: '',
         summery: '',
         capacity: 0,
-        amenities: []
+        amenities: [],
+        orders: []
     }
 }
 
@@ -135,11 +141,70 @@ function getNightsCount(start, end) {
 }
 
 export const labels = [
-    'Caves', 'Tropical', 'Countryside', 'Skiing', 
-    'Private rooms','OMG', 'Boats','Amazing views', 
-    'Beachfront', 'Top of the world', 'Luxe',  
-   'Off-the-grid', 'Play',  'Iconic cities', 'New',  
-    'Campers', 'Golfing', 'Earth homes',   'Ryokans',  
-    'Casas particulares', 'Minsus', 
-     'Adapted'
+    'Caves', 'Tropical', 'Countryside', 'Skiing',
+    'Private rooms', 'OMG', 'Boats', 'Amazing views',
+    'Beachfront', 'Top of the world', 'Luxe',
+    'Off-the-grid', 'Play', 'Iconic cities', 'New',
+    'Campers', 'Golfing', 'Earth homes', 'Ryokans',
+    'Casas particulares', 'Minsus',
+    'Adapted'
+]
+
+export const amenities = [
+    "TV",
+    "Cable TV",
+    "Internet",
+    "Wifi",
+    "Air conditioning",
+    "Wheelchair accessible",
+    "Pool",
+    "Kitchen",
+    "Free parking on premises",
+    "Doorman",
+    "Gym",
+    "Elevator",
+    "Hot tub",
+    "Heating",
+    "Family/kid friendly",
+    "Suitable for events",
+    "Washer",
+    "Dryer",
+    "Smoke detector",
+    "Carbon monoxide detector",
+    "First aid kit",
+    "Safety card",
+    "Fire extinguisher",
+    "Essentials",
+    "Shampoo",
+    "24-hour check-in",
+    "Hangers",
+    "Hair dryer",
+    "Iron",
+    "Laptop friendly workspace",
+    "Self check-in",
+    "Building staff",
+    "Private entrance",
+    "Stay-darkening shades",
+    "Hot water",
+    "Bed linens",
+    "Extra pillows and blankets",
+    "Ethernet connection",
+    "Luggage dropoff allowed",
+    "Long term stays allowed",
+    "Ground floor access",
+    "Wide hallway clearance",
+    "Step-free access",
+    "Wide doorway",
+    "Flat path to front door",
+    "Well-lit path to entrance",
+    "Disabled parking spot",
+    "Step-free access",
+    "Wide doorway",
+    "Wide clearance to bed",
+    "Step-free access",
+    "Wide doorway",
+    "Step-free access",
+    "Wide entryway",
+    "Waterfront",
+    "Beachfront"
 ]

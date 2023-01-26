@@ -1,0 +1,17 @@
+
+
+.filter-modal {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+background-color : $clr1;
+width: 780px;
+padding: 0 em(24px);
+z-index:5;
+height: max-content;
+border-radius: 1rem;
+box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+
+
+}

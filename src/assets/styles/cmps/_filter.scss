@@ -28,6 +28,22 @@
         justify-content: space-between;
 
 
+        .location-inputs {
+            border-radius: 2rem;
+
+            &:hover:not(.focused) {
+                background-color: $clr5 ;
+            }
+        }
+
+        .checkIn-btn,
+        .checkOut-btn {
+            &:hover:not(.focused) {
+                background-color: $clr5 ;
+            }
+
+        }
+
         .line {
             align-self: center;
             height: em(28px);
@@ -43,7 +59,7 @@
             width: 130px;
             border-radius: 2rem;
             text-align: start;
-
+            padding-inline-start: em(35px);
             // &:focus:not(.last-input button) {
             //     background-color: $clr1;
             //     outline: none;
@@ -65,11 +81,6 @@
                 background-color: $clr1;
                 outline: none;
                 box-shadow: -1px 2px 12px 0 $clr12;
-
-                &:hover {
-                    background-color: $clr1;
-                }
-
             }
 
 
@@ -79,9 +90,9 @@
                 padding-bottom: em(14px);
             }
 
-            &:hover:not(:focus) {
-                background-color: $clr5 ;
-            }
+            // &:hover:not(.focused) {
+            //     background-color: $clr5 ;
+            // }
 
         }
 
@@ -100,9 +111,10 @@
                 outline: none;
                 box-shadow: -1px 2px 12px 0 $clr12;
 
-                &:hover {
-                    background-color: $clr1;
-                }
+                // :hover {
+                //     background-color: $clr1;
+                //     border-radius: 2rem;
+                // }
 
             }
 
@@ -125,21 +137,19 @@
             border-radius: 2rem;
             // justify-content: space-between;
 
+
             &.focused {
                 border-radius: 2rem;
                 background-color: $clr1;
                 outline: none;
                 box-shadow: -1px 2px 12px 0 $clr12;
 
-                &:hover {
-                    background-color: $clr1;
-                }
-
             }
 
-            &:hover {
+            &:hover:not(.focused) {
                 background-color: $clr5 ;
             }
+
 
             .search-btn {
                 font-weight: bold;
