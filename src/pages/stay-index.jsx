@@ -42,17 +42,18 @@ export function StayIndex() {
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
             {isFilterModalShown && <div> <div className='full-screen show black' onClick={() => setIsFilterModalShown(false)}></div>
-                <FilterModal setIsLoginModalShown={setIsLoginModalShown} stays={stays} filterBy={filterBy} /></div>}
+                {/* <FilterModal setIsFilterModalShown={setIsFilterModalShown} stays={stays} filterBy={filterBy} /> */}
+                </div>}
             <div className='filter-carousel-container flex'>
                 <FilterCarousel />
-                <button className='filter-btn' onClick={() => setIsFilterModalShown(true)}>
+                {/* <button className='filter-btn' onClick={() => setIsFilterModalShown(true)}>
                     <div className='content-container'>
                         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', height: 14 + 'px', width: 14 + 'px', fill: 'currentColor' }}
                             aria-hidden="true" role="presentation" focusable="false">
                             <path d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" /></svg>
                         <span>Filters</span>
                     </div>
-                </button>
+                </button> */}
             </div>
             {stays.length ? <StayList stays={stays} onRemoveStay={onRemoveStay} userwishList={userwishList} />
                 : <div>no stays for now...</div>

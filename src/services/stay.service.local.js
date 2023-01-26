@@ -198,12 +198,7 @@ export const amenities = [
     "Flat path to front door",
     "Well-lit path to entrance",
     "Disabled parking spot",
-    "Step-free access",
-    "Wide doorway",
     "Wide clearance to bed",
-    "Step-free access",
-    "Wide doorway",
-    "Step-free access",
     "Wide entryway",
     "Waterfront",
     "Beachfront"
