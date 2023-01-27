@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
 import {StayMenegment} from '../pages/stayMenegment'
 
-import { userService } from '../services/user.service'
+import { userService } from '../services/user.service.local'
 import {logout} from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { userService } from '../services/user.service';
+import { userService } from '../services/user.service.local';
 import { signup, login } from '../store/user.actions';
 
 export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
