@@ -47,9 +47,9 @@ export function AppHeader({ }) {
 
     let divName
     if (location.match(`/stays`) ||location.match(`/book`)) {
-        divName = 'app-header stay full stays'
+        divName = 'app-header stay full stays '
     } else {
-        divName = 'app-header full main-layout'
+        divName = 'app-header full main-layout '
     }
 
     function setDateTxt(type) {

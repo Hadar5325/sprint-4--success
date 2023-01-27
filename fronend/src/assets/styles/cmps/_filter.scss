@@ -186,7 +186,7 @@
             background-color: $clr1;
             display: grid;
             grid-template-columns: repeat(3, 120px);
-            grid-template-rows: 1fr 120px 120px;
+            grid-template-rows: 28px 120px 120px;
             column-gap: 10px;
             row-gap: 60px;
             padding-bottom: em(80px);
@@ -198,7 +198,7 @@
 
             .title {
                 padding-top: em(40px);
-                padding-bottom: em(30px);
+                // padding-bottom: em(30px);
                 grid-row: 1/1;
                 grid-column: 1/4;
 
@@ -323,8 +323,8 @@
 
     .title {
         display: inline-block;
-        padding-top: 38px;
-        margin-top: 38px;
+        padding-top: 34px;
+        // margin-top: 38px;
         width: 200px;
         // margin: 0;
         text-align: center;
@@ -353,7 +353,7 @@
         flex-direction: column;
         line-height: rem(18px);
         font-size: 1rem;
-        height: 479px;
+        height: 400px;
         padding: 0 em(27px);
         outline: none;
         width: 370px;
@@ -424,4 +424,19 @@
         background-color: $clr11;
         color: $clr1;
     }
+
+    .react-datepicker__navigation {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        // left: 20px;
+        z-index: 5;
+
+}
+
+        .react-datepicker__navigation-icon::before {
+            color: $clr11;
+        }
+
+
 }
