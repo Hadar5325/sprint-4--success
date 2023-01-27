@@ -11,8 +11,10 @@ export const userService = {
     saveLocalUser,
     getUsers,
     getById,
+    getUserByIdWishList,
     remove,
     update,
+    updateWishList,
     changeScore,
     getEmptyCredentials
 }
@@ -47,6 +49,14 @@ async function getById(userId) {
     return user
 }
 
+async function getUserByIdWishList(userId) {
+    const user = await storageService.get('user', userId)
+    return user.wishList
+    // const user = await httpService.get(`user/${userId}`)
+    // return user
+}
+
+
 function remove(userId) {
     return storageService.remove('user', userId)
     // return httpService.delete(`user/${userId}`)
@@ -61,6 +71,26 @@ async function update({ _id, score }) {
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
+}
+
+
+async function updateWishList(userId, stayId) {
+    console.log(userId)
+    const user = await storageService.get('user', userId)
+
+    // Check if it's already in wish list -> then remove from list
+    if (user.wishList.find(element => element === stayId)) {
+
+        // const newWishList = await storageService.remove('user', stayId)
+        // console.log(newWishList)
+    }
+    user.wishList.push(stayId)
+    await storageService.put('user', user)
+
+    // const user = await httpService.put(`user/${_id}`, {_id, score})
+    // Handle case in which admin updates other user's details
+    if (getLoggedinUser()._id === user._id) saveLocalUser(user)
+    return user.wishList
 }
 
 async function login(userCred) {
@@ -83,6 +113,7 @@ async function login(userCred) {
 async function signup(userCred) {
     userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    userCred.wishList = []
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)

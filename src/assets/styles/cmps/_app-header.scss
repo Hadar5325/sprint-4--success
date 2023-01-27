@@ -16,14 +16,19 @@
   }
 
   &.stay {
+    grid-column: 2;
     background-color: $clr1;
-    padding: 0px 110px;
+    // padding: 0px 110px;
     // grid-template-rows: repeat(2,max);
     border-bottom: 1px solid $clr4 ;
     font-family: $font1;
     font-size: rem(14px);
     min-width: 300px;
     z-index: 5;
+  }
+
+  &.book{
+    background-color: aqua;
   }
 
 

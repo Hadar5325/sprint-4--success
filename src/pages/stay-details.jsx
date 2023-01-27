@@ -70,7 +70,7 @@ export function StayDetails() {
 
     useEffect(() => {
         onPickDates()
-    },[dates])
+    }, [dates])
 
 
     async function loadStay(id) {
@@ -156,20 +156,17 @@ export function StayDetails() {
 
     return <section className='stays' onClick={handleClick} >
 
+        <div className='detailesMain'>
+            <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
+            <Galery stay={stay} setCapacityModal={setCapacityModal} />
 
-        <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
-        <Galery stay={stay} setCapacityModal={setCapacityModal} />
-
-        <Detailes dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
+            <Detailes dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
 
 
-        <Reviwes stay={stay} setCapacityModal={setCapacityModal} />
-        {/* <Place />
-        <HostedLeft />
-        <HostedRight />
-        <ToKnow />
-        <SecendFooter /> */}
-        <FirstFooter setCapacityModal={setCapacityModal} />
+            <Reviwes stay={stay} setCapacityModal={setCapacityModal} />
+            <FirstFooter setCapacityModal={setCapacityModal} />
+        </div>
+
 
     </section>
 }
