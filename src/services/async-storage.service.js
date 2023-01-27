@@ -13,6 +13,8 @@ function query(entityType, delay = 500) {
 }
 
 function get(entityType, entityId) {
+    console.log(entityId, "entity id")
+    console.log(entityType, "entity type")
     return query(entityType).then(entities => {
         const entity = entities.find(entity => entity._id === entityId)
         if (!entity) throw new Error(`Get failed, cannot find entity with id: ${entityId} in: ${entityType}`)
@@ -42,7 +44,15 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
+    console.log(entityType)
+    console.log(entityId)
     return query(entityType).then(entities => {
+
+        const object = entities
+        // for (const property in object) {
+        //     console.log(`${property}: ${object[property]}`);
+        // }
+          
         const idx = entities.findIndex(entity => entity._id === entityId)
         if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`)
         entities.splice(idx, 1)

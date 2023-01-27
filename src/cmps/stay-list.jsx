@@ -9,16 +9,15 @@ import { stayService } from '../services/stay.service.local'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-
-export function StayList({ stays, onRemoveStay, userwishList }) {
+export function StayList({ stays, onRemoveStay, addStayIdToWishList, userWishList}) {
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                
-                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>
-                    <StayPreview stay={stay} userwishList={userwishList} />
+
+                <StayPreview stay={stay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList}/>
+                <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>details
                 </Link>
 
                 {/* </Link> */}
