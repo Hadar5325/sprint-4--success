@@ -16,6 +16,7 @@ export function StayList({ stays, onRemoveStay, userwishList }) {
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
+                
                 <Link to={`stays/${stay._id}?${stayService.getParams(currFilterBy)}`}>
                     <StayPreview stay={stay} userwishList={userwishList} />
                 </Link>

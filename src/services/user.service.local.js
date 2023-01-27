@@ -19,9 +19,24 @@ export const userService = {
 
 window.userService = userService
 
+// async function getUsers() {
+//     const userssFromStorage = await storageService.query('user')
+//     if(userssFromStorage){
+//         return storageService.query('user')
+//     }else{
+//         alert('no users')
+//     }
+//     // return httpService.get(`user`)
+// }
 
-function getUsers() {
-    return storageService.query('user')
+
+async function getUsers() {
+    const userssFromStorage = await storageService.query('user')
+    if(userssFromStorage){
+        return storageService.query('user')
+    }else{
+        alert('no users')
+    }
     // return httpService.get(`user`)
 }
 

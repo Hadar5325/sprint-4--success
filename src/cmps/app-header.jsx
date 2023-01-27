@@ -44,9 +44,12 @@ export function AppHeader({ }) {
     }
 
     let divName
-    if (location.match(`/stays`) ||location.match(`/book`)) {
+    if (location.match(`/stays`)) {
         divName = 'app-header stay full stays'
-    } else {
+    }else if(location.match(`/book`)){
+        divName = 'app-header book full stays'
+    }
+     else {
         divName = 'app-header full main-layout'
     }
 
