@@ -1,5 +1,5 @@
-import { stayService } from './services/stay.service.js'
-import { userService } from './services/user.service.js'
+import { stayService } from './services/stay.service.local.js'
+import { userService } from './services/user.service.local.js'
 import { utilService } from './services/util.service.js'
 
 console.log('Simple driver to test some API calls')
