@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Stayousel } from 'react-responsive-carousel';
 
-export function DemoCarousel() {
+export function DemoStayousel() {
     return (
-        <Carousel>
+        <Stayousel>
             <div>
                 <img src="assets/1.jpeg" />
                 <p className="legend">Legend 1</p>
@@ -18,9 +18,9 @@ export function DemoCarousel() {
                 <img src="assets/3.jpeg" />
                 <p className="legend">Legend 3</p>
             </div>
-        </Carousel>
+        </Stayousel>
     );
 
 }
 
-// ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));
+// ReactDOM.render(<DemoStayousel />, document.querySelector('.demo-carousel'));

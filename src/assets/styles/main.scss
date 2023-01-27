@@ -5,7 +5,7 @@
 @import "setup/mixins";
 // @import "setup/typography";
 
-@import "./basics/svg.css";
+@import "./basics/svg.scss";
 
 // Basics
 @import "basics/helpers";
@@ -34,10 +34,9 @@
 @import "./cmps/image-slider";
 @import "./cmps/login-form";
 @import "./cmps/filter-carousel";
+@import "./cmps/filter-modal";
 
-@import "./stays/staysHeader.scss";
-@import "./stays/galeryLeft.scss";
-@import "./stays/galeryRight.scss";
+@import "./stays/staysHeader";
 @import "./stays/detailes.scss";
 @import "./stays/booking.scss";
 @import "./stays/reviwes.scss";

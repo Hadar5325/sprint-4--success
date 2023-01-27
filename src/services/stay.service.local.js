@@ -4,7 +4,7 @@ const fs = require('fs');
 var stays = require('../data/stay.json')
 
 // import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
+// import { userService } from './user.service.local.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -146,4 +146,58 @@ export const labels = [
     'Campers', 'Golfing', 'Earth homes',   'Ryokans',  
     'Casas particulares', 'Minsus', 
      'Adapted'
+]
+
+export const amenities = [
+    "TV",
+    "Cable TV",
+    "Internet",
+    "Wifi",
+    "Air conditioning",
+    "Wheelchair accessible",
+    "Pool",
+    "Kitchen",
+    "Free parking on premises",
+    "Doorman",
+    "Gym",
+    "Elevator",
+    "Hot tub",
+    "Heating",
+    "Family/kid friendly",
+    "Suitable for events",
+    "Washer",
+    "Dryer",
+    "Smoke detector",
+    "Staybon monoxide detector",
+    "First aid kit",
+    "Safety stayd",
+    "Fire extinguisher",
+    "Essentials",
+    "Shampoo",
+    "24-hour check-in",
+    "Hangers",
+    "Hair dryer",
+    "Iron",
+    "Laptop friendly workspace",
+    "Self check-in",
+    "Building staff",
+    "Private entrance",
+    "Stay-darkening shades",
+    "Hot water",
+    "Bed linens",
+    "Extra pillows and blankets",
+    "Ethernet connection",
+    "Luggage dropoff allowed",
+    "Long term stays allowed",
+    "Ground floor access",
+    "Wide hallway clearance",
+    "Step-free access",
+    "Wide doorway",
+    "Flat path to front door",
+    "Well-lit path to entrance",
+    "Disabled parking spot",
+    "Wide clearance to bed",
+    "Wide entryway",
+    "Waterfront",
+    "Beachfront"
 ]

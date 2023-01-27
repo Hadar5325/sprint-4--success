@@ -1,8 +1,11 @@
 [
   {
-    "_id": "622f337a75c7d36e498aaaf8",
     "name": "Westin Kaanapali KORVN 2BR",
-    "type": "National parks",
+    "types": [
+      "National parks",
+      "Skiing",
+      "Top of the world"
+    ],
     "imgUrls": [
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
@@ -50,9 +53,9 @@
       "Washer",
       "Dryer",
       "Smoke detector",
-      "Carbon monoxide detector",
+      "Staybon monoxide detector",
       "First aid kit",
-      "Safety card",
+      "Safety stayd",
       "Fire extinguisher",
       "Essentials",
       "Shampoo",
@@ -98,7 +101,7 @@
     },
     "stayType": "Entire home/apt",
     "host": {
-      "_id": "sysUO",
+      "_id": "1evJq",
       "fullname": "Patty And Beckett",
       "location": "Eureka, California, United States",
       "about": "Adventurous couple loves to travel :)",
@@ -219,9 +222,13 @@
     "likedByUsers": []
   },
   {
-    "_id": "622f337a75c7d36e498aaaf9",
+
     "name": "Belle chambre à côté Metro Papineau",
-    "type": "Campers",
+    "types": [
+      "Campers",
+      "OMG",
+      "Luxe"
+    ],
     "imgUrls": [
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg",
@@ -263,7 +270,7 @@
       "bedstay3": "2 single beds"
     },
     "price": 30,
-    "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Cartier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
+    "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Staytier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
     "capacity": 2,
     "amenities": [
       "TV",
@@ -277,7 +284,7 @@
       "Washer",
       "Dryer",
       "Smoke detector",
-      "Carbon monoxide detector",
+      "Staybon monoxide detector",
       "Essentials",
       "Iron",
       "translation missing: en.hosting_amenity_50"
@@ -346,15 +353,19 @@
     "likedByUsers": []
   },
   {
-    "_id": "622f337a75c7d36e498aab00",
+   
     "name": "Monte dos Burgos - Cosy Room",
-    "type": "Campers",
+    "types": [
+      "Campers",
+      "Private rooms",
+      "Casas particulares"
+    ],
     "imgUrls": [
-        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg",
-        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436329/cvylwkta0uannbxm3zns.jpg",
-        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437168/vbmfmdmwrxt7xfwbsw7c.jpg",
-        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg",
-        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436553/hbkx9lwxjd0wabqk0bmo.jpg"
+      "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg",
+      "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436329/cvylwkta0uannbxm3zns.jpg",
+      "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437168/vbmfmdmwrxt7xfwbsw7c.jpg",
+      "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg",
+      "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436553/hbkx9lwxjd0wabqk0bmo.jpg"
     ],
     "orders": [
       {
@@ -393,24 +404,24 @@
     "summary": "The neighbourhood is a quiet, family residential area, 20 minutes by bus from the historic center of Porto and 20 minutes from the beach (Matosinhos - where you may eat very GOOD fish!). You will love to stay in a very spacious, familiar and bright room, where you can enjoy a large and flowery garden, comfortable kitchen and laundry with washer and dryer machine. My space is good for couples, solo adventures, and business travelers!",
     "capacity": 2,
     "amenities": [
-        "Wifi",
-        "Kitchen",
-        "Free parking on premises",
-        "Pets live on this property",
-        "Cat(s)",
-        "Washer",
-        "Dryer",
-        "First aid kit",
-        "Fire extinguisher",
-        "Essentials",
-        "Shampoo",
-        "Lock on bedroom door",
-        "Hangers",
-        "Hair dryer",
-        "Iron",
-        "Laptop friendly workspace",
-        "translation missing: en.hosting_amenity_49",
-        "translation missing: en.hosting_amenity_50"
+      "Wifi",
+      "Kitchen",
+      "Free parking on premises",
+      "Pets live on this property",
+      "Cat(s)",
+      "Washer",
+      "Dryer",
+      "First aid kit",
+      "Fire extinguisher",
+      "Essentials",
+      "Shampoo",
+      "Lock on bedroom door",
+      "Hangers",
+      "Hair dryer",
+      "Iron",
+      "Laptop friendly workspace",
+      "translation missing: en.hosting_amenity_49",
+      "translation missing: en.hosting_amenity_50"
     ],
     "bathrooms": 1,
     "bedrooms": 1,
@@ -427,71 +438,75 @@
         "id": "80558077"
     },
     "loc": {
-        "country": "Portugal",
-        "countryCode": "PT",
-        "city": "Porto",
-        "address": "Porto, Porto District, Portugal",
-        "lat": -8.63082,
-        "lan": 41.18075
+      "country": "Portugal",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "Porto, Porto District, Portugal",
+      "lat": -8.63082,
+      "lan": 41.18075
     },
     "reviews": [
-        {
-            "at": "2016-08-11T04:00:00.000Z",
-            "by": {
-                "_id": "622f3402e36c59e6164fad68",
-                "fullname": "Celeste",
-                "imgUrl": "https://robohash.org/38181630?set=set1",
-                "id": "38181630"
-            },
-            "txt": "We had a very nice stay in the house and felt at home. The room is big and light, we had a private bathroom, could use the kitchen and the nice garden. Patricia picked us up at the station of the metro, the bus is near. Patricia and Chris are very open and welcoming people, we talked about Portugal, Fado, Porto ... Also, they gave us several tips to see in Porto. When we are in Porto again we will come back!! We really recommand to stay here. Thanks Patricia and Casimiro!"
+      {
+        "at": "2016-08-11T04:00:00.000Z",
+        "by": {
+          "_id": "622f3402e36c59e6164fad68",
+          "fullname": "Celeste",
+          "imgUrl": "https://robohash.org/38181630?set=set1",
+          "id": "38181630"
         },
-        {
-            "at": "2016-08-14T04:00:00.000Z",
-            "by": {
-                "_id": "622f3402e36c59e6164fadf0",
-                "fullname": "Martin",
-                "imgUrl": "https://robohash.org/32511082?set=set1",
-                "id": "32511082"
-            },
-            "txt": "Patricia and Chris has been wonderful hosts. They help us very much with all questions we had. We enjoyed our stay very much."
+        "txt": "We had a very nice stay in the house and felt at home. The room is big and light, we had a private bathroom, could use the kitchen and the nice garden. Patricia picked us up at the station of the metro, the bus is near. Patricia and Chris are very open and welcoming people, we talked about Portugal, Fado, Porto ... Also, they gave us several tips to see in Porto. When we are in Porto again we will come back!! We really recommand to stay here. Thanks Patricia and Casimiro!"
+      },
+      {
+        "at": "2016-08-14T04:00:00.000Z",
+        "by": {
+          "_id": "622f3402e36c59e6164fadf0",
+          "fullname": "Martin",
+          "imgUrl": "https://robohash.org/32511082?set=set1",
+          "id": "32511082"
         },
-        {
-            "at": "2016-08-15T04:00:00.000Z",
-            "by": {
-                "_id": "622f3402e36c59e6164faedf",
-                "fullname": "Sandra",
-                "imgUrl": "https://robohash.org/66617047?set=set1",
-                "id": "66617047"
-            },
-            "txt": "Une chambre très spacieuse et une salle de bain privée : au top ! \r\nChristian et Patricia ont été très accueillants et nous nous sommes tout de suite sentis comme chez nous ! "
+        "txt": "Patricia and Chris has been wonderful hosts. They help us very much with all questions we had. We enjoyed our stay very much."
+      },
+      {
+        "at": "2016-08-15T04:00:00.000Z",
+        "by": {
+          "_id": "622f3402e36c59e6164faedf",
+          "fullname": "Sandra",
+          "imgUrl": "https://robohash.org/66617047?set=set1",
+          "id": "66617047"
         },
-        {
-            "at": "2016-08-20T04:00:00.000Z",
-            "by": {
-                "_id": "622f3404e36c59e6164fb3ed",
-                "fullname": "Erika",
-                "imgUrl": "https://robohash.org/78636529?set=set1",
-                "id": "78636529"
-            },
-            "txt": "Des hôtes très accueillant et à l'écoute de leurs invités! De supers adresses à conseiller. \r\nUne maison décorée avec goût et avec une sublime salle de bain privée.\r\nLe centre est très facile d'accès en bus car inaccessible en voiture. \r\nTrès facile de se garer dans la rue de nos hôtes.\r\nUn excellent rapport qualité prix!"
+        "txt": "Une chambre très spacieuse et une salle de bain privée : au top ! \r\nChristian et Patricia ont été très accueillants et nous nous sommes tout de suite sentis comme chez nous ! "
+      },
+      {
+        "at": "2016-08-20T04:00:00.000Z",
+        "by": {
+          "_id": "622f3404e36c59e6164fb3ed",
+          "fullname": "Erika",
+          "imgUrl": "https://robohash.org/78636529?set=set1",
+          "id": "78636529"
         },
-        {
-            "at": "2016-08-22T04:00:00.000Z",
-            "by": {
-                "_id": "622f3405e36c59e6164fb9bd",
-                "fullname": "Guy",
-                "imgUrl": "https://robohash.org/88496638?set=set1",
-                "id": "88496638"
-            },
-            "txt": "Patricia et Casimir ont été très accueillants et nous ont donné toutes les informations pratiques pour se rendre au centre de Porto en bus. La chambre est spacieuse et la salle de bain privée est juste à coté. Le quartier est très calme et le séjour était très agréable."
-        }
+        "txt": "Des hôtes très accueillant et à l'écoute de leurs invités! De supers adresses à conseiller. \r\nUne maison décorée avec goût et avec une sublime salle de bain privée.\r\nLe centre est très facile d'accès en bus stay inaccessible en voiture. \r\nTrès facile de se garer dans la rue de nos hôtes.\r\nUn excellent rapport qualité prix!"
+      },
+      {
+        "at": "2016-08-22T04:00:00.000Z",
+        "by": {
+          "_id": "622f3405e36c59e6164fb9bd",
+          "fullname": "Guy",
+          "imgUrl": "https://robohash.org/88496638?set=set1",
+          "id": "88496638"
+        },
+        "txt": "Patricia et Casimir ont été très accueillants et nous ont donné toutes les informations pratiques pour se rendre au centre de Porto en bus. La chambre est spacieuse et la salle de bain privée est juste à coté. Le quartier est très calme et le séjour était très agréable."
+      }
     ],
     "likedByUsers": []
   },
   {
-    "_id": "622f337a75c7d36e498aaaff",
+   
     "name": "Heroísmo IV",
-    "type": "Castles",
+    "types": [
+      "Castles",
+      "Ryokans",
+      "Amazing views"
+    ],
     "imgUrls": [
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg",
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437327/epcnh2tzpafwmvi3srcp.jpg",
@@ -544,7 +559,7 @@
       "Free street parking",
       "Heating",
       "First aid kit",
-      "Safety card",
+      "Safety stayd",
       "Fire extinguisher",
       "Essentials",
       "Shampoo",
@@ -658,7 +673,7 @@
           "imgUrl": "https://robohash.org/5868654?set=set1",
           "id": "5868654"
         },
-        "txt": "Desde o primeiro contacto, a comunicação foi muito fácil e clara. Colocaram à nossa disposição uma série de hipóteses de transporte a partir do aeroporto, bem como a possibilidade de termos em casa cabazes de alimentos. Assim que chegamos, com toda a sua simpatia, tinhamos a Mariana à nossa espera, recebeu-nos explicando os vários  pontos importantes para quem chega: locais a visitar, restaurantes, transportes...\r\nGostámos muito do espaço, do Porto, fazemos questão de voltar em breve. Local excelente!"
+        "txt": "Desde o primeiro contacto, a comunicação foi muito fácil e clara. Colostayam à nossa disposição uma série de hipóteses de transporte a partir do aeroporto, bem como a possibilidade de termos em casa cabazes de alimentos. Assim que chegamos, com toda a sua simpatia, tinhamos a Mariana à nossa espera, recebeu-nos explicando os vários  pontos importantes para quem chega: locais a visitar, restaurantes, transportes...\r\nGostámos muito do espaço, do Porto, fazemos questão de voltar em breve. Local excelente!"
       },
       {
         "at": "2016-08-11T04:00:00.000Z",
@@ -728,7 +743,7 @@
           "imgUrl": "https://robohash.org/122269906?set=set1",
           "id": "122269906"
         },
-        "txt": "Gostamos muito do espaco, pequeno mas muito agradavel. Excelente para passar apenas uns dias. Obrigada ao Nuno que esperou por nos ate tarde e que ainda tirou um tempinho para nos explicar e dar umas dicas sobre a cidade! Aconselho!"
+        "txt": "Gostamos muito do espaco, pequeno mas muito agradavel. Excelente para passar apenas uns dias. Obrigada ao Nuno que esperou por nos ate tarde e que ainda tirou um tempinho para nos explistay e dar umas dicas sobre a cidade! Aconselho!"
       },
       {
         "at": "2017-06-02T04:00:00.000Z",
@@ -758,7 +773,7 @@
           "imgUrl": "https://robohash.org/47537690?set=set1",
           "id": "47537690"
         },
-        "txt": "The flat is situated right next to a metro station. Also perfect, if you arrive by car - free parking just in front. 15 mins walk to downtown but lot of cheap cafes and restaurants full of locals around.\nThe check-in was perfect. We got lots of information, what to do/see/where to eat. Thanks for that. \nThe Apartement is very small but for a short city visit, big enough. If you stay for a week or so, I would recommend a larger Apartement.  "
+        "txt": "The flat is situated right next to a metro station. Also perfect, if you arrive by stay - free parking just in front. 15 mins walk to downtown but lot of cheap cafes and restaurants full of locals around.\nThe check-in was perfect. We got lots of information, what to do/see/where to eat. Thanks for that. \nThe Apartement is very small but for a short city visit, big enough. If you stay for a week or so, I would recommend a larger Apartement.  "
       },
       {
         "at": "2017-07-11T04:00:00.000Z",
@@ -794,9 +809,13 @@
     "likedByUsers": []
   },
   {
-    "_id": "622f337a75c7d36e498aaafe",
+
     "name": "Home, Sweet, Harlem. Welcome!",
-    "type": "Beach",
+    "types": [
+      "Beach",
+      "Play",
+      "Iconic cities"
+    ],
     "imgUrls": [
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436390/om97cgufeacwlric2r5w.jpg",
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436827/znh7gqzbwb4wm6bdziy7.jpg",
@@ -848,7 +867,7 @@
       "Free street parking",
       "Heating",
       "Smoke detector",
-      "Carbon monoxide detector",
+      "Staybon monoxide detector",
       "Essentials",
       "Shampoo",
       "Lock on bedroom door",
@@ -1097,7 +1116,11 @@
   {
     "_id": "622f337a75c7d36e498aaafd",
     "name": "DOUBLE ROOM IN THE HEART OF BCN",
-    "type": "Amazing views",
+    "types": [
+      "Amazing views",
+      "Off-the-grid",
+      "Countryside"
+    ],
     "imgUrls": [
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436793/httqod38otalkzp9kynq.jpg",
       "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436236/ctnbnqazpqhotjcauqwp.jpg",

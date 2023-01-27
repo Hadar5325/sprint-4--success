@@ -1,34 +1,35 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { labels } from '../services/stay.service.local'
-
+import { uptadeFilter } from '../store/stay.actions'
 
 export function FilterCarousel() {
 
-    const value = 0
+    const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
     function handleChange(value) {
-        console.log('value:', value)
+        uptadeFilter({ ...currFilterBy, 'type': value })
     }
 
     function getLable(label) {
-        return <div className='type-container'>
+        return <div className={`type-container ${label}`} >
             <img src={require(`../assets/img/${label}.jpeg`)} alt={label} />
             <p>{label}</p>
         </div>
     }
 
+    const value = 0
     return <section>
         <Tabs
             value={value}
-            onChange={(value)=>handleChange(value.target)}
             variant="scrollable"
             scrollbuttons="auto"
-            // aria-label="scrollable auto tabs example"
         >
             {labels.map((label) => {
-                return <Tab key={label} label={getLable(label)} />
+                return <Tab key={label} label={getLable(label)}
+                    onClick={() => handleChange(label)} />
             })
             }
 
