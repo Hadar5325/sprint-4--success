@@ -1,9 +1,11 @@
 .TitleContant{
-    grid-area: main;
-
+    grid-column: 2;
     width: 100%;
     position: relative;
-    padding-top: 24px;
+
+    .titles-container{
+        padding-top: em(24px);
+    }
 }
 
 .secendTitl{

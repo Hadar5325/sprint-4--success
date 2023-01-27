@@ -99,6 +99,7 @@
         width: 124px;
         height: 10px;
         color: black;
+
     }
 
     .presents {
@@ -161,4 +162,23 @@
 
     }
 
+
 }
+
+
+
+progress {
+    color: lightblue;
+  }
+  
+  progress::-moz-progress-bar {
+    background: lightblue;
+  }
+  
+  progress::-webkit-progress-value {
+    background: red;
+  }
+  
+  progress::-webkit-progress-bar {
+    background: blue;
+  }

@@ -6,7 +6,7 @@ import DedicatedWorkspace from '../../assets/img/DedicatedWorkspace.svg'
 import parking from '../../assets/img/parking.svg'
 
 
-export function StayDetailes({ stay, avgRate, setCapacityModal }) {
+export function StayDetailesContent({ stay, avgRate, setCapacityModal }) {
     return <section className="stayDetailes" onClick={() => setCapacityModal(false)}>
 
         <div className='shortInfo'>

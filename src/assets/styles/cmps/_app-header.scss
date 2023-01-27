@@ -16,6 +16,7 @@
   }
 
   &.stay {
+    position: static;
     grid-column: 2;
     background-color: $clr1;
     // padding: 0px 110px;

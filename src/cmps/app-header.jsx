@@ -45,12 +45,11 @@ export function AppHeader({ }) {
         return region
     }
 
-    let divName = `app-header full ${isFilterShown ? 'big' : ''}`
+    let divName = `app-header main-layout full ${isFilterShown ? 'big' : ''}`
     if (location.match(`/stays`) || location.match(`/book`)) {
         divName += ' stay stays'
-    } else {
-        divName += ' main-layout'
     }
+ 
 
     function setDateTxt(type) {
         let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
