@@ -24,12 +24,7 @@ export function StayDetails() {
 
     const [searchParams] = useSearchParams();
 
-
     let { id } = useParams()
-
-
-
-
 
     const [capacityModal, setCapacityModal] = useState(false)
     const [dateModal, setDateModal] = useState(false)

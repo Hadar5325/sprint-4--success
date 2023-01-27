@@ -285,22 +285,22 @@ form > * {
   padding: 1em 0;
 }
 
-.car-list {
+.stay-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
 }
-.car-list li {
+.stay-list li {
   background-color: #ff385c;
   color: #a8abb2;
   padding: 5px;
   margin: 5px;
 }
-.car-list a {
+.stay-list a {
   color: #ffffff;
   padding: 10px;
 }
-.car-list h3 {
+.stay-list h3 {
   background-color: #ddd;
   padding: 10px 5px;
   margin: 5px;
@@ -915,7 +915,7 @@ ul {
   background-color: rgb(216, 59, 59);
 }
 
-.cart {
+.stayt {
   color: black;
   background-color: #dddddd;
   padding: 20px;
@@ -925,7 +925,7 @@ ul {
   text-align: left;
 }
 
-.cart li button {
+.stayt li button {
   margin: 5px;
 }
 

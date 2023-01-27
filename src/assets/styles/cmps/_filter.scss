@@ -17,7 +17,9 @@
 
 
     .filter-container-big {
-
+        position: fixed;
+        z-index:4;
+        top:65px;
         border-radius: 2rem;
         height: max-content;
         display: flex;
@@ -156,8 +158,6 @@
                 color: $clr1;
                 line-height: rem(20px);
                 margin: 9px;
-                // margin-inline-start: 24px;
-                // font-size: ;
                 padding: em(16px);
                 width: em(111px);
                 display: flex;
@@ -179,14 +179,13 @@
 
         // width: 100vw
         .location-filter {
-            position: absolute;
-            left: 575px;
-            top: 170px;
+            position:fixed;
+            top: 160px;
             z-index: 4;
             background-color: $clr1;
             display: grid;
             grid-template-columns: repeat(3, 120px);
-            grid-template-rows: 1fr 120px 120px;
+            grid-template-rows: 28px 120px 120px;
             column-gap: 10px;
             row-gap: 60px;
             padding-bottom: em(80px);
@@ -198,7 +197,7 @@
 
             .title {
                 padding-top: em(40px);
-                padding-bottom: em(30px);
+                // padding-bottom: em(30px);
                 grid-row: 1/1;
                 grid-column: 1/4;
 
@@ -224,13 +223,12 @@
         }
 
         .capacity-filter-inputs {
-            // display: grid;
+            position:fixed;
+            top: 160px;
+          transform: translatex(95%);
             background-color: $clr1;
             width: 406px;
             padding: em(16px) em(32px);
-            position: absolute;
-            right: 540px;
-            top: 170px;
             z-index: 4;
             border-radius: 2rem;
             box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
@@ -303,17 +301,12 @@
 }
 
 .date-filter {
-    // align-items: center;
+    position:fixed;
+    top: 160px;
     text-align: center;
     font-family: "Circular";
-
     background-color: $clr1;
     width: max-content;
-    top: 170px;
-    left: 575px;
-    // margin-left: 20px;
-    position: absolute;
-    // background-color: aqua;
     z-index: 4;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
     border-radius: 2rem;
@@ -323,8 +316,8 @@
 
     .title {
         display: inline-block;
-        padding-top: 38px;
-        margin-top: 38px;
+        padding-top: 34px;
+        // margin-top: 38px;
         width: 200px;
         // margin: 0;
         text-align: center;
@@ -353,7 +346,7 @@
         flex-direction: column;
         line-height: rem(18px);
         font-size: 1rem;
-        height: 479px;
+        height: 400px;
         padding: 0 em(27px);
         outline: none;
         width: 370px;
@@ -424,4 +417,19 @@
         background-color: $clr11;
         color: $clr1;
     }
+
+    .react-datepicker__navigation {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        // left: 20px;
+        z-index: 5;
+
+    }
+
+    .react-datepicker__navigation-icon::before {
+        color: $clr11;
+    }
+
+
 }

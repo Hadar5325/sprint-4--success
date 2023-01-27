@@ -183,14 +183,14 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
 
 // import React from 'react';
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from 'react-responsive-carousel';
+// import { Stayousel } from 'react-responsive-carousel';
 
 // export function StayPreview({ stay }) {
 
 //     return <article className="stay-preview">
 //         {/* <div className="image-containter">
 //             <div className="square"> */}
-//                 <Carousel className='carousel'>
+//                 <Stayousel className='carousel'>
 //                     <div>
 //                         <img src={require("../assets/img/asset46.webp")} />
 //                     </div>
@@ -206,7 +206,7 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
 //                     <div>
 //                         <img src={require("../assets/img/asset50.webp")} />
 //                     </div>
-//                 </Carousel>
+//                 </Stayousel>
 //             {/* </div>
 //         </div> */}
 //     </article>

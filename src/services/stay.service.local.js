@@ -39,11 +39,7 @@ async function query(filterBy) {
         fillteredStays = fillteredStays.filter(stay => regex.test(stay.loc.region) || regex.test(stay.loc.country))
     }
     if (filterBy.type) {
-        fillteredStays = fillteredStays.filter(stay => {
-            return stay.types.some((type) => {
-                return type === filterBy.type
-            })
-        })
+        fillteredStays = fillteredStays.filter(stay => filterBy.type === stay.type)
     }
     if (filterBy.maxPrice) {
         fillteredStays = fillteredStays.filter(stay => stay.price <= filterBy.maxPrice)
@@ -64,8 +60,7 @@ async function query(filterBy) {
             })
         }))
     }
-    if (fillteredStays) return fillteredStays
-    // else return 'No results for now'
+    return fillteredStays
 }
 
 function getById(id) {
@@ -99,13 +94,12 @@ async function save(stay) {
 function getEmptyStay() {
     return {
         name: '',
-        types: [],
+        type: '',
         imgUrls: ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
         price: '',
         summery: '',
         capacity: 0,
-        amenities: [],
-        orders: []
+        amenities: []
     }
 }
 
@@ -145,13 +139,13 @@ function getNightsCount(start, end) {
 }
 
 export const labels = [
-    'Caves', 'Tropical', 'Countryside', 'Skiing',
-    'Private rooms', 'OMG', 'Boats', 'Amazing views',
-    'Beachfront', 'Top of the world', 'Luxe',
-    'Off-the-grid', 'Play', 'Iconic cities', 'New',
-    'Campers', 'Golfing', 'Earth homes', 'Ryokans',
-    'Casas particulares', 'Minsus',
-    'Adapted'
+    'Caves', 'Tropical', 'Countryside', 'Skiing', 
+    'Private rooms','OMG', 'Boats','Amazing views', 
+    'Beachfront', 'Top of the world', 'Luxe',  
+   'Off-the-grid', 'Play',  'Iconic cities', 'New',  
+    'Campers', 'Golfing', 'Earth homes',   'Ryokans',  
+    'Casas particulares', 'Minsus', 
+     'Adapted'
 ]
 
 export const amenities = [
@@ -174,9 +168,9 @@ export const amenities = [
     "Washer",
     "Dryer",
     "Smoke detector",
-    "Carbon monoxide detector",
+    "Staybon monoxide detector",
     "First aid kit",
-    "Safety card",
+    "Safety stayd",
     "Fire extinguisher",
     "Essentials",
     "Shampoo",

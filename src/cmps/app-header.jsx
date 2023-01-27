@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
-import {StayMenegment} from '../pages/stayMenegment'
+import { StayMenegment } from '../pages/stayMenegment'
 
 import { userService } from '../services/user.service.local'
-import {logout} from '../store/user.actions.js'
+import { logout } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
@@ -22,15 +22,17 @@ export function AppHeader({ }) {
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
     const loggedinUser = useSelector((state) => state.userModule.user)
     const location = useLocation().pathname
-    
-        const [filterType, setFilterType] = useState('location')
-        const [isUserModalOpen, setIsUserModalOpen] = useState(false)
-        const [isLoginModalShown, setIsLoginModalShown] = useState(false)
-        const [user, setUser] = useState(userService.getLoggedinUser())
+
+    const [filterType, setFilterType] = useState('location')
+    const [isUserModalOpen, setIsUserModalOpen] = useState(false)
+    const [isLoginModalShown, setIsLoginModalShown] = useState(false)
+    const [user, setUser] = useState(userService.getLoggedinUser())
 
 
 
     const stayDetiles = `/stays`
+
+
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -43,15 +45,11 @@ export function AppHeader({ }) {
         return region
     }
 
-    let divName
-    if (location.match(`/stays`)) {
-        divName = 'app-header stay full stays'
-    }else if(location.match(`/book`)){
-        divName = 'app-header book full stays'
+    let divName = `app-header main-layout full ${isFilterShown ? 'big' : ''}`
+    if (location.match(`/stays`) || location.match(`/book`)) {
+        divName += ' stay stays'
     }
-     else {
-        divName = 'app-header full main-layout'
-    }
+ 
 
     function setDateTxt(type) {
         let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
@@ -60,14 +58,14 @@ export function AppHeader({ }) {
     }
 
     function openUserModal() {
-        console.log('loggedinUser at openUserModal:',loggedinUser)
+        console.log('loggedinUser at openUserModal:', loggedinUser)
         if (loggedinUser) return <section className='user-modal'>
             <div className='log-out' onClick={() => {
                 logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
             <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay maneg</Link>
-            
+
             {/* <Link className="host-link" to="/hosting"
                 onClick={() => setIsUserModalOpen(false)}>bnbAir your home
             </Link> */}

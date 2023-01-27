@@ -1,9 +1,9 @@
 import { Booking } from './booking.jsx'
-import { StayDetailes } from './stayDetailes.jsx'
+import { StayDetailesContent } from './stay-detailes-content.jsx'
 
 import React, { useEffect, useState } from 'react'
 
-export function Detailes({ dates, setDates ,stay ,order, guestsNum, setguests, guests, capacityModal,setCapacityModal,dateModal,setDateModal}){
+export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, guests, capacityModal, setCapacityModal, dateModal, setDateModal }) {
 
     const rate = calcRate()
 
@@ -25,10 +25,10 @@ export function Detailes({ dates, setDates ,stay ,order, guestsNum, setguests, g
 
     const rates = stay['statReviews']
     let avgRate = calcaAvgRate()
-    
+
     function calcaAvgRate() {
-        
-        const avg =(rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location)/6
+
+        const avg = (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
         return Math.floor(avg * 10) / 10
     }
 
@@ -38,11 +38,11 @@ export function Detailes({ dates, setDates ,stay ,order, guestsNum, setguests, g
     //     "Accuracy": 0,
     //     "Location": 0,
     //     "Value": 0
-    
+
     return <section className="detailes">
-        
-        <Booking dates={dates} setDates={setDates}stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
-        <StayDetailes stay={stay} rate={rate} avgRate={avgRate} setCapacityModal={setCapacityModal}/>
-        
+
+        <Booking dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
+        <StayDetailesContent stay={stay} rate={rate} avgRate={avgRate} setCapacityModal={setCapacityModal} />
+
     </section>
 }
