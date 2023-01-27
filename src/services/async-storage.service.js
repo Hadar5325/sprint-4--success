@@ -4,6 +4,7 @@ export const storageService = {
     post,
     put,
     remove,
+    removeForWishList,
     save
 }
 
@@ -23,7 +24,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    newEntity = JSON.parse(JSON.stringify(newEntity))    
+    newEntity = JSON.parse(JSON.stringify(newEntity))
     newEntity._id = _makeId()
     return query(entityType).then(entities => {
         entities.push(newEntity)
@@ -33,30 +34,66 @@ function post(entityType, newEntity) {
 }
 
 function put(entityType, updatedEntity) {
-    updatedEntity = JSON.parse(JSON.stringify(updatedEntity))    
+    console.log(updatedEntity)
+    updatedEntity = JSON.parse(JSON.stringify(updatedEntity))
+    console.log(updatedEntity)
     return query(entityType).then(entities => {
-        const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
+        const idx = entities.findIndex(entity => {
+            return entity._id === updatedEntity._id
+        })
         if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${updatedEntity._id} in: ${entityType}`)
+
         entities.splice(idx, 1, updatedEntity)
         save(entityType, entities)
+        console.log(updatedEntity)
         return updatedEntity
     })
 }
 
 function remove(entityType, entityId) {
-    console.log(entityType)
-    console.log(entityId)
     return query(entityType).then(entities => {
-
-        const object = entities
-        // for (const property in object) {
-        //     console.log(`${property}: ${object[property]}`);
-        // }
-          
         const idx = entities.findIndex(entity => entity._id === entityId)
         if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`)
         entities.splice(idx, 1)
         save(entityType, entities)
+
+    })
+}
+
+
+function removeForWishList(entityType, userEntity, stayIdToRemove) {
+
+    return query(entityType).then(entities => {
+        // find the connected user
+        const idxUser = entities.findIndex(entity => entity._id === userEntity._id)
+        if (idxUser < 0) throw new Error(`Update failed, cannot find entity with id: ${userEntity._id} in: ${entityType}`)
+        console.log(idxUser)
+
+        // find the stay needed to be removed
+        const objUsers = { ...entities }
+        const valuesOfObjUsers = Object.values(objUsers)
+        console.log(valuesOfObjUsers)
+        const wishListUser = valuesOfObjUsers[idxUser].wishList
+        console.log(wishListUser)
+
+        const idxInWishList = wishListUser.findIndex(entity => entity === stayIdToRemove)
+        
+        console.log(idxInWishList)
+        console.log(wishListUser)
+        console.log(wishListUser.length)
+        // console.log(userEntity.wishList.length)
+        
+        // Remove 1 element at index idxInWishList.
+        wishListUser.splice(idxInWishList,1)
+        // userEntity.wishList.splice(idxInWishList,1)
+        console.log(wishListUser.length)
+        console.log(entities)
+        save(entityType, entities)
+        
+        // console.log(userEntity.wishList)
+        // console.log(userEntity)
+        return entities
+
     })
 }
 

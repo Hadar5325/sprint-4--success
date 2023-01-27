@@ -49,6 +49,8 @@ function remove(userId) {
 
 async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
+
+
     user.score = score
     await storageService.put('user', user)
 
@@ -60,22 +62,43 @@ async function update({ _id, score }) {
 
 
 async function updateWishList(userId, stayId) {
-    console.log(userId)
-    const user = await storageService.get('user', userId)
+    try {
+        console.log(userId)
+        const user = await storageService.get('user', userId)
 
-    // Check if it's already in wish list -> then remove from list
-    if (user.wishList.find(element => element === stayId)) {
+        // Check if it's already in wish list -> then remove from list
+        if (user.wishList.find(element => element === stayId)) {
+            try {
+                await storageService.removeForWishList('user', user, stayId)
+                console.log(user.wishList.length, "lengthhhhhhhhhhhhhhhh")
 
-        // const newWishList = await storageService.remove('user', stayId)
-        // console.log(newWishList)
+                return user.wishList
+
+                console.log('yarden!!!!!!!')
+            } catch (err) {
+                console.log('hiiiiiiiiiii')
+            }
+
+        } else {
+
+            user.wishList.push(stayId)
+            await storageService.put('user', user)
+            console.log(user.wishList.length, "length2")
+            return user.wishList
+
+        }
+
+
+        // const user = await httpService.put(`user/${_id}`, {_id, score})
+        // Handle case in which admin updates other user's details
+        if (getLoggedinUser()._id === user._id) {
+            saveLocalUser(user)
+        }
+
+        // return user.wishList
+    } catch (err) {
+        console.log(err, "errrrrrrrrrrrrrrrrr")
     }
-    user.wishList.push(stayId)
-    await storageService.put('user', user)
-
-    // const user = await httpService.put(`user/${_id}`, {_id, score})
-    // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-    return user.wishList
 }
 
 async function login(userCred) {

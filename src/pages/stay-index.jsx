@@ -23,6 +23,7 @@ export function StayIndex() {
     useEffect(()=>{
         if (!loggedinUser) return
         const userId = loggedinUser._id
+        console.log('from use effect stay index')
         getTotalWishList(userId)
 
     }, [])
@@ -61,17 +62,25 @@ export function StayIndex() {
     // }
 
     async function addStayIdToWishList(stayId) {
-
+        console.log(loggedinUser)
         if (!loggedinUser) return
         const userId = loggedinUser._id
 
+        console.log('from addStayIdToWishList stay index')
+
         console.log(stayId)
         console.log(userId)
+        try{
 
         const wishListDetails = await userService.updateWishList(userId, stayId)
-
+        console.log(wishListDetails)
         setUserWishList(wishListDetails)
+        }catch(err){
+            console.log(err)
+        }
     }
+
+
 
     console.log('stays at StayIndex:', stays)
     if (!stays.length) return <div>Loading...</div>
