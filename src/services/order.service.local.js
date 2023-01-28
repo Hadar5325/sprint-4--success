@@ -12,15 +12,17 @@ export const orderService = {
     getById,
     save,
     remove,
-    getEmptyorder
+    getEmptyorder,
+    getOrdersByUserId
 }
 window.cs = orderService
 
 async function query() {
     const ordersFromStorage = await storageService.query(STORAGE_KEY)
+
     if (!ordersFromStorage.length) {
         storageService.save(STORAGE_KEY, orders)
-        return storageService.query(STORAGE_KEY)
+        return orders
     } else {
         return storageService.query(STORAGE_KEY)
 
@@ -28,7 +30,7 @@ async function query() {
 }
 
 function getById(id) {
-   
+
     return storageService.get('order', id)
 }
 
@@ -41,10 +43,19 @@ async function save(order) {
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
-        
+
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedOrder
+}
+
+async function getOrdersByUserId(userId) {
+    let myOrders
+    const orders = await query()
+    myOrders = orders.filter(order => order.hostId === userId)
+
+    return myOrders
+
 }
 
 
@@ -59,7 +70,7 @@ function getEmptyorder() {
         guests: '',
         stay: '',
         msgs: '',
-        status: '' 
+        status: ''
     }
 }
 

@@ -66,7 +66,10 @@ export function AppHeader({ }) {
                 logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay management</Link>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay maneg</Link>
+            <Link to={`/trip`}>Trips</Link>
+            <Link to={`/wishList`}>WishLists</Link>
+
 
             {/* <Link className="host-link" to="/hosting"
                 onClick={() => setIsUserModalOpen(false)}>bnbAir your home

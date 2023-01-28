@@ -11,7 +11,6 @@ export function Book() {
     const loggedinUser = useSelector((state) => state.userModule.user)
     const stays = useSelector((state) => state.stayModule.stays)
 
-    console.log('stays at book:', stays)
     // const params = new URLSearchParams(window.location.search)
     // const entries = params.entries()
 
@@ -23,7 +22,6 @@ export function Book() {
     const [order, setOrder] = useState({})
     const [currStay, setCurrStay] = useState('')
 
-    console.log(hostId)
 
     useEffect(() => {
         getNumOfGuests(Adulst, kids, Infants, Pets)
@@ -31,16 +29,13 @@ export function Book() {
 
     }, [])
 
-
-
-
     function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
-        console.log('stay at getNewOrder:', stay)
 
+    
         // alert('a')
         const newOrder = emptyOrder()
         newOrder.hostId = HostId
-        if (loggedinUser) newOrder.buyer = loggedinUser._id
+        if (loggedinUser) newOrder.buyer = {"_id":loggedinUser._id,"fullname":loggedinUser.fullname}
         newOrder.totalPrice = price
         newOrder.startDate = timeStart
         newOrder.endDate = timeEnd
@@ -49,7 +44,7 @@ export function Book() {
         // order.msgs = []
         newOrder.status = "pending"
         // console.log('new oreder:', newOrder.stay)
-        setOrder((prevOrder) => ({ ...prevOrder, newOrder }))
+        setOrder(newOrder)
         loadStay(newOrder)
     }
     // console.log(order.stay)
@@ -91,8 +86,7 @@ export function Book() {
         event.preventDefault()
         orderService.save(order)
     }
-
-console.log('currstay before rendering:',currStay)
+    if(!order ||!currStay) return 'lodding...'
     return (
         <section className='book'>
             <div className='RequestTitle'>
@@ -132,7 +126,7 @@ console.log('currstay before rendering:',currStay)
                             <div className='hostDetContant'>
                                 <img className="hostImg" src={''} />
                                 <div className='hostDet'>
-                                    <div className='hostName'></div>
+                                    <div className='hostName'>{currStay.host.fullname}</div>
                                 </div>
                             </div>
                         </div>
@@ -151,12 +145,12 @@ console.log('currstay before rendering:',currStay)
 
                             </div>
                         </div>
-                        {/* {loggedinUser ?
+                        {
                             <div className='requestContainer'>
-                                <button className='request'>Request to book</button>
+                                <button className='request' onClick={(event) => saveOrder(event)}>Request to book</button>
                             </div>
-                            : <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
-                        } */}
+                            // : <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
+                        }
                     </div>
                 </div>
             </div>
@@ -170,8 +164,8 @@ console.log('currstay before rendering:',currStay)
                             <div className='boxTitleContant'>
                                 <img className='titleImg'></img>
                                 <div className='titles'>
-                                    <div className='firstTitle'>Lighthouse</div>
-                                    <div className='secendTitle'>Lighthouse Apartment Tajer</div>
+                                    <div className='firstTitle'>{currStay.stayType}</div>
+                                    <div className='secendTitle'>{currStay.name}</div>
                                 </div>
                             </div>
                         </div>
@@ -186,17 +180,17 @@ console.log('currstay before rendering:',currStay)
 
                         <div className='priceDet'>
                             <div className='priceDetContainer'>
-                                <div className='calc'>₪976.14 x 5 nights</div>
-                                <div className='resolve'>₪4,880.70</div>
+                                <div className='calc'>{currStay.price} x 5 nights</div>
+                                <div className='resolve'>{currStay.price* 5}</div>
                             </div>
                             <div className='priceDetContainer secend'>
                                 <div className='calc'>serviceFee</div>
-                                <div className='resolve'>₪689.06</div>
+                                <div className='resolve'>{(currStay.price * 5)*0.1}</div>
                             </div>
                             <hr className='breakLine'></hr>
                             <div className='priceDetContainer'>
                                 <div className='totalTitle'>Total (ILS)</div>
-                                <div className='totalFee'>₪5,569.76</div>
+                                <div className='totalFee'>{currStay.price* 5 + (currStay.price * 5)*0.1}</div>
                             </div>
 
                         </div>
