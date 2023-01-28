@@ -24,6 +24,8 @@
 @import "./stays/stays.scss";
 @import "./basics/bookLayout.scss";
 @import "./views/stayMenegment";
+@import "./views/wishList";
+@import "./views/trip";
 
 // Components
 @import "cmps/home-list";
@@ -35,6 +37,7 @@
 @import "./cmps/login-form";
 @import "./cmps/filter-carousel";
 @import "./cmps/filter-modal";
+@import "./cmps/select-wish-list";
 
 @import "./stays/staysHeader";
 @import "./stays/detailes.scss";
