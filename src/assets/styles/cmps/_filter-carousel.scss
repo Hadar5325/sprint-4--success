@@ -1,16 +1,19 @@
 .filter-carousel-container {
     position: sticky;
+    width: max-content;
     max-width: 100vw;
+    transform: translate(-23px);
+    // overflow: hidden;
     align-items: baseline;
-    justify-content: space-between;
     padding: em(24px) 0;
     margin-top: 80px;
+    gap: 120px;
 
     .filter-btn {
         width: 91px;
         min-height: 48px;
         padding: 0 em(7px);
-        // margin-inline-start: 19px;
+        // margin-inline-start: 50px;
         // margin-bottom: 50px;
 
         .content-container {
@@ -27,7 +30,7 @@
 
 
         // .css-1ujnqem-MuiTabs-root {
-            
+
         // }
 
         .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
@@ -49,14 +52,12 @@
     }
 
     .MuiTabs-scrollButtons {
+        position: absolute;
+        margin-bottom: 50px;
         background-color: $clr1;
-        float:right;
-        right: 60px ;
-        border: 1px solid $clr5;
-        border-radius: 50%;
+        box-shadow: 1px 0px 8px 19px $clr1;
         width: 26px;
-        height: 26px;
-        transition: 0.5s;
+
     }
 
     // .MuiTabs-scrollButtons {
@@ -67,14 +68,18 @@
     //     align-items: center;
     // }
 
-    .css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root {
-        box-shadow:  0 0 0 0 $clr1;
+    .css-ptiqhd-MuiSvgIcon-root {
+        border: 1px solid $clr5;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        transition: 0.5s;
+
         &:hover {
             box-shadow: 1px 1px 3px 1px $clr5;
         }
+
     }
-
-
 
     .type-container {
         display: grid;

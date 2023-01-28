@@ -27,10 +27,10 @@ export async function removeUser(userId) {
 }
 
 export async function login(credentials) {
-    console.log('hi from login:',)
+    console.log('hi from login:', credentials)
     try {
         const user = await userService.login(credentials)
-        console.log('user at login:',user)
+        console.log('user at login:', user)
         store.dispatch({
             type: SET_USER,
             user
@@ -38,7 +38,6 @@ export async function login(credentials) {
         return user
     } catch (err) {
         console.log('Cannot login', err)
-        throw err
     }
 }
 

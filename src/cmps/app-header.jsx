@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
 import { StayMenegment } from '../pages/stayMenegment'
@@ -32,7 +32,9 @@ export function AppHeader({ }) {
 
     const stayDetiles = `/stays`
 
-
+    // useEffect = (() => {
+    //     loadUsers()
+    // }, [])
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -49,7 +51,7 @@ export function AppHeader({ }) {
     if (location.match(`/stays`) || location.match(`/book`)) {
         divName += ' stay stays'
     }
- 
+
 
     function setDateTxt(type) {
         let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
@@ -64,7 +66,7 @@ export function AppHeader({ }) {
                 logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay maneg</Link>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay management</Link>
 
             {/* <Link className="host-link" to="/hosting"
                 onClick={() => setIsUserModalOpen(false)}>bnbAir your home
@@ -108,7 +110,7 @@ export function AppHeader({ }) {
                             <img src={hamburger} alt="" />
                         </div >
                         <div className='img-container user' >
-                            <img className='user-img' src={userDfault} alt="" />
+                            <img className='user-img' src={loggedinUser ? 'https://xsgames.co/randomusers/avatar.php?g=male' : userDfault} alt="" />
                         </div>
                     </button>
                 </div>

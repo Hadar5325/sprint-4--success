@@ -4,7 +4,7 @@ import { signup, login } from '../store/user.actions';
 
 export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
 
-    const [isSignup, setIsSignUp] = useState(false)
+    const [isLoggedIn, setIsloggedIn] = useState(true)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
     const [user, setUser] = useState(userService.getLoggedinUser())
 
@@ -23,9 +23,14 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
         setCredentials(prevCred => ({ ...prevCred, [field]: value }))
     }
 
-    function onLogin(credentials) {
-       const currUser= isSignup ? signup(credentials) : login(credentials)
-        onChangeLoginStatus(currUser)
+    async function onLogin(credentials) {
+        try {
+            const currUser = isLoggedIn ? login(credentials) : signup(credentials)
+            onChangeLoginStatus(currUser)
+        } catch (err) {
+            const errTxt = isLoggedIn ? 'problem in login' : 'problem in signup'
+            console.log(errTxt, err)
+        }
     }
 
     return (
@@ -59,7 +64,7 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
                         value={credentials.password}
                         placeholder="Enter your password"
                         required />
-                    {isSignup && <input
+                    {!isLoggedIn && <input
                         type="text"
                         name="fullname"
                         value={credentials.fullname}
@@ -68,8 +73,8 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
                         required
                     />}
                     <div>
-                        <a href='#' onClick={() => setIsSignUp(!isSignup)}>
-                            {isSignup ?
+                        <a href='#' onClick={() => setIsloggedIn(isLoggedIn)}>
+                            {isLoggedIn ?
                                 'Alreday a memeber ? Login' :
                                 'New user ? signup here'
                             }

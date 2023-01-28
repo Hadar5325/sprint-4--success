@@ -1,5 +1,5 @@
 .app-header {
-  position: fixed;
+  position: static;
   background-color: $clr1;
   padding: 0.7rem 0;
   width: 100vw;
@@ -10,6 +10,10 @@
   min-height: 80px;
   padding: em(16px) 0;
   // transition: min-height 1s;
+
+  &.index {
+    position: fixed;
+  }
 
   &.big {
     min-height: 160px;
@@ -28,7 +32,7 @@
     z-index: 5;
   }
 
-  &.book{
+  &.book {
     background-color: aqua;
   }
 
@@ -238,6 +242,8 @@
   }
 
   .user {
+    border-radius: 50%;
+    overflow: hidden;
     width: 30px;
     display: flex;
     // margin: em(6px)

@@ -2,6 +2,7 @@ import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY = 'user'
 
 export const userService = {
     login,
@@ -21,36 +22,25 @@ export const userService = {
 
 window.userService = userService
 
-// async function getUsers() {
-//     const userssFromStorage = await storageService.query('user')
-//     if(userssFromStorage){
-//         return storageService.query('user')
-//     }else{
-//         alert('no users')
-//     }
-//     // return httpService.get(`user`)
-// }
-
 
 async function getUsers() {
-    const userssFromStorage = await storageService.query('user')
-    if(userssFromStorage){
-        return storageService.query('user')
-    }else{
-        alert('no users')
+    const usersFromStorage = await storageService.query(STORAGE_KEY)
+    if (!usersFromStorage.length) {
+        storageService.save(STORAGE_KEY, users)
+        return users
     }
-    // return httpService.get(`user`)
+    return usersFromStorage
 }
 
 
 async function getById(userId) {
-    const user = await storageService.get('user', userId)
+    const user = await storageService.get(STORAGE_KEY, userId)
     // const user = await httpService.get(`user/${userId}`)
     return user
 }
 
 async function getUserByIdWishList(userId) {
-    const user = await storageService.get('user', userId)
+    const user = await storageService.get(STORAGE_KEY, userId)
     return user.wishList
     // const user = await httpService.get(`user/${userId}`)
     // return user
@@ -58,16 +48,16 @@ async function getUserByIdWishList(userId) {
 
 
 function remove(userId) {
-    return storageService.remove('user', userId)
+    return storageService.remove(STORAGE_KEY, userId)
     // return httpService.delete(`user/${userId}`)
 }
 
 async function update({ _id, score }) {
-    const user = await storageService.get('user', _id)
+    const user = await storageService.get(STORAGE_KEY, _id)
 
 
     user.score = score
-    await storageService.put('user', user)
+    await storageService.put(STORAGE_KEY, user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
     // Handle case in which admin updates other user's details
@@ -79,12 +69,12 @@ async function update({ _id, score }) {
 async function updateWishList(userId, stayId) {
     try {
         console.log(userId)
-        const user = await storageService.get('user', userId)
+        const user = await storageService.get(STORAGE_KEY, userId)
 
         // Check if it's already in wish list -> then remove from list
         if (user.wishList.find(element => element === stayId)) {
             try {
-                await storageService.removeForWishList('user', user, stayId)
+                await storageService.removeForWishList(STORAGE_KEY, user, stayId)
                 console.log(user.wishList.length, "lengthhhhhhhhhhhhhhhh")
 
                 return user.wishList
@@ -97,7 +87,7 @@ async function updateWishList(userId, stayId) {
         } else {
 
             user.wishList.push(stayId)
-            await storageService.put('user', user)
+            await storageService.put(STORAGE_KEY, user)
             console.log(user.wishList.length, "length2")
             return user.wishList
 
@@ -118,8 +108,8 @@ async function updateWishList(userId, stayId) {
 
 async function login(userCred) {
     try {
-        const users = await storageService.query('user')
-        console.log('users', users)
+        const users = await getUsers(STORAGE_KEY)
+        console.log('users at login', users)
         const user = await users.find(user => user.username === userCred.username)
         // const user = await httpService.post('auth/login', userCred)
         if (user) {
@@ -137,7 +127,7 @@ async function signup(userCred) {
     userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     userCred.wishList = []
-    const user = await storageService.post('user', userCred)
+    const user = await storageService.post(STORAGE_KEY, userCred)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)
     return saveLocalUser(user)
@@ -187,3 +177,48 @@ function getEmptyCredentials(fullname = '', username = '', password = 'secret') 
 }
 
 
+const users = [
+    {
+        "_id": "622f3405e36c59e6164fb914",
+        "fullname": "Leland Mccane",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
+        "username": "Leland",
+        "password": "secret",
+        "wishList": []
+    },
+    {
+        "_id": "u102",
+        "fullname": "Joana Poter",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
+        "username": "Emmitt",
+        "password": "secret",
+        "wishList": []
+    },
+    {
+        "_id": "u103",
+        "fullname": "Normand Lieto",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
+        "username": "Normand",
+        "password": "secret",
+        "wishList": []
+
+    },
+    {
+        "_id": "u104",
+        "fullname": "Inez Hollinden",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
+        "username": "Errol",
+        "password": "secret",
+        "wishList": []
+
+    },
+    {
+        "_id": "u105",
+        "fullname": "Laure Demagistris",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
+        "username": "Quentin",
+        "password": "secret",
+        "wishList": []
+
+    }
+]
