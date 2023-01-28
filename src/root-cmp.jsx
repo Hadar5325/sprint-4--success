@@ -12,16 +12,21 @@ import {StayMenegment} from './pages/stayMenegment'
 import { Provider } from 'react-redux'
 import { StayEdit } from './pages/stay-edit';
 import { StaysMap } from './pages/stays-map';
+import { WishList } from './pages/wish-list';
+import { Trip } from './pages/trip';
 
 export function RootCmp() {
 
 
     return (
-        <div >
+        <div>
             <AppHeader />
             <main>
                 <Routes>
                     <Route path='/' element={<StayIndex />} />
+                    
+                    <Route path='/wishList' element={<WishList />} />
+                    <Route path='/trip' element={<Trip />} />
 
                     <Route path='/stay/edit' element={<StayEdit />} />
                     <Route path='/stay/edit/:id' element={<StayEdit />} />

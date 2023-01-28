@@ -21,7 +21,7 @@ export function StayIndex() {
     const [userWishList, setUserWishList] = useState([])
     const [isFilterModalShown, setIsFilterModalShown] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!loggedinUser) return
         const userId = loggedinUser._id
         console.log('from use effect stay index')
@@ -29,7 +29,7 @@ export function StayIndex() {
 
     }, [])
 
-    async function getTotalWishList(userId){
+    async function getTotalWishList(userId) {
         const wishList = await userService.getUserByIdWishList(userId)
 
 
@@ -73,12 +73,13 @@ export function StayIndex() {
 
         console.log(stayId)
         console.log(userId)
-        try{
+        try {
+            const wishListDetails = await userService.updateWishList(userId, stayId)
+            console.log(wishListDetails)
+            setUserWishList(wishListDetails)
 
-        const wishListDetails = await userService.updateWishList(userId, stayId)
-        console.log(wishListDetails)
-        setUserWishList(wishListDetails)
-        }catch(err){
+        } catch (err) {
+            
             console.log(err)
         }
     }
@@ -92,7 +93,7 @@ export function StayIndex() {
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
             {isFilterModalShown && <div> <div className='full-screen show black' onClick={() => setIsFilterModalShown(false)}></div>
                 <FilterModal setIsFilterModalShown={setIsFilterModalShown} stays={stays} filterBy={filterBy} />
-                </div>}
+            </div>}
             <div className='filter-carousel-container flex'>
                 <FilterCarousel />
                 <button className='filter-btn' onClick={() => setIsFilterModalShown(true)}>

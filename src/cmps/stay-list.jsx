@@ -4,7 +4,7 @@ import data from '../data/stay.json';
 
 import React from 'react';
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { stayService } from '../services/stay.service.local'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -20,7 +20,6 @@ export function StayList({ stays, onRemoveStay, addStayIdToWishList, userWishLis
                 <section onClick={() => { navigate(`stays/${stay._id}?${stayService.getParams(currFilterBy)}`) }}>
                     <StayPreview stay={stay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList} />
                 </section>
-
 
                 {/* <Link to={`stay/edit/${stay._id}`}> Edit </Link>
                 <button onClick={() => onRemoveStay(stay._id)}>Remove</button> */}
