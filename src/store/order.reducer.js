@@ -24,7 +24,7 @@ export function orderReducer(state = initialState, action) {
             orders = state.orders.filter(order => order._id !== action.orderId)
             return { ...state, orders }
         case ADD_ORDER:
-            orders = [state.orders,...action.order]
+            orders = [...state.orders,action.order]
             return { ...state, orders }
         case UPDATE_ORDER:
             orders = state.orders.map(order => order._id === action.order._id ? action.order : order)

@@ -14,6 +14,7 @@ import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
 import { setIsFilterShown } from '../store/stay.actions'
+import { getUnit } from '@mui/material/styles/cssUtils'
 
 
 export function AppHeader({ }) {
@@ -47,7 +48,7 @@ export function AppHeader({ }) {
         return region
     }
 
-    let divName = `app-header main-layout full ${isFilterShown ? 'big' : ''}`
+    let divName = `app-header main-layout full index ${isFilterShown ? 'big' : ''}`
     if (location.match(`/stays`) || location.match(`/book`)) {
         divName += ' stay stays'
     }
@@ -66,7 +67,7 @@ export function AppHeader({ }) {
                 logout()
                 setIsUserModalOpen(false)
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay maneg</Link>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay managment</Link>
             <Link to={`/trip`}>Trips</Link>
             <Link to={`/wishList`}>WishLists</Link>
 
@@ -95,6 +96,12 @@ export function AppHeader({ }) {
         target.classList.add('focused')
     }
 
+    function getCapacityTxt() {
+        let guestsTxt = currFilterBy.capacity.total > 1 ? ' guests' : ' guest'
+        let txt = currFilterBy.capacity.total ? currFilterBy.capacity.total + guestsTxt : 'Add guests'
+        return txt
+    }
+
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
     return (
         <header className={divName}>
@@ -113,7 +120,7 @@ export function AppHeader({ }) {
                             <img src={hamburger} alt="" />
                         </div >
                         <div className='img-container user' >
-                            <img className='user-img' src={loggedinUser ? 'https://xsgames.co/randomusers/avatar.php?g=male' : userDfault} alt="" />
+                            <img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : userDfault} alt="" />
                         </div>
                     </button>
                 </div>
@@ -122,7 +129,7 @@ export function AppHeader({ }) {
                     <button onClick={() => onShowFilter('date')}><div className='btn-txt'>{timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div>
                     </button><span className='line'></span>
                     <button className='guests flex align-center' onClick={() => onShowFilter('capacity')}>
-                        <div className='btn-txt'>{currFilterBy.capacity.total ? currFilterBy.capacity.total + ' guests' : 'Add guests'}</div>
+                        <div className='btn-txt'>{getCapacityTxt()}</div>
                         <div className="search-image img-container" onClick={(ev) => {
                             ev.stopPropagation()
                             onShowFilter('where')

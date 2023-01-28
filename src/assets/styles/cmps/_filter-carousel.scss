@@ -1,20 +1,22 @@
 .filter-carousel-container {
+    display: flex;
+    grid-column: 2;
     position: sticky;
-    width: max-content;
-    max-width: 100vw;
-    transform: translate(-23px);
+    width: 91.67vw;
+    // transform: translate(-23px);
     // overflow: hidden;
-    align-items: baseline;
+    align-items: flex-start;
     padding: em(24px) 0;
     margin-top: 80px;
-    gap: 120px;
+    justify-content: space-between;
+
 
     .filter-btn {
+        margin-top: 0;
         width: 91px;
         min-height: 48px;
         padding: 0 em(7px);
-        // margin-inline-start: 50px;
-        // margin-bottom: 50px;
+        margin-inline-start: 30px;
 
         .content-container {
             span {
@@ -26,7 +28,7 @@
     }
 
     .css-69z67c-MuiTabs-scroller {
-        max-width: 80vw;
+        max-width: 83vw;
 
 
         // .css-1ujnqem-MuiTabs-root {
@@ -47,13 +49,17 @@
         opacity: 1;
     }
 
+    .css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root.Mui-disabled {
+        opacity: 0.5;
+    }
+
     .css-1aquho2-MuiTabs-indicator {
         display: none;
     }
 
-    .MuiTabs-scrollButtons {
-        position: absolute;
-        margin-bottom: 50px;
+    .MuiTabs-scrollButtons:not(.filter-btn) {
+        // position: absolute;
+        margin-bottom: 35px;
         background-color: $clr1;
         box-shadow: 1px 0px 8px 19px $clr1;
         width: 26px;
@@ -90,6 +96,10 @@
         opacity: 0.7;
         transition: opacity 0.5s;
         border-bottom: 2px solid $clr1;
+
+        &:first-of-type {
+            padding-left: 0px;
+        }
 
 
         &:hover {
