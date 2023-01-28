@@ -1,24 +1,107 @@
-
-
-.stayMenegment{
+.stayMenegment {
     display: grid;
-    grid-template-columns: 80px 1fr 80px;
-    grid-template-rows: 80px 300px 70px;
+    grid-template-columns: 20vw 1fr 20vw;
     grid-template-areas:
-        ". menu ."
-        ". main . "
-        ". footer .";
+        ". main . ";
 
-    .menegmentMnue{
-        grid-area: menu;
+    .menegmentMnue {
+        grid-column: 2;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 80px;
+        height: 100px;
     }
 
-    .menegmentContant{
-        grid-area: main;
-        border: 1px solid;
+    .menegmentContant {
+        grid-column: 2;
+        border: 1px solid lightgray;
+        height: 350px;
+        width: 100%px;
+        
 
+        .contantTitle{
+            height: 65px;
+        }
+
+        .tableHead{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: rgb(231, 231, 231);
+            padding: 0px 5px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .menegmentTable{
+            height: 235px;
+            overflow-y: auto;
+            .tableRow{
+                padding: 10px 5px;
+                border-bottom: 1px solid lightgray;
+            }
+        }
+
+        .cell{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .pending{
+            background-color: rgb(220, 220, 220);
+        }
+
+        
+        .guest{
+            width: 130px;
+        }
+        .stay{
+            width: 130px;
+        }
+        .dates{
+            width: 130px;
+        }
+        .price{
+            width: 60px;
+        }
+        .status{
+            width: 130px;
+        }
+        .actions{
+            width: 130px;
+        }
+        .approve{
+            color:rgb(50, 211, 50);
+        }
+        .reject{
+            color: rgb(235, 64, 64);
+        }
+        .disable{
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        .approveBtn{
+            display: flex;
+            align-items: center;
+            border: 1px solid rgb(50, 211, 50);
+            border-radius: 10px;
+        }
+        .approveBtn:active{
+            background-color: rgb(50, 211, 50);;
+        }
+
+        .rejectBtn{
+            display: flex;
+            align-items: center;
+            border: 1px solid rgb(235, 64, 64);
+            border-radius: 10px;
+        }
+        .rejectBtn:active{
+            background-color: rgb(235, 64, 64);
+        }
+        
+        
+        
     }
 }

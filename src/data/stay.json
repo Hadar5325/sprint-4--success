@@ -1,5 +1,6 @@
 [
   {
+    "_id": "622f337a75c7d36e498aaaf8",
     "name": "Westin Kaanapali KORVN 2BR",
     "types": [
       "National parks",
@@ -101,7 +102,7 @@
     },
     "stayType": "Entire home/apt",
     "host": {
-      "_id": "1evJq",
+      "_id": "Xhtu5",
       "fullname": "Patty And Beckett",
       "location": "Eureka, California, United States",
       "about": "Adventurous couple loves to travel :)",
@@ -222,6 +223,7 @@
     "likedByUsers": []
   },
   {
+    "_id": "622f337ar5c7d36e498aaaf8",
 
     "name": "Belle chambre à côté Metro Papineau",
     "types": [
@@ -353,7 +355,8 @@
     "likedByUsers": []
   },
   {
-   
+    "_id": "621f337a75c7d36e498aaaf8",
+
     "name": "Monte dos Burgos - Cosy Room",
     "types": [
       "Campers",
@@ -500,7 +503,8 @@
     "likedByUsers": []
   },
   {
-   
+    "_id": "622f337a75c7d66ee98aaaf8",
+
     "name": "Heroísmo IV",
     "types": [
       "Castles",
@@ -809,6 +813,7 @@
     "likedByUsers": []
   },
   {
+    "_id": "622f337a75c7d36e498aarf8",
 
     "name": "Home, Sweet, Harlem. Welcome!",
     "types": [
@@ -1114,7 +1119,7 @@
     "likedByUsers": []
   },
   {
-    "_id": "622f337a75c7d36e498aaafd",
+    "_id": "622f337a75c7d36e498aaafq",
     "name": "DOUBLE ROOM IN THE HEART OF BCN",
     "types": [
       "Amazing views",

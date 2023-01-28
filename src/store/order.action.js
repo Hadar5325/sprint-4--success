@@ -11,9 +11,12 @@ export function getActionRemoveOrder(orderId) {
 export function getActionAddOrder(order) {
     return {
         type: ADD_ORDER,
-        stay: order
+        order
     }
 }
+
+
+
 export function getActionUpdateOrder(order) {
     return {
         type: UPDATE_ORDER,
@@ -22,31 +25,42 @@ export function getActionUpdateOrder(order) {
 }
 
 
-export async function loadStay(orderId) {
+// export async function loadStay(orderId) {
+//     try {
+//         const order = await orderService.getById(orderId)
+//         store.dispatch({ type: SET_ORDER    , order })
+//         return order
+//     } catch (err) {
+//         console.log('Cannot load order: ', err)
+//         throw err
+//     }
+// }
+
+export async function loadOrder(stayId) {
     try {
-        const order = await orderService.getById(orderId)
-        store.dispatch({ type: SET_ORDER    , order })
+        const order = await orderService.getById(stayId)
+        store.dispatch({ type: SET_ORDER, order })
         return order
     } catch (err) {
-        console.log('Cannot load order: ', err)
+        console.log('Cannot load stay: ', err)
         throw err
     }
 }
 
 export async function loadOrders() {
     try {
-        const orders = await orderService.getOrders()
+        const orders = await orderService.query()
+        store.dispatch({ type: SET_ORDERS, orders })
         return orders
-
     } catch (err) {
-        console.log('Cannot load orders', err)
+        console.log('Cannot load orders: ', err)
         throw err
     }
 }
 
 export async function removeOrder(orderId) {
     try {
-        await stayService.remove(orderId)
+        await orderService.remove(orderId)
         store.dispatch(getActionRemoveOrder(orderId))
     } catch (err) {
         console.log('Cannot remove order', err)
@@ -56,7 +70,7 @@ export async function removeOrder(orderId) {
 
 export async function addOrder(order) {
     try {
-        const savedOrder = await stayService.save(order)
+        const savedOrder = await orderService.save(order)
         console.log('Added Order', savedOrder)
         store.dispatch(getActionAddOrder(savedOrder))
         return savedOrder
@@ -67,15 +81,21 @@ export async function addOrder(order) {
 }
 
 export function updateOrder(order) {
-    return orderService.save(order)
-        .then(savedOrder => {
-            console.log('Updated order:', savedOrder)
-            store.dispatch(getActionUpdateOrder(savedOrder))
+    try{
+        const orderToUp = orderService.save(order)
+        const upOrders = getActionUpdateOrder(order)
+        return upOrders
+    }catch(err){
+        console.log(err)
+    }
+    // return orderService.save(order)
+    //     .then(savedOrder => {
+    //         store.dispatch(getActionUpdateOrder(savedOrder))
 
-            return savedOrder
-        })
-        .catch(err => {
-            console.log('Cannot save order', err)
-            throw err
-        })
+    //         return savedOrder
+    //     })
+    //     .catch(err => {
+    //         console.log('Cannot save order', err)
+    //         throw err
+    //     })
 }
