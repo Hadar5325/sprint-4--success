@@ -3,9 +3,9 @@ import { orderService } from '../services/order.service.local'
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadOrders,loadOrder, addOrder, updateOrder, removeOrder} from '../store/order.action'
+import { loadOrders, loadOrder, addOrder, updateOrder, removeOrder } from '../store/order.action'
 
-export function StayMenegment() {
+export function StayManagement() {
     const loggedinUser = useSelector((state) => state.userModule.user)
 
     const [stays, setStays] = useState([])
@@ -15,21 +15,21 @@ export function StayMenegment() {
 
     useEffect(() => {
         loadStay()
-        getMayOrders()
+        getMyOrders()
     }, [])
 
-    
     useEffect(() => {
         numOfPending()
     }, [myOrders])
-    async function getMayOrders(){
-        try{
-            const orders = await orderService.getOrdersByUserId(loggedinUser._id)    
+
+    async function getMyOrders() {
+        try {
+            const orders = await orderService.getOrdersByUserId(loggedinUser._id)
             setMyOrders(orders)
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
-    } 
+    }
 
     async function loadStay() {
         try {
@@ -40,17 +40,17 @@ export function StayMenegment() {
             console.log(err)
         }
     }
-    function numOfPending(){
+    function numOfPending() {
         const pendingOrders = myOrders.filter(order => order.status === 'pending')
         setPendingNum(pendingOrders.length)
     }
 
-    async function changStatus(event,orderId,status){
+    async function changStatus(event, orderId, status) {
         event.preventDefault()
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
-        getMayOrders()
+        getMyOrders()
         // setOrderStatus('reject')
     }
 
@@ -84,36 +84,36 @@ export function StayMenegment() {
             <div className='menegmentTable'>
                 {
                     myOrders.map(order => {
-                        if(order.status === 'pending') {
-                            return <section className= 'tableRow cell pending' key={order._id}>
-                            <div className='cell guest'>guest</div>
-                            <div className='cell stay'>stay</div>
-                            <div className='cell dates'>dates</div>
+                        if (order.status === 'pending') {
+                            return <section className='tableRow cell pending' key={order._id}>
+                                <div className='cell guest'>guest</div>
+                                <div className='cell stay'>stay</div>
+                                <div className='cell dates'>dates</div>
 
-                            <div className='cell price'>Price</div>
-                            <div className={`cell status ${order.status}`}>{order.status}</div>
-                            <div className='cell actions'>
-                                <button className='approveBtn' onClick={(event) => changStatus(event,order._id,'approve')}>approve</button>
-                                <button className='rejectBtn' onClick={(event) => changStatus(event,order._id,'reject')}>reject</button>
+                                <div className='cell price'>Price</div>
+                                <div className={`cell status ${order.status}`}>{order.status}</div>
+                                <div className='cell actions'>
+                                    <button className='approveBtn' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
+                                    <button className='rejectBtn' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
 
-                            </div>
-                        </section>
-                        }else{
-                            return <section className= 'tableRow cell' key={order._id}>
-                            <div className='cell guest'>guest</div>
-                            <div className='cell stay'>stay</div>
-                            <div className='cell dates'>dates</div>
+                                </div>
+                            </section>
+                        } else {
+                            return <section className='tableRow cell' key={order._id}>
+                                <div className='cell guest'>guest</div>
+                                <div className='cell stay'>stay</div>
+                                <div className='cell dates'>dates</div>
 
-                            <div className='cell price'>Price</div>
-                            <div className={`cell status ${order.status}`}>{order.status}</div>
-                            <div className='cell actions'>
-                                <button className='approveBtn disable' disabled ='true' onClick={(event) => changStatus(event,order._id,'approve')}>approve</button>
-                                <button className='rejectBtn disable'  disabled ='true'onClick={(event) => changStatus(event,order._id,'reject')}>reject</button>
+                                <div className='cell price'>Price</div>
+                                <div className={`cell status ${order.status}`}>{order.status}</div>
+                                <div className='cell actions'>
+                                    <button className='approveBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
+                                    <button className='rejectBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
 
-                            </div>
-                        </section>
+                                </div>
+                            </section>
                         }
-                        
+
 
                     })
                 }

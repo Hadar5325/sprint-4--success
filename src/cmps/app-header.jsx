@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MainFilter } from './main-filter'
-import { StayMenegment } from '../pages/stayMenegment'
+import { StayManagement } from '../pages/stay-management'
 
 import { userService } from '../services/user.service.local'
 import { logout } from '../store/user.actions.js'

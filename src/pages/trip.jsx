@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { userService } from '../services/user.service.local'
 
+import { StayManagement } from "../pages/stay-management"
+
 const Row = (props) => {
     const { status, guests, checkIn, checkOut, booked, listing, totalPayout } = props
     return (<tr className="trip-tr-body">
@@ -98,6 +100,7 @@ export function Trip() {
 
     const [rows, setRows] = useState(reservation)
 
+    console.log()
     return <section className="trip-containter">
         <div className="trip-header">
             Reservation
