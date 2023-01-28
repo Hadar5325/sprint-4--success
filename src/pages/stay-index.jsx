@@ -94,7 +94,7 @@ export function StayIndex() {
             {isFilterModalShown && <div> <div className='full-screen show black' onClick={() => setIsFilterModalShown(false)}></div>
                 <FilterModal setIsFilterModalShown={setIsFilterModalShown} stays={stays} filterBy={filterBy} />
             </div>}
-            <div className='filter-carousel-container flex'>
+            <div className='filter-carousel-container'>
                 <FilterCarousel />
                 <button className='filter-btn' onClick={() => setIsFilterModalShown(true)}>
                     <div className='content-container'>
