@@ -1,7 +1,7 @@
 
 
 export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
-
+    console.log(myOrders)
     function numOfGusts(order){
         let num
         num += order.guests.Adults
@@ -10,7 +10,7 @@ export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
         num += order.guests.Pets
         return num
     }
-    console.log(myOrders[0])
+    // console.log(myOrders[0])
     return <div className='menegmentContant'>
         <div className='contantTitle'>
             hello {loggedinUser.fullname}! you have {pendingNum} pending orders
@@ -29,12 +29,13 @@ export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
         <div className='menegmentTable'>
             {
                 myOrders.map(order => {
+                    console.log(order)
                     return <section className={`tableRow cell ${order.status === 'pending' && 'pendingStatus'}`} key={order._id}>
-                        <div className='cell guest'>{numOfGusts(order)}</div>
+                        <div className='cell guest'>{order.buyer.fullname}</div>
                         <div className='cell stay'>{order.name}</div>
-                        <div className='cell dates'>dates</div>
+                        <div className='cell dates'>{order.startDate} - {order.endDate}</div>
 
-                        <div className='cell price'>Price</div>
+                        <div className='cell price'>{order.totalPrice}</div>
                         <div className={`cell status ${order.status}`}>{order.status}</div>
 
                         <div className='cell actions'>
