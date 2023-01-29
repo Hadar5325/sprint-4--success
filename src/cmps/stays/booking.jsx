@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uptadeFilter } from '../../store/stay.actions'
 
 
-export function Booking({ dates,img, setDates, stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal, handleChange, order }) {
+export function Booking({ dates, img, setDates, stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal, handleChange, order }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
@@ -74,7 +74,7 @@ export function Booking({ dates,img, setDates, stay, guestsNum, guests, setguest
         const newGuests = guests
         setguests({ ...guests, newGuests })
         // uptadeFilter({ ...filterBy, [field]: value })
-        setFilterBy({ ...filterBy, ['capacity']: {...filterBy.capacity,newGuests} })
+        setFilterBy({ ...filterBy, ['capacity']: { ...filterBy.capacity, newGuests } })
     }
 
 
@@ -89,7 +89,7 @@ export function Booking({ dates,img, setDates, stay, guestsNum, guests, setguest
     const params = new URLSearchParams(window.location.search)
     const entries = params.entries()
     const queryObject = Object.fromEntries(entries)
-    const currParams =stayService.getParams(currFilterBy)
+    const currParams = stayService.getParams(currFilterBy)
 
     return <section className="booking" >
 
@@ -106,13 +106,20 @@ export function Booking({ dates,img, setDates, stay, guestsNum, guests, setguest
             </div>
 
             <div className="boxContantTop">
-                <button className="checkInBtn bookingBtn" onClick={() => setDateModal(true)}>{dates.timeStart}</button>
+
+                <div className="checkInBtn bookingBtn" onClick={() => setDateModal(true)}>
+                    <div className='times' onClick={() => setDateModal(true)}>{dates.timeStart}</div>
+                    <div className='times' onClick={() => setDateModal(true)}>{dates.timeEnd}</div>
+
+                    {/* {dates.timeStart} |{dates.timeEnd} */}
+                </div>
+
                 <button className="guests bookingBtn" onClick={() => setCapacityModal(true)}>{guestsNum}</button>
             </div>
             {capacityModal && <CapacityBooking addGuest={addGuest} guests={guests} dates={dates} />}
             {dateModal && <div className='calender'><DateFilter handleChange={handleChange} /></div>}
             <Link to={`/stays/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
-            
+
             <div className='wontharged'>You won't be charged yet</div>
 
             <div className='sum'>
