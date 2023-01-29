@@ -34,49 +34,60 @@ const Table = (props) => {
     return (<table className="trip-table">
         <thead className="trip-thead">
             <tr className="trip-tr">
-                <th className="trip-td">Status</th>
-                <th className="trip-td">Guests</th>
-                <th className="trip-td">Check-In</th>
-                <th className="trip-td">Check-Out</th>
-                <th className="trip-td">Booked</th>
-                <th className="trip-td">Listing</th>
-                <th className="trip-td">Total-Payout</th>
+                <th key={10} className="trip-td">Status</th>
+                <th key={11} className="trip-td">Guests</th>
+                <th key={12} className="trip-td">Check-In</th>
+                <th key={13} className="trip-td">Check-Out</th>
+                <th key={14} className="trip-td">Booked</th>
+                <th key={15} className="trip-td">Listing</th>
+                <th key={16} className="trip-td">Total-Payout</th>
             </tr>
         </thead>
         <tbody>
-            {data.forEach((row, index) => {
-                {console.log(row)}
-
-
-                // <Row key={`key-${index}`}
-                //     status={row.status}
-                //     guests={row.guests}
-                //     checkIn={row.checkIn}
-                //     checkOut={row.checkOut}
-                //     booked={row.booked}
-                //     listing={row.listing}
-                //     totalPayout={row.totalPayout}
-                // />
-                // console.log(row)
-                // console.log(row.totalPrice)
-                // console.log(index)
+            {data.map((row, index) => {
+                return (
+                    <tr className="trip-tr-body">
+                        <td key={1} className={`trip-td-body ${row.status}`}>{row.status}</td>
+                        <td key={2} className="trip-td-body">{row.guests.Adulst}</td>
+                        <td key={3} className="trip-td-body">{row.startDate}</td>
+                        <td key={4} className="trip-td-body">{row.buyer.endDate}</td>
+                        <td key={5} className="trip-td-body">{row.startDate}</td>
+                        <td key={6} className="trip-td-body">{row.stay}</td>
+                        <td key={7} className="trip-td-body">{row.totalPrice}*{row.guests.Adulst}</td>
+                    </tr>)
             })}
-
-            {/* // {data.map((row, index) => */}
-            {/* //     <Row key={`key-${index}`} */}
-            {/* //         status={row.status}
-            //         guests={row.guests}
-            //         checkIn={row.checkIn}
-            //         checkOut={row.checkOut}
-            //         booked={row.booked}
-            //         listing={row.listing}
-            //         totalPayout={row.totalPayout}
-            //     />
-            // )} */}
         </tbody>
     </table>
     )
 }
+
+
+// return (<tr className="trip-tr-body">
+//     {console.log(status)}
+//     <td className={`trip-td-body ${status}`}>{status}</td>
+//     <td className="trip-td-body">{guests}</td>
+//     <td className="trip-td-body">{checkIn}</td>
+//     <td className="trip-td-body">{checkOut}</td>
+//     <td className="trip-td-body">{booked}</td>
+//     <td className="trip-td-body">{listing}</td>
+//     <td className="trip-td-body">{totalPayout}</td>
+// </tr>
+// )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // export function Trip() {
 
 //     const loggedinUser = useSelector((state) => state.userModule.user)

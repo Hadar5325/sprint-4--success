@@ -1,5 +1,4 @@
 .trip-containter {
-    background-color: aqua;
     width: 100vw;
     height: auto;
 
@@ -18,7 +17,6 @@
 
 .trip-containter>* {
     grid-column: 2;
-    background-color: blanchedalmond;
     grid-row-gap: 70px;
 
 
@@ -42,20 +40,20 @@
         padding-bottom: 20px;
     }
 
-    // .trip-td-body{
-
-    // }
 }
 
 .trip-header {
     padding-bottom: 60px;
 }
-.Declined{
+.declined{
     color: red;
 }
-.Approved{
+.approved{
     color: green;
 }
-.Pending{
+.pending{
     color:orange;
+}
+.trip-tr-body{
+    height: auto;
 }
