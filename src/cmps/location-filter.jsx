@@ -20,7 +20,7 @@ export function LocationFilter({ handleChange, filterBy }) {
     const regions = [
         { txt: 'I\'m flexible', value: 'flexible'},
         { txt: 'Middle East', value: 'middle east' },
-        { txt: 'Italy', value: 'italy', },
+        { txt: 'Europe', value: 'europe', },
         { txt: 'United States', value: 'united states' },
         { txt: 'France', value: 'france' },
         { txt: 'South America', value: 'south america' }

@@ -13,7 +13,8 @@ export const orderService = {
     save,
     remove,
     getEmptyorder,
-    getOrdersByUserId
+    getOrdersByUserId,
+    getOrdersByBuyerId
 }
 window.cs = orderService
 
@@ -33,6 +34,7 @@ function getById(id) {
 
     return storageService.get('order', id)
 }
+
 
 async function remove(orderId) {
     await storageService.remove(STORAGE_KEY, orderId)
@@ -54,6 +56,13 @@ async function getOrdersByUserId(userId) {
     const orders = await query()
     myOrders = orders.filter(order => order.hostId === userId)
 
+    return myOrders
+}
+
+async function getOrdersByBuyerId(userId) {
+    let myOrders
+    const orders = await query()
+    myOrders = orders.filter(order =>  order.buyer._id === userId)
     return myOrders
 
 }
