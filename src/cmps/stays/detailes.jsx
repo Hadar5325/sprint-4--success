@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, guests, capacityModal, setCapacityModal, dateModal, setDateModal }) {
 
     const rate = calcRate()
+    const img = randImg()
 
     function handleChange({ name: field, value }) {
         console.log('at handle change:', value)
@@ -32,6 +33,19 @@ export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, g
         return Math.floor(avg * 10) / 10
     }
 
+    function randImg() {
+
+        const randNum = getRandomInt(1)
+        let gender = (randNum > 0.6) ? 'male' : 'female'
+
+        return `https://xsgames.co/randomusers/avatar.php?g=${gender}`
+
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
     // "Cleanliness": 0,
     //     "Communication": 0,
     //     "CheckIn": 0,
@@ -41,8 +55,8 @@ export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, g
 
     return <section className="detailes">
 
-        <Booking dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
-        <StayDetailesContent stay={stay} rate={rate} avgRate={avgRate} setCapacityModal={setCapacityModal} />
+        <Booking dates={dates} img={img} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />
+        <StayDetailesContent stay={stay} img={img} rate={rate} avgRate={avgRate} setCapacityModal={setCapacityModal} />
 
     </section>
 }
