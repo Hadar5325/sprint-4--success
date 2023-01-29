@@ -49,7 +49,7 @@ export function AppHeader({ }) {
     }
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
-    if (location.match(`/stays`) && !location.match(`/book`)) {
+    if (location.match(`/stays`) && !location.match(`/book7`)) {
         divName += ' stay stays'
     }
     else if (location.match('/')) {

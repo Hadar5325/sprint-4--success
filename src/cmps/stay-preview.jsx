@@ -5,7 +5,7 @@ import React from 'react';
 import { utilService } from "../services/util.service"
 
 export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
-    console.log('stay:',stay)
+    // console.log('stay:', stay)
 
     const [wishListModal, SetwishListModal] = useState(false)
     const [avgRate, setAvgRate] = useState(0)
@@ -14,7 +14,7 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     const [randDistanceKm, setRandDistanceKm] = useState(null)
     const [randDate, setRandDate] = useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         setRandDistanceKm(getRandomKm())
         setRandDate(getRandomDate())
     }, [])
@@ -126,13 +126,13 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
         if (!isColoredRed) {
             refWishList.current.style.fill = '#FF385C'
             setIsColoredRed(true)
-        }else{
+        } else {
             refWishList.current.style.fill = 'rgba(0, 0, 0, 0.5)'
             setIsColoredRed(false)
         }
 
-        console.log(ev)
-        console.log(stay._id)
+        // console.log(ev)
+        // console.log(stay._id)
         addStayIdToWishList(stay._id)
         SetwishListModal(true)
 
