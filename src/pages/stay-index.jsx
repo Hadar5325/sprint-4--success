@@ -110,7 +110,7 @@ export function StayIndex() {
                 : <div>no stays for now...</div>
             }
             <section className='main-control-container'>
-                <Link to='/stay/edit'>Add Stay</Link>
+                {/* <Link to='/stay/edit'>Add Stay</Link>
 
                 <Link to="/stay/map">Show map
                     <div className='map-container'>
@@ -119,9 +119,9 @@ export function StayIndex() {
                             </path>
                         </svg>
                     </div>
-                </Link>
+                </Link> */}
             </section>
-            <UserMsg />
+            {/* <UserMsg /> */}
         </div>
     )
 }
