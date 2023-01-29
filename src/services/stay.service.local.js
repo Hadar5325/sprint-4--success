@@ -18,7 +18,8 @@ export const stayService = {
     getEmptyFilter,
     getParams,
     getNightsCount,
-    getAllStays
+    getAllStays,
+    getStaysByUserId
 }
 window.cs = stayService
 
@@ -68,6 +69,15 @@ async function query(filterBy) {
         }))
     }
     return fillteredStays
+}
+
+async function getStaysByUserId(userId) {
+    let myStays
+    const stays = await getAllStays()
+    myStays = stays.filter(stay => stay.host._id === userId)
+
+    return myStays
+
 }
 
 function getById(id) {

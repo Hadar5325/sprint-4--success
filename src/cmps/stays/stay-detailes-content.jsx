@@ -6,7 +6,7 @@ import DedicatedWorkspace from '../../assets/img/DedicatedWorkspace.svg'
 import parking from '../../assets/img/parking.svg'
 
 
-export function StayDetailesContent({ stay, avgRate, setCapacityModal }) {
+export function StayDetailesContent({ stay,img, avgRate, setCapacityModal }) {
     return <section className="stayDetailes" onClick={() => setCapacityModal(false)}>
 
         <div className='shortInfo'>
@@ -20,7 +20,7 @@ export function StayDetailesContent({ stay, avgRate, setCapacityModal }) {
 
                 </div>
             </div>
-            <img className='hostImg' src={stay.host.thumbnailUrl} />
+            <img className='hostImg' src={img} />
         </div>
 
         <div className="detaileConteiner">

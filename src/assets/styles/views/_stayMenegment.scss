@@ -1,5 +1,6 @@
 .stayMenegment {
     display: grid;
+    font-family:  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;;
     grid-template-columns: 20vw 1fr 20vw;
     grid-template-areas:
         ". main . ";
@@ -9,7 +10,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: -10px;
+        margin-top: 90px;
         height: 90px;
 
         .buttons {
@@ -65,6 +66,52 @@
             height: 50px;
             font-size: 18px;
             font-weight: 600;
+        }
+        .stayTable {
+            display: flex;
+            flex-direction: column;
+            height: 235px;
+            overflow-y: auto;;
+
+
+            .stayRow {
+                display: flex;
+
+                .stayRow {
+                    padding: 10px 5px;
+                    border-bottom: 1px solid lightgray;
+                }
+
+                .cell {
+                    display: flex;
+                    justify-content: flex-start;
+                }
+
+                .stay {
+                    width: 130px;
+                }
+        
+                .location {
+                    width: 150px;
+                    background-color: #FF385C;
+                }
+        
+                .price {
+                    width: 130px;
+                }
+        
+                .rate {
+                    width: 60px;
+                }
+        
+                .orders {
+                    width: 130px;
+                }
+        
+                .actions {
+                    width: 130px;
+                }
+            }
         }
 
         .menegmentTable {

@@ -31,11 +31,11 @@ export function Book() {
 
     function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
 
-    
+
         // alert('a')
         const newOrder = emptyOrder()
         newOrder.hostId = HostId
-        if (loggedinUser) newOrder.buyer = {"_id":loggedinUser._id,"fullname":loggedinUser.fullname}
+        if (loggedinUser) newOrder.buyer = { "_id": loggedinUser._id, "fullname": loggedinUser.fullname }
         newOrder.totalPrice = price
         newOrder.startDate = timeStart
         newOrder.endDate = timeEnd
@@ -58,6 +58,10 @@ export function Book() {
             console.log(err)
         }
     }
+
+    
+
+    
 
     function getNumOfGuests(Adulst, kids, Infants, Pets) {
         Adulst = Number(Adulst)
@@ -82,11 +86,26 @@ export function Book() {
         return order
     }
 
+    function randImg() {
+
+        const randNum = getRandomInt(1)
+        let gender = (randNum > 0.6) ? 'male' : 'female'
+
+        return `https://xsgames.co/randomusers/avatar.php?g=${gender}`
+
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
     function saveOrder(event) {
         event.preventDefault()
         orderService.save(order)
     }
-    if(!order ||!currStay) return 'lodding...'
+
+    const img = randImg()
+    if (!order || !currStay) return 'lodding...'
     return (
         <section className='book'>
             <div className='RequestTitle'>
@@ -99,108 +118,108 @@ export function Book() {
                 <div className='pay'>
                     <div className='YourTrip'>Your trip</div>
 
-                <div className='YourTripData'>
-                    <div className='detail'>
-                        <div className='firsDetail'>Dates</div>
-                        <div className='secendDetail'>{order.startDate} - {order.endDate}</div>
+                    <div className='YourTripData'>
+                        <div className='detail'>
+                            <div className='firsDetail'>Dates</div>
+                            <div className='secendDetail'>{order.startDate} - {order.endDate}</div>
+                        </div>
+                        <button className='edit'>Edit</button>
                     </div>
-                    <button className='edit'>Edit</button>
-                </div>
 
-                <div className='YourTripData'>
-                    <div className='detail'>
-                        <div className='firsDetail'>Guests</div>
-                        <div className='secendDetail'>{guests}</div>
+                    <div className='YourTripData'>
+                        <div className='detail'>
+                            <div className='firsDetail'>Guests</div>
+                            <div className='secendDetail'>{guests}</div>
+                        </div>
+                        <button className='edit'>Edit</button>
                     </div>
-                    <button className='edit'>Edit</button>
-                </div>
 
-                <div className='required'>
-                    <div className='requiredContant'>
+                    <div className='required'>
+                        <div className='requiredContant'>
 
-                        <div className='requiredTitle'>Required for your trip</div>
-                        <div className='break'></div>
-                        <div className='message'>Message the Host</div>
-                        <div className='messageExp'>Let the Host know why you're traveling and when you'll check in.</div>
-                        <div className='host'>
-                            <div className='hostDetContant'>
-                                <img className="hostImg" src={''} />
-                                <div className='hostDet'>
-                                    <div className='hostName'>{currStay.host.fullname}</div>
+                            <div className='requiredTitle'>Required for your trip</div>
+                            <div className='break'></div>
+                            <div className='message'>Message the Host</div>
+                            <div className='messageExp'>Let the Host know why you're traveling and when you'll check in.</div>
+                            <div className='host'>
+                                <div className='hostDetContant'>
+                                    <img className="hostImg" src={`${img}`} />
+                                    <div className='hostDet'>
+                                        <div className='hostName'>{currStay.host.fullname}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className='msgDiv'>
-                            <textarea className='textarea'></textarea>
-                        </div>
-                    </div>
-
-                    <div className='confirmed'>
-                        <div className='confirmedContant'>
-                            <img className="confirmedImg" src={''} />
-                            <div className='confirmedTxt'>
-                                <div className='confirmedFirst'>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours).</div>
-                                <div className='confirmedSecend'>You won’t be charged until then.</div>
-
+                            <div className='msgDiv'>
+                                <textarea className='textarea'></textarea>
                             </div>
                         </div>
-                        {
-                            <div className='requestContainer'>
-                                <button className='request' onClick={(event) => saveOrder(event)}>Request to book</button>
-                            </div>
-                            // : <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
-                        }
-                    </div>
-                </div>
-            </div>
 
-            
-            <div className='details'>
-                <div className='detailsBox'>
-                    <div className='detailsBoxContant'>
+                        <div className='confirmed'>
+                            <div className='confirmedContant'>
+                                <img className="confirmedImg" src={''} />
+                                <div className='confirmedTxt'>
+                                    <div className='confirmedFirst'>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours).</div>
+                                    <div className='confirmedSecend'>You won’t be charged until then.</div>
 
-                        <div className='boxTitle'>
-                            <div className='boxTitleContant'>
-                                <img className='titleImg'></img>
-                                <div className='titles'>
-                                    <div className='firstTitle'>{currStay.stayType}</div>
-                                    <div className='secendTitle'>{currStay.name}</div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className='protected'>
-                            <div className='protectedContant'>Your booking is protected by AirCover</div>
-                        </div>
-
-                        <div className='priceTitleContainer'>
-                            <div className='priceTitleContant'>Price details</div>
-                        </div>
-
-                        <div className='priceDet'>
-                            <div className='priceDetContainer'>
-                                <div className='calc'>{currStay.price} x 5 nights</div>
-                                <div className='resolve'>{currStay.price* 5}</div>
-                            </div>
-                            <div className='priceDetContainer secend'>
-                                <div className='calc'>serviceFee</div>
-                                <div className='resolve'>{(currStay.price * 5)*0.1}</div>
-                            </div>
-                            <hr className='breakLine'></hr>
-                            <div className='priceDetContainer'>
-                                <div className='totalTitle'>Total (ILS)</div>
-                                <div className='totalFee'>{currStay.price* 5 + (currStay.price * 5)*0.1}</div>
-                            </div>
-
+                            {
+                                <div className='requestContainer'>
+                                    <button className='request' onClick={(event) => saveOrder(event)}>Request to book</button>
+                                </div>
+                                // : <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
+                            }
                         </div>
                     </div>
                 </div>
+
+
+                <div className='details'>
+                    <div className='detailsBox'>
+                        <div className='detailsBoxContant'>
+
+                            <div className='boxTitle'>
+                                <div className='boxTitleContant'>
+                                    <img className='titleImg' src={currStay['imgUrls'][0]}></img>
+                                    <div className='titles'>
+                                        <div className='firstTitle'>{currStay.stayType}</div>
+                                        <div className='secendTitle'>{currStay.name}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='protected'>
+                                <div className='protectedContant'>Your booking is protected by AirCover</div>
+                            </div>
+
+                            <div className='priceTitleContainer'>
+                                <div className='priceTitleContant'>Price details</div>
+                            </div>
+
+                            <div className='priceDet'>
+                                <div className='priceDetContainer'>
+                                    <div className='calc'>{currStay.price} x 5 nights</div>
+                                    <div className='resolve'>{currStay.price * 5}</div>
+                                </div>
+                                <div className='priceDetContainer secend'>
+                                    <div className='calc'>serviceFee</div>
+                                    <div className='resolve'>{(currStay.price * 5) * 0.1}</div>
+                                </div>
+                                <hr className='breakLine'></hr>
+                                <div className='priceDetContainer'>
+                                    <div className='totalTitle'>Total (ILS)</div>
+                                    <div className='totalFee'>{currStay.price * 5 + (currStay.price * 5) * 0.1}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-        </div>
-
-        <div className='bookFooter'>dsf</div>
+            <div className='bookFooter'>dsf</div>
 
         </section>
     )

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uptadeFilter } from '../../store/stay.actions'
 
 
-export function Booking({ dates, setDates, stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal, handleChange, order }) {
+export function Booking({ dates,img, setDates, stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal, handleChange, order }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
@@ -78,6 +78,7 @@ export function Booking({ dates, setDates, stay, guestsNum, guests, setguests, a
     }
 
 
+
     function calcPrice() {
         const totalNightsPrice = stay.price * 6
         const servicefee = Math.floor((0.1 * stay.price * 6) * 10) / 10
@@ -111,6 +112,7 @@ export function Booking({ dates, setDates, stay, guestsNum, guests, setguests, a
             {capacityModal && <CapacityBooking addGuest={addGuest} guests={guests} dates={dates} />}
             {dateModal && <div className='calender'><DateFilter handleChange={handleChange} /></div>}
             <Link to={`/stays/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
+            
             <div className='wontharged'>You won't be charged yet</div>
 
             <div className='sum'>
