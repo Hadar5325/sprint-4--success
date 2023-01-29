@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { userService } from '../services/user.service.local'
 
 import { StayManagement } from "../pages/stay-management"
+import { orderService } from '../services/order.service.local'
 
 const Row = (props) => {
     const { status, guests, checkIn, checkOut, booked, listing, totalPayout } = props
@@ -51,12 +52,16 @@ const Table = (props) => {
 export function Trip() {
 
     const loggedinUser = useSelector((state) => state.userModule.user)
+    const [myOrders, setMyOrders] = useState([])
+
 
     useEffect(() => {
         if (!loggedinUser) return
         const userId = loggedinUser._id
         console.log(userId)
         getTotalUserData(userId)
+
+        getMyOrders()
     }, [])
 
 
@@ -66,6 +71,16 @@ export function Trip() {
             console.log(dataUser)
         } catch (err) {
             console.log('could not get user data', err)
+        }
+    }
+
+    async function getMyOrders() {
+        try {
+            const orders = await orderService.getOrdersByUserId(loggedinUser._id)
+            console.log(orders)
+            setMyOrders(orders)
+        } catch (err) {
+            console.log(err)
         }
     }
     const reservation = [
