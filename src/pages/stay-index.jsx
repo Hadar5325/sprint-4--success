@@ -9,6 +9,7 @@ import { userService } from '../services/user.service.local'
 import { FilterModal } from '../cmps/filter-modal'
 import { StayList } from '../cmps/stay-list'
 import { FilterCarousel } from '../cmps/filter-carousel'
+import { UserMsg } from '../cmps/user-msg';
 
 
 export function StayIndex() {
@@ -79,7 +80,7 @@ export function StayIndex() {
             setUserWishList(wishListDetails)
 
         } catch (err) {
-            
+
             console.log(err)
         }
     }
@@ -120,6 +121,7 @@ export function StayIndex() {
                     </div>
                 </Link>
             </section>
+            <UserMsg />
         </div>
     )
 }

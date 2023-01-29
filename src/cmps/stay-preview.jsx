@@ -4,19 +4,19 @@ import { useState, useRef, createRef, useEffect } from "react"
 import React from 'react';
 import { utilService } from "../services/util.service"
 
-// import { ImageSlider } from "./image-slider"
-// import asset42 from "../assets/img/asset42.webp"
-// import asset43 from "../assets/img/asset43.webp"
-// import asset44 from "../assets/img/asset44.webp"
-// import asset45 from "../assets/img/asset45.webp"
-// import asset46 from "../assets/img/asset46.webp"
-import { SelectWishList } from "./select-wish-list";
-
 export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
 
     const [wishListModal, SetwishListModal] = useState(false)
     const [avgRate, setAvgRate] = useState(0)
     const [currentIdx, setCurrentIdx] = useState(0)
+
+    const [randDistanceKm, setRandDistanceKm] = useState(null)
+    const [randDate, setRandDate] = useState(null)
+
+    useEffect(()=>{
+        setRandDistanceKm(getRandomKm())
+        setRandDate(getRandomDate())
+    }, [])
 
     // const [isInWishList, setIsInWishList] = useState(false)
     const [isColoredRed, setIsColoredRed] = useState(false)
@@ -27,15 +27,7 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
         calcaAvgRate()
 
         if (!userWishList.length) return
-
-        // console.log(userWishList)
-
         const isInWishList = userWishList.find(element => element === stay._id)
-
-        // fix!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if (isInWishList) refWishList.current.style.fill = '#FF385C'
-        if (!isInWishList) refWishList.current.style.fill = 'rgba(0, 0, 0, 0.5)'
-
 
     }, [userWishList])
 
@@ -130,6 +122,13 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     }
 
     function onAddToWishList(ev) {
+        if (!isColoredRed) {
+            refWishList.current.style.fill = '#FF385C'
+            setIsColoredRed(true)
+        }else{
+            refWishList.current.style.fill = 'rgba(0, 0, 0, 0.5)'
+            setIsColoredRed(false)
+        }
 
         console.log(ev)
         console.log(stay._id)
@@ -232,12 +231,12 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
                     {/* `${Reviwes.calcRate()}` */}
                 </span><span className="star-record">{avgRate}</span></div>
                 <div className="stay-heading">{stay.loc.city}, {stay.loc.country}</div>
-                <div className="stay-distance">{getRandomKm()} kilometeres away</div>
-                <div className="stay-valid-dates"> {getRandomDate()}</div>
+                <div className="stay-distance">{randDistanceKm} kilometeres away</div>
+                <div className="stay-valid-dates"> {randDate}</div>
                 <div className="stay-price"><span className="currency">&#8362;</span><span>{stay.price}</span> night</div>
             </div >
         </div >
-        {wishListModal && <SelectWishList />}
+        {/* {wishListModal && <SelectWishList />} */}
 
     </article>
 }
