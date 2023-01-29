@@ -39,3 +39,6 @@ export function StaysMap() {
 // 
 // https://www.google.com/search?q=airbnb+carousel+react&rlz=1C1YTUH_enIL1003IL1003&source=lnms&tbm=vid&sa=X&ved=2ahUKEwj85M3pv938AhWG_7sIHXbPAmw4FBD8BSgEegQIARAG&biw=1536&bih=754&dpr=1.25#fpstate=ive&vld=cid:e3ef2b41,vid:2zy2qX1eR6E
 //map
+
+// install
+//npm install react-native-maps

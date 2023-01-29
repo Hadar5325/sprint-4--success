@@ -9,8 +9,38 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 80px;
-        height: 100px;
+        margin-top: -10px;
+        height: 90px;
+
+        .buttons {
+            width: 205px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            background-color: #FF385C;
+
+            .push {
+                transform: scalez(2);
+                background-color: white;
+            }
+
+            .showinfo {
+                width: 100px;
+                margin: 0 auto;
+                display: block;
+                border-top: 1px solid #FF385C;
+                border-bottom: 1px solid #FF385C;
+            }
+
+            .right {
+                border-right: 1px solid #FF385C;
+            }
+
+            .left {
+                border-left: 1px solid #FF385C;
+            }
+        }
+
     }
 
     .menegmentContant {
@@ -18,13 +48,15 @@
         border: 1px solid lightgray;
         height: 350px;
         width: 100%px;
-        
 
-        .contantTitle{
+
+        .contantTitle {
             height: 65px;
+            font-size: 20px;
+            font-weight: 600;
         }
 
-        .tableHead{
+        .tableHead {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -35,73 +67,93 @@
             font-weight: 600;
         }
 
-        .menegmentTable{
+        .menegmentTable {
+            display: flex;
+            flex-direction: column-reverse;
+
             height: 235px;
             overflow-y: auto;
-            .tableRow{
+
+            .tableRow {
                 padding: 10px 5px;
                 border-bottom: 1px solid lightgray;
             }
+
+            .tableRow:hover {
+                background-color: lightgray;
+            }
         }
 
-        .cell{
+        .cell {
             display: flex;
             justify-content: flex-start;
         }
-        .pending{
+
+        .pendingStatus {
             background-color: rgb(220, 220, 220);
         }
 
-        
-        .guest{
+
+        .guest {
             width: 130px;
         }
-        .stay{
+
+        .stay {
             width: 130px;
         }
-        .dates{
+
+        .dates {
             width: 130px;
         }
-        .price{
+
+        .price {
             width: 60px;
         }
-        .status{
+
+        .status {
             width: 130px;
         }
-        .actions{
+
+        .actions {
             width: 130px;
         }
-        .approve{
-            color:rgb(50, 211, 50);
+
+        .approve {
+            color: rgb(50, 211, 50);
         }
-        .reject{
+
+        .reject {
             color: rgb(235, 64, 64);
         }
-        .disable{
+
+        .disable {
             border: 1px solid rgb(0, 0, 0);
         }
 
-        .approveBtn{
+        .approveBtn {
             display: flex;
             align-items: center;
             border: 1px solid rgb(50, 211, 50);
             border-radius: 10px;
         }
-        .approveBtn:active{
-            background-color: rgb(50, 211, 50);;
+
+        .approveBtn:active {
+            background-color: rgb(50, 211, 50);
+            ;
         }
 
-        .rejectBtn{
+        .rejectBtn {
             display: flex;
             align-items: center;
             border: 1px solid rgb(235, 64, 64);
             border-radius: 10px;
         }
-        .rejectBtn:active{
+
+        .rejectBtn:active {
             background-color: rgb(235, 64, 64);
         }
-        
-        
-        
+
+
+
     }
 }

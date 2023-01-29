@@ -11,6 +11,9 @@
     height: 96px;
     line-height: 1.43;
     color: #222;
+
+    position: absolute;
+    top: 80px;
 }
 
 .trip-containter>* {
@@ -18,23 +21,41 @@
     background-color: blanchedalmond;
     grid-row-gap: 70px;
 
-    // .trip-header{
-    //     padding-bottom: 70px;
-
-    // }
 
     .trip-thead {
         font-size: 14px;
+        text-align: left;
     }
-    .trip-table{
+
+    .trip-td {
+        padding-bottom: 25px;
+    }
+
+    .trip-table {
         width: 100%;
         height: auto;
     }
-    .trip-td-body{
-        text-align: center;
+
+    .trip-td-body {
+        text-align: left;
+        font-size: 14px;
+        padding-bottom: 20px;
     }
 
     // .trip-td-body{
 
     // }
+}
+
+.trip-header {
+    padding-bottom: 60px;
+}
+.Declined{
+    color: red;
+}
+.Approved{
+    color: green;
+}
+.Pending{
+    color:orange;
 }
