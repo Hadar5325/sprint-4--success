@@ -50,10 +50,10 @@ const Table = (props) => {
                         <td key={1} className={`trip-td-body ${row.status}`}>{row.status}</td>
                         <td key={2} className="trip-td-body">{row.guests.Adulst}</td>
                         <td key={3} className="trip-td-body">{row.startDate}</td>
-                        <td key={4} className="trip-td-body">{row.buyer.endDate}</td>
+                        <td key={4} className="trip-td-body">{row.endDate}</td>
                         <td key={5} className="trip-td-body">{row.startDate}</td>
                         <td key={6} className="trip-td-body">{row.stay}</td>
-                        <td key={7} className="trip-td-body">{row.totalPrice}*{row.guests.Adulst}</td>
+                        <td key={7} className="trip-td-body">{row.totalPrice}</td>
                     </tr>)
             })}
         </tbody>
