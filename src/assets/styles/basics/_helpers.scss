@@ -81,6 +81,8 @@
   .full-screen {
 
     &.show {
+
+        background-color: aqua;
         position: absolute;
         height: 100vh;
         z-index: 3;

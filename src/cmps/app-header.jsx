@@ -5,7 +5,7 @@ import { MainFilter } from './main-filter'
 import { StayManagement } from '../pages/stay-management'
 
 import { userService } from '../services/user.service.local'
-import { logout } from '../store/user.actions.js'
+import { logout, loadUsers } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
@@ -13,7 +13,7 @@ import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
-import { setIsFilterShown } from '../store/stay.actions'
+import { setIsFilterShown, SetIsUserModalShown } from '../store/stay.actions'
 import { getUnit } from '@mui/material/styles/cssUtils'
 
 
@@ -21,11 +21,12 @@ export function AppHeader({ }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
     const isFilterShown = useSelector((state) => state.stayModule.isFilterShown)
+    const isUserModalShown = useSelector((state) => state.stayModule.isUserModalShown)
     const loggedinUser = useSelector((state) => state.userModule.user)
     const location = useLocation().pathname
 
     const [filterType, setFilterType] = useState('location')
-    const [isUserModalOpen, setIsUserModalOpen] = useState(false)
+    // const [isUserModalOpen, setIsUserModalOpen] = useState(false)
     const [isLoginModalShown, setIsLoginModalShown] = useState(false)
     const [user, setUser] = useState(userService.getLoggedinUser())
 
@@ -33,9 +34,9 @@ export function AppHeader({ }) {
 
     const stayDetiles = `/stays`
 
-    // useEffect = (() => {
-    //     loadUsers()
-    // }, [])
+    useEffect(() => {
+        loadUsers()
+    }, [])
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -68,25 +69,21 @@ export function AppHeader({ }) {
         if (loggedinUser) return <section className='user-modal'>
             <div className='log-out' onClick={() => {
                 logout()
-                setIsUserModalOpen(false)
+                SetIsUserModalShown(false)
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay managment</Link>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() =>SetIsUserModalShown(false)}>stay managment</Link>
             <Link to={`/trip`}>Trips</Link>
             <Link to={`/wishList`}>WishLists</Link>
-
-
-            {/* <Link className="host-link" to="/hosting"
-                onClick={() => setIsUserModalOpen(false)}>bnbAir your home
-            </Link> */}
         </section>
         return <section className='user-modal'>
             <div className='log-in' onClick={() => {
-                setIsLoginModalShown(true)
-                setIsUserModalOpen(false)
+               SetIsUserModalShown(true)
+
+               SetIsUserModalShown(false)
             }} >Log in</div>
             <div className='sign-up' onClick={() => {
                 setIsLoginModalShown(true)
-                setIsUserModalOpen(false)
+                SetIsUserModalShown(false)
             }}>Sign up</div>
 
         </section>
@@ -108,7 +105,7 @@ export function AppHeader({ }) {
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
     return (
         <header className={divName}>
-            <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div>
+            <div className={`full-screen transparent ${isUserModalShown ? 'show' : 'hide'}`} onClick={() => SetIsUserModalShown(false)}></div>
             <div className='main-content flex'>
                 <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
@@ -117,7 +114,7 @@ export function AppHeader({ }) {
                         {/* <button className='i18n-btn'><div className='i18n img-container'><img src={i18n} alt="" /></div></button> */}
                     </div>
                     <button className='user-nav flex' onClick={() => {
-                        setIsUserModalOpen(true)
+                        SetIsUserModalShown(true)
                     }}>
                         <div className='img-container hamburger'>
                             <img src={hamburger} alt="" />
@@ -154,7 +151,7 @@ export function AppHeader({ }) {
 
             </div>
 
-            {isUserModalOpen && openUserModal()}
+            {isUserModalShown && openUserModal()}
             <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
         </header>
     )

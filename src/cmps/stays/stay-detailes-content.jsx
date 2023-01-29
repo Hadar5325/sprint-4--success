@@ -1,10 +1,14 @@
-import aircover from '../../assets/img/aircover.jpg'
+
 import { SleepHere } from './sleepHere.jsx'
 import { PlaceOffers } from './placeOffers.jsx'
+
+import aircover from '../../assets/img/aircover.jpg'
 import checkIn from '../../assets/img/Self-check-in.svg'
 import DedicatedWorkspace from '../../assets/img/DedicatedWorkspace.svg'
 import parking from '../../assets/img/parking.svg'
 import point from '../../assets/img/point.png'
+
+
 
 
 export function StayDetailesContent({ stay, img, avgRate, setCapacityModal }) {
@@ -15,9 +19,9 @@ export function StayDetailesContent({ stay, img, avgRate, setCapacityModal }) {
                 <div className='hostedBy'>{stay.stayType}  hosted by  {stay['host']['fullname']}</div>
                 <div className='scendMenu'>
                     <div className='scendMenuFiturs'>{stay.capacity} guests</div>
-                    <div className='scendMenuFiturs'><img src={point} alt="" />{stay.bedstaysNum} rooms</div>
+                    <div className='scendMenuFiturs'><img  src={point} alt="" />{stay.bedstaysNum} rooms</div>
                     <div className='scendMenuFiturs'><img src={point} alt="" />{stay.bads} bads</div>
-                    <div className='scendMenuFiturs'>{stay.bathstays} baths</div>
+                    <div className='scendMenuFiturs'><img src={point} alt="" />{stay.bathstays} baths</div>
 
                 </div>
             </div>
@@ -25,7 +29,7 @@ export function StayDetailesContent({ stay, img, avgRate, setCapacityModal }) {
         </div>
 
         <div className="detaileConteiner">
-
+           
             <div className="detailesInfo flex">
                 <div className='imgContainer'><img className="img" src={checkIn} /></div>
                 <div className="extraContant">

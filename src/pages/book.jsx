@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Routes, Route, useParams } from 'react-router-dom';
 import { orderService } from '../services/order.service.local.js'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import confirmed from '../assets/img/confirmed.svg'
 
 import React, { useEffect, useState } from 'react'
@@ -62,7 +62,7 @@ export function Book() {
         }
     }
 
-    
+
     function getNumOfGuests(Adulst, kids, Infants, Pets) {
         Adulst = Number(Adulst)
         kids = Number(kids)
@@ -102,7 +102,7 @@ export function Book() {
     function saveOrder(event) {
         event.preventDefault()
         orderService.save(order)
-        navigate(`/`) 
+        navigate(`/`)
     }
 
     const img = randImg()
@@ -158,10 +158,10 @@ export function Book() {
 
                         <div className='confirmed'>
                             <div className='confirmedContant'>
-                            <img className="confirmedImg" src={confirmed} />
+                                <img className="confirmedImg" src={confirmed} />
                                 <div className='confirmedTxt'>
-                                    <div className='confirmedFirst'>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours).</div>
-                                    <div className='confirmedSecend'>You won’t be charged until then.</div>
+                                    <div className='confirmedFirst'>Your reservation won't be confirmed until the Host accepts your request (within 24 hours).</div>
+                                    <div className='confirmedSecend'>You won't be charged until then.</div>
 
                                 </div>
                             </div>

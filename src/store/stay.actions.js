@@ -1,7 +1,7 @@
 
 import { stayService } from '../services/stay.service.local'
 import { store } from "./store.js"
-import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN } from './stay.reducer'
+import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN, SET_IS_USER_SHOWN } from './stay.reducer'
 
 export function getActionRemoveStay(stayId) {
     return {
@@ -110,5 +110,9 @@ export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
 
 export function setIsFilterShown(isFilterShown) {
     store.dispatch(({ type: SET_IS_FILTER_SHOWN, isFilterShown }))
+
+}
+export function SetIsUserModalShown(isUserModalShown) {
+    store.dispatch(({ type: SET_IS_USER_SHOWN, isUserModalShown }))
 
 }

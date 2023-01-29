@@ -74,15 +74,27 @@
     }
 
     .times{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        // align-items: center;
+        // justify-content: center;
         width: 50%;
         outline: 1px solid lightgray;
+
+        span{
+            // align-self: baseline;
+            padding: em(10px);
+            font-size: 12px;
+        }
+        
+        p{
+            font-size: rem(14px);
+            padding-inline-start: em(10px);
+        }
 
     }
 
     .guests {
+        // background-color: aqua;
         height: 50%;
         grid-area: bottomBtn;
         margin: 0px;

@@ -46,7 +46,12 @@
     justify-content: flex-start;
     align-items: center;
 
-}
+        img{
+            width:9px;
+        }
+    }
+
+
 
 .hostedBy {
     font-size: 22px;
@@ -253,3 +258,4 @@
 .oferTxt {
     margin-left: 20px;
 }
+

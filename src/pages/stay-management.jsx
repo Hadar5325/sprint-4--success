@@ -1,16 +1,17 @@
 import { stayService } from '../services/stay.service.local.js'
 import { orderService } from '../services/order.service.local'
-
+import {SetIsUserModalShown} from '../store/stay.actions'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOrders, loadOrder, addOrder, updateOrder, removeOrder } from '../store/order.action'
 import { OrderShow } from '../cmps/stayMnegmant/orders'
-import {StaysShow} from '../cmps/stayMnegmant/stays'
+import { StaysShow } from '../cmps/stayMnegmant/stays'
 
 
 
 export function StayManagement() {
     const loggedinUser = useSelector((state) => state.userModule.user)
+    const isUserModalShown = useSelector((state) => state.stayModule.isUserModalShown)
 
     const [myStays, setMyStays] = useState([])
     const [myOrders, setMyOrders] = useState([])
@@ -68,9 +69,11 @@ export function StayManagement() {
         // setOrderStatus('reject')
     }
 
+    console.log('isUserModalShown:',isUserModalShown)
+
     if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
-
+        <div className={`full-screen transparent ${isUserModalShown ? 'show' : 'hide'}`} onClick={() => SetIsUserModalShown(false)}></div>
         <div className='menegmentMnue'>
             <div className='buttons'>
                 <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
@@ -79,7 +82,7 @@ export function StayManagement() {
         </div>
         {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
         {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
-        
+
 
     </section>
 }

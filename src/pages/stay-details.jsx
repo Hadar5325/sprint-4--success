@@ -90,7 +90,7 @@ export function StayDetails() {
 
 
     function onAddGuest() {
-        const sum = _numOfGuests()
+        const sum = numOfGuests()
         order.guests = guests
     }
 
@@ -98,17 +98,17 @@ export function StayDetails() {
         order['startDate'] = dates.startDate
         order['endDate'] = dates.endDate
     }
-    function _numOfGuests() {
+    function numOfGuests() {
         const gusts = guests
         const adultsNum = gusts.Adults + gusts.Kids
-        let line = adultsNum + 'guest'
+        let line = adultsNum + ' guest'
         if (gusts.Infants > 0) {
             line = line + ', ' + gusts.Infants + ' Infants '
         }
         if (gusts.Pets > 0) {
             line = line + ', ' + gusts.Pets + ' Pets '
         }
-
+        setGuestsNum(line)
         return line
     }
 

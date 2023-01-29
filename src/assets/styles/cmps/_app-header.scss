@@ -17,7 +17,7 @@
 
   &.big {
     position: fixed;
-    min-height: 160px;
+    min-height: 220px;
   }
 
   &.stay {
@@ -58,6 +58,14 @@
     &>* {
       padding: em(20px);
 
+      &.-webkit-any-link {
+        color: $clr11;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $clr5 ;
+      }
+
       &:hover {
         background-color: $clr3;
         cursor: pointer;
@@ -66,7 +74,8 @@
     }
 
     .log-in {
-      color: $clr11
+      color: $clr11;
+      border-bottom: 1px solid $clr11 ;
     }
 
     .sign-up {

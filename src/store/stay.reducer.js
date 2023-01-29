@@ -8,12 +8,14 @@ export const ADD_STAY = 'ADD_STAY'
 export const UPDATE_STAY = 'UPDATE_STAY'
 export const UPDATE_FILTER = 'UPDATE_FILTER'
 export const SET_IS_FILTER_SHOWN = 'SET_IS_FILTER_SHOWN'
+export const SET_IS_USER_SHOWN = 'SET_IS_USER_SHOWN'
 
 const initialState = {
     stays: [],
     stay: {},
     filterBy: stayService.getEmptyFilter(),
-    isFilterShown: false
+    isFilterShown: false,
+    isUserModalShown:false
 }
 
 export function stayReducer(state = initialState, action) {
@@ -39,6 +41,8 @@ export function stayReducer(state = initialState, action) {
             return { ...state, filterBy: action.filterBy }
         case SET_IS_FILTER_SHOWN:
             return { ...state, isFilterShown: action.isFilterShown }
+        case SET_IS_USER_SHOWN:
+            return { ...state, isUserModalShown: action.isUserModalShown }
         default:
             return state;
     }

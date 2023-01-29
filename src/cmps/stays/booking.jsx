@@ -8,14 +8,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uptadeFilter } from '../../store/stay.actions'
 
 
+
 export function Booking({ dates, img, setDates, stay, guestsNum, guests, setguests, avgRate, setCapacityModal, capacityModal, dateModal, setDateModal, handleChange, order }) {
 
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
-
+    console.log('currFilterBy:', currFilterBy)
 
     const [filterBy, setFilterBy] = useState(currFilterBy)
 
     const [price, setPrice] = useState({})
+
+
     useEffect(() => {
         calcPrice()
     }, [])
@@ -32,11 +35,11 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
         setDates({ timeStart, timeEnd })
     }
 
-    // function setDateTxt(type) {
-    //     let date = (type === 'in') ? currFilterBy.datesRange.timeStampStart : currFilterBy.datesRange.timeStampEnd
-    //     const txt = `${new Date(date).toLocaleString('en', { month: 'short' })} ${new Date(date).getDate()}`
-    //     return txt
-    // }
+    function setDateTxt(type) {
+        let date = (type === 'in') ? currFilterBy.datesRange.startDate : currFilterBy.datesRange.endDate
+        const txt = `${new Date(date).toLocaleString('en', { month: 'short' })} ${new Date(date).getDate()}`
+        return txt
+    }
 
     function addGuest(guest, diff) {
 
@@ -90,7 +93,7 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
     const entries = params.entries()
     const queryObject = Object.fromEntries(entries)
     const currParams = stayService.getParams(currFilterBy)
-
+console.log('filterBy at booking before rendering:',filterBy)
     return <section className="booking" >
 
 
@@ -108,13 +111,13 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
             <div className="boxContantTop">
 
                 <div className="checkInBtn bookingBtn" onClick={() => setDateModal(true)}>
-                    <div className='times' onClick={() => setDateModal(true)}>{dates.timeStart}</div>
-                    <div className='times' onClick={() => setDateModal(true)}>{dates.timeEnd}</div>
+                    <div className='times' onClick={() => setDateModal(true)}><span>CHECK-IN</span><p>{dates.timeStart ? dates.timeStart : setDateTxt('in')}</p></div>
+                    <div className='times' onClick={() => setDateModal(true)}><span>CHECKOUT</span><p>{dates.timeEnd ? dates.timeEnd : setDateTxt('out')}</p></div>
 
                     {/* {dates.timeStart} |{dates.timeEnd} */}
                 </div>
 
-                <button className="guests bookingBtn" onClick={() => setCapacityModal(true)}>{guestsNum}</button>
+                <button className="guests bookingBtn" onClick={() => setCapacityModal(true)}><span>GUESTS</span><p>{guestsNum}</p></button>
             </div>
             {capacityModal && <CapacityBooking addGuest={addGuest} guests={guests} dates={dates} />}
             {dateModal && <div className='calender'><DateFilter handleChange={handleChange} /></div>}
