@@ -48,9 +48,12 @@ export function AppHeader({ }) {
         return region
     }
 
-    let divName = `app-header main-layout full index ${isFilterShown ? 'big' : ''}`
-    if (location.match(`/stays`) || location.match(`/book`)) {
+    let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
+    if (location.match(`/stays`) && !location.match(`/book`)) {
         divName += ' stay stays'
+    }
+    else if (location.match('/')) {
+        divName += `index`
     }
 
 

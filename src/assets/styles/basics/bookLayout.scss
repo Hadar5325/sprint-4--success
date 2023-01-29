@@ -194,6 +194,8 @@
 
 
             .requestContainer {
+                display: flex;
+                justify-content: center;
 
                 .request {
                     --mouse-x: 50;
