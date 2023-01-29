@@ -4,18 +4,19 @@ import { PlaceOffers } from './placeOffers.jsx'
 import checkIn from '../../assets/img/Self-check-in.svg'
 import DedicatedWorkspace from '../../assets/img/DedicatedWorkspace.svg'
 import parking from '../../assets/img/parking.svg'
+import point from '../../assets/img/point.png'
 
 
-export function StayDetailesContent({ stay,img, avgRate, setCapacityModal }) {
+export function StayDetailesContent({ stay, img, avgRate, setCapacityModal }) {
     return <section className="stayDetailes" onClick={() => setCapacityModal(false)}>
 
         <div className='shortInfo'>
             <div className='menu'>
                 <div className='hostedBy'>{stay.stayType}  hosted by  {stay['host']['fullname']}</div>
                 <div className='scendMenu'>
-                    <div className='scendMenuFiturs'>{stay.capacity} guests.</div>
-                    <div className='scendMenuFiturs'>{stay.bedstaysNum} rooms</div>
-                    <div className='scendMenuFiturs'>{stay.bads} bads</div>
+                    <div className='scendMenuFiturs'>{stay.capacity} guests</div>
+                    <div className='scendMenuFiturs'><img src={point} alt="" />{stay.bedstaysNum} rooms</div>
+                    <div className='scendMenuFiturs'><img src={point} alt="" />{stay.bads} bads</div>
                     <div className='scendMenuFiturs'>{stay.bathstays} baths</div>
 
                 </div>
@@ -28,8 +29,8 @@ export function StayDetailesContent({ stay,img, avgRate, setCapacityModal }) {
             <div className="detailesInfo flex">
                 <div className='imgContainer'><img className="img" src={checkIn} /></div>
                 <div className="extraContant">
-                <div className='firstLine'>Self check-in</div>
-                <div className='secendLine'>Check yourself in with the lockbox</div>
+                    <div className='firstLine'>Self check-in</div>
+                    <div className='secendLine'>Check yourself in with the lockbox</div>
                 </div>
             </div>
 
@@ -47,7 +48,7 @@ export function StayDetailesContent({ stay,img, avgRate, setCapacityModal }) {
                 <div className='imgContainer'><img className="img" src={parking} /></div>
 
                 <div className="extraContant">
-                <div className='firstLine'>Free parking on premises</div>
+                    <div className='firstLine'>Free parking on premises</div>
                 </div>
 
             </div>

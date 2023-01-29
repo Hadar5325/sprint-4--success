@@ -1421,7 +1421,7 @@ const stays = [
     },
     {
         "_id": "622f337a75c7d36e498aaafd",
-        "name": "DOUBLE ROOM IN THE HEART OF BCN",
+        "name": "Luxury, fully furnished Bell Tent with range stove",
         "types": [
             "Amazing views",
             "Off-the-grid",
