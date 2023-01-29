@@ -6,11 +6,11 @@ import { CapacityFilter } from './capacity-filter'
 import { LocationList } from './location-list'
 import { uptadeFilter } from '../store/stay.actions'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink,useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 
 
-export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLocationTxt, setDateTxt, onFocus }) {
+export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setDateTxt, onFocus }) {
     // const elBtn = useRef();
     const currFilterBy = useSelector((state) => state.stayModule.filterBy)
 
@@ -65,7 +65,7 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
         console.log('currFilterBy:', currFilterBy.capacity)
         if (!total) return 'Add guests'
         const adultsNum = adults + kids
-        let txt = adultsNum + ' guests'
+        let txt = adultsNum > 1 ? adultsNum + ' guests' : adultsNum + ' guest'
         if (infants) {
             txt = txt + ', ' + infants + '...'
         }
@@ -78,8 +78,8 @@ export function MainFilter({ filterType, isFilterShown, setIsFilterShown, setLoc
 
     let params = new URLSearchParams(window.location.search);
     let entries = params.entries();
-    
-    console.log('Object.fromEntries(entries);:',Object.fromEntries(entries))
+
+    console.log('Object.fromEntries(entries);:', Object.fromEntries(entries))
 
     return (
         <section className={`filter-layout  ${(isFilterShown) ? 'open' : 'close'}`}>

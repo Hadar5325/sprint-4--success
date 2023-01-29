@@ -35,7 +35,8 @@ async function query(filterBy) {
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
     } else {
-        _arrangeStays(stays)
+        _makeStays(stays)
+        console.log('stayes at query:', stays)
         fillteredStays = stays
         storageService.save(STORAGE_KEY, stays)
     }
@@ -60,7 +61,8 @@ async function query(filterBy) {
     if (filterBy.datesRange.timeStampStart) {
         const { timeStampStart, timeStampEnd } = filterBy.datesRange
         fillteredStays = fillteredStays.filter((stay => {
-            return stay.orders.every((order) => {
+            // if (!stay.orders) return
+            return stay.orders?.every((order) => {
                 return timeStampEnd <= order.startDate || timeStampStart >= order.endDate
             })
         }))
@@ -147,17 +149,42 @@ function getParams(filterBy) {
 function getNightsCount(start, end) {
     const diff = end - start
     const nights = (diff / 1000 / 60 / 60 / 24) - 1
-    console.log('nights at getNIhgts count:', nights)
+    // console.log('nights at getNIhgts count:', nights)
     return nights
 
 }
 
-function _arrangeStays(stays) {
+
+function _makeStays(stays) {
+    for (let i = 0; i < 40; i++) {
+        const stay = {
+            loc: locations[utilService.getRandomIntInclusive(0, 18)],
+            price: utilService.getRandomIntInclusive(500, 5000),
+            "statReviews": {
+                "Cleanliness": utilService.getRandomIntInclusive(40, 50) / 10,
+                "Communication": utilService.getRandomIntInclusive(40, 50) / 10,
+                "CheckIn": utilService.getRandomIntInclusive(40, 50) / 10,
+                "Accuracy": utilService.getRandomIntInclusive(40, 50) / 10,
+                "Location": utilService.getRandomIntInclusive(40, 50) / 10,
+                "Value": utilService.getRandomIntInclusive(40, 50) / 10,
+            },
+            capacity: utilService.getRandomIntInclusive(1, 10),
+            type: labels[utilService.getRandomIntInclusive[0, 21],
+                utilService.getRandomIntInclusive[0, 21]],
+            imgUrls: [imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)], imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)]],
+            reviews: [{ imgUrl: '' }]
+        }
+        stays.push(stay)
+    }
     stays.forEach(stay => {
-        return stay._id = utilService.makeId()
+        stay._id = utilService.makeId()
+        stay.reviews.forEach((review) => {
+            review.imgUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+        })
     })
     console.log('stays at _arrangeStays :', stays)
 }
+
 
 export const labels = [
     'Caves', 'Tropical', 'Countryside', 'Skiing',
@@ -169,6 +196,47 @@ export const labels = [
     'Adapted'
 ]
 
+const locations = [
+    { city: 'Cleveland', country: 'Ohio', region: 'Unites states' },
+    { city: 'Berlin', country: 'Germany', region: 'Eourope' },
+    { city: 'Khon kean', country: 'Thailand', region: 'Asia' },
+    { city: 'Ndjamena', country: 'Chad', region: 'Africa' },
+    { city: 'Tripoli', country: 'Tunisia', region: 'Middel east' },
+    { city: 'Lusaka', country: 'Zambia', region: 'Africa' },
+    { city: 'Brisbane', country: 'Australia', region: 'Australia' },
+    { city: 'Vancouver', country: 'Canada', region: 'North america' },
+    { city: 'Clinton', country: 'North Carolina', region: 'Unites states' },
+    { city: 'Panama city', country: 'Panama', region: 'South america' },
+    { city: 'Bogota', country: 'Colombia', region: 'South america' },
+    { city: 'Telsen', country: 'Argentina', region: 'South america' },
+    { city: 'London', country: 'United kingdom', region: 'United kingdom' },
+    { city: 'Odense', country: 'Denmark', region: 'Euorope' },
+    { city: 'Brussels', country: 'Belgium', region: 'Euorope' },
+    { city: 'Jaen', country: 'Spain', region: 'Euorope' },
+    { city: 'Lyon', country: 'France', region: 'Freance' },
+    { city: 'Paris', country: 'Frence', region: 'Freance' },
+    { city: 'Dacca', country: 'India', region: 'Asia' },
+    { city: 'London', country: 'United kingdom', region: 'United kingdom' },
+    { city: 'Odense', country: 'Denmark', region: 'Euorope' },
+    { city: 'Brussels', country: 'Belgium', region: 'Euorope' },
+    { city: 'Jaen', country: 'Spain', region: 'Euorope' },
+    { city: 'Lyon', country: 'France', region: 'Freance' },
+    { city: 'Paris', country: 'Frence', region: 'Freance' },
+    { city: 'Dacca', country: 'India', region: 'Asia' }
+]
+
+const imgUrlsTresure = [
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436496/ihozxprafjzuhil9qhh4.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437327/epcnh2tzpafwmvi3srcp.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437310/tus71yfpnvgulenrli6a.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436453/ndl8odasqgnyquvsbalp.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg"
+]
 
 
 export const amenities = [
@@ -497,7 +565,7 @@ const stays = [
             "bedstay2": "2 single beds",
             "bedstay3": "2 single beds"
         },
-        "price": 30,
+        "price": 3330,
         "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Staytier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
         "capacity": 2,
         "amenities": [
@@ -628,7 +696,7 @@ const stays = [
             "bedstay2": "2 single beds",
             "bedstay3": "2 single beds"
         },
-        "price": 26,
+        "price": 626,
         "summary": "The neighbourhood is a quiet, family residential area, 20 minutes by bus from the historic center of Porto and 20 minutes from the beach (Matosinhos - where you may eat very GOOD fish!). You will love to stay in a very spacious, familiar and bright room, where you can enjoy a large and flowery garden, comfortable kitchen and laundry with washer and dryer machine. My space is good for couples, solo adventures, and business travelers!",
         "capacity": 2,
         "amenities": [
@@ -775,7 +843,7 @@ const stays = [
             "bedstay2": "2 single beds",
             "bedstay3": "2 single beds"
         },
-        "price": 29,
+        "price": 2956,
         "summary": "If the dates you wish are not available, we have other options in the same location. You can find them on my profile. My goal is for you to have your days with the most comfort i can propose. I want you to taste all the feelings in Porto, as our food, as our best places, our best pointviews. I just love to help you enjoying this beautiful city :)",
         "capacity": 2,
         "amenities": [
@@ -1084,7 +1152,7 @@ const stays = [
             "bedstay2": "2 single beds",
             "bedstay3": "2 single beds"
         },
-        "price": 110,
+        "price": 1100,
         "summary": "Welcome! Upgrades Added as of January 2018 This listing is located in the Spanish Harlem Section of Manhattan. I offer a cozy apartment that has great transportation in and out the city! The area has a lot of ethnic restaurants and a lot of local, active residents. This residence is great for a quick, inexpensive stay in New York whether its for business, travel, or personal purposes. I am glad to welcome all guests!",
         "capacity": 3,
         "amenities": [
@@ -1389,7 +1457,7 @@ const stays = [
             "bedstay2": "2 single beds",
             "bedstay3": "2 single beds"
         },
-        "price": 25,
+        "price": 725,
         "summary": "Lit room with balcony. The apartment is in the center, just meters from the Palau de la Musica Catalana. Well connected, a few minutes from Las Ramblas and the Born. Very close to the beach and Ciutadella Park",
         "capacity": 2,
         "amenities": [
