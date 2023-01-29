@@ -163,7 +163,7 @@ function _makeStays(stays) {
             type: labels[utilService.getRandomIntInclusive[0, 21],
                 utilService.getRandomIntInclusive[0, 21]],
             imgUrls: [imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)], imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)]],
-            reviews: [{ imgUrl: '' }],
+            reviews: [{ by: { imgUrl: '' } }],
             host: {},
 
 
@@ -174,7 +174,7 @@ function _makeStays(stays) {
         stay._id = utilService.makeId()
         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=female'
         stay.reviews.forEach((review) => {
-            review.imgUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+            review.by.imgUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
         })
     })
     console.log('stays at _arrangeStays :', stays)
