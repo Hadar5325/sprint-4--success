@@ -57,20 +57,3 @@ export function CapacityBooking({addGuest ,guests ,dates}) {
         </section >
     )
 }
-
-// {/* <div><div className='title'>Adults</div><div className='desc'>Ages 13 or above</div>
-//                 <button >-</button>
-//                 {/* <div>{adults}</div> */}
-//                 <button >+</button></div>
-//             <div><div className='title'>Children</div><div className='desc'>Ages 2-12</div>
-//                 <button >-</button>
-//                 {/* <div>{children}</div> */}
-//                 <button >+</button></div>
-//             <div><div className='title'>Infants</div><div className='desc'>Under 2</div>
-//                 <button>-</button>
-//                 {/* <div>{infants}</div> */}
-//                 <button>+</button></div>
-//             <div><div className='title'>Pets</div><div className='desc'>Bringing a service animal</div>
-//                 <button>-</button>
-//                 {/* <div>{pets}</div> */}
-//                 <button >+</button></div> */}

@@ -4,25 +4,31 @@ import { orderService } from '../services/order.service.local'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOrders, loadOrder, addOrder, updateOrder, removeOrder } from '../store/order.action'
+import { OrderShow } from '../cmps/stayMnegmant/orders'
+import {StaysShow} from '../cmps/stayMnegmant/stays'
+
+
 
 export function StayManagement() {
     const loggedinUser = useSelector((state) => state.userModule.user)
 
-    const [stays, setStays] = useState([])
+    const [myStays, setMyStays] = useState([])
     const [myOrders, setMyOrders] = useState([])
     const [pendingNum, setPendingNum] = useState(0)
+    const [info, setInfo] = useState('orders')
 
 
     useEffect(() => {
-        loadStay()
-        getMyOrders()
+        getMayStays()
+        getMayOrders()
     }, [])
+
 
     useEffect(() => {
         numOfPending()
     }, [myOrders])
 
-    async function getMyOrders() {
+    async function getMayOrders() {
         try {
             const orders = await orderService.getOrdersByUserId(loggedinUser._id)
             setMyOrders(orders)
@@ -30,16 +36,24 @@ export function StayManagement() {
             console.log(err)
         }
     }
-
-    async function loadStay() {
+    async function getMayStays() {
         try {
-            const stays = await stayService.getAllStays()
-            const ownerStays = stays.filter(stay => stay.host._id === loggedinUser._id)
-            setStays(ownerStays)
+            const stays = await stayService.getStaysByUserId(loggedinUser._id)
+            setMyStays(stays)
         } catch (err) {
             console.log(err)
         }
     }
+
+    // async function loadStay() {
+    //     try {
+    //         const stays = await stayService.getAllStays()
+    //         const ownerStays = stays.filter(stay => stay.host._id === loggedinUser._id)
+    //         setMyStays(ownerStays)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
     function numOfPending() {
         const pendingOrders = myOrders.filter(order => order.status === 'pending')
         setPendingNum(pendingOrders.length)
@@ -50,76 +64,24 @@ export function StayManagement() {
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
-        getMyOrders()
+        getMayOrders()
         // setOrderStatus('reject')
     }
 
-    if (!stays) return <section>Add a home</section>
-
+    if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
 
         <div className='menegmentMnue'>
-            asd
             <div className='buttons'>
-                <button className='showOrders'>orders</button>
-                <button className='showStaye'>my stays</button>
+                <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
+                <button className={`showinfo left ${info === 'stays' && 'push'}`} onClick={() => setInfo('stays')}>my stays</button>
             </div>
         </div>
+        {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
+        {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
+        
 
-        <div className='menegmentContant'>
-            <div className='contantTitle'>
-                hello {loggedinUser.fullname}! you have {pendingNum} orders
-            </div>
-            <div className='tableHead'>
-                <div className='cell guest'>guest</div>
-                <div className='cell stay'>stay</div>
-                <div className='cell dates'>dates</div>
-                <div className='cell price'>Price</div>
-                <div className='cell status'>Status</div>
-                <div className='cell actions'>Actions</div>
-
-
-            </div>
-
-            <div className='menegmentTable'>
-                {
-                    myOrders.map(order => {
-                        if (order.status === 'pending') {
-                            return <section className='tableRow cell pending' key={order._id}>
-                                <div className='cell guest'>guest</div>
-                                <div className='cell stay'>stay</div>
-                                <div className='cell dates'>dates</div>
-
-                                <div className='cell price'>Price</div>
-                                <div className={`cell status ${order.status}`}>{order.status}</div>
-                                <div className='cell actions'>
-                                    <button className='approveBtn' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
-                                    <button className='rejectBtn' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
-
-                                </div>
-                            </section>
-                        } else {
-                            return <section className='tableRow cell' key={order._id}>
-                                <div className='cell guest'>guest</div>
-                                <div className='cell stay'>stay</div>
-                                <div className='cell dates'>dates</div>
-
-                                <div className='cell price'>Price</div>
-                                <div className={`cell status ${order.status}`}>{order.status}</div>
-                                <div className='cell actions'>
-                                    <button className='approveBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
-                                    <button className='rejectBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
-
-                                </div>
-                            </section>
-                        }
-
-
-                    })
-                }
-            </div>
-        </div>
-    </section >
+    </section>
 }
 
 {/* <div className='order' >
