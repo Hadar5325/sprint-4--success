@@ -28,6 +28,17 @@
 
     }
 
+    span{
+        // align-self: baseline;
+        padding: em(10px);
+        font-size: 12px;
+    }
+    
+    p{
+        font-size: rem(14px);
+        padding-inline-start: em(10px);
+    }
+
     .boxContantTop {
         height: 112px;
         width: 322px;
@@ -74,9 +85,8 @@
     }
 
     .times{
+        
         display: grid;
-        // align-items: center;
-        // justify-content: center;
         width: 50%;
         outline: 1px solid lightgray;
 

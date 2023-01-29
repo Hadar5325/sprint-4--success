@@ -87,17 +87,15 @@ export async function addStay(stay) {
     }
 }
 
-export function updateStay(stay) {
-    return stayService.save(stay)
-        .then(savedStay => {
-            console.log('Updated Stay:', savedStay)
-            store.dispatch(getActionUpdateStay(savedStay))
-            return savedStay
-        })
-        .catch(err => {
-            console.log('Cannot save stay', err)
-            throw err
-        })
+export async function updateStay(stay) {
+    try {
+        await stayService.save(stay)
+        store.dispatch(UPDATE_STAY, stay)
+    } catch (err) {
+        console.log('Cannot save stay', err)
+        throw err
+    }
+    return stay
 }
 
 export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {

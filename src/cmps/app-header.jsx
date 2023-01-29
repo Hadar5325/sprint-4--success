@@ -71,7 +71,7 @@ export function AppHeader({ }) {
                 logout()
                 SetIsUserModalShown(false)
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() =>SetIsUserModalShown(false)}>stay managment</Link>
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() =>SetIsUserModalShown(false)}>Dashboard</Link>
             <Link to={`/trip`}>Trips</Link>
             <Link to={`/wishList`}>WishLists</Link>
         </section>

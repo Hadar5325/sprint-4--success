@@ -1,7 +1,8 @@
 
 
-export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
+export function OrderShow({loggedinUser,pendingNum,myOrders,changeStatus}) {
     console.log(myOrders)
+
     function numOfGusts(order){
         let num
         num += order.guests.Adults
@@ -23,7 +24,6 @@ export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
             <div className='cell status'>Status</div>
             <div className='cell actions'>Actions</div>
 
-
         </div>
     
         <div className='menegmentTable'>
@@ -39,8 +39,8 @@ export function OrderShow({loggedinUser,pendingNum,myOrders,changStatus}) {
                         <div className={`cell status ${order.status}`}>{order.status}</div>
 
                         <div className='cell actions'>
-                            <button className='approveBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
-                            <button className='rejectBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
+                            <button className='approveBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changeStatus(event, order._id, 'approve')}>approve</button>
+                            <button className='rejectBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changeStatus(event, order._id, 'reject')}>reject</button>
                         </div>
                     </section>
                 })

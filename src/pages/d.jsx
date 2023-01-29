@@ -45,7 +45,7 @@ export function StayManagement() {
         setPendingNum(pendingOrders.length)
     }
 
-    async function changStatus(event, orderId, status) {
+    async function changeStatus(event, orderId, status) {
         event.preventDefault()
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
@@ -93,8 +93,8 @@ export function StayManagement() {
                                 <div className='cell price'>Price</div>
                                 <div className={`cell status ${order.status}`}>{order.status}</div>
                                 <div className='cell actions'>
-                                    <button className='approveBtn' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
-                                    <button className='rejectBtn' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
+                                    <button className='approveBtn' onClick={(event) => changeStatus(event, order._id, 'approve')}>approve</button>
+                                    <button className='rejectBtn' onClick={(event) => changeStatus(event, order._id, 'reject')}>reject</button>
 
                                 </div>
                             </section>
@@ -107,8 +107,8 @@ export function StayManagement() {
                                 <div className='cell price'>Price</div>
                                 <div className={`cell status ${order.status}`}>{order.status}</div>
                                 <div className='cell actions'>
-                                    <button className='approveBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'approve')}>approve</button>
-                                    <button className='rejectBtn disable' disabled='true' onClick={(event) => changStatus(event, order._id, 'reject')}>reject</button>
+                                    <button className='approveBtn disable' disabled='true' onClick={(event) => changeStatus(event, order._id, 'approve')}>approve</button>
+                                    <button className='rejectBtn disable' disabled='true' onClick={(event) => changeStatus(event, order._id, 'reject')}>reject</button>
 
                                 </div>
                             </section>

@@ -180,11 +180,12 @@ function _makeStays(stays) {
         }
         stays.push(stay)
     }
-    stays.forEach(stay => {
+    stays.forEach((stay, index) => {
         stay._id = utilService.makeId()
+        if (index === 6) return
         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=female'
         stay.reviews.forEach((review) => {
-            review.by.imgUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+            review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(20, 82)}.jpg`
         })
     })
     console.log('stays at _arrangeStays :', stays)

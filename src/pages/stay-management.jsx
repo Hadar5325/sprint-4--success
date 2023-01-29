@@ -11,7 +11,7 @@ import { StaysShow } from '../cmps/stayMnegmant/stays'
 
 export function StayManagement() {
     const loggedinUser = useSelector((state) => state.userModule.user)
-    const isUserModalShown = useSelector((state) => state.stayModule.isUserModalShown)
+    // const isUserModalShown = useSelector((state) => state.stayModule.isUserModalShown)
 
     const [myStays, setMyStays] = useState([])
     const [myOrders, setMyOrders] = useState([])
@@ -22,7 +22,7 @@ export function StayManagement() {
     useEffect(() => {
         getMayStays()
         getMayOrders()
-    }, [])
+    }, [myOrders])
 
 
     useEffect(() => {
@@ -32,11 +32,11 @@ export function StayManagement() {
     async function getMayOrders() {
         try {
             const orders = await orderService.getOrdersByUserId(loggedinUser._id)
-            setMyOrders(orders)
         } catch (err) {
             console.log(err)
         }
     }
+
     async function getMayStays() {
         try {
             const stays = await stayService.getStaysByUserId(loggedinUser._id)
@@ -60,7 +60,7 @@ export function StayManagement() {
         setPendingNum(pendingOrders.length)
     }
 
-    async function changStatus(event, orderId, status) {
+    async function changeStatus(event, orderId, status) {
         event.preventDefault()
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
@@ -69,19 +69,18 @@ export function StayManagement() {
         // setOrderStatus('reject')
     }
 
-    console.log('isUserModalShown:',isUserModalShown)
+    // console.log('isUserModalShown:',isUserModalShown)
 
     if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
-        <div className={`full-screen transparent ${isUserModalShown ? 'show' : 'hide'}`} onClick={() => SetIsUserModalShown(false)}></div>
         <div className='menegmentMnue'>
             <div className='buttons'>
                 <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
                 <button className={`showinfo left ${info === 'stays' && 'push'}`} onClick={() => setInfo('stays')}>my stays</button>
             </div>
         </div>
-        {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
-        {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
+        {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changeStatus={changeStatus} />}
+        {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changeStatus={changeStatus} />}
 
 
     </section>
