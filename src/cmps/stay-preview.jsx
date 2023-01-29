@@ -5,7 +5,6 @@ import React from 'react';
 import { utilService } from "../services/util.service"
 
 export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
-    console.log('stay:',stay)
 
     const [wishListModal, SetwishListModal] = useState(false)
     const [avgRate, setAvgRate] = useState(0)
@@ -108,7 +107,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     }
 
     function changeDotToOriginalClr(currentIdx) {
-        console.log(currentIdx);
         const element = myRef.current;
         element[currentIdx].current.style.backgroundColor = '#fff'
         element[currentIdx].current.style.opacity = 0.6
@@ -116,7 +114,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     }
 
     function changeDotColorToChoosen(newIndex) {
-        console.log(newIndex);
         const element = myRef.current;
         element[newIndex].current.style.backgroundColor = '#fff'
         element[newIndex].current.style.opacity = 1
@@ -131,8 +128,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
             setIsColoredRed(false)
         }
 
-        console.log(ev)
-        console.log(stay._id)
         addStayIdToWishList(stay._id)
         SetwishListModal(true)
 
