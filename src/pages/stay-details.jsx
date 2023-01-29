@@ -139,11 +139,12 @@ export function StayDetails() {
     const handleClick = event => {
         const txt = 'eact-datepicker__day react-datepicker__day--react-datepicker__day--disabled'
         const target = event.target.className
+        console.log(target)
 
         const notOpenCapacity = ['title', 'guestsModal', 'guests bookingBtn', 'capacityLabel', 'chosingGuestsBtn', 'capacityLabel first', 'chosingGuests', '<empty string>']
 
         if (!notOpenCapacity.includes(event.target.className, 0)) setCapacityModal(false)
-        if (!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`)) setDateModal(false)
+        if (!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`) && !target.match('times')) setDateModal(false)
     }
 
 
