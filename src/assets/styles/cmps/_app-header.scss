@@ -10,7 +10,6 @@
   min-height: 80px;
   padding: em(16px) 0;
 
-  
   // transition: min-height 1s;
 
   .user-modal {
@@ -81,8 +80,24 @@
     z-index: 5;
 
     .user-modal {
+      background-color: aqua;
       // background-color: aqua;
-      right: 385px
+      right: 385px;
+
+      &.-webkit-any-link {
+        color: $clr11;
+      }
+
+      & a:not(:last-of-type) {
+        border-bottom: 1px solid $clr5 ;
+      }
+
+      &:hover {
+        background-color: $clr3;
+        cursor: pointer;
+      }
+
+
     }
   }
 

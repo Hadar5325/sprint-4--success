@@ -34,7 +34,7 @@ async function query(filterBy) {
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
-        console.log('from storge!!:', staysFromStorage )
+        console.log('from storge!!:', staysFromStorage)
     } else {
         _makeStays(stays)
         console.log('stayes at query:', stays)
@@ -160,6 +160,7 @@ function getNightsCount(start, end) {
 function _makeStays(stays) {
     for (let i = 0; i < 40; i++) {
         const stay = {
+            _id: utilService.makeId(),
             loc: locations[utilService.getRandomIntInclusive(0, 18)],
             price: utilService.getRandomIntInclusive(500, 5000),
             "statReviews": {
@@ -182,7 +183,6 @@ function _makeStays(stays) {
         stays.push(stay)
     }
     stays.forEach((stay, index) => {
-        stay._id = utilService.makeId()
         if (index === 6) return
         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=female'
         stay.reviews.forEach((review) => {
@@ -302,7 +302,7 @@ export const amenities = [
 
 const stays = [
     {
-
+        "_id": 'vfvdvdfvfdbfgbf',
         "name": "Westin Kaanapali KORVN 2BR",
         "types": [
             "National parks",
@@ -806,7 +806,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "621f337a75c7d36e498aaaf8",
         "name": "Heroísmo IV",
         "types": [
             "Castles",
@@ -1116,7 +1116,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "h102",
         "name": "Home, Sweet, Harlem. Welcome!",
         "types": [
             "Beach",

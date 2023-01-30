@@ -35,7 +35,7 @@ export function Book() {
 
 
     async function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
-
+        console.log('stay at getNewOrder', stay)
         const stayName = await stayService.getById(stay)
         console.log('stayName at ger nae order:', stayName.name)
         const newOrder = emptyOrder()
