@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 20vw 1fr 20vw;
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-    justify-content: space-between ;
+    justify-content: space-between;
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
     ;
     grid-template-areas:
@@ -209,18 +209,17 @@
                     right: 5px;
                     // top: 31px;
                     background-size: 200% 200%;
-                    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-                    background-image: radial-gradient(circle, rgb(143, 82, 28) 0%, rgba(255, 49, 91, 1) 100%);
-                    background-color: #de1361;
+                    background-color: $clr2;
                     color: white;
                     cursor: pointer;
                     border: none;
                     border-radius: 7px;
                     font-size: 16px;
-                    font-family: 'Raleway', sans-serif;
+                    font-family: $font1;
                     height: 56px;
                     text-align: center;
                     width: 204.067px;
+                    margin-top: 25px;
                 }
             }
         }
@@ -238,7 +237,7 @@
                 width: 466.667px;
 
                 .detailsBoxContant {
-                    // justify-self: flex-end;
+                    font-family:$font1;
                     border-bottom-color: rgb(221, 221, 221);
                     border-bottom-left-radius: 12px;
                     border-bottom-right-radius: 12px;
@@ -268,6 +267,7 @@
                             display: flex;
 
                             .titleImg {
+                                border-radius: 0.5rem;
                                 object-fit: cover;
                                 vertical-align: bottom;
                                 width: 124px;
@@ -315,7 +315,6 @@
                     }
 
                     .priceDet {
-                        border-bottom: 1px solid lightgray;
 
                         .priceDetContainer {
                             display: flex;
@@ -325,6 +324,7 @@
 
                             &.secend {
                                 margin-top: 16px;
+
                             }
 
                             .breakLine {
@@ -371,31 +371,40 @@
         align-items: center;
 
         .aproveContant {
-            background-color: white;
-            height: 300px;
-            width: 600px;
+            box-shadow: 3px 4px 10px 0 $clr5;
+            background-color: $clr1;
+            color: $clr11;
+            border-radius: 1rem;
+            font-family: $font1;
+            min-height: 500px;
+            width: 460px;
             display: flex;
             flex-direction: column;
+            padding: 0 em(14px);
             justify-content: center;
             align-items: center;
             border: 1px solid lightgray;
 
         }
 
-        .Congrat{
+        .Congrat {
             font-size: 20px;
             font-weight: 600;
             padding-bottom: 15px;
             color: #de1361;
         }
-        .title{
+
+        .title {
+
             display: flex;
             justify-content: center;
-            font-size: 15px;
+            font-size: 1.3rem;
+            line-height: em(25px);
             width: 90%;
         }
-        .therdTitle{
-            font-size: 13px;
+
+        .therdTitle {
+            color: $clr9;
             margin-top: 50px;
         }
     }

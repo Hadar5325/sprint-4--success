@@ -49,8 +49,9 @@ export function AppHeader({ }) {
     }
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
-    if (location.match(`/stays`) && !location.match(`/book`)) divName += ' stay stays'
+    if ((location.match(`/stays`) && !location.match(`/book`)) || location.match(`/trip`)) divName += ' stay stays'
     else if (location.match(`/stays/book`)) divName +=` book`
+    else if (location.match(`/hostManage`)) divName +=` hostManage`
     else if (location.match('/')) divName += `index`
 
 

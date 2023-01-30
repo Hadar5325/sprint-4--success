@@ -28,15 +28,14 @@
             font-weight: 400;
             font-size: rem(15px);
             justify-content: center;
-            gap:5px
-
+            gap: 5px
         }
 
         .head {
             display: flex;
             align-items: center;
             justify-content: center;
-           
+
 
         }
 
@@ -58,7 +57,7 @@
 
                 .cell {
                     display: flex;
-                    
+
 
                 }
 
@@ -107,11 +106,6 @@
             // background-color: aqua;
         }
 
-        .pendingStatus {
-            background-color: $clr3;
-        }
-
-
         .guest {
             width: 130px;
         }
@@ -136,11 +130,33 @@
 
         .actions {
             width: 130px;
+
+            &.head{
+                justify-content: end;
+            }
         }
 
-        button{
+        button {
+            display: flex;
+            justify-content: center;
+            min-width: 70px;
             background-color: $clr1;
             box-shadow: 2px 3px 4px 0 $clr5;
+            padding: 10px;
+            color: $clr1;
+            font-size: 1rem;
+            // font-weight: normal;
+
+            &.approveBtn {
+                background-color: rgb(38, 161, 38);
+            }
+
+            &.rejectBtn {
+                background-color: rgb(235, 64, 64);
+                
+            }
+
+
         }
 
         .approve {
@@ -156,7 +172,7 @@
         .approveBtn {
             display: flex;
             align-items: center;
-            border: 1px solid rgb(50, 211, 50);
+            // border: 1px solid rgb(50, 211, 50);
             border-radius: 10px;
         }
 
@@ -168,12 +184,12 @@
         .rejectBtn {
             display: flex;
             align-items: center;
-            border: 1px solid rgb(235, 64, 64);
+            // border: 1px solid rgb(235, 64, 64);
             border-radius: 10px;
         }
 
         .rejectBtn:active {
-            background-color: rgb(235, 64, 64);
+            background-color: $clr2;
         }
 
         .gustImg {
