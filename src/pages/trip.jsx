@@ -29,19 +29,26 @@ export function Trip() {
 
 
     async function loadStayImages(data) {
+        console.log(data)
         const arrStays = []
         const staysLocations = []
         try {
             for (const item in data) {
-                const stayId = data[item].stay
+                console.log(item)
+                const stayId = data[item].stay._id
+                // console.log(stayId)
                 const stayById = await stayService.getById(stayId)
+                console.log(stayById)
                 const location = `${stayById.loc.city}, ${stayById.loc.country}`
                 arrStays.push(stayById.imgUrls[0])
                 staysLocations.push(location)
+                // staysLocations.push
+                // console.log(stays.imgUrls[0])
             }
             setStayId(arrStays)
             setLocationStay(staysLocations)
             setIsImagesLoaded(true)
+
 
         } catch (err) {
             console.log('err', err)
