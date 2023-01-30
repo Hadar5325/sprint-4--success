@@ -5,7 +5,7 @@
     "endDate": 2875839934567,
     "hostId": "u102",
     "buyer": {
-      "_id": "u101",
+      "_id": "u102",
       "fullname": "User 1"
     },
     "totalPrice": 1190,
@@ -23,12 +23,12 @@
     "requests": ""
   },
   {
-    "id": 1235,
+    "_id": 1235,
     "startDate": 1786809926000,
     "endDate": 1877869956000,
     "hostId": "u102",
     "buyer": {
-      "_id": "u101",
+      "_id": "u102",
       "fullname": "User 1"
     },
     "totalPrice": 160,
@@ -46,12 +46,12 @@
     "requests": ""
   },
   {
-    "id": 1239,
+    "_id": 1239,
     "startDate": 1676920026000,
     "endDate": 1678930026000,
     "hostId": "u102",
     "buyer": {
-      "_id": "u101",
+      "_id": "u102",
       "fullname": "User 1"
     },
     "totalPrice": 160,
@@ -74,30 +74,7 @@
     "endDate": "2025/10/17",
     "hostId": "u102",
     "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
-    },
-    "totalPrice": 160,
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
-    },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  },
-  {
-    "_id": "o1225",
-    "startDate": "2025/10/15",
-    "endDate": "2025/10/17",
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
+      "_id": "u102",
       "fullname": "User 1"
     },
     "totalPrice": 160,

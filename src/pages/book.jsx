@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 import { Routes, Route, useParams } from 'react-router-dom';
 import { orderService } from '../services/order.service.local.js'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import confirmed from '../assets/img/confirmed.svg'
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { stayService } from '../services/stay.service.local.js'
+import { Aprove } from '../cmps/stays/aprove'
 
 export function Book() {
-    const navigate = useNavigate();
 
     const loggedinUser = useSelector((state) => state.userModule.user)
     const stays = useSelector((state) => state.stayModule.stays)
@@ -24,6 +24,7 @@ export function Book() {
     const [guests, setguests] = useState([])
     const [order, setOrder] = useState({})
     const [currStay, setCurrStay] = useState('')
+    const [modal, setmodal] = useState(false)
 
 
     useEffect(() => {
@@ -31,6 +32,7 @@ export function Book() {
         getNewOrder(hostId, totalPrice, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay)
 
     }, [])
+    
 
     function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
 
@@ -62,7 +64,7 @@ export function Book() {
         }
     }
 
-    
+
     function getNumOfGuests(Adulst, kids, Infants, Pets) {
         Adulst = Number(Adulst)
         kids = Number(kids)
@@ -99,11 +101,7 @@ export function Book() {
         return Math.floor(Math.random() * max);
     }
 
-    function saveOrder(event) {
-        event.preventDefault()
-        orderService.save(order)
-        navigate(`/`) 
-    }
+    
 
     const img = randImg()
     if (!order || !currStay) return 'lodding...'
@@ -158,7 +156,7 @@ export function Book() {
 
                         <div className='confirmed'>
                             <div className='confirmedContant'>
-                            <img className="confirmedImg" src={confirmed} />
+                                <img className="confirmedImg" src={confirmed} />
                                 <div className='confirmedTxt'>
                                     <div className='confirmedFirst'>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours).</div>
                                     <div className='confirmedSecend'>You won’t be charged until then.</div>
@@ -167,7 +165,7 @@ export function Book() {
                             </div>
                             {
                                 <div className='requestContainer'>
-                                    <button className='request' onClick={(event) => saveOrder(event)}>Request to book</button>
+                                    <button className='request' onClick={() => setmodal(true)}>Request to book</button>
                                 </div>
                                 // : <LoginSignup isLoginModalShown={isLoginModalShown} setIsLoginModalShown={setIsLoginModalShown} />
                             }
@@ -221,6 +219,8 @@ export function Book() {
             </div>
 
             <div className='bookFooter'>dsf</div>
+
+            {modal && <Aprove order={order}/>}
 
         </section>
     )

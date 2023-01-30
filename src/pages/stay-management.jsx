@@ -59,24 +59,15 @@ export function StayManagement() {
         setPendingNum(pendingOrders.length)
     }
 
-    async function changStatus(event, orderId, status) {
-        event.preventDefault()
+    async function changStatus(orderId, status) {
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
         getMayOrders()
-        // setOrderStatus('reject')
     }
 
     if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
-
-        <div className='menegmentMnue'>
-            <div className='buttons'>
-                <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
-                <button className={`showinfo left ${info === 'stays' && 'push'}`} onClick={() => setInfo('stays')}>my stays</button>
-            </div>
-        </div>
         {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
         {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
         

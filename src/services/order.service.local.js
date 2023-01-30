@@ -54,8 +54,8 @@ async function save(order) {
 async function getOrdersByUserId(userId) {
     let myOrders
     const orders = await query()
-    myOrders = orders.filter(order => order.hostId === userId)
-
+    // myOrders = orders.filter(order => order.hostId === userId)
+    myOrders = orders
     return myOrders
 }
 

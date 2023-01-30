@@ -1,7 +1,8 @@
 .book {
     display: grid;
     grid-template-columns: 80px 1fr 80px;
-    font-family:  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    ;
     grid-template-areas:
         ". title ."
         ". main . "
@@ -256,72 +257,74 @@
                     margin-bottom: 88px;
                     padding: 24px;
 
-                    .boxTitle{
+                    .boxTitle {
                         padding-bottom: 24px;
                         border-bottom: 1px solid lightgray;
 
-                        .boxTitleContant{
+                        .boxTitleContant {
                             display: flex;
 
-                            .titleImg{
+                            .titleImg {
                                 object-fit: cover;
                                 vertical-align: bottom;
                                 width: 124px;
                                 height: 106px;
                             }
 
-                            .titles{
+                            .titles {
                                 display: flex;
                                 flex-direction: column;
                                 padding-left: 12px;
 
-                                .firstTitle{
+                                .firstTitle {
                                     color: rgb(113, 113, 113);
                                     display: flow-root;
                                     font-size: 12px;
                                 }
-                                .secendTitle{
+
+                                .secendTitle {
                                     display: flow-root;
                                     font-size: 14px;
                                     margin-top: 4px;
                                 }
                             }
-                            
+
                         }
                     }
-                    .protected{
+
+                    .protected {
                         padding: 24px 0px;
                         border-bottom: 1px solid lightgray;
 
-                        .protectedContant{
+                        .protectedContant {
                             font-size: 16px;
                         }
 
                     }
-                    
-                    .priceTitleContainer{
+
+                    .priceTitleContainer {
                         padding: 24px 0px;
 
-                        .priceTitleContant{
+                        .priceTitleContant {
                             font-size: 22px;
                             font-weight: 600;
                         }
                     }
 
-                    .priceDet{
+                    .priceDet {
                         border-bottom: 1px solid lightgray;
 
-                        .priceDetContainer{
+                        .priceDetContainer {
                             display: flex;
                             align-items: center;
                             font-size: 16px;
                             justify-content: space-between;
 
-                            &.secend{
+                            &.secend {
                                 margin-top: 16px;
                             }
 
-                            .breakLine{
+                            .breakLine {
                                 border-bottom-color: rgb(221, 221, 221);
                                 border-bottom-style: solid;
                                 border-bottom-width: 1px;
@@ -333,12 +336,12 @@
                         }
 
 
-                        .calc{
+                        .calc {
                             font-size: 16px;
                             text-align: left;
                         }
 
-                        .resolve{
+                        .resolve {
                             font-size: 16px;
                         }
                     }
@@ -349,9 +352,49 @@
         }
     }
 
-    .bookFooter{
+    .bookFooter {
         grid-area: footer;
         background-color: rgb(247, 247, 247);
+    }
+
+    .aprove {
+        background-color: #d5d5d579;
+        position: fixed;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .aproveContant {
+            background-color: white;
+            height: 300px;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgray;
+
+        }
+
+        .Congrat{
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            color: #de1361;
+        }
+        .title{
+            display: flex;
+            justify-content: center;
+            font-size: 15px;
+            width: 90%;
+        }
+        .therdTitle{
+            font-size: 13px;
+            margin-top: 50px;
+        }
     }
 
 }
