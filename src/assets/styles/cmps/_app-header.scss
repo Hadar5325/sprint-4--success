@@ -28,6 +28,9 @@
     border-radius: 1rem;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
 
+    a:visited{
+      color: $clr11;
+    }
 
     &>*:not(.close-btn) {
       padding: em(20px);
@@ -44,7 +47,6 @@
         background-color: $clr3;
         cursor: pointer;
       }
-
 
     }
 
@@ -80,22 +82,22 @@
     z-index: 5;
 
     .user-modal {
-      background-color: aqua;
+      // background-color: aqua;
       // background-color: aqua;
       right: 385px;
 
-      &.-webkit-any-link {
-        color: $clr11;
-      }
+      // &.-webkit-any-link {
+      //   color: blue;
+      // }
 
-      & a:not(:last-of-type) {
-        border-bottom: 1px solid $clr5 ;
-      }
+      // & a:not(:last-of-type) {
+      //   border-bottom: 1px solid $clr5 ;
+      // }
 
-      &:hover {
-        background-color: $clr3;
-        cursor: pointer;
-      }
+      // &:hover {
+      //   background-color: red;
+      //   cursor: pointer;
+      // }
 
 
     }
