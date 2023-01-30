@@ -62,8 +62,8 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
                         <div className={`cell status ${order.status}`}>{order.status}</div>
 
                         <div className='cell actions'>
-                            <button className='approveBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus(order._id, 'approve')}>approve</button>
-                            <button className='rejectBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus( order._id, 'reject')}>reject</button>
+                            <button className='approveBtn' disabled={(order.status === 'pending') ? false : true} onClick={() => changStatus(order._id, 'approve')}>approve</button>
+                            <button className='rejectBtn' disabled={(order.status === 'pending') ? false : true} onClick={() => changStatus( order._id, 'reject')}>reject</button>
                         </div>
                     </section>
                 })
