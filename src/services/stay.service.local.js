@@ -526,7 +526,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "fzfdbfghgbf24q34546465",
         "name": "Belle chambre à côté Metro Papineau",
         "types": [
             "Campers",
@@ -658,7 +658,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "fzfdbfghdfg124q345q465",
         "name": "Monte dos Burgos - Cosy Room",
         "types": [
             "Campers",
