@@ -4,180 +4,86 @@ import { userService } from '../services/user.service.local'
 
 import { StayManagement } from "../pages/stay-management"
 import { orderService } from '../services/order.service.local'
-
-const Row = (props) => {
-    const { status, guests, checkIn, checkOut, booked, listing, totalPayout } = props
-    console.log('hi!')
-    return <h1>wowwwwwwww</h1>
-    // console.log('hiiiiiiii')
-    // return (<tr className="trip-tr-body">
-    //     {console.log(status)}
-    //     <td className={`trip-td-body ${status}`}>{status}</td>
-    //     <td className="trip-td-body">{guests}</td>
-    //     <td className="trip-td-body">{checkIn}</td>
-    //     <td className="trip-td-body">{checkOut}</td>
-    //     <td className="trip-td-body">{booked}</td>
-    //     <td className="trip-td-body">{listing}</td>
-    //     <td className="trip-td-body">{totalPayout}</td>
-    // </tr>
-    // )
-}
+import { ChartBuyer } from '../cmps/chart-buyer'
+import { stayService } from '../services/stay.service.local'
 
 const Table = (props) => {
+    const [stayId, setStayId] = useState([])
+    const [locationStay, setLocationStay] = useState([])
+    const [isImagesLoaded, setIsImagesLoaded] = useState(false)
     const { data } = props
 
-    // const objUsers = { ...data }
+    useEffect(() => {
+        loadStayImages(data)
+    }, [])
 
-    // const data = ...dataInObj)
-    // console.log(...data)
 
-    return (<table className="trip-table">
-        <thead className="trip-thead">
-            <tr className="trip-tr">
-                <th key={10} className="trip-td">Status</th>
-                <th key={11} className="trip-td">Guests</th>
-                <th key={12} className="trip-td">Check-In</th>
-                <th key={13} className="trip-td">Check-Out</th>
-                <th key={14} className="trip-td">Booked</th>
-                <th key={15} className="trip-td">Listing</th>
-                <th key={16} className="trip-td">Total-Payout</th>
-            </tr>
-        </thead>
-        <tbody>
-            {data.map((row, index) => {
-                return (
-                    <tr className="trip-tr-body">
-                        <td key={1} className={`trip-td-body ${row.status}`}>{row.status}</td>
-                        <td key={2} className="trip-td-body">{row.guests.Adulst}</td>
-                        <td key={3} className="trip-td-body">{row.startDate}</td>
-                        <td key={4} className="trip-td-body">{row.endDate}</td>
-                        <td key={5} className="trip-td-body">{row.startDate}</td>
-                        <td key={6} className="trip-td-body">{row.stay}</td>
-                        <td key={7} className="trip-td-body">{row.totalPrice}</td>
-                    </tr>)
-            })}
-        </tbody>
-    </table>
+    async function loadStayImages(data) {
+        const arrStays = []
+        const staysLocations = []
+        try {
+            for (const item in data) {
+                const stayId = data[item].stay
+                const stayById = await stayService.getById(stayId)
+                const location = `${stayById.loc.city}, ${stayById.loc.country}`
+                arrStays.push(stayById.imgUrls[0])
+                staysLocations.push(location)
+                // staysLocations.push
+                // console.log(stays.imgUrls[0])
+            }
+            setStayId(arrStays)
+            setLocationStay(staysLocations)
+            setIsImagesLoaded(true)
+
+        } catch (err) {
+            console.log('err', err)
+        }
+        console.log(data)
+    }
+
+    return (<div>
+        {!isImagesLoaded && <div>loading...</div>}
+        {isImagesLoaded && <table className="trip-table">
+                <thead className="trip-thead">
+                    <tr className="trip-tr">
+                        <th key={10} className="trip-td">Stay</th>
+                        <th key={11} className="trip-td">Guests</th>
+                        <th key={12} className="trip-td">Check-In</th>
+                        <th key={13} className="trip-td">Check-Out</th>
+                        <th key={14} className="trip-td">Booked</th>
+                        <th key={15} className="trip-td">Location</th>
+                        <th key={16} className="trip-td">Total-Payout</th>
+                        <th key={17} className="trip-td">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((row, index) => {
+                        return (
+                            <tr key={index} className="trip-tr-body">
+                                <td className="trip-td-body">{<img className='trip-image' src={`${stayId[index]}`}></img>}</td>
+                                <td className="trip-td-body">{row.guests.Adulst}</td>
+                                <td className="trip-td-body">{row.startDate}</td>
+                                <td className="trip-td-body">{row.endDate}</td>
+                                <td className="trip-td-body">{row.startDate}</td>
+                                <td className="trip-td-body">{locationStay[index]}</td>
+                                <td className="trip-td-body price">{row.totalPrice}<span> &#8362;</span></td>
+                                <td className={`trip-td-body ${row.status}`}>{row.status}</td>
+                            </tr>)
+                    })}
+                </tbody>
+            </table>}
+    </div>
+
     )
 }
-
-
-// return (<tr className="trip-tr-body">
-//     {console.log(status)}
-//     <td className={`trip-td-body ${status}`}>{status}</td>
-//     <td className="trip-td-body">{guests}</td>
-//     <td className="trip-td-body">{checkIn}</td>
-//     <td className="trip-td-body">{checkOut}</td>
-//     <td className="trip-td-body">{booked}</td>
-//     <td className="trip-td-body">{listing}</td>
-//     <td className="trip-td-body">{totalPayout}</td>
-// </tr>
-// )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export function Trip() {
-
-//     const loggedinUser = useSelector((state) => state.userModule.user)
-//     const [myOrders, setMyOrders] = useState([])
-
-
-//     useEffect(() => {
-//         if (!loggedinUser) return
-//         const userId = loggedinUser._id
-//         console.log(userId)
-//         getMyOrders()
-//     }, [])
-
-
-//     async function getMyOrders() {
-//         try {
-//             console.log(loggedinUser)
-//             const orders = await orderService.getOrdersByBuyerId(loggedinUser._id)
-//             console.log(orders)
-//             setMyOrders(orders)
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }
-//     const reservation = [
-//         {
-//             status: 'Declined',
-//             guests: 'c',
-//             checkIn: 'c',
-//             checkOut: 'c',
-//             booked: 'c',
-//             listing: 'c',
-//             totalPayout: 'c',
-//             action: 'c'
-//         },
-//         {
-//             status: 'Approved',
-//             guests: 'a',
-//             checkIn: 'a',
-//             checkOut: 'a',
-//             booked: 'a',
-//             listing: 'a',
-//             totalPayout: 'a',
-//             action: 'a'
-//         },
-//         {
-//             status: 'Pending',
-//             guests: 'b',
-//             checkIn: 'b',
-//             checkOut: 'b',
-//             booked: 'b',
-//             listing: 'b',
-//             totalPayout: 'b',
-//             action: 'b'
-//         }
-//     ]
-
-//     const [rows, setRows] = useState(reservation)
-
-
-
-//     return <div>
-//         {!myOrders && <div>loading.........{console.log('hi')}</div>}
-//         {myOrders && <section className="trip-containter">
-//             <div className="trip-header">
-//                 Reservation
-//                 {console.log('bye')}
-//             </div>
-//             <div className="trip-data">
-//                 <Table data={rows} />
-//             </div>
-//         </section>
-//         }
-//     </div>
-// }
-
-
-
-
-// import React, { useEffect, useState } from 'react'
-// import { useSelector } from 'react-redux'
-// import { userService } from '../services/user.service.local'
-
-// import { StayManagement } from "../pages/stay-management"
-// import { orderService } from '../services/order.service.local'
 
 export function Trip() {
 
     const loggedinUser = useSelector((state) => state.userModule.user)
     const [myOrders, setMyOrders] = useState(null)
+    const [numStatusPending, setNumStatusPending] = useState(null)
+    const [numStatusApproved, setNumStatusApproved] = useState(null)
+    const [numStatusDeclined, setNumStatusDeclined] = useState(null)
     // const [rows, setRows] = useState([])
 
 
@@ -193,29 +99,49 @@ export function Trip() {
     }, [myOrders])
 
 
+    function numStatusOrder(orders) {
+        const objStatus = {
+            'pending': 0,
+            'declined': 0,
+            'approved': 0
+        }
+        // const status = ['pending', 'declined', 'approved']
+        // const numOfStatus = [0, 0, 0]
+        for (const status in objStatus) {
+            console.log(status)
+            const res = orders.filter(order => order.status === status)
+            objStatus[status] = res.length
+        }
+        return objStatus
+    }
+
     async function getMyOrders() {
         try {
             console.log(loggedinUser)
             const orders = await orderService.getOrdersByBuyerId(loggedinUser._id)
             console.log(orders)
             setMyOrders(orders)
-            // setRows(orders)
+
+            const objStatus = numStatusOrder(orders)
+            setNumStatusPending(objStatus.pending)
+            setNumStatusApproved(objStatus.approved)
+            setNumStatusDeclined(objStatus.declined)
         } catch (err) {
             console.log(err)
         }
     }
-
     return <div>
 
         {!myOrders && <div>loading.........{console.log(myOrders)}</div>}
         {myOrders && <section className="trip-containter">
             <div className="trip-header">
-                Reservation
+                Reservations
                 {console.log(myOrders)}
             </div>
             <div className="trip-data">
                 <Table data={myOrders} />
             </div>
+            <ChartBuyer numStatusPending={numStatusPending} numStatusApproved={numStatusApproved} numStatusDeclined={numStatusDeclined} />
         </section>
         }
     </div>
