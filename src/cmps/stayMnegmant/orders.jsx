@@ -35,8 +35,8 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
         <div className='tableHead'>
             <div className='cell guest head'>Guest</div>
             <div className='cell stay head'>Stay</div>
-            <div className='cell dates head'>CheckIn</div>
-            <div className='cell dates head'>CheckOut</div>
+            <div className='cell dates check-in head'>CheckIn</div>
+            <div className='cell dates check-out head'>CheckOut</div>
 
             <div className='cell price head'>Price</div>
             <div className='cell status head'>Status</div>
@@ -50,7 +50,7 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
                 myOrders.map(order => {
                     const usrPic = randImg()
                     console.log('order at rendrung:',order)
-                    return <section className={`tableRow cell ${order.status === 'pending' && 'pendingStatus'}`} key={order._id}>
+                    return <section className={`tableRow cell ${order.status === 'Pending' && 'pendingStatus'}`} key={order._id}>
                         <img className="gustImg" src={`${usrPic}`} />
                         <div className='cell guest'>{order.buyer.fullname}</div>
                         <div className='cell stay'>{order.stay.name}</div>
@@ -62,8 +62,8 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
                         <div className={`cell status ${order.status}`}>{order.status}</div>
 
                         <div className='cell actions'>
-                            <button className='approveBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus(order._id, 'Approved')}>approve</button>
-                            <button className='rejectBtn' disabled={(order.status === 'pending') ? false : true} onClick={(event) => changStatus( order._id, 'Declined')}>reject</button>
+                            <button className='approveBtn' disabled={(order.status === 'Pending') ? false : true} onClick={(event) => changStatus(order._id, 'Approved')}>approve</button>
+                            <button className='rejectBtn' disabled={(order.status === 'Pending') ? false : true} onClick={(event) => changStatus( order._id, 'Declined')}>reject</button>
                         </div>
                     </section>
                 })

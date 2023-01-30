@@ -126,10 +126,11 @@
     }
   }
 
-&.hostManage{
-  display: grid;
-  grid-template-columns: 20vw 60vw 20vw;
-}
+  &.hostManage {
+    display: grid;
+    margin-left: 70px;
+    grid-template-columns: 20vw 53vw 20vw;
+  }
 
 
   .main-content {
@@ -189,7 +190,12 @@
       padding: 0;
       color: $clr9;
       justify-content: space-between;
-      gap: 14px
+      gap: 14px;
+
+      .btn-txt {
+        // background-color: aqua;
+        padding-inline-start: 10px;
+      }
     }
 
 

@@ -143,7 +143,7 @@ export function AppHeader({ }) {
                     <button onClick={() => onShowFilter('date')}><div className='btn-txt'>{timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div>
                     </button><span className='line'></span>
                     <button className='guests flex align-center' onClick={() => onShowFilter('capacity')}>
-                        <div className='btn-txt'>{getCapacityTxt()}</div>
+                        <div className='btn-txt'> Add guests</div>
                         <div className="search-image img-container" onClick={(ev) => {
                             ev.stopPropagation()
                             onShowFilter('where')

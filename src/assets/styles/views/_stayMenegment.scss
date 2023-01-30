@@ -6,8 +6,10 @@
     grid-template-areas:
         ". main . ";
     padding: em(70px);
+    // justify-content: space-between;
 
     .menegmentContant {
+
         grid-column: 2;
         height: 350px;
         width: 100%px;
@@ -22,19 +24,21 @@
 
         .tableHead {
             display: flex;
+            width: 100%;
             background-color: $clr3;
             height: 50px;
             font-size: 18px;
             font-weight: 400;
             font-size: rem(15px);
-            justify-content: center;
+            padding-inline-start: 15px;
+            // margin-inline-start: 15px;
             gap: 5px
         }
 
         .head {
             display: flex;
             align-items: center;
-            justify-content: center;
+            // justify-content: space-between;
 
 
         }
@@ -50,6 +54,7 @@
             .stayRow {
                 display: flex;
 
+
                 .stayRow {
                     padding: 10px 5px;
                     border-bottom: 1px solid lightgray;
@@ -57,6 +62,7 @@
 
                 .cell {
                     display: flex;
+
 
 
                 }
@@ -86,6 +92,7 @@
         }
 
         .menegmentTable {
+          
             display: flex;
             flex-direction: column-reverse;
 
@@ -95,7 +102,7 @@
             .tableRow {
                 padding: 10px 5px;
                 border-bottom: 1px solid lightgray;
-                justify-content: center;
+                // justify-content: center;
                 align-items: center;
             }
         }
@@ -103,23 +110,51 @@
         .cell {
             display: flex;
             padding: em(10px);
+
+            &.head {
+                padding-left: 20px;
+            }
+
             // background-color: aqua;
         }
 
         .guest {
             width: 130px;
+            &.head{
+                padding-left: 5px;
+            }
         }
 
         .stay {
             width: 130px;
+
+            &.head {
+                padding-left: 30px;
+                justify-self: center;
+                align-self: center;
+            }
         }
 
         .dates {
             width: 130px;
+
+            &.check-in {
+
+                &.head {
+                    padding-left: 25px;
+                }
+            }
+
+
+
         }
 
         .price {
             width: 60px;
+
+            &.head {
+                padding-left: 15px;
+            }
         }
 
         .status {
@@ -131,8 +166,9 @@
         .actions {
             width: 130px;
 
-            &.head{
-                justify-content: end;
+            &.head {
+                // justify-content: end;
+                margin-left: 40px;
             }
         }
 
@@ -149,11 +185,20 @@
 
             &.approveBtn {
                 background-color: rgb(38, 161, 38);
+
+                &:disabled {
+                    background-color: rgb(170, 227, 170);
+                    cursor: not-allowed;
+                }
             }
 
             &.rejectBtn {
                 background-color: rgb(235, 64, 64);
-                
+
+                &:disabled {
+                    background-color: rgb(220, 158, 158);
+                    cursor: not-allowed;
+                }
             }
 
 
@@ -197,6 +242,7 @@
             border-radius: 1rem;
             height: 28px;
             width: 28px;
+            margin-inline-start: 10px;
         }
 
 
