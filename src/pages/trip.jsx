@@ -27,6 +27,12 @@ export function Trip() {
 
     }, [])
 
+    useEffect(()=>{
+        console.log(numStatusApproved)
+        console.log(numStatusDeclined)
+        console.log(numStatusPending)
+    }, [numStatusApproved, numStatusDeclined, numStatusPending, myOrders])
+
 // console.log('hi'!)
     async function loadStayImages(data) {
         console.log(data)
@@ -80,6 +86,7 @@ export function Trip() {
             setNumStatusApproved(objStatus.approved)
             setNumStatusDeclined(objStatus.declined)
 
+            console.log(objStatus)
             loadStayImages(orders)
 
         } catch (err) {
@@ -130,7 +137,7 @@ export function Trip() {
                                     })}
                                 </tbody>
                             </table>
-                            <ChartBuyer numStatusPending={numStatusPending} numStatusApproved={numStatusApproved} numStatusDeclined={numStatusDeclined} />
+                            {/* <ChartBuyer numStatusPending={numStatusPending} numStatusApproved={numStatusApproved} numStatusDeclined={numStatusDeclined} /> */}
                         </div>
                     }
                 </div>
