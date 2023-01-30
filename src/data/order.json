@@ -1,117 +1,94 @@
 [
-  {
-    "_id": 1234,
-    "startDate": 2775819926000,
-    "endDate": 2875839934567,
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
+    {
+        "_id": 1234,
+        "startDate": "8 Mar",
+        "endDate": "20 Mar",
+        "hostId": "u102",
+        "buyer": {
+            "_id": "u102",
+            "fullname": "Bob Arnold"
+        },
+        "totalPrice": 1190,
+        "guests": {
+            "adults": 2,
+            "kids": 1
+        },
+        "stay": {
+            "_id": "622f337a75c7d36e498aaaf8",
+            "name": "Westin House",
+            "price": 595.00
+        },
+        "msgs": [],
+        "status": "reject",
+        "requests": ""
     },
-    "totalPrice": 1190,
-    "guests": {
-      "adults": 2,
-      "kids": 1
+    {
+        "_id": 1235,
+        "startDate": "1 Mar",
+        "endDate": "3 Mar",
+        "hostId": "u102",
+        "buyer": {
+            "_id": "u102",
+            "fullname": "Josh Benishu"
+        },
+        "totalPrice": 1690,
+        "guests": {
+            "adults": 2,
+            "kids": 1
+        },
+        "stay": {
+            "_id": "h102",
+            "name": "Fun Village",
+            "price": 80.00
+        },
+        "msgs": [],
+        "status": "pending",
+        "requests": ""
     },
-    "stay": {
-      "_id": "622f337a75c7d36e498aaaf8",
-      "name": "Westin Kaanapali KORVN 2BR",
-      "price": 595.00
+    {
+        "_id": 1239,
+        "startDate": "15 Mar",
+        "endDate": "17 Mar",
+        "hostId": "u102",
+        "buyer": {
+            "_id": "u102",
+            "fullname": "Ronaldo Fatig"
+        },
+        "totalPrice": 1600,
+        "guests": {
+            "adults": 2,
+            "kids": 1
+        },
+        "stay": {
+            "_id": "h102",
+            "name": "De Lucs",
+            "price": 809.00
+        },
+        "msgs": [],
+        "status": "approve",
+        "requests": ""
     },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  },
-  {
-    "id": 1235,
-    "startDate": 1786809926000,
-    "endDate": 1877869956000,
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
-    },
-    "totalPrice": 160,
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
-    },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  },
-  {
-    "id": 1239,
-    "startDate": 1676920026000,
-    "endDate": 1678930026000,
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
-    },
-    "totalPrice": 160,
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
-    },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  },
-  {
-    "_id": "o1225",
-    "startDate": "2025/10/15",
-    "endDate": "2025/10/17",
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
-    },
-    "totalPrice": 160,
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
-    },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  },
-  {
-    "_id": "o1225",
-    "startDate": "2025/10/15",
-    "endDate": "2025/10/17",
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
-    },
-    "totalPrice": 160,
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
-    },
-    "msgs": [],
-    "status": "pending",
-    "requests": ""
-  }
+    {
+        "_id": "o1225",
+        "startDate": "10 Jan",
+        "endDate": "17 Jan",
+        "hostId": "u102",
+        "buyer": {
+            "_id": "u102",
+            "fullname": "Jon Mike"
+        },
+        "totalPrice": 760,
+        "guests": {
+            "adults": 2,
+            "kids": 1
+        },
+        "stay": {
+            "_id": "h102",
+            "name": "With Freinds",
+            "price": 900.00
+        },
+        "msgs": [],
+        "status": "approve",
+        "requests": ""
+    }
 ]

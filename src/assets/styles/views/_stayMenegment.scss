@@ -1,52 +1,13 @@
 .stayMenegment {
     display: grid;
-    font-family:  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    ;
     grid-template-columns: 20vw 1fr 20vw;
     grid-template-areas:
         ". main . ";
 
-    .menegmentMnue {
-        grid-column: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 90px;
-        height: 90px;
-
-        .buttons {
-            width: 205px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            background-color: #FF385C;
-
-            .push {
-                transform: scalez(2);
-                background-color: white;
-            }
-
-            .showinfo {
-                width: 100px;
-                margin: 0 auto;
-                display: block;
-                border-top: 1px solid #FF385C;
-                border-bottom: 1px solid #FF385C;
-            }
-
-            .right {
-                border-right: 1px solid #FF385C;
-            }
-
-            .left {
-                border-left: 1px solid #FF385C;
-            }
-        }
-
-    }
-
     .menegmentContant {
         grid-column: 2;
-        border: 1px solid lightgray;
         height: 350px;
         width: 100%px;
 
@@ -59,19 +20,24 @@
 
         .tableHead {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
             background-color: rgb(231, 231, 231);
-            padding: 0px 5px;
             height: 50px;
             font-size: 18px;
             font-weight: 600;
         }
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .stayTable {
             display: flex;
             flex-direction: column;
             height: 235px;
-            overflow-y: auto;;
+            overflow-y: auto;
+            ;
 
 
             .stayRow {
@@ -84,30 +50,27 @@
 
                 .cell {
                     display: flex;
-                    justify-content: flex-start;
+                    // justify-content: flex-start;
                 }
 
                 .stay {
                     width: 130px;
                 }
-        
-                .location {
-                    width: 150px;
-                    background-color: #FF385C;
-                }
-        
+
+                
+
                 .price {
                     width: 130px;
                 }
-        
+
                 .rate {
                     width: 60px;
                 }
-        
+
                 .orders {
                     width: 130px;
                 }
-        
+
                 .actions {
                     width: 130px;
                 }
@@ -118,26 +81,21 @@
             display: flex;
             flex-direction: column-reverse;
 
-            height: 235px;
+            // height: 235px;
             overflow-y: auto;
 
             .tableRow {
                 padding: 10px 5px;
                 border-bottom: 1px solid lightgray;
             }
-
-            .tableRow:hover {
-                background-color: lightgray;
-            }
         }
 
         .cell {
             display: flex;
-            justify-content: flex-start;
         }
 
         .pendingStatus {
-            background-color: rgb(220, 220, 220);
+            background-color: rgb(236, 236, 236);
         }
 
 
@@ -173,9 +131,7 @@
             color: rgb(235, 64, 64);
         }
 
-        .disable {
-            border: 1px solid rgb(0, 0, 0);
-        }
+        
 
         .approveBtn {
             display: flex;
@@ -198,6 +154,11 @@
 
         .rejectBtn:active {
             background-color: rgb(235, 64, 64);
+        }
+
+        .gustImg {
+            height: 28px;
+            width: 28px;
         }
 
 

@@ -1,16 +1,17 @@
 import { stayService } from '../services/stay.service.local.js'
 import { orderService } from '../services/order.service.local'
-
+import { SetIsUserModalShown } from '../store/stay.actions'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOrders, loadOrder, addOrder, updateOrder, removeOrder } from '../store/order.action'
 import { OrderShow } from '../cmps/stayMnegmant/orders'
-import {StaysShow} from '../cmps/stayMnegmant/stays'
+import { StaysShow } from '../cmps/stayMnegmant/stays'
 
 
 
 export function StayManagement() {
     const loggedinUser = useSelector((state) => state.userModule.user)
+    // const isUserModalShown = useSelector((state) => state.stayModule.isUserModalShown)
 
     const [myStays, setMyStays] = useState([])
     const [myOrders, setMyOrders] = useState([])
@@ -19,8 +20,8 @@ export function StayManagement() {
 
 
     useEffect(() => {
-        getMayStays()
-        getMayOrders()
+        getMyStays()
+        getMyOrders()
     }, [])
 
 
@@ -28,7 +29,7 @@ export function StayManagement() {
         numOfPending()
     }, [myOrders])
 
-    async function getMayOrders() {
+    async function getMyOrders() {
         try {
             const orders = await orderService.getOrdersByUserId(loggedinUser._id)
             setMyOrders(orders)
@@ -36,7 +37,8 @@ export function StayManagement() {
             console.log(err)
         }
     }
-    async function getMayStays() {
+
+    async function getMyStays() {
         try {
             const stays = await stayService.getStaysByUserId(loggedinUser._id)
             setMyStays(stays)
@@ -59,27 +61,20 @@ export function StayManagement() {
         setPendingNum(pendingOrders.length)
     }
 
-    async function changStatus(event, orderId, status) {
-        event.preventDefault()
+    async function changStatus(orderId, status) {
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
-        getMayOrders()
-        // setOrderStatus('reject')
+        getMyOrders()
     }
+
+    // console.log('isUserModalShown:',isUserModalShown)
 
     if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
-
-        <div className='menegmentMnue'>
-            <div className='buttons'>
-                <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
-                <button className={`showinfo left ${info === 'stays' && 'push'}`} onClick={() => setInfo('stays')}>my stays</button>
-            </div>
-        </div>
         {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
         {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
-        
+
 
     </section>
 }

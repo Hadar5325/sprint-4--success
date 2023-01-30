@@ -7,7 +7,7 @@ import { userService } from "../services/user.service.local";
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-export function DateFilter({ handleChange }) {
+export function DateFilter({ handleChange, isBooking, setDateModal, dateModal }) {
 
     const [startDate, setStartDate] = useState(Date.now());
     const [endDate, setEndDate] = useState(Date.now() + (1000 * 60 * 60 * 24 * 7));
@@ -21,7 +21,7 @@ export function DateFilter({ handleChange }) {
     }, [startDate, endDate])
 
     return (
-        <section className='date-filter '>
+        <section className={`date-filter ${isBooking && 'booking'} `}>
             <span className="title">Choose dates</span>
             <div className="calendar-container flex">
                 <>
@@ -55,6 +55,7 @@ export function DateFilter({ handleChange }) {
                     />
                 </>
             </div>
+            {isBooking && <button className="close-btn" onClick={()=>setDateModal(false)}>Close</button>}
         </section>
     )
 }

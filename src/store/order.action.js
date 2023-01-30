@@ -1,6 +1,6 @@
 import { orderService } from '../services/order.service.local'
 import { store } from "./store.js"
-import { SET_ORDERS, SET_ORDER, ADD_ORDER, UPDATE_ORDER, REMOVE_ORDER} from './order.reducer'
+import { SET_ORDERS, SET_ORDER, ADD_ORDER, UPDATE_ORDER, REMOVE_ORDER } from './order.reducer'
 
 export function getActionRemoveOrder(orderId) {
     return {
@@ -81,12 +81,13 @@ export async function addOrder(order) {
 }
 
 export function updateOrder(order) {
-    try{
-        const orderToUp = orderService.save(order)
-        const upOrders = getActionUpdateOrder(order)
-        return upOrders
-    }catch(err){
+    try {
+        const savedOrder = orderService.save(order)
+        store.dispatch({ type: UPDATE_ORDER, order })
+        return savedOrder
+    } catch (err) {
         console.log(err)
+        throw err
     }
     // return orderService.save(order)
     //     .then(savedOrder => {

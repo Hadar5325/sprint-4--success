@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service.local';
+import { toggleScreen } from '../store/stay.actions'
 import { signup, login } from '../store/user.actions';
 
 export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
@@ -16,6 +17,7 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
         ev.preventDefault()
         onLogin(credentials)
         setIsLoginModalShown(false)
+        toggleScreen()
     }
 
     function handleChange({ target }) {
@@ -35,15 +37,19 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
 
     return (
         <section>
-            <div className={`full-screen black ${isLoginModalShown ? 'show' : 'hide'}`}
-                onClick={() => setIsLoginModalShown(false)}> </div>
+            {/* <div className={`full-screen black ${isLoginModalShown ? 'show' : 'hide'}`}
+                onClick={() => setIsLoginModalShown(false)}> </div> */}
 
             <div className={`login-modal ${isLoginModalShown ? 'show' : 'hide'}`}>
                 <header>
-                    <button className='x-btn' onClick={() => setIsLoginModalShown(false)}><svg viewBox="0 0 32 32"
+                    <button className='x-btn' onClick={() => {
+                        setIsLoginModalShown(false)
+                        toggleScreen()
+                    }}
+                    ><svg viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
                         focusable="false">
-                        <path d="m6 6 20 20" /><path d="m26 6-20 20" /></svg>
+                            <path d="m6 6 20 20" /><path d="m26 6-20 20" /></svg>
                     </button>
                     <p className='header-txt'>Log in or sign up</p>
                 </header>
