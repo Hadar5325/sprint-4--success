@@ -48,7 +48,7 @@ export function Book() {
         newOrder.stay = { _id: stay, name: stayName.name }
         console.log('stay ar getneworder:', stay)
         // order.msgs = []
-        newOrder.status = "pending"
+        newOrder.status = 'Pending'
         // console.log('new oreder:', newOrder.stay)
         setOrder(newOrder)
         loadStay(newOrder)
