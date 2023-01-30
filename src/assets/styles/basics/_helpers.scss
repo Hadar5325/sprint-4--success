@@ -74,25 +74,21 @@
     stroke: $clr1;
     stroke-width: 6;
     overflow:
-      visible;
-  }
+        visible;
+}
 
 
-  .full-screen {
+.full-screen {
 
     &.show {
+        position: fixed;
+        inset: 0;
+        z-index: 4;
+        cursor: pointer;
 
-        background-color: aqua;
-        position: absolute;
-        height: 100vh;
-        z-index: 3;
-
-        &.black{
+        &.black {
             background-color: black;
             opacity: 0.5;
-            // & > html, body {
-            //     margin: 0; height: 100%; overflow: hidden
-            // }
         }
     }
 

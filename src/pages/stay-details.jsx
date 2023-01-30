@@ -118,38 +118,21 @@ export function StayDetails() {
     }
 
 
+    function handleClick(ev) {
+        const txt = 'eact-datepicker__day react-datepicker__day--react-datepicker__day--disabled'
+        const target = ev.target.className
+        console.log(target)
 
+        const notOpenCapacity = ['title', 'guestsModal', 'guests bookingBtn', 'capacityLabel', 'chosingGuestsBtn', 'capacityLabel first', 'chosingGuests', '<empty string>']
 
-
-
-    // const handleChange = (ev) => {
-    //     const field = ev.target.name
-    //     const value = ev.target.value
-    //     setFilterBy({ ...filterBy, [field]: value })
-    // }
-
-    //booking functions
-
+        if (!notOpenCapacity.includes(ev.target.className, 0)) setCapacityModal(false)
+        // if (!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`) && !target.match('times')) setDateModal(false)
+    }
 
 
     if (!stay) {
         return <section>loading...</section>
     }
-
-    const handleClick = event => {
-        const txt = 'eact-datepicker__day react-datepicker__day--react-datepicker__day--disabled'
-        const target = event.target.className
-        console.log(target)
-
-        const notOpenCapacity = ['title', 'guestsModal', 'guests bookingBtn', 'capacityLabel', 'chosingGuestsBtn', 'capacityLabel first', 'chosingGuests', '<empty string>']
-
-        if (!notOpenCapacity.includes(event.target.className, 0)) setCapacityModal(false)
-        if (!target.match(`react-datepicker`) && !target.match(`checkInBtn bookingBtn`) && !target.match('times')) setDateModal(false)
-    }
-
-
-
-
     return <section className='stays' onClick={handleClick} >
 
         <div className='detailesMain'>
