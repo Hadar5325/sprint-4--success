@@ -8,7 +8,7 @@ export function Aprove({order}) {
 
 
     useEffect(() => {
-        setTimeout(backToHome, 5000)
+        setTimeout(backToHome, 2000)
     }, [])
 
 
@@ -27,7 +27,7 @@ export function Aprove({order}) {
             <div className="title">Your bnbAir reservation has been received and is now pending approval from the host. </div>
             <div className="title">You will receive a notification once the host confirms or declines the booking. Thank you for choosing Airbnb for your stay!</div>
 
-            <div className="therdTitle">You will beack to home page automatically</div>
+            <div className="therdTitle">You will return to home page automatically</div>
         </div>
     </section>
 }

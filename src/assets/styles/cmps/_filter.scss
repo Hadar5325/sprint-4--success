@@ -19,7 +19,7 @@
     .filter-container-big {
         position: fixed;
         z-index:4;
-        top:65px;
+        top: 10px;
         border-radius: 2rem;
         height: max-content;
         display: flex;
@@ -180,7 +180,7 @@
         // width: 100vw
         .location-filter {
             position:fixed;
-            top: 160px;
+            top: 100px;
             z-index: 4;
             background-color: $clr1;
             display: grid;
@@ -224,7 +224,7 @@
 
         .capacity-filter-inputs {
             position:fixed;
-            top: 160px;
+            top: 100px;
           transform: translatex(95%);
             background-color: $clr1;
             width: 406px;
@@ -302,7 +302,7 @@
 
 .date-filter {
     position:fixed;
-    top: 160px;
+    top: 100px;
     text-align: center;
     font-family: "Circular";
     background-color: $clr1;

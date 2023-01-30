@@ -32,12 +32,12 @@ export function Book() {
         getNewOrder(hostId, totalPrice, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay)
 
     }, [])
-    
-
-    function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
 
 
-        // alert('a')
+    async function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
+
+        const stayName = await stayService.getById(stay)
+        console.log('stayName at ger nae order:', stayName.name)
         const newOrder = emptyOrder()
         newOrder.hostId = HostId
         if (loggedinUser) newOrder.buyer = { "_id": loggedinUser._id, "fullname": loggedinUser.fullname }
@@ -45,7 +45,8 @@ export function Book() {
         newOrder.startDate = timeStart
         newOrder.endDate = timeEnd
         newOrder.guests = { Adulst, kids, Infants, Pets }
-        newOrder.stay = stay
+        newOrder.stay = { _id: stay, name: stayName.name }
+        console.log('stay ar getneworder:', stay)
         // order.msgs = []
         newOrder.status = "pending"
         // console.log('new oreder:', newOrder.stay)
@@ -57,7 +58,7 @@ export function Book() {
     async function loadStay(order) {
         // console.log('order.stay at loadStay:', order.stay)
         try {
-            const stay = await stayService.getById(order.stay)
+            const stay = await stayService.getById(order.stay._id)
             setCurrStay(stay)
         } catch (err) {
             console.log(err)
@@ -101,7 +102,7 @@ export function Book() {
         return Math.floor(Math.random() * max);
     }
 
-    
+
 
     const img = randImg()
     if (!order || !currStay) return 'lodding...'
@@ -158,8 +159,8 @@ export function Book() {
                             <div className='confirmedContant'>
                                 <img className="confirmedImg" src={confirmed} />
                                 <div className='confirmedTxt'>
-                                    <div className='confirmedFirst'>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours).</div>
-                                    <div className='confirmedSecend'>You won’t be charged until then.</div>
+                                    <div className='confirmedFirst'>Your reservation won't be confirmed until the Host accepts your request (within 24 hours).</div>
+                                    <div className='confirmedSecend'>You won't be charged until then.</div>
 
                                 </div>
                             </div>
@@ -220,7 +221,7 @@ export function Book() {
 
             <div className='bookFooter'>dsf</div>
 
-            {modal && <Aprove order={order}/>}
+            {modal && <Aprove order={order} />}
 
         </section>
     )

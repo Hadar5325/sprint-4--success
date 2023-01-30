@@ -34,6 +34,7 @@ async function query(filterBy) {
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
+        console.log('from storge!!:', staysFromStorage )
     } else {
         _makeStays(stays)
         console.log('stayes at query:', stays)
@@ -180,11 +181,12 @@ function _makeStays(stays) {
         }
         stays.push(stay)
     }
-    stays.forEach(stay => {
+    stays.forEach((stay, index) => {
         stay._id = utilService.makeId()
+        if (index === 6) return
         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=female'
         stay.reviews.forEach((review) => {
-            review.by.imgUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+            review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(20, 82)}.jpg`
         })
     })
     console.log('stays at _arrangeStays :', stays)
@@ -402,7 +404,7 @@ const stays = [
         },
         "stayType": "Entire home/apt",
         "host": {
-            "_id": "1evJq",
+            "_id": "u104",
             "fullname": "Patty And Beckett",
             "location": "Eureka, California, United States",
             "about": "Adventurous couple loves to travel :)",
@@ -593,7 +595,7 @@ const stays = [
         ],
         "roomType": "Private room",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Angel",
             "location": "Montreal, Québec, Canada",
             "about": "",
@@ -730,7 +732,7 @@ const stays = [
         "bedrooms": 1,
         "roomType": "Private room",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Patrícia Sousa Casimiro",
             "location": "Senhora da Hora, Porto, Portugal",
             "about": "",
@@ -890,7 +892,7 @@ const stays = [
         "bedrooms": 0,
         "roomType": "Entire home/apt",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Apartments2Enjoy",
             "location": "Porto, Porto District, Portugal",
             "about": "Welcome!\r\nThe apartments has all the things to provide you a perfect days in Porto. It is located in a very central area, inside a typical oporto building. \r\nI will give you lots of informations about Porto, my personal tips, and I'll always be available to help you with anything. All I want is for you to go home knowing Porto and inevitably loving the city! :)\r\n\r\n",
@@ -1196,7 +1198,7 @@ const stays = [
         "bedrooms": 1,
         "roomType": "Entire home/apt",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Kevin",
             "location": "New York, New York, United States",
             "about": "Welcome Everyone! Thank you for stopping by. \r\n\r\nI was born and raised in Manhattan and I am here to help  share the New York City Experience with others through Airbnb!  I am easy to connect with and very reachable and always willing to interact with people. \r\n\r\nI am big on cleanliness and hospitality. I strive on making Guests feel as comfortable as possible. \r\n\r\nI hope you would like to get a chance to visit my location and enjoy the hosting I provide. If you have any questions/ comments, feel free to contact me. \r\n",
@@ -1421,7 +1423,7 @@ const stays = [
     },
     {
         "_id": "622f337a75c7d36e498aaafd",
-        "name": "DOUBLE ROOM IN THE HEART OF BCN",
+        "name": "Luxury, fully furnished Bell Tent with range stove",
         "types": [
             "Amazing views",
             "Off-the-grid",
@@ -1476,8 +1478,8 @@ const stays = [
         "bedrooms": 1,
         "roomType": "Private room",
         "host": {
-            "_id": "u102",
-            "fullname": "Aileen Jons",
+            "_id": "u104",
+            "fullname": "Ivan Jons",
             "location": " Morschach, Schwy,Switzerland",
             "about": "Mi nombre es Isabel, pero me llamo Isa. Nací en Vigo (Galicia). Con 20 años me fuí a vivir a Madrid con intención de ser actriz; ahora resido en Barcelona desde los 28. Soy una joven de 43 años, cantante de Jazz. Me gusta salir, pero también quedarme en casa a leer o ver alguna buena película.\r\nHe compartido piso muchos años, pero estas serán mis primeras experiencias como anfitriona.\r\n\r\n¡Sed bienvenidos!\r\n",
             "responseTime": "within an hour",
@@ -1510,7 +1512,7 @@ const stays = [
                 "at": "2016-03-24T04:00:00.000Z",
                 "by": {
                     "_id": "622f3403e36c59e6164fafa6",
-                    "fullname": "Isabelle",
+                    "fullname": "Isac",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "26247027"
                 },
@@ -1520,7 +1522,7 @@ const stays = [
                 "at": "2016-04-07T04:00:00.000Z",
                 "by": {
                     "_id": "622f3406e36c59e6164fbaf2",
-                    "fullname": "Hélène",
+                    "fullname": "Brien",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "46103953"
                 },
@@ -1540,7 +1542,7 @@ const stays = [
                 "at": "2016-04-25T04:00:00.000Z",
                 "by": {
                     "_id": "622f3401e36c59e6164fabad",
-                    "fullname": "Maria Isabel",
+                    "fullname": "Marios Isabel",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "60712702"
                 },
@@ -1550,7 +1552,7 @@ const stays = [
                 "at": "2016-05-04T04:00:00.000Z",
                 "by": {
                     "_id": "622f3405e36c59e6164fb967",
-                    "fullname": "Aitana",
+                    "fullname": "Josh",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "53206905"
                 },
@@ -1570,7 +1572,7 @@ const stays = [
                 "at": "2016-06-16T04:00:00.000Z",
                 "by": {
                     "_id": "622f3404e36c59e6164fb623",
-                    "fullname": "Natasha",
+                    "fullname": "Lion",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "25592253"
                 },

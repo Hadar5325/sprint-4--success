@@ -1,6 +1,8 @@
 .book {
     display: grid;
-    grid-template-columns: 80px 1fr 80px;
+    grid-template-columns: 20vw 1fr 20vw;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    justify-content: space-between ;
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
     ;
     grid-template-areas:
@@ -236,6 +238,7 @@
                 width: 466.667px;
 
                 .detailsBoxContant {
+                    // justify-self: flex-end;
                     border-bottom-color: rgb(221, 221, 221);
                     border-bottom-left-radius: 12px;
                     border-bottom-right-radius: 12px;

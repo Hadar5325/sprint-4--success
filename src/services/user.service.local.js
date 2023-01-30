@@ -188,9 +188,9 @@ const users = [
     },
     {
         "_id": "u102",
-        "fullname": "Joana Poter",
+        "fullname": "Aviv Poter",
         "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
-        "username": "Emmitt",
+        "username": "Aviv",
         "password": "secret",
         "wishList": []
     },
@@ -205,9 +205,9 @@ const users = [
     },
     {
         "_id": "u104",
-        "fullname": "Aileen Jons",
-        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
-        "username": "Errol",
+        "fullname": "Ivan Jons",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
+        "username": "Ivan",
         "password": "secret",
         "wishList": []
 

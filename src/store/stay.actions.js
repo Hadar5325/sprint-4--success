@@ -1,7 +1,7 @@
 
 import { stayService } from '../services/stay.service.local'
 import { store } from "./store.js"
-import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN } from './stay.reducer'
+import { SET_STAYS, SET_STAY, ADD_STAY, UPDATE_STAY, REMOVE_STAY, UPDATE_FILTER, SET_IS_FILTER_SHOWN, TOGGLE_SCREEN } from './stay.reducer'
 
 export function getActionRemoveStay(stayId) {
     return {
@@ -87,17 +87,15 @@ export async function addStay(stay) {
     }
 }
 
-export function updateStay(stay) {
-    return stayService.save(stay)
-        .then(savedStay => {
-            console.log('Updated Stay:', savedStay)
-            store.dispatch(getActionUpdateStay(savedStay))
-            return savedStay
-        })
-        .catch(err => {
-            console.log('Cannot save stay', err)
-            throw err
-        })
+export async function updateStay(stay) {
+    try {
+        await stayService.save(stay)
+        store.dispatch(UPDATE_STAY, stay)
+    } catch (err) {
+        console.log('Cannot save stay', err)
+        throw err
+    }
+    return stay
 }
 
 export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
@@ -111,4 +109,13 @@ export function uptadeFilter(filterBy = stayService.getEmptyFilter()) {
 export function setIsFilterShown(isFilterShown) {
     store.dispatch(({ type: SET_IS_FILTER_SHOWN, isFilterShown }))
 
+}
+// export function SetIsUserModalShown(isUserModalShown) {
+//     store.dispatch(({ type: SET_IS_USER_SHOWN, isUserModalShown }))
+
+// }
+
+export function toggleScreen(color = null) {
+    // const mainScreen = { isActive: !isActive, color }
+    // store.dispatch(({ type: TOGGLE_SCREEN, mainScreen }))
 }

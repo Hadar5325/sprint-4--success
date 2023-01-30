@@ -5,7 +5,7 @@ import { MainFilter } from './main-filter'
 import { StayManagement } from '../pages/stay-management'
 
 import { userService } from '../services/user.service.local'
-import { logout } from '../store/user.actions.js'
+import { logout, loadUsers } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
@@ -13,7 +13,7 @@ import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
 
 import { useLocation } from 'react-router-dom';
-import { setIsFilterShown } from '../store/stay.actions'
+import { setIsFilterShown, toggleScreen } from '../store/stay.actions'
 import { getUnit } from '@mui/material/styles/cssUtils'
 
 
@@ -33,9 +33,9 @@ export function AppHeader({ }) {
 
     const stayDetiles = `/stays`
 
-    // useEffect = (() => {
-    //     loadUsers()
-    // }, [])
+    useEffect(() => {
+        loadUsers()
+    }, [])
 
     function onShowFilter(type) {
         setIsFilterShown(true)
@@ -66,27 +66,38 @@ export function AppHeader({ }) {
     function openUserModal() {
         console.log('loggedinUser at openUserModal:', loggedinUser)
         if (loggedinUser) return <section className='user-modal'>
+            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
             <div className='log-out' onClick={() => {
                 logout()
                 setIsUserModalOpen(false)
+                toggleScreen()
             }} >Log out</div>
-            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => setIsUserModalOpen(false)}>stay managment</Link>
-            <Link to={`/trip`}>Trips</Link>
-            <Link to={`/wishList`}>WishLists</Link>
-
-
-            {/* <Link className="host-link" to="/hosting"
-                onClick={() => setIsUserModalOpen(false)}>bnbAir your home
-            </Link> */}
+            <Link to={`/hostManage/${loggedinUser._id}`} onClick={() => {
+                setIsUserModalOpen(false)
+                toggleScreen()
+            }}>Dashboard</Link>
+            <Link to={`/trip`} onClick={() => {
+                setIsUserModalOpen(false)
+                toggleScreen()
+            }}>Trips</Link>
+            <Link to={`/wishList`} onClick={() => {
+                setIsUserModalOpen(false)
+                toggleScreen()
+            }}>WishLists</Link>
         </section>
         return <section className='user-modal'>
+             <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            {/* <div className="full-screen transparent"
+                onClick={() => setIsUserModalOpen(false)} ></div> */}
             <div className='log-in' onClick={() => {
-                setIsLoginModalShown(true)
                 setIsUserModalOpen(false)
+                setIsLoginModalShown(true)
+                toggleScreen('black')
             }} >Log in</div>
             <div className='sign-up' onClick={() => {
                 setIsLoginModalShown(true)
                 setIsUserModalOpen(false)
+                toggleScreen('black')
             }}>Sign up</div>
 
         </section>
@@ -108,7 +119,7 @@ export function AppHeader({ }) {
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
     return (
         <header className={divName}>
-            <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div>
+            {/* <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div> */}
             <div className='main-content flex'>
                 <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
@@ -118,6 +129,7 @@ export function AppHeader({ }) {
                     </div>
                     <button className='user-nav flex' onClick={() => {
                         setIsUserModalOpen(true)
+                        toggleScreen()
                     }}>
                         <div className='img-container hamburger'>
                             <img src={hamburger} alt="" />
