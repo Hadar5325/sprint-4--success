@@ -207,7 +207,7 @@ const users = [
         "_id": "u104",
         "fullname": "Ivan Jons",
         "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
-        "username": "Errol",
+        "username": "Ivan",
         "password": "secret",
         "wishList": []
 
