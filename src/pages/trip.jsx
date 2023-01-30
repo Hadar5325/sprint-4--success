@@ -27,7 +27,7 @@ export function Trip() {
 
     }, [])
 
-
+// console.log('hi'!)
     async function loadStayImages(data) {
         console.log(data)
         const arrStays = []
