@@ -30,13 +30,13 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
     // console.log(myOrders[0])
     return <div className='menegmentContant'>
         <div className='contantTitle'>
-            hello {loggedinUser.fullname}! you have {pendingNum} pending orders
+            Hello {loggedinUser.fullname}! you have {pendingNum} pending orders
         </div>
         <div className='tableHead'>
-            <div className='cell guest head'>guest</div>
-            <div className='cell stay head'>stay</div>
-            <div className='cell dates head'>checkIn</div>
-            <div className='cell dates head'>checkOut</div>
+            <div className='cell guest head'>Guest</div>
+            <div className='cell stay head'>Stay</div>
+            <div className='cell dates head'>CheckIn</div>
+            <div className='cell dates head'>CheckOut</div>
 
             <div className='cell price head'>Price</div>
             <div className='cell status head'>Status</div>

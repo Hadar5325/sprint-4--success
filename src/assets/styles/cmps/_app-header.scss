@@ -13,7 +13,6 @@
   // transition: min-height 1s;
 
   .user-modal {
-    // background-color: aqua;
     display: grid;
     font-family: 'Circular';
     color: $clr8;
@@ -28,22 +27,48 @@
     border-radius: 1rem;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
 
+    button.close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      justify-self: baseline;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      font-size: 14px;
 
-    &>*:not(.close-btn) {
-      padding: em(20px);
+      &:hover {
+        background-color: $clr4;
+      }
+
+    }
+
+    a {
+      :not(:last-of-type) {
+        border-bottom: 1px solid $clr5 ;
+      }
 
       &.-webkit-any-link {
         color: $clr11;
       }
 
-      & a:not(:last-of-type) {
-        border-bottom: 1px solid $clr5 ;
+      &:visited {
+        color: $clr11;
       }
+
+    }
+
+    &>*:not(.close-btn) {
+      padding: em(20px);
 
       &:hover {
         background-color: $clr3;
         cursor: pointer;
       }
+
+
+
 
 
     }
@@ -68,6 +93,7 @@
   }
 
   &.stay {
+    min-width: 80vw;
     position: static;
     grid-column: 2;
     background-color: $clr1;
@@ -79,34 +105,29 @@
     min-width: 300px;
     z-index: 5;
 
+    .main-content {
+      width: 60vw;
+    }
+
+
     .user-modal {
-      background-color: aqua;
-      // background-color: aqua;
       right: 385px;
-
-      &.-webkit-any-link {
-        color: $clr11;
-      }
-
-      & a:not(:last-of-type) {
-        border-bottom: 1px solid $clr5 ;
-      }
-
-      &:hover {
-        background-color: $clr3;
-        cursor: pointer;
-      }
-
 
     }
   }
 
   &.book {
-    background-color: aqua;
+    display: grid;
+    // background-color: antiquewhite;
+    grid-template-columns: 20vw 59vw 20vw;
+
+    .main-content {
+      grid-column: 2;
+    }
   }
 
 
- 
+
 
   .main-content {
     display: grid;

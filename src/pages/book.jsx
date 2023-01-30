@@ -110,7 +110,7 @@ export function Book() {
         <section className='book'>
             <div className='RequestTitle'>
                 <div className='RequestTitleContant'>
-                    <div className='backto'>←</div>
+                    {/* <div className='backto'>←</div> */}
                     <div className='RequestTitleContantTitle'>Request to book</div>
                 </div>
             </div>
@@ -219,7 +219,7 @@ export function Book() {
 
             </div>
 
-            <div className='bookFooter'>dsf</div>
+            {/* <div className='bookFooter'>dsf</div> */}
 
             {modal && <Aprove order={order} />}
 
