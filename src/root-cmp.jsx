@@ -1,5 +1,7 @@
 import React from 'react'
 import { Routes, Route, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+
 import { AppHeader } from './cmps/app-header'
 
 import { UserDetails } from './pages/user-details'
@@ -15,11 +17,15 @@ import { StaysMap } from './pages/stays-map';
 import { WishList } from './pages/wish-list';
 import { Trip } from './pages/trip';
 
+import {toggleScreen} from './store/stay.actions'
+
 export function RootCmp() {
 
+    const mainScreen= useSelector((state) => state.stayModule.filterBy)
 
     return (
         <div>
+            <div className='full-screen' onClick={toggleScreen} ></div>
             <AppHeader />
             <main>
                 <Routes>

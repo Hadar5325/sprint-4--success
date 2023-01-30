@@ -91,7 +91,7 @@ export function StayIndex() {
 
     return (
         <div className='stay-app main-layout home-page'>
-            {/* {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>} */}
+            {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}
             {isFilterModalShown && <div>
                  {/* <div className='full-screen show black' onClick={() => setIsFilterModalShown(false)}></div> */}
                 <FilterModal setIsFilterModalShown={setIsFilterModalShown} stays={stays} filterBy={filterBy} />

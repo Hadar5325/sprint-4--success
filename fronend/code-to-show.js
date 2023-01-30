@@ -1,18 +1,19 @@
 
-// The host got a new order and changed the status to 'approved' or 'declined'
+//In the front the host gets a new order and changes the status to 'approved' or 'declined'
 
 async function changeStatus(orderId, orderStatus) {
     try {
         const order = await getOrderById(orderId)
         order.status = orderStatus
         updateOrder(order)
-        LoadMayOrders()// loading the updated orders at the compenent
+        // loading the updated orders at the compenent
+        LoadMyOrders()
     } catch (err) {
         UserMsg('Updating failed', err)
     }
 }
 
-// Sending a request to save the updted order and dispaching at the store
+// In the order.actions - Sending a request to save the updted order and dispaching at the store
 
 export function updateOrder(order) {
     try {
@@ -25,7 +26,7 @@ export function updateOrder(order) {
     }
 }
 
-// At the buyer side:
+// At the front buyer side:
 
 async function getMyOrders() {
     try {
@@ -38,26 +39,4 @@ async function getMyOrders() {
 }
 
 
-// Rendering buyer orders in a table:
-
-return (
-    <table>
-        <tbody>
-            {data.map((order) => {
-                const { status, guests, startDate, endDate, stay, totalPrice } = order
-                return (
-                    <tr className="trip-tr-body">
-                        <td key={status} className={`trip-td-body ${status}`}>{status}</td>
-                        <td key={guests} className="trip-td-body">{guests}</td>
-                        <td key={startDate} className="trip-td-body">{startDate}</td>
-                        <td key={endDate} className="trip-td-body">{endDate}</td>
-                        <td key={startDate} className="trip-td-body">{startDate}</td>
-                        <td key={stay} className="trip-td-body">{stay}</td>
-                        <td key={totalPrice} className="trip-td-body">{totalPrice}</td>
-                    </tr>
-                )
-            })}
-        </tbody>
-    </table >
-)
 

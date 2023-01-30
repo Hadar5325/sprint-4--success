@@ -1,6 +1,6 @@
 .app-header {
   // position: static;
-  background-color: $clr1;
+  // background-color: aqua;
   padding: 0.7rem 0;
   // width: 90vw;
   border-bottom: 1px solid $clr4 ;
@@ -9,11 +9,59 @@
   z-index: 5;
   min-height: 80px;
   padding: em(16px) 0;
+
+  
   // transition: min-height 1s;
 
-  // &.index {
-  //   position: fixed;
-  // }
+  .user-modal {
+    // background-color: aqua;
+    display: grid;
+    font-family: 'Circular';
+    color: $clr8;
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    width: 240px;
+    border: 1px solid $clr5 ;
+    z-index: 5;
+    background-color: $clr1;
+    padding: em(30px); // background-color: aqua;
+    border-radius: 1rem;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
+
+
+    &>*:not(.close-btn) {
+      padding: em(20px);
+
+      &.-webkit-any-link {
+        color: $clr11;
+      }
+
+      & a:not(:last-of-type) {
+        border-bottom: 1px solid $clr5 ;
+      }
+
+      &:hover {
+        background-color: $clr3;
+        cursor: pointer;
+      }
+
+
+    }
+
+    .log-in {
+      color: $clr11;
+      border-bottom: 1px solid $clr11 ;
+    }
+
+    .sign-up {
+      border-bottom: 1px solid $clr5;
+    }
+
+    .host-link {
+      color: inherit;
+    }
+  }
 
   &.big {
     position: fixed;
@@ -31,6 +79,11 @@
     font-size: rem(14px);
     min-width: 300px;
     z-index: 5;
+
+    .user-modal {
+      // background-color: aqua;
+      right: 385px
+    }
   }
 
   &.book {
@@ -38,54 +91,7 @@
   }
 
 
-  .user-modal {
-    display: grid;
-    font-family: 'Circular';
-    color: $clr8;
-    position: absolute;
-    top: 80px;
-    right: 80px;
-    width: 240px;
-    border: 1px solid $clr5 ;
-    z-index: 4;
-    background-color: $clr1;
-    padding: em(30px); // background-color: aqua;
-    border-radius: 1rem;
-    box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
-
-
-
-    &>* {
-      padding: em(20px);
-
-      &.-webkit-any-link {
-        color: $clr11;
-      }
-
-      &:not(:last-of-type) {
-        border-bottom: 1px solid $clr5 ;
-      }
-
-      &:hover {
-        background-color: $clr3;
-        cursor: pointer;
-      }
-
-    }
-
-    .log-in {
-      color: $clr11;
-      border-bottom: 1px solid $clr11 ;
-    }
-
-    .sign-up {
-      border-bottom: 1px solid $clr5;
-    }
-
-    .host-link {
-      color: inherit;
-    }
-  }
+ 
 
   .main-content {
     display: grid;

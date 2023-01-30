@@ -143,7 +143,7 @@ export function StayDetails() {
 
 
             <Reviwes stay={stay} setCapacityModal={setCapacityModal} />
-            <FirstFooter setCapacityModal={setCapacityModal} />
+            {/* <FirstFooter setCapacityModal={setCapacityModal} /> */}
         </div>
 
 

@@ -205,8 +205,8 @@ const users = [
     },
     {
         "_id": "u104",
-        "fullname": "Aileen Jons",
-        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
+        "fullname": "Ivan Jons",
+        "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=male",
         "username": "Errol",
         "password": "secret",
         "wishList": []
