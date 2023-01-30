@@ -1,4 +1,3 @@
-
 import { useState, useRef, createRef, useEffect } from "react"
 
 import React from 'react';
@@ -18,7 +17,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
         setRandDate(getRandomDate())
     }, [])
 
-    // const [isInWishList, setIsInWishList] = useState(false)
     const [isColoredRed, setIsColoredRed] = useState(false)
     let slides = [];
 
@@ -30,8 +28,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
         const isInWishList = userWishList.find(element => element === stay._id)
 
     }, [userWishList])
-
-
 
     getSlides()
     function getSlides() {
@@ -131,25 +127,6 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
         addStayIdToWishList(stay._id)
         SetwishListModal(true)
 
-
-        // if (isColoredRed) {
-        //     refWishList.current.style.fill = 'rgba(0, 0, 0, 0.5)'
-        //     setIsColoredRed(false)
-        // }
-        // else {
-        //     refWishList.current.style.fill = '#FF385C'
-        //     setIsColoredRed(true)
-        // }
-
-
-        // refWishList.current.style.fill = 'red'
-        // setIsInWishList(true)
-
-        // console.log(userWishList)
-        // refWishList.current.style.backgroundColor = "red"
-        // className={`isWantToBeAddedWishList ? "red" : "black"`}
-
-
     }
     const rates = stay['statReviews']
 
@@ -237,38 +214,3 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     </article>
 }
 
-
-
-
-
-// import React from 'react';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Stayousel } from 'react-responsive-carousel';
-
-// export function StayPreview({ stay }) {
-
-//     return <article className="stay-preview">
-//         {/* <div className="image-containter">
-//             <div className="square"> */}
-//                 <Stayousel className='carousel'>
-//                     <div>
-//                         <img src={require("../assets/img/asset46.webp")} />
-//                     </div>
-//                     <div>
-//                         <img src={require("../assets/img/asset47.webp")} />
-//                     </div>
-//                     <div>
-//                         <img src={require("../assets/img/asset48.webp")} />
-//                     </div>
-//                     <div>
-//                         <img src={require("../assets/img/asset49.webp")} />
-//                     </div>
-//                     <div>
-//                         <img src={require("../assets/img/asset50.webp")} />
-//                     </div>
-//                 </Stayousel>
-//             {/* </div>
-//         </div> */}
-//     </article>
-
-//

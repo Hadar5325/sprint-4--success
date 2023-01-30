@@ -3,6 +3,9 @@
     grid-template-columns: 20vw 1fr 20vw;
     font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
     justify-content: space-between ;
+    grid-template-columns: 80px 1fr 80px;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    ;
     grid-template-areas:
         ". title ."
         ". main . "
@@ -356,6 +359,46 @@
     .bookFooter {
         grid-area: footer;
         background-color: rgb(247, 247, 247);
+    }
+
+    .aprove {
+        background-color: #d5d5d579;
+        position: fixed;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .aproveContant {
+            background-color: white;
+            height: 300px;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgray;
+
+        }
+
+        .Congrat{
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            color: #de1361;
+        }
+        .title{
+            display: flex;
+            justify-content: center;
+            font-size: 15px;
+            width: 90%;
+        }
+        .therdTitle{
+            font-size: 13px;
+            margin-top: 50px;
+        }
     }
 
 }

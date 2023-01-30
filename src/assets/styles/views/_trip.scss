@@ -12,7 +12,7 @@
     color: #222;
 
     position: absolute;
-    top: 80px;
+    top: 120px;
 }
 
 .trip-containter>* {
@@ -29,6 +29,12 @@
         padding-bottom: 25px;
     }
 
+    .trip-image{
+        width: 150px;
+        border-radius: 12px;
+        
+    }
+
     .trip-table {
         width: 100%;
         height: auto;
@@ -38,9 +44,14 @@
         text-align: left;
         font-size: 14px;
         padding-bottom: 20px;
+
     }
 
 }
+
+// .trip-tr-body.price:only-child{
+//     background-color: blue;
+// }
 
 .trip-header {
     padding-bottom: 60px;

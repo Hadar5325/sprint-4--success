@@ -60,28 +60,20 @@ export function StayManagement() {
         setPendingNum(pendingOrders.length)
     }
 
-    async function changeStatus(event, orderId, status) {
-        event.preventDefault()
+    async function changStatus(orderId, status) {
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
         getMayOrders()
-        // setOrderStatus('reject')
     }
 
     // console.log('isUserModalShown:',isUserModalShown)
 
     if (!myStays) return <section>Add a home</section>
     return <section className="stayMenegment">
-        <div className='menegmentMnue'>
-            <div className='buttons'>
-                <button className={`showinfo  ${info === 'orders' && 'push'} right`} onClick={() => setInfo('orders')}>orders</button>
-                <button className={`showinfo left ${info === 'stays' && 'push'}`} onClick={() => setInfo('stays')}>my stays</button>
-            </div>
-        </div>
-        {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changeStatus={changeStatus} />}
-        {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changeStatus={changeStatus} />}
-
+        {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
+        {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
+        
 
     </section>
 }
