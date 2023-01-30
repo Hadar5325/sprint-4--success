@@ -1423,7 +1423,7 @@ const stays = [
     },
     {
         "_id": "622f337a75c7d36e498aaafd",
-        "name": "Luxury, fully furnished Bell Tent with range stove",
+        "name": "Luxury Bell Tent",
         "types": [
             "Amazing views",
             "Off-the-grid",
