@@ -10,7 +10,7 @@
         },
         "totalPrice": 1190,
         "guests": {
-            "adults": 2,
+            "adults": 3,
             "kids": 1
         },
         "stay": {
@@ -33,7 +33,7 @@
         },
         "totalPrice": 1690,
         "guests": {
-            "adults": 2,
+            "adults": 1,
             "kids": 1
         },
         "stay": {
@@ -79,7 +79,7 @@
         },
         "totalPrice": 760,
         "guests": {
-            "adults": 2,
+            "adults": 5,
             "kids": 1
         },
         "stay": {

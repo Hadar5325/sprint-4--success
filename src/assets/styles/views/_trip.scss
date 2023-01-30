@@ -3,7 +3,7 @@
     height: auto;
 
     display: grid;
-    grid-template-columns: 80px 1fr 80px;
+    grid-template-columns: 20vw 1fr 20vw;
 
     font-family: 'Circular';
     font-size: 28px;
@@ -28,12 +28,14 @@
     .trip-td {
         padding-bottom: 25px;
         text-align: left;
+
+
     }
 
-    .trip-image{
+    .trip-image {
         width: 150px;
         border-radius: 12px;
-        
+
     }
 
     .trip-table {
@@ -44,9 +46,16 @@
     }
 
     .trip-td-body {
+
+        padding: 20px 5px;
         text-align: left;
         font-size: 14px;
-        padding-bottom: 20px;
+
+        .image {
+            // display: flex;
+            // justify-content: center;
+        }
+
 
     }
 
@@ -59,19 +68,24 @@
 .trip-header {
     padding-bottom: 60px;
 }
-.reject{
+
+.reject {
     color: red;
 }
-.approve{
+
+.approve {
     color: green;
 }
-.pending{
-    color:orange;
+
+.pending {
+    color: orange;
 }
-.trip-tr{
+
+.trip-tr {
     border-bottom: 1px solid;
 }
-.trip-tr-body{
+
+.trip-tr-body {
     height: auto;
     border-bottom: 1px solid;
 }

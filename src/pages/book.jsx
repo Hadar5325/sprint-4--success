@@ -73,7 +73,7 @@ export function Book() {
         Pets = Number(Pets)
 
         const adultsNum = Adulst + kids
-        let line = adultsNum + 'guest'
+        let line = adultsNum + ' guests' 
         if (Infants > 0) {
             line = line + ', ' + Infants + ' Infants '
         }
@@ -199,17 +199,17 @@ export function Book() {
 
                             <div className='priceDet'>
                                 <div className='priceDetContainer'>
-                                    <div className='calc'>{currStay.price} x 5 nights</div>
-                                    <div className='resolve'>{currStay.price * 5}</div>
+                                    <div className='calc'>{currStay.price}₪ x 5 nights</div>
+                                    <div className='resolve'>{currStay.price * 5}₪+</div>
                                 </div>
                                 <div className='priceDetContainer secend'>
                                     <div className='calc'>serviceFee</div>
-                                    <div className='resolve'>{(currStay.price * 5) * 0.1}</div>
+                                    <div className='resolve'>{(currStay.price * 5) * 0.1}₪</div>
                                 </div>
                                 <hr className='breakLine'></hr>
                                 <div className='priceDetContainer'>
                                     <div className='totalTitle'>Total (ILS)</div>
-                                    <div className='totalFee'>{currStay.price * 5 + (currStay.price * 5) * 0.1}</div>
+                                    <div className='totalFee'>{currStay.price * 5 + (currStay.price * 5) * 0.1}₪</div>
                                 </div>
 
                             </div>

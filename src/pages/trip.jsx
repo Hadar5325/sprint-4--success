@@ -112,7 +112,7 @@ export function Trip() {
                                 <thead className="trip-thead">
                                     <tr className="trip-tr">
                                         <th key={10} className="trip-td">Stay</th>
-                                        <th key={11} className="trip-td">Guests</th>
+                                        {/* <th key={11} className="trip-td">Guests</th> */}
                                         <th key={12} className="trip-td">Check-In</th>
                                         <th key={13} className="trip-td">Check-Out</th>
                                         <th key={14} className="trip-td">Booked</th>
@@ -125,8 +125,8 @@ export function Trip() {
                                     {myOrders.map((row, index) => {
                                         return (
                                             <tr key={index} className="trip-tr-body">
-                                                <td className="trip-td-body">{<img className='trip-image' src={`${stayId[index]}`}></img>}</td>
-                                                <td className="trip-td-body">{row.guests.Adulst}</td>
+                                                <td className="trip-td-body image">{<img className='trip-image' src={`${stayId[index]}`}></img>}</td>
+                                                {/* <td className="trip-td-body">{row.guests.adults}</td> */}
                                                 <td className="trip-td-body">{row.startDate}</td>
                                                 <td className="trip-td-body">{row.endDate}</td>
                                                 <td className="trip-td-body">{row.startDate}</td>
