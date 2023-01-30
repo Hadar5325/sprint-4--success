@@ -34,6 +34,7 @@ async function query(filterBy) {
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
+        console.log('from storge!!:', staysFromStorage )
     } else {
         _makeStays(stays)
         console.log('stayes at query:', stays)
@@ -403,7 +404,7 @@ const stays = [
         },
         "stayType": "Entire home/apt",
         "host": {
-            "_id": "1evJq",
+            "_id": "u104",
             "fullname": "Patty And Beckett",
             "location": "Eureka, California, United States",
             "about": "Adventurous couple loves to travel :)",
@@ -594,7 +595,7 @@ const stays = [
         ],
         "roomType": "Private room",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Angel",
             "location": "Montreal, Québec, Canada",
             "about": "",
@@ -731,7 +732,7 @@ const stays = [
         "bedrooms": 1,
         "roomType": "Private room",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Patrícia Sousa Casimiro",
             "location": "Senhora da Hora, Porto, Portugal",
             "about": "",
@@ -891,7 +892,7 @@ const stays = [
         "bedrooms": 0,
         "roomType": "Entire home/apt",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Apartments2Enjoy",
             "location": "Porto, Porto District, Portugal",
             "about": "Welcome!\r\nThe apartments has all the things to provide you a perfect days in Porto. It is located in a very central area, inside a typical oporto building. \r\nI will give you lots of informations about Porto, my personal tips, and I'll always be available to help you with anything. All I want is for you to go home knowing Porto and inevitably loving the city! :)\r\n\r\n",
@@ -1197,7 +1198,7 @@ const stays = [
         "bedrooms": 1,
         "roomType": "Entire home/apt",
         "host": {
-            "_id": "sysUO",
+            "_id": "u104",
             "fullname": "Kevin",
             "location": "New York, New York, United States",
             "about": "Welcome Everyone! Thank you for stopping by. \r\n\r\nI was born and raised in Manhattan and I am here to help  share the New York City Experience with others through Airbnb!  I am easy to connect with and very reachable and always willing to interact with people. \r\n\r\nI am big on cleanliness and hospitality. I strive on making Guests feel as comfortable as possible. \r\n\r\nI hope you would like to get a chance to visit my location and enjoy the hosting I provide. If you have any questions/ comments, feel free to contact me. \r\n",

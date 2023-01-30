@@ -1,6 +1,6 @@
 import { stayService } from '../services/stay.service.local.js'
 import { orderService } from '../services/order.service.local'
-import {SetIsUserModalShown} from '../store/stay.actions'
+import { SetIsUserModalShown } from '../store/stay.actions'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOrders, loadOrder, addOrder, updateOrder, removeOrder } from '../store/order.action'
@@ -20,24 +20,25 @@ export function StayManagement() {
 
 
     useEffect(() => {
-        getMayStays()
-        getMayOrders()
-    }, [myOrders])
+        getMyStays()
+        getMyOrders()
+    }, [])
 
 
     useEffect(() => {
         numOfPending()
     }, [myOrders])
 
-    async function getMayOrders() {
+    async function getMyOrders() {
         try {
             const orders = await orderService.getOrdersByUserId(loggedinUser._id)
+            setMyOrders(orders)
         } catch (err) {
             console.log(err)
         }
     }
 
-    async function getMayStays() {
+    async function getMyStays() {
         try {
             const stays = await stayService.getStaysByUserId(loggedinUser._id)
             setMyStays(stays)
@@ -64,7 +65,7 @@ export function StayManagement() {
         const orderToUp = await loadOrder(orderId)
         orderToUp.status = status
         updateOrder(orderToUp)
-        getMayOrders()
+        getMyOrders()
     }
 
     // console.log('isUserModalShown:',isUserModalShown)
@@ -73,7 +74,7 @@ export function StayManagement() {
     return <section className="stayMenegment">
         {info === 'orders' && < OrderShow loggedinUser={loggedinUser} pendingNum={pendingNum} myOrders={myOrders} changStatus={changStatus} />}
         {info === 'stays' && < StaysShow loggedinUser={loggedinUser} myStays={myStays} myOrders={myOrders} changStatus={changStatus} />}
-        
+
 
     </section>
 }

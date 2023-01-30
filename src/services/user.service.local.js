@@ -188,9 +188,9 @@ const users = [
     },
     {
         "_id": "u102",
-        "fullname": "Joana Poter",
+        "fullname": "Aviv Poter",
         "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
-        "username": "Emmitt",
+        "username": "Aviv",
         "password": "secret",
         "wishList": []
     },

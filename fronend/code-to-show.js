@@ -15,7 +15,7 @@ async function changeStatus(orderId, orderStatus) {
 
 // In the order.actions - Sending a request to save the updted order and dispaching at the store
 
-export function updateOrder(order) {
+async function updateOrder(order) {
     try {
         const savedOrder = orderService.save(order)
         store.dispatch({ type: UPDATE_ORDER, order })
