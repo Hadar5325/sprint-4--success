@@ -13,71 +13,112 @@
 
     position: absolute;
     top: 120px;
+
+    .trip-data{
+        border: 2px solid $clr5;
+        padding: 20px;
+    }
+    .trip-headers {
+        font-size: 18px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        .trip-header {
+            padding-bottom: 20px;
+        }
+    }
 }
 
 .trip-containter>* {
     grid-column: 2;
     grid-row-gap: 70px;
-
-
-    .trip-thead {
-        font-size: 14px;
-        text-align: left;
-    }
-
-    .trip-td {
-        padding-bottom: 25px;
-        text-align: left;
-
-
-    }
-
-    .trip-image {
-        width: 150px;
-        border-radius: 12px;
-
-    }
-
-    .trip-table {
-        width: 100%;
-        height: auto;
-        border-collapse: collapse;
-
-    }
-
-    .trip-td-body {
-
-        padding: 20px 5px;
-        text-align: left;
-        font-size: 14px;
-
-        .image {
-            // display: flex;
-            // justify-content: center;
-        }
-
-
-    }
-
 }
 
-// .trip-tr-body.price:only-child{
-//     background-color: blue;
+.data-body {
+    font-family: 'Circular';
+    font-size: 14px;
+
+    .trip-body-containter {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-top: 1px solid $clr5;
+        // .trip-body {
+
+        // }
+        .trip-body.image {
+            display: flex;
+            justify-content: left;
+
+            .trip-image {
+                width: 90px;
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+//     // .trip-thead {
+//     //     font-size: 14px;
+//     //     text-align: left;
+//     // }
+
+//     // .trip-td {
+//     //     padding-bottom: 25px;
+//     //     text-align: left;
+
+
+//     // }
+
+//     .trip-image {
+//         width: 150px;
+//         border-radius: 12px;
+
+//     }
+
+//     .trip-table {
+//         width: 100%;
+//         height: auto;
+//         display: grid;
+//         grid-template-columns: repeat(7, 1fr);
+//         // border-collapse: collapse;
+
+//     }
+
+//     .trip-td-body {
+
+//         padding: 20px 5px;
+//         text-align: left;
+//         font-size: 14px;
+
+//         .image {
+//             // display: flex;
+//             // justify-content: center;
+//         }
+
+
+//     }
+
 // }
 
-.trip-header {
-    padding-bottom: 60px;
-}
+// // .trip-tr-body.price:only-child{
+// //     background-color: blue;
+// // }
 
-.reject {
+// .trip-header {
+//     padding-bottom: 60px;
+// }
+
+.Declined {
     color: red;
 }
 
-.approve {
+.Approved {
     color: green;
 }
 
-.pending {
+.Pending {
     color: orange;
 }
 
@@ -85,7 +126,7 @@
     border-bottom: 1px solid;
 }
 
-.trip-tr-body {
-    height: auto;
-    border-bottom: 1px solid;
-}
+// .trip-tr-body {
+//     height: auto;
+//     border-bottom: 1px solid;
+// }
