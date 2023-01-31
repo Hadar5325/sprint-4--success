@@ -49,7 +49,8 @@ export function AppHeader({ }) {
     }
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
-    if ((location.match(`/stays`) && !location.match(`/book`)) || location.match(`/trip`)) divName += ' stay stays'
+    if ((location.match(`/stays`) && !location.match(`/book`))) divName += ' stay stays'
+    else if (location.match(`/trip`)) divName += ` trip`
     else if (location.match(`/stays/book`)) divName += ` book`
     else if (location.match(`/hostManage`)) divName += ` hostManage`
     else if (location.match('/')) divName += `index`
@@ -143,8 +144,9 @@ export function AppHeader({ }) {
                     </button>
                 </div>
                 <div className={`filter-container flex ${(isFilterShown) ? 'close' : ''}`}>
-                    <button onClick={() => onShowFilter('location')}><div className='btn-txt'>{setLocationTxt()}</div></button><span className='line'></span>
-                    <button onClick={() => onShowFilter('date')}><div className='btn-txt'>{timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div>
+                    <button onClick={() => onShowFilter('location')}><div className='btn-txt'>Anywhere</div></button><span className='line'></span>
+                    <button onClick={() => onShowFilter('date')}><div className='btn-txt'>Any week</div>
+                        {/* {timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div> */}
                     </button><span className='line'></span>
                     <button className='guests flex align-center' onClick={() => onShowFilter('capacity')}>
                         <div className='btn-txt'> Add guests</div>

@@ -27,7 +27,7 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
         return Math.floor(Math.random() * max);
     }
 
-    // console.log(myOrders[0])
+    if(!myOrders.length) return <div class="loader"></div>
     return <div className='menegmentContant'>
         <div className='contantTitle'>
             Hello {loggedinUser.fullname}! you have {pendingNum} pending orders
@@ -62,8 +62,8 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
                         <div className={`cell status ${order.status}`}>{order.status}</div>
 
                         <div className='cell actions'>
-                            <button className='approveBtn' disabled={(order.status === 'Pending') ? false : true} onClick={(event) => changStatus(order._id, 'Approved')}>approve</button>
-                            <button className='rejectBtn' disabled={(order.status === 'Pending') ? false : true} onClick={(event) => changStatus( order._id, 'Declined')}>reject</button>
+                            <button className='approveBtn' disabled={(order.status === 'Pending') ? false : true} onClick={() => changStatus(order._id, 'Approved')}>approve</button>
+                            <button className='rejectBtn' disabled={(order.status === 'Pending') ? false : true} onClick={() => changStatus( order._id, 'Declined')}>reject</button>
                         </div>
                     </section>
                 })

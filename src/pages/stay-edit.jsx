@@ -50,7 +50,7 @@ export function StayEdit() {
     }
 
     return <section>
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <div class="loader"></div>}
         {!isLoading && <div>
         <h2>{stayToEdit._id ? 'Edit this stay' : 'Create a new stay'}</h2>
         <form onSubmit={onSaveStay}>

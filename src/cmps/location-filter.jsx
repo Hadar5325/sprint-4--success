@@ -18,9 +18,9 @@ export function LocationFilter({ handleChange, filterBy }) {
 
 
     const regions = [
-        { txt: 'I\'m flexible', value: 'flexible'},
+        { txt: 'I\'m flexible', value: 'flexible' },
         { txt: 'Middle East', value: 'middle east' },
-        { txt: 'Europe', value: 'europe', },
+        { txt: 'Europe', value: 'europe' },
         { txt: 'United States', value: 'united states' },
         { txt: 'France', value: 'france' },
         { txt: 'South America', value: 'south america' }
@@ -33,7 +33,7 @@ export function LocationFilter({ handleChange, filterBy }) {
                 return <article key={region.value}>
                     <div className="img-container"
                         onClick={() => onSetRegion(region.value)}>
-                   <img src={require(`../assets/img/${region.value}.jpg`)} alt="" />
+                        <img src={require(`../assets/img/${region.value}.jpg`)} alt="" />
                     </div>
                     <p>{region.txt}</p>
                 </article>

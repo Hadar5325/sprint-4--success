@@ -14,10 +14,14 @@
     position: absolute;
     top: 120px;
 
-    .trip-data{
-        // border: 2px solid $clr5;
+    .trip-data {
+        // background-color: aqua;
+        // display: flex;
+        // flex-direction: row-reverse;
         padding: 20px;
+        padding-inline-start: 0;
     }
+
     .trip-headers {
         font-size: 18px;
         display: grid;
@@ -44,6 +48,7 @@
         padding-bottom: 20px;
         padding-top: 20px;
         border-top: 1px solid $clr5;
+        align-items: center;
         // .trip-body {
 
         // }

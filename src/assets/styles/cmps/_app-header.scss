@@ -11,9 +11,15 @@
   min-height: 80px;
   padding: em(16px) 0;
 
+  
+
   &.index{
     .main-content{
     width: 91.6vw;
+  }
+
+  .user-modal{
+    right: 71px;
   }
   }
 
@@ -33,7 +39,7 @@
     }
 
     .user-modal {
-      right: 385px;
+      right: 370px;
 
     }
   }
@@ -42,7 +48,11 @@
   &.hostManage {
     display: grid;
     margin-left: 70px;
-    grid-template-columns: 20vw 51.8vw 20vw;
+    grid-template-columns: 20vw 52.6vw 20vw;
+
+    .user-modal{
+      right: 469px;
+    }
   }
   
 
@@ -62,6 +72,19 @@
     .main-content {
       grid-column: 2;
     }
+
+    .user-modal {
+      right: 385px;
+
+    }
+  }
+
+  &.trip{
+    grid-template-columns: 20vw 59vw 20vw; ;
+
+    .user-modal{
+      right: 401px;
+    }
   }
   
   // transition: min-height 1s;
@@ -73,7 +96,7 @@
     color: $clr8;
     position: absolute;
     top: 80px;
-    right: 80px;
+    
     width: 240px;
     border: 1px solid $clr5 ;
     z-index: 5;
@@ -175,6 +198,10 @@
 
       font-family: $font1;
       font-size: rem(14px);
+
+      .btn-txt{
+        text-transform: capitalize;
+      }
     }
 
     .line {
@@ -193,6 +220,7 @@
       .btn-txt {
         // background-color: aqua;
         padding-inline-start: 10px;
+       
       }
     }
 

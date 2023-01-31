@@ -6,7 +6,8 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    drawItems
+    drawItems,
+    shuffle
 }
 
 function makeId(length = 6) {
@@ -68,4 +69,15 @@ function drawItems(items) {
     var num = items[randIdx]
     items.splice(randIdx, 1)
     return num
+}
+
+function shuffle(items) {
+    var randIdx, keep;
+    for (var i = items.length - 1; i > 0; i--) {
+        randIdx = getRandomIntInclusive(0, items.length-1);
+        keep = items[i];
+        items[i] = items[randIdx];
+        items[randIdx] = keep;
+    }
+    return items;
 }

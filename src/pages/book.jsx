@@ -200,7 +200,7 @@ export function Book() {
                             <div className='priceDet'>
                                 <div className='priceDetContainer'>
                                     <div className='calc'>{currStay.price}₪ x 5 nights</div>
-                                    <div className='resolve'>{currStay.price * 5}₪+</div>
+                                    <div className='resolve'>{currStay.price * 5}₪</div>
                                 </div>
                                 <div className='priceDetContainer secend'>
                                     <div className='calc'>serviceFee</div>

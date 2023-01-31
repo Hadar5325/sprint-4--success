@@ -52,7 +52,7 @@ export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, g
     //     "Accuracy": 0,
     //     "Location": 0,
     //     "Value": 0
-
+    
     return <section className="detailes">
 
         <Booking dates={dates} img={img} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} rate={rate} avgRate={avgRate} capacityModal={capacityModal} setCapacityModal={setCapacityModal} dateModal={dateModal} setDateModal={setDateModal} handleChange={handleChange} />

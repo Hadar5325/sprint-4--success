@@ -4,7 +4,7 @@ import React from 'react';
 import { utilService } from "../services/util.service"
 
 export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
-
+// console.log('stay at preview:',stay )
     const [wishListModal, SetwishListModal] = useState(false)
     const [avgRate, setAvgRate] = useState(0)
     const [currentIdx, setCurrentIdx] = useState(0)

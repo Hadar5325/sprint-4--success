@@ -31,7 +31,7 @@ export function StayDetails() {
     const [stay, setStay] = useState(null)
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})
-    const [dates, setDates] = useState({})
+    const [dates, setDates] = useState({timeStart: 'Feb 4', timeEnd: 'Feb 9'})
     const [guestsNum, setGuestsNum] = useState(1 + 'guest')
     // const [rate, setRate] = useState(0)  
 
@@ -131,7 +131,7 @@ export function StayDetails() {
 
 
     if (!stay) {
-        return <section>loading...</section>
+        return <div class="loader"></div>
     }
     return <section className='stays' onClick={handleClick} >
 
