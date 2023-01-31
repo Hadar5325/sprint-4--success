@@ -1,20 +1,20 @@
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import { MainFilter } from './main-filter'
 import { StayManagement } from '../pages/stay-management'
-
+import { getUnit } from '@mui/material/styles/cssUtils'
 import { userService } from '../services/user.service.local'
+import { setIsFilterShown, toggleScreen } from '../store/stay.actions'
 import { logout, loadUsers } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
 import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
-
-import { useLocation } from 'react-router-dom';
-import { setIsFilterShown, toggleScreen } from '../store/stay.actions'
-import { getUnit } from '@mui/material/styles/cssUtils'
+import xbtn2 from '../assets/img/xbtn2.png'
 
 
 export function AppHeader({ }) {
@@ -50,8 +50,8 @@ export function AppHeader({ }) {
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
     if ((location.match(`/stays`) && !location.match(`/book`)) || location.match(`/trip`)) divName += ' stay stays'
-    else if (location.match(`/stays/book`)) divName +=` book`
-    else if (location.match(`/hostManage`)) divName +=` hostManage`
+    else if (location.match(`/stays/book`)) divName += ` book`
+    else if (location.match(`/hostManage`)) divName += ` hostManage`
     else if (location.match('/')) divName += `index`
 
 
@@ -65,7 +65,9 @@ export function AppHeader({ }) {
     function openUserModal() {
         console.log('loggedinUser at openUserModal:', loggedinUser)
         if (loggedinUser) return <section className='user-modal'>
-            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            <button className='close'
+                onClick={() => setIsUserModalOpen(false)}>
+                ✕</button>
             <div className='log-out' onClick={() => {
                 logout()
                 setIsUserModalOpen(false)
@@ -85,7 +87,9 @@ export function AppHeader({ }) {
             }}>WishLists</Link>
         </section>
         return <section className='user-modal'>
-            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            <button className='close'
+                onClick={() => setIsUserModalOpen(false)}>
+                ✕</button>
             {/* <div className="full-screen transparent"
                 onClick={() => setIsUserModalOpen(false)} ></div> */}
             <div className='log-in' onClick={() => {
