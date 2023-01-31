@@ -301,7 +301,12 @@ const imgUrlsTresure = [
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg",
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436287/my8eunlgiiflc2ohslgx.jpg",
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437221/wczn7rdpbtjbcvgspakp.jpg",
-    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437339/qgs3hrnx0accbjkzuh9s.jpg"
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437339/qgs3hrnx0accbjkzuh9s.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437256/d1wl601knflcsohxsqhk.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436372/d32ktdsaqfoiogz5dpvf.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436397/nde7l2hrwezdfzbvhczj.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436983/pivldxmrxssnhyzixhes.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg"
 ]
 
 

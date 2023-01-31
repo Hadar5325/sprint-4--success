@@ -37,7 +37,7 @@
     .mainBook {
         grid-area: main;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
 
         .pay {
             position: relative;
@@ -142,6 +142,7 @@
 
                 .msgDiv {
                     padding: 4px;
+                    padding-left: 0;
                     margin-bottom: 15px;
 
                     .textarea {

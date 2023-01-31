@@ -1,5 +1,6 @@
 .app-header {
-  // position: static;
+  // grid-template-columns: minmax(auto,80px) 1.2fr minmax(auto,80px);
+  // gri
   // background-color: aqua;
   padding: 0.7rem 0;
   // width: 90vw;
@@ -10,9 +11,63 @@
   min-height: 80px;
   padding: em(16px) 0;
 
+  &.index{
+    .main-content{
+    width: 91.6vw;
+  }
+  }
+
+  &.stay {
+    min-width: 80vw;
+    position: static;
+    grid-column: 2;
+    background-color: $clr1;
+    border-bottom: 1px solid $clr4 ;
+    font-family: $font1;
+    font-size: rem(14px);
+    min-width: 300px;
+    z-index: 5;
+
+    .main-content {
+      width: 59.8vw;
+    }
+
+    .user-modal {
+      right: 385px;
+
+    }
+  }
+
+
+  &.hostManage {
+    display: grid;
+    margin-left: 70px;
+    grid-template-columns: 20vw 51.8vw 20vw;
+  }
+  
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr, max-content, 1fr;
+    grid-template-rows: 1fr, 1fr;
+    align-items: center;
+    
+  }
+
+  &.book {
+    display: grid;
+    // background-color: antiquewhite;
+    grid-template-columns: 20vw 59vw 20vw;
+
+    .main-content {
+      grid-column: 2;
+    }
+  }
+  
   // transition: min-height 1s;
 
   .user-modal {
+   
     display: grid;
     font-family: 'Circular';
     color: $clr8;
@@ -87,64 +142,7 @@
     }
   }
 
-  &.big {
-    position: fixed;
-    min-height: 220px;
-  }
-
-  &.stay {
-    min-width: 80vw;
-    position: static;
-    grid-column: 2;
-    background-color: $clr1;
-    // padding: 0px 110px;
-    // grid-template-rows: repeat(2,max);
-    border-bottom: 1px solid $clr4 ;
-    font-family: $font1;
-    font-size: rem(14px);
-    min-width: 300px;
-    z-index: 5;
-
-    .main-content {
-      width: 60vw;
-    }
-
-
-    .user-modal {
-      right: 385px;
-
-    }
-  }
-
-  &.book {
-    display: grid;
-    // background-color: antiquewhite;
-    grid-template-columns: 20vw 59vw 20vw;
-
-    .main-content {
-      grid-column: 2;
-    }
-  }
-
-  &.hostManage {
-    display: grid;
-    margin-left: 70px;
-    grid-template-columns: 20vw 53vw 20vw;
-  }
-
-
-  .main-content {
-    display: grid;
-    grid-template-columns: 1fr, max-content, 1fr;
-    grid-template-rows: 1fr, 1fr;
-
-
-
-    // justify-content: space-between;
-    align-items: center;
-    // justify-content: center;
-    // flex-wrap: wrap;
-  }
+  
 
 
   .filter-container {
@@ -282,15 +280,14 @@
   }
 
   .user-nav {
-    // justify-self: center;
-    // padding: 0%;
-
     display: flex;
     align-items: center;
     justify-items: center;
     border-radius: 2rem;
     outline: 1px solid $clr5;
     transition: 0.25s;
+    margin-right: 0;
+
 
     &:hover {
       box-shadow: 2px 4px 3px 0px $clr4;

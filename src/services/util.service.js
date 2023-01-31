@@ -64,7 +64,7 @@ function loadFromStorage(key) {
 }
 
 function drawItems(items) {
-    var randIdx = getRandomIntInclusive(0, items.length)
+    var randIdx = getRandomIntInclusive(0, items.length-1)
     var num = items[randIdx]
     items.splice(randIdx, 1)
     return num
