@@ -161,40 +161,41 @@ function getNightsCount(start, end) {
 }
 
 
-// function _makeStays(stays) {
-//     for (let i = 0; i < 36; i++) {
-//         const stay = {
-//             _id: utilService.makeId(),
-//             loc: utilService.drawItems(locations),
-//             price: utilService.getRandomIntInclusive(500, 5000),
-//             "statReviews": {
-//                 "Cleanliness": utilService.getRandomIntInclusive(40, 50) / 10,
-//                 "Communication": utilService.getRandomIntInclusive(40, 50) / 10,
-//                 "CheckIn": utilService.getRandomIntInclusive(40, 50) / 10,
-//                 "Accuracy": utilService.getRandomIntInclusive(40, 50) / 10,
-//                 "Location": utilService.getRandomIntInclusive(40, 50) / 10,
-//                 "Value": utilService.getRandomIntInclusive(40, 50) / 10,
-//             },
-//             capacity: utilService.getRandomIntInclusive(1, 10),
-//             amenities: labels[utilService.getRandomIntInclusive[0, 21],
-//                 utilService.getRandomIntInclusive[0, 21]],
-//             imgUrls: [
-//                 utilService.drawItems(imgUrlsTresure),
-//                 utilService.drawItems(imgUrlsTresure)],
-//             reviews: [{ by: { imgUrl: '' } }],
-//             host: {},
-//         }
-//         stays.push(stay)
-//     }
-//     stays.forEach(stay => {
-//         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
-//         stay.reviews.forEach((review) => {
-//             review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(1, 78)}.jpg`
-//         })
-//     })
-//     return stays
-//     //  utilService.shuffle(stays)
-// }
+function _arrangeStays(stays) {
+    
+    stays.forEach(stay => {
+        stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+        stay.reviews.forEach((review) => {
+            review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(1, 78)}.jpg`
+        })
+    })
+    return stays
+    // for (let i = 0; i < 36; i++) {
+    //     const stay = {
+    //         _id: utilService.makeId(),
+    //         loc: utilService.drawItems(locations),
+    //         price: utilService.getRandomIntInclusive(500, 5000),
+    //         "statReviews": {
+    //             "Cleanliness": utilService.getRandomIntInclusive(40, 50) / 10,
+    //             "Communication": utilService.getRandomIntInclusive(40, 50) / 10,
+    //             "CheckIn": utilService.getRandomIntInclusive(40, 50) / 10,
+    //             "Accuracy": utilService.getRandomIntInclusive(40, 50) / 10,
+    //             "Location": utilService.getRandomIntInclusive(40, 50) / 10,
+    //             "Value": utilService.getRandomIntInclusive(40, 50) / 10,
+    //         },
+    //         capacity: utilService.getRandomIntInclusive(1, 10),
+    //         amenities: labels[utilService.getRandomIntInclusive[0, 21],
+    //             utilService.getRandomIntInclusive[0, 21]],
+    //         imgUrls: [
+    //             utilService.drawItems(imgUrlsTresure),
+    //             utilService.drawItems(imgUrlsTresure)],
+    //         reviews: [{ by: { imgUrl: '' } }],
+    //         host: {},
+    //     }
+    //     stays.push(stay)
+    // }
+    //  utilService.shuffle(stays)
+}
 
 export const labels = [
     'Caves', 'Tropical', 'Countryside', 'Skiing',
