@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { utilService } from '../../services/util.service.js'
 import {ReviewsMsg} from './reviewsMsg.jsx'
 
 export function Reviwes({ stay ,setCapacityModal}) {
@@ -28,7 +29,8 @@ export function Reviwes({ stay ,setCapacityModal}) {
     const rates = stay['statReviews']
 
     function calcaAvgRate() {
-        const avg = (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
+        const avg = utilService.getRandomIntInclusive(40,50)/10
+        // (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
         setAvgRate(Math.floor(avg * 10) / 10)
     }
 
@@ -47,7 +49,7 @@ export function Reviwes({ stay ,setCapacityModal}) {
             <div className="reviwesRate">
                 <div className='reviwesTable'>
 
-                    <div className="cleanliness scaleRate">
+                    {/* <div className="cleanliness scaleRate">
                         <div className="rateTitle">Cleanliness</div>
                         <div className='prograsDiv'>
                             <progress className='prograsBar' value={reviewsRate.Cleanliness} max="5"></progress>
@@ -93,7 +95,7 @@ export function Reviwes({ stay ,setCapacityModal}) {
                             <progress className='prograsBar' value={reviewsRate.Value} max="5"></progress>
                             <div className='rateNum'>{reviewsRate.Value}</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <ReviewsMsg stay={stay}/>

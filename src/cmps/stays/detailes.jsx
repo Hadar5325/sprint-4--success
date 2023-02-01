@@ -2,6 +2,7 @@ import { Booking } from './booking.jsx'
 import { StayDetailesContent } from './stay-detailes-content.jsx'
 
 import React, { useEffect, useState } from 'react'
+import { utilService } from '../../services/util.service.js'
 
 export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, guests, capacityModal, setCapacityModal, dateModal, setDateModal }) {
 
@@ -29,7 +30,8 @@ export function Detailes({ dates, setDates, stay, order, guestsNum, setguests, g
 
     function calcaAvgRate() {
 
-        const avg = (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
+        const avg = utilService.getRandomIntInclusive(40,50)/10
+        //  (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
         return Math.floor(avg * 10) / 10
     }
 
