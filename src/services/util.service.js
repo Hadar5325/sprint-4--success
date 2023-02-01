@@ -5,7 +5,8 @@ export const utilService = {
     debounce,
     randomPastTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    drawItems
 }
 
 function makeId(length = 6) {
@@ -60,4 +61,11 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function drawItems(items) {
+    var randIdx = getRandomIntInclusive(0, items.length)
+    var num = items[randIdx]
+    items.splice(randIdx, 1)
+    return num
 }

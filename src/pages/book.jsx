@@ -35,7 +35,7 @@ export function Book() {
 
 
     async function getNewOrder(HostId, price, timeStart, timeEnd, Adulst, kids, Infants, Pets, stay) {
-
+        console.log('stay at getNewOrder', stay)
         const stayName = await stayService.getById(stay)
         console.log('stayName at ger nae order:', stayName.name)
         const newOrder = emptyOrder()
@@ -48,7 +48,7 @@ export function Book() {
         newOrder.stay = { _id: stay, name: stayName.name }
         console.log('stay ar getneworder:', stay)
         // order.msgs = []
-        newOrder.status = "pending"
+        newOrder.status = 'Pending'
         // console.log('new oreder:', newOrder.stay)
         setOrder(newOrder)
         loadStay(newOrder)
@@ -73,7 +73,7 @@ export function Book() {
         Pets = Number(Pets)
 
         const adultsNum = Adulst + kids
-        let line = adultsNum + 'guest'
+        let line = adultsNum + ' guests' 
         if (Infants > 0) {
             line = line + ', ' + Infants + ' Infants '
         }
@@ -110,7 +110,7 @@ export function Book() {
         <section className='book'>
             <div className='RequestTitle'>
                 <div className='RequestTitleContant'>
-                    <div className='backto'>←</div>
+                    {/* <div className='backto'>←</div> */}
                     <div className='RequestTitleContantTitle'>Request to book</div>
                 </div>
             </div>
@@ -199,17 +199,17 @@ export function Book() {
 
                             <div className='priceDet'>
                                 <div className='priceDetContainer'>
-                                    <div className='calc'>{currStay.price} x 5 nights</div>
-                                    <div className='resolve'>{currStay.price * 5}</div>
+                                    <div className='calc'>{currStay.price}₪ x 5 nights</div>
+                                    <div className='resolve'>{currStay.price * 5}₪+</div>
                                 </div>
                                 <div className='priceDetContainer secend'>
                                     <div className='calc'>serviceFee</div>
-                                    <div className='resolve'>{(currStay.price * 5) * 0.1}</div>
+                                    <div className='resolve'>{(currStay.price * 5) * 0.1}₪</div>
                                 </div>
                                 <hr className='breakLine'></hr>
                                 <div className='priceDetContainer'>
                                     <div className='totalTitle'>Total (ILS)</div>
-                                    <div className='totalFee'>{currStay.price * 5 + (currStay.price * 5) * 0.1}</div>
+                                    <div className='totalFee'>{currStay.price * 5 + (currStay.price * 5) * 0.1}₪</div>
                                 </div>
 
                             </div>
@@ -219,7 +219,7 @@ export function Book() {
 
             </div>
 
-            <div className='bookFooter'>dsf</div>
+            {/* <div className='bookFooter'>dsf</div> */}
 
             {modal && <Aprove order={order} />}
 

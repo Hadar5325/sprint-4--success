@@ -10,11 +10,11 @@
         },
         "totalPrice": 1190,
         "guests": {
-            "adults": 2,
+            "adults": 3,
             "kids": 1
         },
         "stay": {
-            "_id": "622f337a75c7d36e498aaaf8",
+            "_id": "vfvdvdfvfdbfgbf",
             "name": "Westin House",
             "price": 595.00
         },
@@ -33,11 +33,11 @@
         },
         "totalPrice": 1690,
         "guests": {
-            "adults": 2,
+            "adults": 1,
             "kids": 1
         },
         "stay": {
-            "_id": "h102",
+            "_id": "621f337a75c7d36e498aaaf8",
             "name": "Fun Village",
             "price": 80.00
         },
@@ -79,7 +79,7 @@
         },
         "totalPrice": 760,
         "guests": {
-            "adults": 2,
+            "adults": 5,
             "kids": 1
         },
         "stay": {

@@ -49,12 +49,10 @@ export function AppHeader({ }) {
     }
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
-    if (location.match(`/stays`) && !location.match(`/book7`)) {
-        divName += ' stay stays'
-    }
-    else if (location.match('/')) {
-        divName += `index`
-    }
+    if (location.match(`/stays`) && !location.match(`/book`)) divName += ' stay stays'
+    else if (location.match(`/stays/book`)) divName +=` book`
+    else if (location.match('/')) divName += `index`
+
 
 
     function setDateTxt(type) {
@@ -86,7 +84,7 @@ export function AppHeader({ }) {
             }}>WishLists</Link>
         </section>
         return <section className='user-modal'>
-             <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
             {/* <div className="full-screen transparent"
                 onClick={() => setIsUserModalOpen(false)} ></div> */}
             <div className='log-in' onClick={() => {

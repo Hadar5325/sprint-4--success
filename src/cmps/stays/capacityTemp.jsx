@@ -4,7 +4,7 @@ export function CapacityBooking({ addGuest, guests, dates }) {
 
     return (
         <section className="guestsModal">
-        
+
             <div className="capacityLabel first">
                 <div className="descriptionGuests">
                     <div className='title'>Adults</div>
@@ -52,7 +52,7 @@ export function CapacityBooking({ addGuest, guests, dates }) {
             </div>
 
             <div>
-                This place has a maximum of 2 guests, not including infants. If you're bringing more than 2 pets, please let your host know.
+
             </div>
         </section >
     )

@@ -34,7 +34,7 @@ async function query(filterBy) {
     const staysFromStorage = await storageService.query(STORAGE_KEY)
     if (staysFromStorage.length) {
         var fillteredStays = staysFromStorage
-        console.log('from storge!!:', staysFromStorage )
+        console.log('from storge!!:', staysFromStorage)
     } else {
         _makeStays(stays)
         console.log('stayes at query:', stays)
@@ -158,8 +158,9 @@ function getNightsCount(start, end) {
 
 
 function _makeStays(stays) {
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 36; i++) {
         const stay = {
+            _id: utilService.makeId(),
             loc: locations[utilService.getRandomIntInclusive(0, 18)],
             price: utilService.getRandomIntInclusive(500, 5000),
             "statReviews": {
@@ -171,22 +172,20 @@ function _makeStays(stays) {
                 "Value": utilService.getRandomIntInclusive(40, 50) / 10,
             },
             capacity: utilService.getRandomIntInclusive(1, 10),
-            type: labels[utilService.getRandomIntInclusive[0, 21],
+            amenities: labels[utilService.getRandomIntInclusive[0, 21],
                 utilService.getRandomIntInclusive[0, 21]],
-            imgUrls: [imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)], imgUrlsTresure[utilService.getRandomIntInclusive(0, 9)]],
+            imgUrls: [
+                utilService.drawItems(imgUrlsTresure),
+                utilService.drawItems(imgUrlsTresure)],
             reviews: [{ by: { imgUrl: '' } }],
             host: {},
-
-
         }
         stays.push(stay)
     }
-    stays.forEach((stay, index) => {
-        stay._id = utilService.makeId()
-        if (index === 6) return
-        stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=female'
+    stays.forEach(stay => {
+        stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
         stay.reviews.forEach((review) => {
-            review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(20, 82)}.jpg`
+            review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(1,78)}.jpg`
         })
     })
     console.log('stays at _arrangeStays :', stays)
@@ -242,8 +241,72 @@ const imgUrlsTresure = [
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437327/epcnh2tzpafwmvi3srcp.jpg",
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437310/tus71yfpnvgulenrli6a.jpg",
     "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436453/ndl8odasqgnyquvsbalp.jpg",
-    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg"
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436797/hzfu8ihyoecadrermn14.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436607/w0q3sn89rqfwyrxtsear.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436787/gcz7mgmxb6dcl4vz6h0a.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436368/noebywqae4x0u42srsv3.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436846/mwlexovwp7ekqlb6witg.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437006/kcsenznwf3pnka6hjwoh.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436876/bskkmribzul6cjzbprvi.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436855/khyvb5q3yzcqaoscuppz.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436359/abuiyexl2xyemq8uon4s.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437025/haliwehueqfkmxo1tv7j.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436546/ooe1vhteuu02af7ny3ex.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436380/ez5caladc00mgsssl6ws.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436811/ym5nh1anownexsyzgbqq.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436481/tqwkxtbalipudzhivoag.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437040/oarfkdxx7gyyvcynvwko.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436376/phpltehcr6uq9lh5jlax.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436978/mhqf1tttzqr33ecrrwb2.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436306/be2v9wssznxs4hebudb4.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436419/jg5q36rc5mpn23kavp6b.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437040/oarfkdxx7gyyvcynvwko.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437250/o8uutj3t2bvfafvxkr9j.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436811/ym5nh1anownexsyzgbqq.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437221/wczn7rdpbtjbcvgspakp.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436321/g2cs1w7tkxsx58penq9j.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436823/af6elioxovkhvp6cg1un.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436542/e96nrbkjz8mecvsbzukk.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436861/xrxhgsif3ekhxgn8irlm.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436928/ouvft4oeavr7ceeha4gk.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436867/yocip4igdbruuh2grzpf.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437006/kcsenznwf3pnka6hjwoh.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437061/xwqh3jtahjqxod0p1a0c.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436329/cvylwkta0uannbxm3zns.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436886/cvc2yfmhfg9dabfkyiqw.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437361/h7fdhfrwoo9jtcgwqzn7.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436528/xfryowvexdic3k1gjush.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436835/pose0fy4kkms4qkln2hg.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436562/aflmntpgocp5l2zxikhl.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436917/mqkfjmfpmyqpqmzmqgau.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437009/zuu2udtrkcs6sxjiym40.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436536/zavqkvmzf6j6efydruzd.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437323/wcnoxi3mwy1a5dmxaccl.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437287/mns2lapesdourab6dn7u.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436804/m7h5fpqvy5ctvkysvg6o.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436394/kscsvxyn0uro9tjhefeb.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436876/bskkmribzul6cjzbprvi.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436837/fyczvvyuelceouxja8yy.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436329/cvylwkta0uannbxm3zns.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436511/ru9vwmfqgv3yvdvny3tw.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436287/my8eunlgiiflc2ohslgx.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437221/wczn7rdpbtjbcvgspakp.jpg",
+    "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437339/qgs3hrnx0accbjkzuh9s.jpg"
 ]
+
+
+
+console.log('imgUrlsTresure.length:', imgUrlsTresure.length)
 
 
 export const amenities = [
@@ -302,7 +365,7 @@ export const amenities = [
 
 const stays = [
     {
-
+        "_id": 'vfvdvdfvfdbfgbf',
         "name": "Westin Kaanapali KORVN 2BR",
         "types": [
             "National parks",
@@ -526,7 +589,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "fzfdbfghgbf24q34546465",
         "name": "Belle chambre à côté Metro Papineau",
         "types": [
             "Campers",
@@ -658,7 +721,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "fzfdbfghdfg124q345q465",
         "name": "Monte dos Burgos - Cosy Room",
         "types": [
             "Campers",
@@ -806,7 +869,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "621f337a75c7d36e498aaaf8",
         "name": "Heroísmo IV",
         "types": [
             "Castles",
@@ -1116,7 +1179,7 @@ const stays = [
         "likedByUsers": []
     },
     {
-
+        "_id": "h102",
         "name": "Home, Sweet, Harlem. Welcome!",
         "types": [
             "Beach",
@@ -1423,7 +1486,7 @@ const stays = [
     },
     {
         "_id": "622f337a75c7d36e498aaafd",
-        "name": "Luxury, fully furnished Bell Tent with range stove",
+        "name": "Luxury Bell Tent",
         "types": [
             "Amazing views",
             "Off-the-grid",
@@ -1542,7 +1605,7 @@ const stays = [
                 "at": "2016-04-25T04:00:00.000Z",
                 "by": {
                     "_id": "622f3401e36c59e6164fabad",
-                    "fullname": "Marios Isabel",
+                    "fullname": "Marios",
                     "imgUrl": "https://xsgames.co/randomusers/avatar.php?g=female",
                     "id": "60712702"
                 },
