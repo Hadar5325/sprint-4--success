@@ -123,7 +123,8 @@ export function AppHeader({ }) {
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
     return (
         <header className={divName}>
-            {/* <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div> */}
+            <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`}
+                onClick={() => setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
                 <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
