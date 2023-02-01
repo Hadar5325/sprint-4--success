@@ -32,8 +32,6 @@ export function StayIndex() {
 
     async function getTotalWishList(userId) {
         const wishList = await userService.getUserByIdWishList(userId)
-
-
         setUserWishList(wishList)
     }
 

@@ -6,7 +6,7 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    drawItems,
+    drawItem,
     shuffle
 }
 
@@ -64,7 +64,7 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
-function drawItems(items) {
+function drawItem(items) {
     var randIdx = getRandomIntInclusive(0, items.length-1)
     var num = items[randIdx]
     items.splice(randIdx, 1)

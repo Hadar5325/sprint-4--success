@@ -22,7 +22,7 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
 
     useEffect(() => {
 
-        // calcaAvgRate()
+        calcaAvgRate()
 
         if (!userWishList.length) return
         const isInWishList = userWishList.find(element => element === stay._id)
@@ -131,8 +131,7 @@ export function StayPreview({ stay, addStayIdToWishList, userWishList }) {
     const rates = stay['statReviews']
 
     function calcaAvgRate() {
-        const avg = utilService.getRandomIntInclusive(40,50)/10
-        // (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
+        const avg = (rates.Cleanliness + rates.Communication + rates.CheckIn + rates.Accuracy + rates.Location + rates.Location) / 6
         setAvgRate(Math.floor(avg * 10) / 10)
     }
 
