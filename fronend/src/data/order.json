@@ -19,7 +19,7 @@
             "price": 595.00
         },
         "msgs": [],
-        "status": "reject",
+        "status": "Declined",
         "requests": ""
     },
     {
@@ -42,7 +42,7 @@
             "price": 80.00
         },
         "msgs": [],
-        "status": "pending",
+        "status": "Pending",
         "requests": ""
     },
     {
@@ -65,7 +65,7 @@
             "price": 809.00
         },
         "msgs": [],
-        "status": "approve",
+        "status": "Approved",
         "requests": ""
     },
     {
@@ -88,7 +88,7 @@
             "price": 900.00
         },
         "msgs": [],
-        "status": "approve",
+        "status": "Approved",
         "requests": ""
     }
 ]

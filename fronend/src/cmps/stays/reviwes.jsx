@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { utilService } from '../../services/util.service.js'
 import {ReviewsMsg} from './reviewsMsg.jsx'
 
 export function Reviwes({ stay ,setCapacityModal}) {

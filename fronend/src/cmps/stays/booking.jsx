@@ -28,7 +28,6 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
         console.log('at handle change:', field, value)
         const timeStart = `${new Date(value.timeStampStart).toLocaleString('en', { month: 'short' })} ${new Date(value.timeStampStart).getDate()}`
         const timeEnd = `${new Date(value.timeStampEnd).toLocaleString('en', { month: 'short' })} ${new Date(value.timeStampEnd).getDate()}`
-
         setDates({ timeStart, timeEnd })
     }
 
@@ -80,8 +79,8 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
 
 
     function calcPrice() {
-        const totalNightsPrice = stay.price * 6
-        const servicefee = Math.floor((0.1 * stay.price * 6) * 10) / 10
+        const totalNightsPrice = stay.price * 5
+        const servicefee = Math.floor((0.1 * stay.price * 5) * 10) / 10
         setPrice({ totalNightsPrice, servicefee, total: totalNightsPrice + servicefee })
     }
 
@@ -90,7 +89,8 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
     const entries = params.entries()
     const queryObject = Object.fromEntries(entries)
     const currParams = stayService.getParams(currFilterBy)
-    console.log('filterBy at booking before ren:', filterBy)
+
+
     return <section className="booking" >
 
 
@@ -119,14 +119,17 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
             {capacityModal && <CapacityBooking addGuest={addGuest} guests={guests} dates={dates} />}
             {dateModal && <div className='calender'>
                 {/* <div className="full-screen show" onClick={() => setDateModal(false)} ></div> */}
-                <DateFilter handleChange={handleChange} isBooking={true} setDateModal={setDateModal}/></div>}
+                <DateFilter 
+            
+                handleChange={handleChange} isBooking={true} 
+                setDateModal={setDateModal} /></div>}
             <Link to={`/stays/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
 
             <div className='wontharged'>You won't be charged yet</div>
 
             <div className='sum'>
                 <div className='billingCalc'>
-                    <div className='calcDetail'>&#x20aa;{stay.price} x 6 nights</div>
+                    <div className='calcDetail'>&#x20aa;{stay.price} x 5 nights</div>
                     <div className='calc'> &#x20aa;{price.totalNightsPrice} </div>
                 </div>
 

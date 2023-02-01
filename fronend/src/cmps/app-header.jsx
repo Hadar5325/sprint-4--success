@@ -1,20 +1,20 @@
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import { MainFilter } from './main-filter'
 import { StayManagement } from '../pages/stay-management'
-
+import { getUnit } from '@mui/material/styles/cssUtils'
 import { userService } from '../services/user.service.local'
+import { setIsFilterShown, toggleScreen } from '../store/stay.actions'
 import { logout, loadUsers } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import hamburger from '../assets/img/hamburger.svg'
 import userDfault from '../assets/img/user-default.svg'
 import logo from '../assets/img/our-logo.png'
 import i18n from '../assets/img/i18n.svg'
-
-import { useLocation } from 'react-router-dom';
-import { setIsFilterShown, toggleScreen } from '../store/stay.actions'
-import { getUnit } from '@mui/material/styles/cssUtils'
+import xbtn2 from '../assets/img/xbtn2.png'
 
 
 export function AppHeader({ }) {
@@ -49,8 +49,10 @@ export function AppHeader({ }) {
     }
 
     let divName = `app-header main-layout full ${isFilterShown ? ' big' : ''}`
-    if (location.match(`/stays`) && !location.match(`/book`)) divName += ' stay stays'
-    else if (location.match(`/stays/book`)) divName +=` book`
+    if ((location.match(`/stays`) && !location.match(`/book`))) divName += ' stay stays'
+    else if (location.match(`/trip`)) divName += ` trip`
+    else if (location.match(`/stays/book`)) divName += ` book`
+    else if (location.match(`/hostManage`)) divName += ` hostManage`
     else if (location.match('/')) divName += `index`
 
 
@@ -64,7 +66,9 @@ export function AppHeader({ }) {
     function openUserModal() {
         console.log('loggedinUser at openUserModal:', loggedinUser)
         if (loggedinUser) return <section className='user-modal'>
-            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            <button className='close'
+                onClick={() => setIsUserModalOpen(false)}>
+                ✕</button>
             <div className='log-out' onClick={() => {
                 logout()
                 setIsUserModalOpen(false)
@@ -84,7 +88,9 @@ export function AppHeader({ }) {
             }}>WishLists</Link>
         </section>
         return <section className='user-modal'>
-            <button className='close' onClick={() => setIsUserModalOpen(false)}>X</button>
+            <button className='close'
+                onClick={() => setIsUserModalOpen(false)}>
+                ✕</button>
             {/* <div className="full-screen transparent"
                 onClick={() => setIsUserModalOpen(false)} ></div> */}
             <div className='log-in' onClick={() => {
@@ -117,7 +123,8 @@ export function AppHeader({ }) {
     const { timeStampStart, timeStampEnd } = currFilterBy.datesRange
     return (
         <header className={divName}>
-            {/* <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`} onClick={() => setIsUserModalOpen(false)}></div> */}
+            <div className={`full-screen transparent ${isUserModalOpen ? 'show' : 'hide'}`}
+                onClick={() => setIsUserModalOpen(false)}></div>
             <div className='main-content flex'>
                 <Link to='/'><div className="logo-container"><img src={logo} alt="" /></div></Link>
                 <div className='header-container flex'>
@@ -138,11 +145,12 @@ export function AppHeader({ }) {
                     </button>
                 </div>
                 <div className={`filter-container flex ${(isFilterShown) ? 'close' : ''}`}>
-                    <button onClick={() => onShowFilter('location')}><div className='btn-txt'>{setLocationTxt()}</div></button><span className='line'></span>
-                    <button onClick={() => onShowFilter('date')}><div className='btn-txt'>{timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div>
+                    <button onClick={() => onShowFilter('location')}><div className='btn-txt'>Anywhere</div></button><span className='line'></span>
+                    <button onClick={() => onShowFilter('date')}><div className='btn-txt'>Any week</div>
+                        {/* {timeStampStart ? `${setDateTxt('in')} - ${setDateTxt('out')}` : 'Any week'}</div> */}
                     </button><span className='line'></span>
                     <button className='guests flex align-center' onClick={() => onShowFilter('capacity')}>
-                        <div className='btn-txt'>{getCapacityTxt()}</div>
+                        <div className='btn-txt'> Add guests</div>
                         <div className="search-image img-container" onClick={(ev) => {
                             ev.stopPropagation()
                             onShowFilter('where')

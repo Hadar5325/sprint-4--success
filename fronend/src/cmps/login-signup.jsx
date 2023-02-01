@@ -1,7 +1,22 @@
+// import {Modal, , Pressable, } from 'react-native'
+// import {Modal,View,Text} from "react-native";
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service.local';
 import { toggleScreen } from '../store/stay.actions'
 import { signup, login } from '../store/user.actions';
+
+// function WrapperComponent() {
+//     return (
+//         <View>
+//             <Modal>
+//                 <View style={{ flex: 1 }}>
+//                     <Text>I am the modal content!</Text>
+//                 </View>
+//             </Modal>
+//         </View>
+//     );
+// }
+
 
 export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
 
@@ -34,12 +49,16 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
             console.log(errTxt, err)
         }
     }
-
+console.log('isLoggedIn at login modal:',isLoggedIn)
     return (
+        // <View>
+        //     <Modal isVisible={isLoginModalShown}>
+        //         <View style={{ flex: 1 }}>
+        //             <Text> 
         <section>
-            {/* <div className={`full-screen black ${isLoginModalShown ? 'show' : 'hide'}`}
-                onClick={() => setIsLoginModalShown(false)}> </div> */}
-
+            <div className={`full-screen ${isLoginModalShown ? 'show' : 'hide'}`}
+                onClick={(() => setIsLoginModalShown(false))}
+            ></div>
             <div className={`login-modal ${isLoginModalShown ? 'show' : 'hide'}`}>
                 <header>
                     <button className='x-btn' onClick={() => {
@@ -79,9 +98,8 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
                         required
                     />}
                     <div>
-                        <a href='#' onClick={() => setIsloggedIn(isLoggedIn)}>
-                            {isLoggedIn ?
-                                'Alreday a memeber ? Login' :
+                        <a href='#' onClick={() => setIsloggedIn(!isLoggedIn)}>
+                            {isLoggedIn ? 'Alreday a memeber ? Login' :
                                 'New user ? signup here'
                             }
                         </a>
@@ -90,7 +108,10 @@ export function LoginSignup({ isLoginModalShown, setIsLoginModalShown }) {
                 </form>
             </div>
         </section>
+        //             </Text>
+        //         </View>
+        //     </Modal>
+        // </View>
     )
-
 }
 

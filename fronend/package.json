@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/joy": "^5.0.0-alpha.65",
     "@mui/material": "^5.11.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -19,6 +20,7 @@
     "react-date-range": "^1.4.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
+    "react-native": "^0.71.1",
     "react-native-maps": "^1.4.0",
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",

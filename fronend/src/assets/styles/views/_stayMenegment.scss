@@ -6,8 +6,10 @@
     grid-template-areas:
         ". main . ";
     padding: em(70px);
+    // justify-content: space-between;
 
     .menegmentContant {
+
         grid-column: 2;
         height: 350px;
         width: 100%px;
@@ -22,21 +24,22 @@
 
         .tableHead {
             display: flex;
+            width: 100%;
             background-color: $clr3;
             height: 50px;
             font-size: 18px;
             font-weight: 400;
             font-size: rem(15px);
-            justify-content: center;
-            gap:5px
-
+            padding-inline-start: 15px;
+            // margin-inline-start: 15px;
+            gap: 5px
         }
 
         .head {
             display: flex;
             align-items: center;
-            justify-content: center;
-           
+            // justify-content: space-between;
+
 
         }
 
@@ -51,6 +54,7 @@
             .stayRow {
                 display: flex;
 
+
                 .stayRow {
                     padding: 10px 5px;
                     border-bottom: 1px solid lightgray;
@@ -58,7 +62,8 @@
 
                 .cell {
                     display: flex;
-                    
+
+
 
                 }
 
@@ -87,6 +92,7 @@
         }
 
         .menegmentTable {
+          
             display: flex;
             flex-direction: column-reverse;
 
@@ -96,7 +102,7 @@
             .tableRow {
                 padding: 10px 5px;
                 border-bottom: 1px solid lightgray;
-                justify-content: center;
+                // justify-content: center;
                 align-items: center;
             }
         }
@@ -104,28 +110,51 @@
         .cell {
             display: flex;
             padding: em(10px);
+
+            &.head {
+                padding-left: 20px;
+            }
+
             // background-color: aqua;
         }
 
-        .pendingStatus {
-            background-color: $clr3;
-        }
-
-
         .guest {
             width: 130px;
+            &.head{
+                padding-left: 5px;
+            }
         }
 
         .stay {
             width: 130px;
+
+            &.head {
+                padding-left: 30px;
+                justify-self: center;
+                align-self: center;
+            }
         }
 
         .dates {
             width: 130px;
+
+            &.check-in {
+
+                &.head {
+                    padding-left: 25px;
+                }
+            }
+
+
+
         }
 
         .price {
             width: 60px;
+
+            &.head {
+                padding-left: 15px;
+            }
         }
 
         .status {
@@ -136,11 +165,47 @@
 
         .actions {
             width: 130px;
+
+            &.head {
+                // justify-content: end;
+                margin-left: 40px;
+            }
         }
 
-        button{
+        button {
+            display: flex;
+            justify-content: center;
+            min-width: 70px;
             background-color: $clr1;
             box-shadow: 2px 3px 4px 0 $clr5;
+            padding: 10px;
+            color: $clr1;
+            font-size: 1rem;
+            transition: box-shadow 0.5s;
+
+            &:hover:not(:disabled){
+                box-shadow: 2px 3px 5px 3px $clr5;
+            }
+
+            &.approveBtn {
+                background-color: rgb(38, 161, 38);
+
+                &:disabled {
+                    background-color: rgb(170, 227, 170);
+                    cursor: not-allowed;
+                }
+            }
+
+            &.rejectBtn {
+                background-color: rgb(235, 64, 64);
+
+                &:disabled {
+                    background-color: rgb(220, 158, 158);
+                    cursor: not-allowed;
+                }
+            }
+
+
         }
 
         .approve {
@@ -156,7 +221,7 @@
         .approveBtn {
             display: flex;
             align-items: center;
-            border: 1px solid rgb(50, 211, 50);
+            // border: 1px solid rgb(50, 211, 50);
             border-radius: 10px;
         }
 
@@ -168,12 +233,12 @@
         .rejectBtn {
             display: flex;
             align-items: center;
-            border: 1px solid rgb(235, 64, 64);
+            // border: 1px solid rgb(235, 64, 64);
             border-radius: 10px;
         }
 
         .rejectBtn:active {
-            background-color: rgb(235, 64, 64);
+            background-color: $clr2;
         }
 
         .gustImg {
@@ -181,6 +246,7 @@
             border-radius: 1rem;
             height: 28px;
             width: 28px;
+            margin-inline-start: 10px;
         }
 
 

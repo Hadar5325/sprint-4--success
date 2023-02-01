@@ -20,6 +20,7 @@ export function StayManagement() {
 
 
     useEffect(() => {
+        loadOrders()
         getMyStays()
         getMyOrders()
     }, [])
@@ -48,22 +49,14 @@ export function StayManagement() {
         }
     }
 
-    // async function loadStay() {
-    //     try {
-    //         const stays = await stayService.getAllStays()
-    //         const ownerStays = stays.filter(stay => stay.host._id === loggedinUser._id)
-    //         setMyStays(ownerStays)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
     function numOfPending() {
-        const pendingOrders = myOrders.filter(order => order.status === 'pending')
+        const pendingOrders = myOrders.filter(order => order.status === 'Pending')
         setPendingNum(pendingOrders.length)
     }
 
     async function changStatus(orderId, status) {
         const orderToUp = await loadOrder(orderId)
+        console.log('orderToUp at changStatus',orderToUp)
         orderToUp.status = status
         updateOrder(orderToUp)
         getMyOrders()

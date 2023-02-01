@@ -106,8 +106,8 @@ export function Trip() {
     }
 
     return <div>
-
-        {!myOrders && <div>loading......</div>}
+        {!isImagesLoaded && <div class="loader"></div>}
+        {!myOrders && <div>&nbsp;</div>}
         {myOrders && <section className="trip-containter" >
             <div className="trip-header">
                 Reservations
@@ -116,7 +116,7 @@ export function Trip() {
                 {/* <Table data={myOrders} /> */}
 
                 <div>
-                    {!isImagesLoaded && <div>loading...</div>}
+
                     {isImagesLoaded &&
                         <div>
 
@@ -147,7 +147,7 @@ export function Trip() {
                             </div>
                             <div className='data-body'>
                                 {myOrders.map((row, index) => {
-                                    {console.log(row.status)}
+                                    { console.log(row.status) }
                                     return (
                                         <div className='trip-body-containter'>
                                             <div className="trip-body image">{<img className='trip-image' src={`${stayId[index]}`}></img>}
@@ -169,7 +169,7 @@ export function Trip() {
                                             <div className="trip-body">
                                                 {row.totalPrice}<span> &#8362;</span>
                                             </div>
-                                            <div  className={`trip-body ${row.status}`}>
+                                            <div className={`trip-body ${row.status}`}>
                                                 {row.status}
                                             </div>
                                         </div>
@@ -205,7 +205,7 @@ export function Trip() {
                                         </tr>) */}
                             {/* // })}
                             </tbody>
-                        </table> * /} */} 
+                        </table> * /} */}
                             {/* <ChartBuyer numStatusPending={numStatusPending} numStatusApproved={numStatusApproved} numStatusDeclined={numStatusDeclined} /> */}
                         </div>
                     }

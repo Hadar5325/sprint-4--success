@@ -11,7 +11,7 @@ export function AdminApp() {
     }, [])
 
     return <section className="admin">
-        {isLoading && 'Loading...'}
+        {isLoading && <div class="loader"></div>}
         {users && <ul>
 
             {users.map(user => (
