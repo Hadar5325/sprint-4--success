@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import { labels } from '../services/stay.service.local'
+import { labels } from '../services/stay.service'
 import { uptadeFilter } from '../store/stay.actions'
 
 export function FilterCarousel() {

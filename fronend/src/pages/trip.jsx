@@ -5,7 +5,7 @@ import { userService } from '../services/user.service.local'
 import { StayManagement } from "../pages/stay-management"
 import { orderService } from '../services/order.service.local'
 import { ChartBuyer } from '../cmps/chart-buyer'
-import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 
 export function Trip() {
 

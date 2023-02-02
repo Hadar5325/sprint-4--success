@@ -1,4 +1,4 @@
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { orderService } from '../services/order.service.local'
 
 import React, { useEffect, useState } from 'react'

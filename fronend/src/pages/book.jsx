@@ -6,7 +6,7 @@ import confirmed from '../assets/img/confirmed.svg'
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { Aprove } from '../cmps/stays/aprove'
 
 export function Book() {

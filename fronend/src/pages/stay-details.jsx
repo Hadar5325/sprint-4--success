@@ -2,7 +2,7 @@ import { func } from 'prop-types';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useParams } from 'react-router-dom';
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { orderService } from '../services/order.service.local.js'
 
 

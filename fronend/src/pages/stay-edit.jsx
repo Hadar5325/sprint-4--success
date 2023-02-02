@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { stayService } from "../services/stay.service.local"
+import { stayService } from "../services/stay.service"
 
 
 export function StayEdit() {

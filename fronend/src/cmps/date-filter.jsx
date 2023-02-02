@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { stayService } from "../services/stay.service.local";
+import { stayService } from "../services/stay.service";
 import { userService } from "../services/user.service.local";
 
 // CSS Modules, react-datepicker-cssmodules.css

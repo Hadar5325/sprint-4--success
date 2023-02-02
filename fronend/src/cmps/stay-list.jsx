@@ -5,7 +5,7 @@ import data from '../data/stay.json';
 import React from 'react';
 import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
-import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 import { useDispatch, useSelector } from 'react-redux'
 
 

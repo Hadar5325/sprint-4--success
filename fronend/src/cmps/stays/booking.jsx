@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { DateFilter } from '../date-filter.jsx'
 import { CapacityBooking } from './capacityTemp.jsx'
 import { Link } from 'react-router-dom'
-import { stayService } from '../../services/stay.service.local'
+import { stayService } from '../../services/stay.service'
 import { useDispatch, useSelector } from 'react-redux'
 import { uptadeFilter } from '../../store/stay.actions'
 

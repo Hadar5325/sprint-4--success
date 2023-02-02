@@ -1,4 +1,4 @@
-import { stayService } from './services/stay.service.local.js'
+import { stayService } from './services/stay.service.js'
 import { userService } from './services/user.service.local.js'
 import { utilService } from './services/util.service.js'
 
