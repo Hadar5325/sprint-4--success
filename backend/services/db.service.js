@@ -6,7 +6,6 @@ const logger = require('./logger.service')
 module.exports = {
     getCollection
 }
-
 var dbConn = null
 
 async function getCollection(collectionName) {

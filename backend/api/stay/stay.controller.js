@@ -3,7 +3,7 @@ const stayService = require('./stay.service.js')
 const logger = require('../../services/logger.service')
 
 async function getStays(req, res) {
-  // console.log('req at getStays backend:',req)
+  console.log('req at getStays backend:',req)
   try {
     logger.debug('Getting Stays')
     const filterBy = {
@@ -11,7 +11,7 @@ async function getStays(req, res) {
       region: req.query.region || '',
       maxPrice: req.query.maxPrice || '',
       minPrice: req.query.minPrice || '',
-    //   capacity: req.query.capacity.total || '',
+      capacity: req.query.capacity || '',
     }
     const stays = await stayService.query(filterBy)
     res.json(stays)
