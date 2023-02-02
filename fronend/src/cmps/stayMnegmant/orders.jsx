@@ -49,7 +49,7 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
             {
                 myOrders.map(order => {
                     const usrPic = randImg()
-                    console.log('order at rendrung:',order)
+                    // console.log('order at rendrung:',order)
                     return <section className={`tableRow cell ${order.status === 'Pending' && 'pendingStatus'}`} key={order._id}>
                         <img className="gustImg" src={`${usrPic}`} />
                         <div className='cell guest'>{order.buyer.fullname}</div>

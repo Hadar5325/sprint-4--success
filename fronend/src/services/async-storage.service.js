@@ -14,7 +14,7 @@ function query(entityType, delay = 500) {
 }
 
 function get(entityType, entityId) {
-    
+
     return query(entityType).then(entities => {
         const entity = entities.find(entity => entity._id === entityId)
         if (!entity) throw new Error(`Get failed, cannot find entity with id: ${entityId} in: ${entityType}`)
@@ -66,31 +66,16 @@ function removeForWishList(entityType, userEntity, stayIdToRemove) {
         // find the connected user
         const idxUser = entities.findIndex(entity => entity._id === userEntity._id)
         if (idxUser < 0) throw new Error(`Update failed, cannot find entity with id: ${userEntity._id} in: ${entityType}`)
-        console.log(idxUser)
-
-        // find the stay needed to be removed
         const objUsers = { ...entities }
         const valuesOfObjUsers = Object.values(objUsers)
-        console.log(valuesOfObjUsers)
         const wishListUser = valuesOfObjUsers[idxUser].wishList
-        console.log(wishListUser)
 
         const idxInWishList = wishListUser.findIndex(entity => entity === stayIdToRemove)
-        
-        console.log(idxInWishList)
-        console.log(wishListUser)
-        console.log(wishListUser.length)
-        // console.log(userEntity.wishList.length)
-        
-        // Remove 1 element at index idxInWishList.
-        wishListUser.splice(idxInWishList,1)
-        // userEntity.wishList.splice(idxInWishList,1)
-        console.log(wishListUser.length)
-        console.log(entities)
+
+        wishListUser.splice(idxInWishList, 1)
+
         save(entityType, entities)
-        
-        // console.log(userEntity.wishList)
-        // console.log(userEntity)
+
         return entities
 
     })

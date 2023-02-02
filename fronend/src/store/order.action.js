@@ -36,9 +36,10 @@ export function getActionUpdateOrder(order) {
 //     }
 // }
 
-export async function loadOrder(stayId) {
+export async function loadOrder(orderId) {
+    console.log('orderId at loadorder:',orderId)
     try {
-        const order = await orderService.getById(stayId)
+        const order = await orderService.getById(orderId)
         store.dispatch({ type: SET_ORDER, order })
         return order
     } catch (err) {

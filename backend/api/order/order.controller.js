@@ -33,7 +33,7 @@ async function addOrder(req, res) {
 
   try {
     const order = req.body
-    order.owner = loggedinUser
+    order.buyer = loggedinUser
     const addedOrder = await orderService.add(order)
     res.json(addedOrder)
   } catch (err) {
@@ -46,6 +46,7 @@ async function addOrder(req, res) {
 async function updateOrder(req, res) {
   try {
     const order = req.body
+    console.log('order:',order)
     const updatedOrder = await orderService.update(order)
     res.json(updatedOrder)
   } catch (err) {

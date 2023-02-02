@@ -3,7 +3,7 @@ import { httpService } from './http.service'
 
 
 // import { utilService } from './util.service.js'
-// import { userService } from './user.service.local.js'
+// import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -16,7 +16,8 @@ export const stayService = {
     getEmptyFilter,
     getParams,
     getNightsCount,
-    getAllStays
+    getAllStays,
+    getStaysByUserId
 }
 
 const ROUTE = 'stay'
@@ -43,6 +44,16 @@ function save(stay) {
   } else {
     return httpService.post(ROUTE, stay)
   }
+}
+
+
+async function getStaysByUserId(userId) {
+    let myStays
+    const stays = await getAllStays()
+    myStays = stays.filter(stay => stay.host._id === userId)
+
+    return myStays
+
 }
 // async function query(filterBy) {
 

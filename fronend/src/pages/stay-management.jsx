@@ -54,6 +54,7 @@ export function StayManagement() {
     }
 
     async function changStatus(orderId, status) {
+        console.log('orderId at changStatus:',orderId)
         try {
             const orderToUp = await loadOrder(orderId)
             console.log('orderToUp at changStatus', orderToUp)

@@ -19,6 +19,7 @@ export function Aprove({ order }) {
     }
 
     function saveOrder() {
+        console.log('order in saveOrder:',order)
         orderService.save(order)
     }
     return <section className="aprove">

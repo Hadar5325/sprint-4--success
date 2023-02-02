@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
-// import { userService } from '../services/user.service.local'
+// import { userService } from '../services/user.service'
 
 // import { StayManagement } from "../pages/stay-management"
 // import { orderService } from '../services/order.service'
