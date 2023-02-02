@@ -28,7 +28,7 @@ export function StayManagement() {
 
     useEffect(() => {
         numOfPending()
-        getMayOrders()
+        getMyOrders()
     }, [myOrders])
 
     async function getMyOrders() {
