@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { orderService } from '../../services/order.service.local'
+import { orderService } from '../../services/order.service'
 
 
 export function Aprove({ order }) {

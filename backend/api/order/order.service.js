@@ -3,7 +3,7 @@ const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy={buyerId:'', hostId:''}) {
+async function query(filterBy = { buyerId: '', hostId: '' }) {
     try {
         const criteria = _buildCriteria()
         const collection = await dbService.getCollection('order')
@@ -48,20 +48,19 @@ async function add(order) {
     }
 }
 
-// async function update(order) {
-//     try {
-//         const orderToSave = {
-//             vendor: order.vendor,
-//             price: order.price
-//         }
-//         const collection = await dbService.getCollection('order')
-//         await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
-//         return order
-//     } catch (err) {
-//         logger.error(`cannot update order ${orderId}`, err)
-//         throw err
-//     }
-// }
+async function update(order) {
+    try {
+        const orderToSave = { 
+            status: order.status 
+        }
+        const collection = await dbService.getCollection('order')
+        await collection.updateOne({ _id: ObjectId(order._id) }, { $set: orderToSave })
+        return order
+    } catch (err) {
+        logger.error(`cannot update order ${order._id}`, err)
+        throw err
+    }
+}
 
 async function addOrderMsg(orderId, msg) {
     try {
@@ -78,7 +77,7 @@ async function addOrderMsg(orderId, msg) {
 async function removeOrderMsg(orderId, msgId) {
     try {
         const collection = await dbService.getCollection('order')
-        await collection.updateOne({ _id: ObjectId(orderId) }, { $pull: { msgs: {id: msgId} } })
+        await collection.updateOne({ _id: ObjectId(orderId) }, { $pull: { msgs: { id: msgId } } })
         return msgId
     } catch (err) {
         logger.error(`cannot add order msg ${orderId}`, err)
@@ -91,7 +90,7 @@ module.exports = {
     query,
     getById,
     add,
-    // update,
+    update,
     addOrderMsg,
     removeOrderMsg
 }
@@ -101,15 +100,15 @@ function _buildCriteria(filterBy = {}) {
     const criteria = {};
 
     console.log("function_buildCriteria -> filterBy", filterBy)
- 
+
     if (filterBy.hostId) {
         criteria.hostId = filterBy.hostId
     }
-  
+
     if (filterBy.buyerId) {
         criteria.buyer.id = filterBy.buyerId
     }
-  
+
     return criteria;
 }
 

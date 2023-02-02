@@ -27,7 +27,7 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
         return Math.floor(Math.random() * max);
     }
 
-    if(!myOrders.length) return <div class="loader"></div>
+    if(!myOrders.length) return <div className="loader"></div>
     return <div className='menegmentContant'>
         <div className='contantTitle'>
             Hello {loggedinUser.fullname}! you have {pendingNum} pending orders

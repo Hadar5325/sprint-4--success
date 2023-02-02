@@ -1,4 +1,4 @@
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/order.service'
 import { store } from "./store.js"
 import { SET_ORDERS, SET_ORDER, ADD_ORDER, UPDATE_ORDER, REMOVE_ORDER } from './order.reducer'
 

@@ -12,7 +12,7 @@ export const orderService = {
     getById,
     save,
     remove,
-    getEmptyorder,
+    getEmptyOrder,
     getOrdersByUserId,
     getOrdersByBuyerId
 }
@@ -68,7 +68,7 @@ async function getOrdersByBuyerId(userId) {
 }
 
 
-function getEmptyorder() {
+function getEmptyOrder() {
     return {
         _id: '',
         hostId: '',

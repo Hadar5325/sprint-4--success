@@ -13,12 +13,18 @@ export const orderService = {
 const ROUTE = 'order'
 
 function query(filterBy = {}) {
-  return httpService.get(ROUTE, { filterBy })
+  return httpService.get(ROUTE, {filterBy})
 }
 
 function getById(orderId) {
   return httpService.get(`${ROUTE}/${orderId}`)
 }
+// function getByBuyerId(userId) {
+//   return httpService.get(`${ROUTE}/${userId}`)
+// }
+// function getByHostId(hostId) {
+//   return httpService.get(`${ROUTE}/${hostId}`)
+// }
 
 function remove(orderId) {
   return httpService.delete(`${ROUTE}/${orderId}`)
@@ -26,7 +32,7 @@ function remove(orderId) {
 
 function save(order) {
   if (order._id) {
-    return httpService.put(ROUTE, order)
+    return httpService.put(`${ROUTE}/${order._id}`, order)
   } else {
     return httpService.post(ROUTE, order)
   }
@@ -35,7 +41,7 @@ function save(order) {
 
 function getEmptyOrder() {
     return {
-        _id: '',
+        // _id: '',
         hostId: '',
         buyer: {},
         totalPrice: '',

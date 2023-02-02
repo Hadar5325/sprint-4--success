@@ -1,5 +1,5 @@
 import { stayService } from '../services/stay.service.js'
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/order.service'
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

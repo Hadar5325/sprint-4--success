@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Routes, Route, useParams } from 'react-router-dom';
-import { orderService } from '../services/order.service.local.js'
+import { orderService } from '../services/order.service.js'
 import { useNavigate } from 'react-router-dom'
 import confirmed from '../assets/img/confirmed.svg'
 
@@ -85,7 +85,7 @@ export function Book() {
     }
 
     function emptyOrder() {
-        const order = orderService.getEmptyorder()
+        const order = orderService.getEmptyOrder()
         return order
     }
 

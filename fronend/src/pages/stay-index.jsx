@@ -86,7 +86,7 @@ export function StayIndex() {
 
 
     console.log('stays at StayIndex:', stays)
-
+if (!stays) return 
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}

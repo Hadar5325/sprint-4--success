@@ -3,7 +3,7 @@
 // import { userService } from '../services/user.service.local'
 
 // import { StayManagement } from "../pages/stay-management"
-// import { orderService } from '../services/order.service.local'
+// import { orderService } from '../services/order.service'
 // import { ChartBuyer } from '../cmps/chart-buyer'
 // import { stayService } from '../services/stay.service'
 

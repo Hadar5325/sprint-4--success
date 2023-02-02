@@ -1,5 +1,5 @@
 import { stayService } from '../services/stay.service.js'
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/order.service'
 import { SetIsUserModalShown } from '../store/stay.actions'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -28,12 +28,11 @@ export function StayManagement() {
 
     useEffect(() => {
         numOfPending()
-        getMyOrders()
     }, [myOrders])
 
     async function getMyOrders() {
         try {
-            const orders = await orderService.getOrdersByUserId(loggedinUser._id)
+            const orders = await orderService.query({ hostId: loggedinUser._id })
             setMyOrders(orders)
         } catch (err) {
             console.log(err)
@@ -55,11 +54,15 @@ export function StayManagement() {
     }
 
     async function changStatus(orderId, status) {
-        const orderToUp = await loadOrder(orderId)
-        console.log('orderToUp at changStatus',orderToUp)
-        orderToUp.status = status
-        updateOrder(orderToUp)
-        getMyOrders()
+        try {
+            const orderToUp = await loadOrder(orderId)
+            console.log('orderToUp at changStatus', orderToUp)
+            orderToUp.status = status
+            updateOrder(orderToUp)
+            getMyOrders()
+        } catch (err) {
+            console.log('failed to load order:')
+        }
     }
 
     // console.log('isUserModalShown:',isUserModalShown)
