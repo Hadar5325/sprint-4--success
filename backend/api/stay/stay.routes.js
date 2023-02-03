@@ -6,6 +6,7 @@ const router = express.Router()
 
 // middleware that is specific to this router
 // router.use(requireAuth)
+// console.log('hi from stays routs:',)
 
 router.get('/', log, getStays)
 router.get('/:id', getStayById)

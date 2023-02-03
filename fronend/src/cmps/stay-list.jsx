@@ -1,5 +1,4 @@
 import { StayPreview } from "./stay-preview";
-import data from '../data/stay.json';
 
 
 import React from 'react';
@@ -17,7 +16,7 @@ export function StayList({ stays, onRemoveStay, addStayIdToWishList, userWishLis
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <section onClick={() => { navigate(`stays/${stay._id}?${stayService.getParams(currFilterBy)}`) }}>
+                <section onClick={() => { navigate(`stay/${stay._id}${stayService.getParams(currFilterBy)}`) }}>
                     <StayPreview stay={stay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList} />
                 </section>
 

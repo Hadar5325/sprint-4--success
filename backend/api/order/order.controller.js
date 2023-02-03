@@ -29,11 +29,11 @@ async function getOrderById(req, res) {
 }
 
 async function addOrder(req, res) {
-  const { loggedinUser } = req
+  // const { loggedinUser } = req
 
   try {
     const order = req.body
-    order.buyer = loggedinUser
+    // order.buyer = loggedinUser
     const addedOrder = await orderService.add(order)
     res.json(addedOrder)
   } catch (err) {

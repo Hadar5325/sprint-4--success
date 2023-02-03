@@ -40,6 +40,7 @@ function save(order) {
   if (order._id) {
     return httpService.put(`${ROUTE}/${order._id}`, order)
   } else {
+    console.log('order at save- post:',order )
     return httpService.post(ROUTE, order)
   }
 }

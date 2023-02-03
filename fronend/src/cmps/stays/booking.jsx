@@ -123,7 +123,7 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
             
                 handleChange={handleChange} isBooking={true} 
                 setDateModal={setDateModal} /></div>}
-            <Link to={`/stays/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
+            <Link to={`/stay/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
 
             <div className='wontharged'>You won't be charged yet</div>
 

@@ -1,11 +1,16 @@
 import { httpService } from './http.service'
+import { utilService } from './util.service.js';
+// const fs = require('fs');
+// const stays = require('../data/stay.json')
+// const browserifyFs = require('browserify-fs')
+
 // import { storageService } from './async-storage.service.js'
 
 
 // import { utilService } from './util.service.js'
 // import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'stay'
+// const STORAGE_KEY = 'stay'
 
 export const stayService = {
     query,
@@ -20,30 +25,39 @@ export const stayService = {
     getStaysByUserId
 }
 
+// _arrangeStays()
+
 const ROUTE = 'stay'
 
 async function getAllStays() {
     return query({})
 }
 
-function query(filterBy = {}) {
-  return httpService.get(ROUTE, { filterBy })
+async function query(filterBy = {}) {
+    try {
+        const stays = await httpService.get(ROUTE, { filterBy })
+        return stays
+    } catch (err) {
+        console.log('err:', err)
+    }
 }
 
 function getById(stayId) {
-  return httpService.get(`${ROUTE}/${stayId}`)
+    console.log('stayId at getbyid:',`${ROUTE}/${stayId}`)
+    const stay= httpService.get(`${ROUTE}/${stayId}`)
+    return stay
 }
 
 function remove(stayId) {
-  return httpService.delete(`${ROUTE}/${stayId}`)
+    return httpService.delete(`${ROUTE}/${stayId}`)
 }
 
 function save(stay) {
-  if (stay._id) {
-    return httpService.put(ROUTE, stay)
-  } else {
-    return httpService.post(ROUTE, stay)
-  }
+    if (stay._id) {
+        return httpService.put(ROUTE, stay)
+    } else {
+        return httpService.post(ROUTE, stay)
+    }
 }
 
 
@@ -58,7 +72,7 @@ async function getStaysByUserId(userId) {
 // async function query(filterBy) {
 
 
-    // console.log('filterBy at query:', filterBy)
+// console.log('filterBy at query:', filterBy)
 //     const staysFromStorage = await storageService.query(STORAGE_KEY)
 //     if (staysFromStorage.length) {
 //         var fillteredStays = staysFromStorage
@@ -148,6 +162,36 @@ function getNightsCount(start, end) {
     return nights
 
 }
+
+// function _arrangeStays(stays) {
+//     // for (let i = 0; i < 36; i++) {
+//     //     const stay = {
+//     //         _id: utilService.makeId(),
+//     //         loc: utilService.drawItems(locations),
+//     //         price: utilService.getRandomIntInclusive(500, 5000),
+//     stays.forEach(stay => {
+//         stay.types = []
+//         for (let i = 0; i < 3; i++) {
+//             const label = labels[utilService.getRandomIntInclusive(0, labels.length - 1)]
+//             stay.types.push(label)
+//         }
+//         stay.statReviews = {
+//             Cleanliness: utilService.getRandomIntInclusive(40, 50) / 10,
+//             Communication: utilService.getRandomIntInclusive(40, 50) / 10,
+//             CheckIn: utilService.getRandomIntInclusive(40, 50) / 10,
+//             Accuracy: utilService.getRandomIntInclusive(40, 50) / 10,
+//             Location: utilService.getRandomIntInclusive(40, 50) / 10,
+//             Value: utilService.getRandomIntInclusive(40, 50) / 10,
+//         }
+//         stay.host.pictureUrl = 'https://xsgames.co/randomusers/avatar.php?g=male'
+//         stay.reviews.forEach((review) => {
+//             review.by.imgUrl = `https://xsgames.co/randomusers/assets/avatars/male/${utilService.getRandomIntInclusive(1, 78)}.jpg`
+//         })
+//     })
+//     return stays
+// }
+
+
 
 export const labels = [
     'Caves', 'Tropical', 'Countryside', 'Skiing',

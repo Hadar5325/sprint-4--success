@@ -40,7 +40,9 @@ export function Book() {
         console.log('stayName at ger nae order:', stayName.name)
         const newOrder = emptyOrder()
         newOrder.hostId = HostId
+        console.log('loggedinUser at getNewOrder:',loggedinUser)
         if (loggedinUser) newOrder.buyer = { "_id": loggedinUser._id, "fullname": loggedinUser.fullname }
+        console.log('newOrder.buyer:',newOrder.buyer)
         newOrder.totalPrice = price
         newOrder.startDate = timeStart
         newOrder.endDate = timeEnd
@@ -103,7 +105,7 @@ export function Book() {
     }
 
 
-
+// console.log('order befor redering at book :',order )
     const img = randImg()
     if (!order || !currStay) return 'lodding...'
     return (
