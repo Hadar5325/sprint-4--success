@@ -4,7 +4,7 @@ import { loadStays, addStay, updateStay, removeStay, setIsFilterShown } from '..
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { useSearchParams } from 'react-router-dom';
 import { Link } from "react-router-dom"
-import { userService } from '../services/user.service.local'
+import { userService } from '../services/user.service'
 
 import { FilterModal } from '../cmps/filter-modal'
 import { StayList } from '../cmps/stay-list'
@@ -86,7 +86,7 @@ export function StayIndex() {
 
 
     console.log('stays at StayIndex:', stays)
-
+if (!stays) return 
     return (
         <div className='stay-app main-layout home-page'>
             {isFilterShown && <div className='main-screen' onClick={() => setIsFilterShown(false)}></div>}

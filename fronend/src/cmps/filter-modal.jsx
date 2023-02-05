@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
-import { amenities } from "../services/stay.service.local"
+import { amenities } from "../services/stay.service"
 import { useSelector } from 'react-redux'
 
 import { loadStays } from '../store/stay.actions'

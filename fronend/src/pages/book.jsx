@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Routes, Route, useParams } from 'react-router-dom';
-import { orderService } from '../services/order.service.local.js'
+import { orderService } from '../services/order.service.js'
 import { useNavigate } from 'react-router-dom'
 import confirmed from '../assets/img/confirmed.svg'
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { Aprove } from '../cmps/stays/aprove'
 
 export function Book() {
@@ -40,7 +40,9 @@ export function Book() {
         console.log('stayName at ger nae order:', stayName.name)
         const newOrder = emptyOrder()
         newOrder.hostId = HostId
+        console.log('loggedinUser at getNewOrder:',loggedinUser)
         if (loggedinUser) newOrder.buyer = { "_id": loggedinUser._id, "fullname": loggedinUser.fullname }
+        console.log('newOrder.buyer:',newOrder.buyer)
         newOrder.totalPrice = price
         newOrder.startDate = timeStart
         newOrder.endDate = timeEnd
@@ -85,7 +87,7 @@ export function Book() {
     }
 
     function emptyOrder() {
-        const order = orderService.getEmptyorder()
+        const order = orderService.getEmptyOrder()
         return order
     }
 
@@ -103,7 +105,7 @@ export function Book() {
     }
 
 
-
+// console.log('order befor redering at book :',order )
     const img = randImg()
     if (!order || !currStay) return 'lodding...'
     return (

@@ -2,8 +2,8 @@ import { func } from 'prop-types';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useParams } from 'react-router-dom';
-import { stayService } from '../services/stay.service.local.js'
-import { orderService } from '../services/order.service.local.js'
+import { stayService } from '../services/stay.service.js'
+import { orderService } from '../services/order.service.js'
 
 
 import { Title } from '../cmps/stays/titleContant.jsx'
@@ -31,7 +31,7 @@ export function StayDetails() {
     const [stay, setStay] = useState(null)
     const [order, setOrder] = useState({})
     const [guests, setguests] = useState({})
-    const [dates, setDates] = useState({timeStart: 'Feb 4', timeEnd: 'Feb 9'})
+    const [dates, setDates] = useState({ timeStart: 'Feb 4', timeEnd: 'Feb 9' })
     const [guestsNum, setGuestsNum] = useState(1 + 'guest')
     // const [rate, setRate] = useState(0)  
 
@@ -113,7 +113,7 @@ export function StayDetails() {
     }
 
     function _emptyOrder() {
-        const order = orderService.getEmptyorder()
+        const order = orderService.getEmptyOrder()
         return order
     }
 
@@ -131,7 +131,7 @@ export function StayDetails() {
 
 
     if (!stay) {
-        return <div class="loader"></div>
+        return <div className="loader"></div>
     }
     return <section className='stays' onClick={handleClick} >
 

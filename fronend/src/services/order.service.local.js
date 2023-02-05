@@ -1,9 +1,9 @@
 import { storageService } from './async-storage.service.js'
 const fs = require('fs');
-var orders = require('../data/order.json')
+// var orders = require('../data/order.json')
 
 // import { utilService } from './util.service.js'
-// import { userService } from './user.service.local.js'
+// import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'order'
 
@@ -12,7 +12,7 @@ export const orderService = {
     getById,
     save,
     remove,
-    getEmptyorder,
+    getEmptyOrder,
     getOrdersByUserId,
     getOrdersByBuyerId
 }
@@ -68,7 +68,7 @@ async function getOrdersByBuyerId(userId) {
 }
 
 
-function getEmptyorder() {
+function getEmptyOrder() {
     return {
         _id: '',
         hostId: '',

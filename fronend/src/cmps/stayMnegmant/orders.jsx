@@ -27,7 +27,7 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
         return Math.floor(Math.random() * max);
     }
 
-    if(!myOrders.length) return <div class="loader"></div>
+    if(!myOrders.length) return <div className="loader"></div>
     return <div className='menegmentContant'>
         <div className='contantTitle'>
             Hello {loggedinUser.fullname}! you have {pendingNum} pending orders
@@ -48,8 +48,9 @@ export function OrderShow({ loggedinUser, pendingNum, myOrders, changStatus }) {
         <div className='menegmentTable'>
             {
                 myOrders.map(order => {
+                    console.log('order at orders:',order)
                     const usrPic = randImg()
-                    console.log('order at rendrung:',order)
+                    // console.log('order at rendrung:',order)
                     return <section className={`tableRow cell ${order.status === 'Pending' && 'pendingStatus'}`} key={order._id}>
                         <img className="gustImg" src={`${usrPic}`} />
                         <div className='cell guest'>{order.buyer.fullname}</div>

@@ -1,7 +1,7 @@
 // import {Modal, , Pressable, } from 'react-native'
 // import {Modal,View,Text} from "react-native";
 import { useState, useEffect } from 'react'
-import { userService } from '../services/user.service.local';
+import { userService } from '../services/user.service';
 import { toggleScreen } from '../store/stay.actions'
 import { signup, login } from '../store/user.actions';
 

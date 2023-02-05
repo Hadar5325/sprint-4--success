@@ -6,13 +6,13 @@ const logger = require('./logger.service')
 module.exports = {
     getCollection
 }
-
 var dbConn = null
 
 async function getCollection(collectionName) {
     try {
         const db = await connect()
         const collection = await db.collection(collectionName)
+        // console.log('hi from getCollection at DBservice:' ,collection)
         return collection
     } catch (err) {
         logger.error('Failed to get Mongo collection', err)

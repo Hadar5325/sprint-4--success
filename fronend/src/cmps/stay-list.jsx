@@ -1,11 +1,10 @@
 import { StayPreview } from "./stay-preview";
-import data from '../data/stay.json';
 
 
 import React from 'react';
 import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
-import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -17,7 +16,7 @@ export function StayList({ stays, onRemoveStay, addStayIdToWishList, userWishLis
     return <ul className="home-list">
         {
             stays.map(stay => <li key={stay._id}>
-                <section onClick={() => { navigate(`stays/${stay._id}?${stayService.getParams(currFilterBy)}`) }}>
+                <section onClick={() => { navigate(`stay/${stay._id}${stayService.getParams(currFilterBy)}`) }}>
                     <StayPreview stay={stay} addStayIdToWishList={addStayIdToWishList} userWishList={userWishList} />
                 </section>
 

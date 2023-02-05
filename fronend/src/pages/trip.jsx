@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { userService } from '../services/user.service.local'
+import { userService } from '../services/user.service'
 
 import { StayManagement } from "../pages/stay-management"
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/order.service'
 import { ChartBuyer } from '../cmps/chart-buyer'
-import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 
 export function Trip() {
 
@@ -89,7 +89,7 @@ export function Trip() {
 
     async function getMyOrders() {
         try {
-            const orders = await orderService.getOrdersByBuyerId(loggedinUser._id)
+            const orders = await orderService.query({ buyerId: loggedinUser._id })
             setMyOrders(orders)
 
             const objStatus = numStatusOrder(orders)

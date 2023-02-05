@@ -40,8 +40,8 @@ export function RootCmp() {
 
                     <Route path='/stay/map' element={<StaysMap />} />
 
-                    <Route path='/stays/:id' element={<StayDetails />} />
-                    <Route path='/stays/book/:hostId/:timeStart/:timeEnd/:Adulst/:kids/:Infants/:Pets/:totalPrice/:stay' element={<Book />} />
+                    <Route path='/stay/:id' element={<StayDetails />} />
+                    <Route path='/stay/book/:hostId/:timeStart/:timeEnd/:Adulst/:kids/:Infants/:Pets/:totalPrice/:stay' element={<Book />} />
                     
                     <Route path='/hostManage/:id' element={<StayManagement />} />
 

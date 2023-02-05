@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { DateFilter } from '../date-filter.jsx'
 import { CapacityBooking } from './capacityTemp.jsx'
 import { Link } from 'react-router-dom'
-import { stayService } from '../../services/stay.service.local'
+import { stayService } from '../../services/stay.service'
 import { useDispatch, useSelector } from 'react-redux'
 import { uptadeFilter } from '../../store/stay.actions'
 
@@ -123,7 +123,7 @@ export function Booking({ dates, img, setDates, stay, guestsNum, guests, setgues
             
                 handleChange={handleChange} isBooking={true} 
                 setDateModal={setDateModal} /></div>}
-            <Link to={`/stays/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
+            <Link to={`/stay/book/${stay.host._id}/${dates.timeStart}/${dates.timeEnd}/${guests.Adults}/${guests.Kids}/${guests.Infants}/${guests.Pets}/${price.total}/${stay._id}`} className="reservBtn">Reserve</Link>
 
             <div className='wontharged'>You won't be charged yet</div>
 

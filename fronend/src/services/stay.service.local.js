@@ -5,7 +5,7 @@ const fs = require('fs');
 var stays = require('../data/stay.json')
 
 // import { utilService } from './util.service.js'
-// import { userService } from './user.service.local.js'
+// import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'stay'
 
@@ -37,6 +37,7 @@ async function query(filterBy) {
         // console.log('from storge!!:', staysFromStorage)
     } else {
         const currStays = _arrangeStays(stays)
+       
         storageService.save(STORAGE_KEY, currStays)
         fillteredStays = currStays
     }
@@ -168,6 +169,8 @@ function getNightsCount(start, end) {
 }
 
 
+
+
 function _arrangeStays(stays) {
     // for (let i = 0; i < 36; i++) {
     //     const stay = {
@@ -195,6 +198,9 @@ function _arrangeStays(stays) {
     })
     return stays
 }
+
+
+
 //         capacity: utilService.getRandomIntInclusive(1, 10),
 //         amenities: labels[utilService.getRandomIntInclusive[0, 21],
 //             utilService.getRandomIntInclusive[0, 21]],
