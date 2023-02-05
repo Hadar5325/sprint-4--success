@@ -100,12 +100,13 @@ function _buildCriteria(filterBy = {}) {
 
     console.log("function_buildCriteria -> filterBy", filterBy)
     if (filterBy.txt) {
+        
         criteria.loc.country = { $regex: new RegExp(filterBy.txt, 'ig') }
         criteria.loc.city = { $regex: new RegExp(filterBy.txt, 'ig') }
     }
-    if (filterBy.region !== 'flexible' && filterBy.region) {
-        criteria.region = filterBy.region
-    }
+    // if (filterBy.region !== 'flexible' && filterBy.region) {
+    //     criteria.region = filterBy.region
+    // }
     if (filterBy.minPrice || filterBy.maxPrice) {
         criteria.price = {
             $gte: +filterBy.minPrice || 0,
