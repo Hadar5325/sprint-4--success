@@ -6,7 +6,7 @@ import { stayService } from '../services/stay.service.local.js'
 import { orderService } from '../services/order.service.local.js'
 
 
-import { TitleContant } from '../cmps/stays/titleContant.jsx'
+import { Title } from '../cmps/stays/titleContant.jsx'
 
 import { Detailes } from '../cmps/stays/detailes.jsx'
 import { Reviwes } from '../cmps/stays/reviwes.jsx'
@@ -136,7 +136,7 @@ export function StayDetails() {
     return <section className='stays' onClick={handleClick} >
 
         <div className='detailesMain'>
-            <TitleContant stay={stay} setCapacityModal={setCapacityModal} />
+            <Title stay={stay} setCapacityModal={setCapacityModal} />
             <Galery stay={stay} setCapacityModal={setCapacityModal} />
 
             <Detailes dates={dates} setDates={setDates} stay={stay} order={order} guestsNum={guestsNum} setguests={setguests} guests={guests} capacityModal={capacityModal} setCapacityModal={setCapacityModal} setDateModal={setDateModal} dateModal={dateModal} />
